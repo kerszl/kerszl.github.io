@@ -22,7 +22,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 #twitter_username: username
 github_username: kerszl
 #minimal_mistakes_skin: default
-minimal_mistakes_skin: dark
+#minimal_mistakes_skin: dark
+minimal_mistakes_skin: air
 search: true
 
 # Build settings
@@ -114,3 +115,5 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+locale: "pl-PL"
