@@ -55,20 +55,21 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  #- jekyll-feed
+  - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
 author:
   name   : "Kerszi"
   avatar : "/assets/images/bio-photo.png"
-  #bio    : "My awesome biography constrained to a sentence or two goes here."
+  location         : "Poland"
+  bio    : "Zajmuję się komputerami od lat 90. (XX wieku). Najpierw był C64, potem Amiga, od 25 lat PC. Tematy tutaj poruszane będą różne, ale głównie związane z IT."
   links:
-  #  - label: "Website"
-   #   icon: "fas fa-fw fa-link"
-    #  url: "https://"
-#    - label: "Twitter"
- #     icon: "fab fa-fw fa-twitter-square"
+    - label: "Strona"
+      icon: "fas fa-fw fa-link"
+      url: "https://kerszl.github.io"
+  # - label: "Twitter"
+  #    icon: "fab fa-fw fa-twitter-square"
   #    url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
