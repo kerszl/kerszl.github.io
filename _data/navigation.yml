@@ -1,8 +1,8 @@
 main:
   - title: "Posty"
     url: /posts/
-#  - title: "Categories"
-#    url: /categories/
+  - title: "Kategorie"
+    url: /categories/
 #  - title: "Tags"
 #    url: /tags/
   #- title: "About"
