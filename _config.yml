@@ -65,6 +65,9 @@ author:
   location         : "Poland"
   bio    : "Zajmuję się komputerami od lat 90. (XX wieku). Najpierw był C64, potem Amiga, od 25 lat PC. Tematy tutaj poruszane będą różne, ale głównie związane z IT."
   links:
+    - label: "Mejl"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:kerszi@protonmail.com      
     - label: "Ta strona"
       icon: "fas fa-fw fa-link"
       url: "https://kerszl.github.io"
