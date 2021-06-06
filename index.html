@@ -1,21 +1,8 @@
 ---
-layout: archive
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+#layout: splash
 author_profile: true
-excerpt: "QmxvZyBTemlrZXJzYQo="
-title: QmxvZyBTemlrZXJzYQo=
-header:
-  overlay_image: /assets/images/pasek.png
 ---
-
-{% include base_path %}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
-
-{% include paginator.html %}
-
-
-
