@@ -37,10 +37,10 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 comments:
   provider: "facebook"
-  facebook:
-    appid: # optional
-    num_posts: 20 # 5 (default)
-    colorscheme: "dark" # "light" (default), "dark"
+ # facebook:
+  #  appid: # optional
+ #   num_posts: 20 # 5 (default)
+#    colorscheme: "dark" # "light" (default), "dark"
   provider: "utterances"
   utterances:
     theme: "github-light" # "github-dark"
