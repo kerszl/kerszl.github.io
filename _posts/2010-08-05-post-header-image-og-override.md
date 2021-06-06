@@ -1,9 +1,9 @@
 ---
 title: "Post: Header Image with OpenGraph Override"
 header:
-  image: /assets/images/page-header-image.png
-  og_image: /assets/images/page-header-og-image.png
-categories:
+  image: /assets/images/pasek.png
+  #og_image: /assets/images/page-header-og-image.png
+  categories:
   - Layout
   - Uncategorized
 tags:
