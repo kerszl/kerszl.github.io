@@ -65,7 +65,7 @@ Zaś w  ```/etc/default/grub``` należy dodać do **GRUB_CMDLINE_LINUX** poniżs
 GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 ```
 
-Komenda **grub-mkconfig** wrzuca konfigurację w odpowiednie miejsce
+Komenda **grub-mkconfig** tworzy konfigurację Grub-a
 
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
