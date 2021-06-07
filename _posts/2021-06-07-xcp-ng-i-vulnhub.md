@@ -12,7 +12,7 @@ header:
   overlay_image: /assets/images/pasek.png
 ---
 # Wstęp
-## Czemu serwer na obrazy do pentestów wybrałem XCP-ng?
+## Czemu na serwer do pentestów wybrałem XCP-ng?
 XCP-ng sprawia dużo problemów, a VMware ESXi jest prawie bezbłędny(?) Przypomnę, że oba są darmowe. Powód jest jeden. Po prostu na VMware obrazy w formacie [OVA](https://pl.wikipedia.org/wiki/Open_Virtualization_Format) nie chciały się importować. Niby to jest otwarty format, a jednak bywają problemy. OVA najlepiej działa na Virtualbox, ale nie będę sobie systemu zaśmiecał, skoro do tego celu kupiłem **HP EliteDesk 800 G1 DM**. Co prawda dokupiłem 8 GB ramu, bo XCP-ng dostawał zadyszki przy 3-4 wirtualkach, ale niestety takie są wady tego systemu. Na VMware mółgbym, i odpalić 10 obrazów, i nie byłoby problemu. Po prostu VM lepiej zarządza pamięcią. Wracając do XCP-ng zauważyłem, że nie wszystkie wirtualki, które się instalują, mają przypisany adres z DHCP. Na Vulnhubie, większość (a przynajmniej się nie spotkałem) obrazów przydziela adres sieciowy z automatu, czyli z DHCP. Systemy, które mają ten problem są zazwyczaj nowszymi obrazami (wpis na rok 2021): Debian, Ubuntu. Na starym Centosie zazwyczaj obywało się bez problemów.
 
 # Gmeranie czas zacząć
