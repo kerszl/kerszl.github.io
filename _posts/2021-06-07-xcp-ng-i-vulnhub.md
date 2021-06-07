@@ -45,8 +45,8 @@ cat /etc/os-release
 
 Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```
 
-_Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy edycji należy uważać z odstępami; nie robić tabów, tylko
-spacje. I mają być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
+_Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko
+spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
 
 ```
 cat /etc/network/interface
@@ -54,18 +54,21 @@ cat /etc/network/interface
 auto enp0s3
 iface enp0s3 inet dhcp
 ```
+W pliku ```/etc/network/interface``` zamieniamy enp0s3 na eth0
 
-Zamieniamy enp0s3 na eth0, potem trzeba wyedytować Grub-a
 
+Zaś w  ```/etc/default/grub``` należy dodać do **GRUB_CMDLINE_LINUX** poniższe parametry
 ```
 GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 ```
 
-Wrzucić konfig w odpowiednie miejsce
+Komenda **grub-mkconfig** wrzuca konfiguracje w odpowiednie miejsce
 
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+```reboot``` i mamy przyznany adres ip.
 
 Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej, a na serwer się włamiesz metodą przewidzianą przez twórców.
 
