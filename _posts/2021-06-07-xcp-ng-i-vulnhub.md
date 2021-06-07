@@ -24,14 +24,14 @@ Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się na
 Następnie klawisz **e** i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
 
 ``` 
-<p style="font-family: times, serif; font-size:10pt; font-style:italic">
 linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro
-</p>
 ```
 
 ```ro``` Zamieniamy na ```rw init=/bin/bash```. Wygląda to mnie więcej tak:
 
-``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash```
+```
+linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash
+```
 
 klawisz **F10** i po chwili ładuje się konsola do root-a
 
@@ -39,9 +39,11 @@ klawisz **F10** i po chwili ładuje się konsola do root-a
 
 Sprawdzamy jaki to jest system
 
-```cat /etc/network/interface```
+```
+cat /etc/os-release
+```
 
-Wychodzi, że Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```
+Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```
 
 _Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy edycji należy uważać z odstępami; nie robić tabów, tylko
 spacje. I mają być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
