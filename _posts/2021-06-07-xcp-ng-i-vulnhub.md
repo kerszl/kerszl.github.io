@@ -73,4 +73,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej, a na serwer się włamiesz metodą przewidzianą przez twórców.
 
 # Koniec
-Jak się podobał ten wpis, pomógł Ci,  wpisz jakiś komentarz, lub napisz mejla.
+Jak podobał się ten wpis, pomógł Ci,  wpisz jakiś komentarz, lub napisz mejla.
