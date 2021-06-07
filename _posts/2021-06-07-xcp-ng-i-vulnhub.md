@@ -19,12 +19,12 @@ Nie spodobało mi się to. Jak się włamać na coś, co nawet nie ma swojego ad
 
 ## Jak zmienić nazwę interfejsu sieciowego na eth0
 Podczas startu systemu powinno się nam pokazać okno Grub-a. Jeżeli się nie pojawi trzymamy przycisk **SHIFT**. 
-![grub]((/assets/images/xcp-ng-i-vulnhub/01.png)
+![grub](/assets/images/xcp-ng-i-vulnhub/01.png)
 Następnie klawisz **e** i szukamy wpis gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
 ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro```
 Zamieniamy na 
 ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash```
 klawisz **F10** i mamy root-a
-![grub]((/assets/images/xcp-ng-i-vulnhub/02.png)
+![grub](/assets/images/xcp-ng-i-vulnhub/02.png)
 
 
