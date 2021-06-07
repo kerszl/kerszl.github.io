@@ -43,10 +43,9 @@ Sprawdzamy jaki to jest system
 cat /etc/os-release
 ```
 
-Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```
+Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```. 
 
-_Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko
-spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
+Sprawdźmy
 
 ```
 cat /etc/network/interface
@@ -54,6 +53,10 @@ cat /etc/network/interface
 auto enp0s3
 iface enp0s3 inet dhcp
 ```
+
+_Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko
+spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
+
 W pliku ```/etc/network/interface``` zamieniamy enp0s3 na eth0
 
 
