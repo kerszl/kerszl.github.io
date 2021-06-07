@@ -21,10 +21,41 @@ Nie spodobało mi się to. Jak się włamać na coś, co nawet nie ma swojego ad
 Podczas startu systemu powinno się nam pokazać okno Grub-a. Jeżeli się nie pojawi trzymamy przycisk **SHIFT**. 
 ![grub](/assets/images/xcp-ng-i-vulnhub/01.png)
 Następnie klawisz **e** i szukamy wpis gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
+
 ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro```
+
 Zamieniamy na 
+
 ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash```
+
 klawisz **F10** i mamy root-a
+
 ![grub](/assets/images/xcp-ng-i-vulnhub/02.png)
 
+Patrzymy jaki to jest system
 
+```cat /etc/network/interface```
+
+Wychodzi, że Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```
+_Uwaga, czasami ustawienie sieciówek jest ```/etc/netplan/*.yml``` Tam przy edycji należy uważać z odstępami, nie robić tabów, tylko
+spacje. I to ma być równe. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
+
+```
+cat /etc/network/interface
+
+auto enp0s3
+iface enp0s3 inet dhcp
+```
+
+Zamieniamy enp0s3 na eth0, potem trzeba wyedytować Grub-a
+```
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+```
+
+Wrzucić konfig w odpowiednie miejsce
+
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Ps. Taki sposób trochęnam  ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej.
