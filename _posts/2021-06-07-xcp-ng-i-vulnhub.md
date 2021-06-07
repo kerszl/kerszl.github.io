@@ -23,11 +23,14 @@ Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się na
 ![grub](/assets/images/xcp-ng-i-vulnhub/01.png)
 Następnie klawisz **e** i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
 
-###### ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro```
+<p style="font-family: times, serif; font-size:10pt; font-style:italic">
+``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro```
+</p>
+
 
 ```ro``` Zamieniamy na ```rw init=/bin/bash```. Wygląda to mnie więcej tak:
 
-###### ``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash```
+``` linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash```
 
 klawisz **F10** i po chwili ładuje się konsola do root-a
 
