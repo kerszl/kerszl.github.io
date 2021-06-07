@@ -27,7 +27,7 @@ Następnie klawisz **e** i szukamy wpis, gdzie zazwyczaj na początku jest Linux
 linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-... ro
 ```
 
-```ro``` Zamieniamy na ```rw init=/bin/bash```. Wygląda to mnie więcej tak:
+_ro_ Zamieniamy na _rw init=/bin/bash_ Wygląda to mnie więcej tak:
 
 ```
 linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash
@@ -43,7 +43,7 @@ Sprawdzamy jaki to jest system
 cat /etc/os-release
 ```
 
-Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w ```/etc/network/interface```. 
+Wychodzi, że to jest Ubuntu 16.04. Więc ustawienie sieciówek jest prawdopodobnie w _/etc/network/interface _
 
 Sprawdźmy
 
@@ -54,24 +54,24 @@ auto enp0s3
 iface enp0s3 inet dhcp
 ```
 
-_Mała uwaga: czasami ustawienie sieciówek jest ```/etc/netplan/*.yml```. Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko
+_Mała uwaga: czasami ustawienie sieciówek jest _/etc/netplan/*.yml_. Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko
 spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu._
 
-W pliku ```/etc/network/interface``` zamieniamy enp0s3 na eth0
+W pliku _/etc/network/interface_ zamieniamy _enp0s3_ na _eth0_
 
 
-Zaś w  ```/etc/default/grub``` należy dodać do **GRUB_CMDLINE_LINUX** poniższe parametry
+Zaś w  _/etc/default/grub_ należy dodać do _GRUB_CMDLINE_LINUX_ poniższe parametry
 ```
 GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 ```
 
-Komenda **grub-mkconfig** tworzy konfigurację Grub-a
+Komenda _grub-mkconfig_ tworzy konfigurację Grub-a
 
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-```reboot``` i mamy przyznany adres ip.
+Resetujemy maszynę i mamy przyznany adres ip.
 
 Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej, a na serwer się włamiesz metodą przewidzianą przez twórców.
 
