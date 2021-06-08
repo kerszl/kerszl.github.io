@@ -132,3 +132,5 @@ tag_archive:
   path: /tags/
 
 locale: "pl-PL"
+atom_feed:
+  hide: true
