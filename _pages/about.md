@@ -4,4 +4,4 @@ title: "O mnie"
 header:
   overlay_image: /assets/images/pasek.png
 ---
-![O mnie](/assets/images/smiles.jpg)
+![O mnie](/assets/images/smile.jpg)
