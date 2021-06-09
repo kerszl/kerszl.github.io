@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Blog
+title: Kerszi Blog
 email: kerszi@protonmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -36,6 +36,12 @@ paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 logo: "/assets/images/smile.jpg"
+# Analytics
+analytics:
+  provider               : "google" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "UA-199157698-1"
+
 
 comments:
   provider: "facebook"
@@ -73,7 +79,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Kerszi"
+  name   : "Marcin"
   avatar : "/assets/images/bio-photo.png"
   location         : "Poland"
   bio    : "Zajmuję się komputerami od lat 90. (XX wieku). Najpierw był C64, potem Amiga, od 25 lat PC. Tematy tutaj poruszane będą różne, ale głównie związane z IT."
