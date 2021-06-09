@@ -1,6 +1,6 @@
 ---
 title: "XCP-ng i obrazy z Vulnhub"
-#excerpt: "XCP-ng i Vulnhub"
+excerpt: " "
 comments: true
 categories:
   - Vulnhub
