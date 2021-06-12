@@ -4,5 +4,5 @@ layout: categories
 permalink: /categories/
 author_profile: true
 header:
-  overlay_image: /assets/images/pasek.png
+  overlay_image: /assets/images/pasek-hack.png
 ---
