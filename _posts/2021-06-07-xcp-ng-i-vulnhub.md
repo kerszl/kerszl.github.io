@@ -9,7 +9,7 @@ tags:
   - Vulnhub
   - XCP-ng
 header:
-  overlay_image: /assets/images/pasek.png
+  overlay_image: /assets/images/pasek-hack.png
 ---
 # Wstęp
 ## Czemu na serwer do pentestów wybrałem XCP-ng?
