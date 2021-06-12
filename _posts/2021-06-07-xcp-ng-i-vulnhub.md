@@ -87,6 +87,5 @@ Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest z
 {: .text-justify}
 {: .notice--warning}
 
-# Koniec
 Jak podobał się ten wpis, pomógł Ci,  wpisz jakiś komentarz, lub napisz mejla.
 {: .notice--success}
