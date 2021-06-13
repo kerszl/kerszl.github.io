@@ -1,1 +1,7 @@
+Tak ma się nazywać mapa
+mapka.png
 
+Tak nazwać obrazki
+01.jpg
+...
+15.jpg
