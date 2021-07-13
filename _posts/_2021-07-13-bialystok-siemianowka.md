@@ -26,8 +26,6 @@ gallery2:
   - url: /assets/images/rower/2021/1daytrip/01/09_bociany.jpg
     image_path: /assets/images/rower/2021/1daytrip/01/09_bociany.jpg
   
-  
-
 ---
 ![mapka](/assets/images/rower/2021/1daytrip/01/mapka.png)
 
