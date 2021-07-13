@@ -41,7 +41,7 @@ Miałem na Siemieniakowszczyzne, a dokładniej na Jezioro Siemianiowskie, wyjech
 {: .text-justify}
 
 
-{% include gallery %}
+{% include gallery1 %}
 
 {% comment %} 
 Mauris a ante.
