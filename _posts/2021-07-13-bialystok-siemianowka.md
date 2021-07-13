@@ -21,7 +21,7 @@ gallery1:
   - url: /assets/images/rower/2021/1daytrip/01/03_smieci.jpg
     image_path: /assets/images/rower/2021/1daytrip/01/03_smieci.jpg
 gallery2:
-- url: /assets/images/rower/2021/1daytrip/01/04_kozy.jpg
+  - url: /assets/images/rower/2021/1daytrip/01/04_kozy.jpg
     image_path: /assets/images/rower/2021/1daytrip/01/04_kozy.jpg
   - url: /assets/images/rower/2021/1daytrip/01/09_bociany.jpg
     image_path: /assets/images/rower/2021/1daytrip/01/09_bociany.jpg
