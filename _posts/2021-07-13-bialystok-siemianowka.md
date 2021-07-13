@@ -31,7 +31,6 @@ gallery2:
 ---
 ![mapka](/assets/images/rower/2021/1daytrip/01/mapka.png)
 
-
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Białystok|113.4 km|6 h|7 zł|☀️🌩️|Siemianówka| 
