@@ -27,7 +27,13 @@ gallery:
 image1:
   - url: /assets/images/rower/2021/1daytrip/01/01_michalowo.jpg
     image_path: /assets/images/rower/2021/1daytrip/01/01_michalowo.jpg
-  
+image2:
+  - url: /assets/images/rower/2021/1daytrip/01/05_siemianowka.jpg
+    image_path: /assets/images/rower/2021/1daytrip/01/05_siemianowka.jpg
+image3:
+  - url: /assets/images/rower/2021/1daytrip/01/07_piwo.jpg
+    image_path: /assets/images/rower/2021/1daytrip/01/07_piwo.jpg
+
 ---
 ![mapka](/assets/images/rower/2021/1daytrip/01/mapka.png)
 
@@ -43,17 +49,17 @@ Miałem na Siemieniakowszczyzne, a dokładniej na Jezioro Siemianiowskie, wyjech
 Do jeziora, a dokładniej do miejscowości Stary Dwór zostało ponad 20 km. Trasa łącząca Michałowo ze Starym Dworem, poza paroma odcinkami, jest wyśmienita. Możecie tam spokojnie jechać, bez ryzyka, że was coś rozjedzie. Dosyć długi odcinek prowadzą ścieżki rowerowe, a tam gdzie ich nie ma jest dosyć spokojnie. Nad zalewem jest MOR, więc można się tam rozłożyć i coś zjeść. A jak nie macie wlasnego jedzenia, to jest pełno punktów z żywnością. Są też sanitaria i można namiot rozbić - koszt to 10+5 zł. Więc jest ok. Nie wiem, czy za samochód się płaci, ale ja byłem rowerem, więc za bardzo się tym nie interesowałem. Jezioro na mapie wydaje się ogromne. Kiedy jest się na miejscu i patrzy na nie to jest duże, ale szału nie ma. Poszedłem się kąpać. Woda była zmącona, ale rześka - to jest najważniejsze w te upały.
 {: .text-justify}
 
-![siemianowka](/assets/images/rower/2021/1daytrip/01/05_siemianowka.jpg)
+{% include gallery id="image2"  %}
 
 Wróciłem z kąpieli i wypiłem piwo o zawartości 2.0% alkoholu. Odczekałem 2 godziny, żeby być całkowicie trzeźwy, zjadłem kotleta i szykowałem się do powrotu do Białegostoku. Tym bardziej, że zaczęło grzmieć i padać. 
 {: .text-justify}
 
-![piwo](/assets/images/rower/2021/1daytrip/01/07_piwo.jpg)
+{% include gallery id="image3" %}
 
 Adrenalina skoczyła, nie byłem już głodny, ale bardzo rzadko rowerzysta da radę uciec przed burzą. Na szczęście burza i deszcz mnie długo nie goniły. Tym razem trasa wiodła przez Michałowo, Folwarki, Kuriany. Razem wyszło ponad 100 km, zaoszczędziłem 6 litrów paliwa, wydałem z 7 zł (piwo, jedzenie wziąłem z domu). Taki jednodniowy trip. Polecam.
 {: .text-justify}
 
-{% include gallery %}
+{% include gallery id="gallery" %}
 
 
 {% comment %} 
