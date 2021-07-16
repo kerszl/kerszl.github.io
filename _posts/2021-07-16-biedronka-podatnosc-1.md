@@ -22,4 +22,4 @@ Ostatnio robiłem zakupy w Biedronce. Patrzę, karton mleka (12 sztuk) 36% tanie
 Poniższy obrazek pochodzi z [Grupy Sekurak](https://www.facebook.com/groups/1219551198222706) . Spodobał mi się, więc go tutaj też zamieszczam. ;)
 {: .text-justify}
 
-{% include gallery id="image1" caption= "By Małecki Marek"  %}
+{% include gallery id="image2" caption= "By Małecki Marek"  %}
