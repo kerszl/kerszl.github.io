@@ -10,7 +10,7 @@ window.cookieconsent.initialise({
   "type": "opt-in",
   "content": {
     "message": "This website uses cookies to ensure you get the best experience here.",
-    "href": "https://kerszl.github.io/about/"
+    "href": "https://kerszl.github.io/terms/"
   },
   onInitialise: function (status) {
     var type = this.options.type;
