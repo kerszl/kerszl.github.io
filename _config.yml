@@ -147,5 +147,5 @@ tag_archive:
 locale: "pl-PL"
 atom_feed:
   hide: true
-footer_scripts:
+head_scripts:
   - /assets/js/cookie-consent.js
