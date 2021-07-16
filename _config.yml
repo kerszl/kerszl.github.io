@@ -148,5 +148,5 @@ locale: "pl-PL"
 atom_feed:
   hide: true
 after_footer_scripts:
-  - /assets/js/custom-script-loads-after-footer.js
+  - /assets/js/cookie-consent.js
  
