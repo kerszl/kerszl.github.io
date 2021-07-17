@@ -148,4 +148,4 @@ locale: "pl-PL"
 atom_feed:
   hide: true
 head_scripts:
-  - /assets/js/cookie-consent.js
+  - /assets/js/test.js
