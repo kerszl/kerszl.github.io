@@ -10,7 +10,7 @@ window.cookieconsent.initialise({
   "type": "opt-in",
   "content": {
     "message": "This website uses cookies to ensure you get the best experience here.",
-    "href": "https://kerszl.github.io/terms/"
+    "href": "https://link-to-your-own-terms-page"
   },
   onInitialise: function (status) {
     var type = this.options.type;
@@ -18,7 +18,6 @@ window.cookieconsent.initialise({
     if (type == 'opt-in' && didConsent) {
       // enable cookies
       loadGAonConsent();
-      loadDisqusOnConsent();
     }
     if (type == 'opt-out' && !didConsent) {
       // disable cookies
@@ -30,7 +29,6 @@ window.cookieconsent.initialise({
     if (type == 'opt-in' && didConsent) {
       // enable cookies
       loadGAonConsent();
-      loadDisqusOnConsent();
     }
     if (type == 'opt-out' && !didConsent) {
       // disable cookies
@@ -44,7 +42,6 @@ window.cookieconsent.initialise({
     if (type == 'opt-out') {
       // enable cookies
       loadGAonConsent();
-      loadDisqusOnConsent();
     }
   }
 });
