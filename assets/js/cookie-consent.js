@@ -13,6 +13,7 @@ window.cookieconsent.initialise({
     "href": "https://link-to-your-own-terms-page"
   },
   onInitialise: function (status) {
+    alert (1);
     var type = this.options.type;
     var didConsent = this.hasConsented();
     if (type == 'opt-in' && didConsent) {
