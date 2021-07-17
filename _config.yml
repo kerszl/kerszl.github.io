@@ -37,10 +37,11 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 logo: "/assets/images/smile.jpg"
 # Analytics
-analytics:
-  provider               : "google" # false (default), "google", "google-universal", "custom"
-  google:
-    tracking_id          : "UA-199157698-1"
+# na razie wylaczylem
+#analytics:
+#  provider               : "google" # false (default), "google", "google-universal", "custom"
+#  google:
+#    tracking_id          : "UA-199157698-1"
 
 
 comments:
@@ -106,17 +107,17 @@ author:
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"
 
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+#footer:
+#  links:
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      url: "https://twitter.com/"
+#    - label: "GitHub"
+#      icon: "fab fa-fw fa-github"
+#      url: "https://github.com/"
+#    - label: "Instagram"
+#      icon: "fab fa-fw fa-instagram"
+#      url: "https://instagram.com/"
 
 defaults:
   # _posts
@@ -147,11 +148,11 @@ tag_archive:
 
 locale: "pl-PL"
 
-#atom_feed:
-#  hide: true
+atom_feed:
+  hide: true
 
 #head_scripts:
 #  - /assets/js/cookie-consent.js
 
-after_footer_scripts:
-  - /assets/js/cookie-consent.js
+#after_footer_scripts:
+#  - /assets/js/cookie-consent.js
