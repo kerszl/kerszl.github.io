@@ -146,7 +146,7 @@ tag_archive:
   path: /tags/
 
 locale: "pl-PL"
-<<<<<<< HEAD
+
 #atom_feed:
 #  hide: true
 
@@ -155,9 +155,3 @@ locale: "pl-PL"
 
 after_footer_scripts:
   - /assets/js/cookie-consent.js
-=======
-atom_feed:
-  hide: true
-#head_scripts:
-  #- /assets/js/test.js
->>>>>>> 2c78addd338f73b1927bb7aab764112e1babffbe
