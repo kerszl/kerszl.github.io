@@ -74,6 +74,7 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
+  - jekyll-feed
 #  - jekyll-feed
   - jemoji
   - jekyll-include-cache
@@ -105,17 +106,17 @@ author:
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"
 
-#footer:
-#  links:
-#    - label: "Twitter"
-#      icon: "fab fa-fw fa-twitter-square"
-#      url: "https://twitter.com/"
-#    - label: "GitHub"
-#      icon: "fab fa-fw fa-github"
-#      url: "https://github.com/"
-#    - label: "Instagram"
-#      icon: "fab fa-fw fa-instagram"
-#      url: "https://instagram.com/"
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/"
 
 defaults:
   # _posts
@@ -130,12 +131,12 @@ defaults:
       share: true
       related: true
   # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
+  #- scope:
+#      path: "_pages"
+#      type: pages
+#    values:
+#      layout: single
+#      author_profile: true
 
 category_archive:
   type: liquid
@@ -145,7 +146,11 @@ tag_archive:
   path: /tags/
 
 locale: "pl-PL"
-atom_feed:
-  hide: true
-head_scripts:
-  - /assets/js/test.js
+#atom_feed:
+#  hide: true
+
+#head_scripts:
+#  - /assets/js/cookie-consent.js
+
+after_footer_scripts:
+  - /assets/js/cookie-consent.js
