@@ -37,11 +37,10 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 logo: "/assets/images/smile.jpg"
 # Analytics
-# na razie wylaczylem
-#analytics:
-#  provider               : "google" # false (default), "google", "google-universal", "custom"
-#  google:
-#    tracking_id          : "UA-199157698-1"
+analytics:
+  provider               : "google" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "UA-199157698-1"
 
 
 comments:
