@@ -15,6 +15,7 @@ window.addEventListener('load', function(){
     },
    content: {
        link: "About consent",
+       "message": "This website uses cookies to ensure you get the best experience here!",
        href: "https://kerszl.github.io/terms/"
     },
     onInitialise: function(status) {
