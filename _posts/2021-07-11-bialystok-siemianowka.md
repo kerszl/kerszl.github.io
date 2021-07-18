@@ -7,7 +7,7 @@ categories:
   - 1daytrip
 tags:
   - Wycieczka rowerowa
-  - rower
+  - Rower
   - Wyjazd
   - Podróż
   - 1daytrip
