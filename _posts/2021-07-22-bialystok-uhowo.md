@@ -74,7 +74,6 @@ Dalej była już dosyć dobra droga do Uhowa.
 {: .notice--success}
 {: .text-justify}
 {% include gallery id="gallery2"  %}
-
 Kierowaliśmy się nad rzekę. Plaża W Uhowie jest fajna. Łazienka jest czynna w sezonie od 11-18. Jest tratwa ze Śliwna, na której zrobiłem sobie jajecznicę (bez cebuli). Można wejść na wieżę, zamówić saunę, wypożyczyć kajaki.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
