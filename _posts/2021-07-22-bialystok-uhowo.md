@@ -18,7 +18,9 @@ gallery1:
     image_path: /assets/images/rower/2021/1daytrip/02/01_biedronka.jpg
 gallery2:
   - url: /assets/images/rower/2021/1daytrip/02/02_stryjek.jpg
-    image_path: /assets/images/rower/2021/1daytrip/02/02_stryjek
+    image_path: /assets/images/rower/2021/1daytrip/02/02_stryjek.jpg
+    alt: "stryjek"
+    title: "stryjek"    
   - url: /assets/images/rower/2021/1daytrip/02/03_droga.jpg
     image_path: /assets/images/rower/2021/1daytrip/02/03_droga.jpg
 gallery3:
@@ -63,7 +65,8 @@ galleryend:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Białystok|84.83 km|5.09 h|0.21 zł|🌤️|Uhowo->Choroszcz| 
+|Białystok|84.83 km|5.09 h|0.21 zł|🌤️|Uhowo->Choroszcz|
+
 Tym razem pojechałem ze swoim stryjkiem Czarkiem. Jest rencistą, ale na rowerze wymiata lepiej niż niejeden zawodowiec. Pierwszą bazą miało być Uhowo, a potem powrót tą samą trasą (brzmi nieciekawie, prawda?). Jednak plany planami, a życie toczy się swoim rytmem. Pierwszy przystanek był w Juchnowcu Kościelnym. Tam próbowałem aktywować telefonicznie kartę Biedronki dla stryjka, ale stryjek chciał, żebym to zrobił przez swój telefon, bo jemu Biedra zabulila 20 zł za rozmowę. Dodzwoniłem się na infolinię i pani powiedziała, że nie można karty aktywować i telefon jest przypisany do starej karty, na której karta Biedronki nie działa. Podałem numer starej karty, to się okazało, że stryjek miał jeszcze jedną kartę, której numeru Czarek nie znał. Po prostu nie mogła nic z tym zrobić i powiedziała, żebym zadzwonił z telefonu stryjka. Zadzwoniłem, odebrał jakiś pan i powiedział że padł system rejestracji kart biedronkowych (pewnie był w zmowie z tą panią). Potem próbowałem zarejestrować kartę przez internet, też nie mogłem, bo telefon był przypisany do karty, która nie działała i która nie wiadomo gdzie jest. No nic, nie bedzie miał promocji, chyba że przy zakupach poda jakiś numer, który jest przypisany na numer karty Moja Biedronka. 
 {: .text-justify}
 {% include gallery id="gallery1"  %}
