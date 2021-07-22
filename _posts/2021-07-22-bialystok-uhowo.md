@@ -33,6 +33,7 @@ gallery3:
 gallery4:
   - url: /assets/images/rower/2021/1daytrip/02/08_snieta.jpg
     image_path: /assets/images/rower/2021/1daytrip/02/08_snieta.jpg
+    title: "śnięta rybka"    
 gallery5:
   - url: /assets/images/rower/2021/1daytrip/02/09_sklep.jpg
     image_path: /assets/images/rower/2021/1daytrip/02/09_sklep.jpg
