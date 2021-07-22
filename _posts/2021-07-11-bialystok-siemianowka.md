@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Białystok - Siemianówka"
+title: "1daytrip - Białystok->Siemianówka"
 excerpt: " "
 comments: true
 categories:
@@ -8,8 +8,6 @@ categories:
 tags:
   - Wycieczka rowerowa
   - Rower
-  - Wyjazd
-  - Podróż
   - 1daytrip
 header:
   overlay_image: random
