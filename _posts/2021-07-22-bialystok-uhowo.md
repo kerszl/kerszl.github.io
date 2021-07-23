@@ -87,7 +87,7 @@ Po jakimś czasie mieliśmy wracać do Białegostoku, ale przypomniałem sobie o
 Nie było tak prosto. Ale trudy poszukiwań wiele wynagrodziły. Figurka miała 4 twarze. Obok, na kamieniu, były drobne monety (dorzuciłem grosza na szczęście), z tyłu na drzewie wisiał ołtarzyk. Dalej była tablica informacyjna, że jest to słowiańskie miejsce kultowe i prośba, żeby nie niszczyć.
 {: .text-justify}
 {% include gallery id="gallery6"  %}
-W Choroszczy nad zalewem zjadłem jajecznicę z cebulką. Niestety woda, jak prawie wszedzie, nie była za czysta, więc wróciłem do domu. Stryjek też.
+W Choroszczy nad zalewem zjadłem jajecznicę z cebulką. Niestety woda, jak prawie wszedzie, nie była za czysta, więc wróciłem do domu. Stryjek też. To był najtańszy trip. 21 groszy raczej nie przebiję(cebula+napiwek+"na ofiarę"). Oczywiście jedzenie i wodę wziąłem z domu. Kupilem tylko cebulę.
 {: .text-justify}
 {% include gallery id="galleryend"  %}
 
