@@ -14,8 +14,8 @@ header:
   #overlay_filter: rgba(255, 255, 255, 0.3)
   #caption: Random code by: [**© Shahar Shani-Kadmiel**](https://shaharkadmiel.github.io)"
 gallery1:
-  - url: /assets/images/rower/2021/1daytrip/02/01_biedronka.jpg
-    image_path: /assets/images/rower/2021/1daytrip/02/01_biedronka.jpg
+  - url: /assets/images/rower/2021/1daytrip/02/01_karta.jpg
+    image_path: /assets/images/rower/2021/1daytrip/02/01_karta.jpg
 gallery2:
   - url: /assets/images/rower/2021/1daytrip/02/02_stryjek.jpg
     image_path: /assets/images/rower/2021/1daytrip/02/02_stryjek.jpg
