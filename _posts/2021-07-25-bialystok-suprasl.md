@@ -57,7 +57,10 @@ gallery2:
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Białystok|40.33 km|2.40 h|0.0 zł|🌤️|Białystok->Supraśl|
+<<<<<<< HEAD
 
+=======
+>>>>>>> f50f02d82e8cd48362db56bfeb521e3b8eeb8049
 Niedziela - dzień wolny, a do tego upały, więc trzeba pojechać nad wodę. Ale w Białymstoku nie ma za dużo miejsc do kąpieli, przynajmniej teraz, kiedy jest przyducha - powiecie. Jednak są. Pierwszą lokacją była nowa, piękna plaża Wasilkowie. Słynie z saunowych ławeczek i parasolów, które przypominają hawajskie klimaty. Niestety tam ludzie się nie kąpali, bo była przyducha. Jednak pewien pan powiedział, że to nie przyducha i coś wylało w jakiejś gospodzie rolnej, więc badają sprawę. Teorie spiskowe się mnożą.  Rzeka Supraśl zaczyna swój bieg w okolicach Folwarków, potem Michałowo, Gródek, Supraśl, Wasilków... Posiedziałem ze stryjkiem z jakąś godzinę nad rzeką. Przyleciał jakiś gołąb, poszedł sobie na piasek i się zawiesił. Stał tak z 15 minut. Może chciał coś przekazać, albo odebrać wiadomość. Ten gołąb był zaobrączkowany. No nic. Ludzie się nie kąpią, to i ja nie będę.
 {: .text-justify}
 {% include gallery id="gallery1"  %}
