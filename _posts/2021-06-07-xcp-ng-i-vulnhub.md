@@ -3,6 +3,7 @@ title: "XCP-ng i obrazy z Vulnhub"
 excerpt: " "
 comments: true
 categories:
+  - Hacking
   - Vulnhub
 tags:
   - Hacking
@@ -23,7 +24,7 @@ Nie spodobało mi się to, że nie widzę ip serwera. Jak włamać się na coś,
 ## Jak zmienić nazwę interfejsu sieciowego na eth0
 Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się nam pokazać okno Grub-a. Jeżeli się nie pojawi, to trzymamy przycisk **SHIFT**. 
 {: .text-justify}
-![grub](/assets/images/xcp-ng-i-vulnhub/01.png)
+![grub](/assets/images/hacking/2021/02/01.png)
 Następnie klawisz **e** i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
 {: .text-justify}
 
@@ -41,7 +42,7 @@ linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64
 klawisz **F10** i po chwili ładuje się konsola do root-a
 {: .text-justify}
 
-![grub](/assets/images/xcp-ng-i-vulnhub/02.png)
+![grub](/assets/images/hacking/2021/02/02.png)
 
 Sprawdzamy jaki to jest system
 
