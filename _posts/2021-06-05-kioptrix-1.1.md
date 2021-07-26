@@ -4,7 +4,6 @@ excerpt: " "
 comments: true
 categories:
   - Hacking
-  - Vulnhub
 tags:
   - Hacking
   - Vulnhub

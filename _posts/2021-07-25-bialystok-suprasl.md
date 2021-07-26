@@ -4,11 +4,10 @@ excerpt: " "
 comments: true
 categories:
   - Wycieczka rowerowa
-  - 1daytrip
 tags:
+  - 1daytrip
   - Wycieczka rowerowa
   - Rower
-  - 1daytrip
 header:
   overlay_image: random
   #overlay_filter: rgba(255, 255, 255, 0.3)
