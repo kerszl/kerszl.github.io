@@ -24,6 +24,7 @@ msf6 > load wmap
 `-----'`-'-'-'`-^-'`-'
 [WMAP 1.5.1] ===  et [  ] metasploit.com 2012
 [*] Successfully loaded plugin: wmap
+msf6 > wmap_sites -a http://172.16.1.167
 msf6 > wmap_targets -t http://172.16.1.167
 msf6 > wmap_run -t
 [*] Testing target:
