@@ -84,6 +84,9 @@ Resetujemy maszynę i mamy przyznany adres ip.
 {: .text-justify}
 
 Mały update: Ostatnio "poprawiłem" podobny obraz i nie trzeba było ingerować w Gruba.
+{: .text-justify}
+{: .notice--info}
+
 Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej, a na serwer się włamiesz metodą przewidzianą przez twórców.
 {: .text-justify}
 {: .notice--warning}
