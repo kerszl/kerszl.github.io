@@ -14,7 +14,7 @@ header:
 HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [somu sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na Ubuntu 14.04, więc ja na swoim XPC-NG nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
 {: .text-justify}
 ## Moduły w Metasploicie
-Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa w nim modułów. Na tapetę, do celów do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
+Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
 {: .text-justify}
 ```bash
 msf6 > load wmap
@@ -262,7 +262,7 @@ msf6 > wmap_vulns -l
 [*]     GET Res code: 404
 msf6 >
 ```
-Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em widzimy następujące otwarte porty. 
+Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em, widzimy następujące otwarte porty. 
 {: .text-justify}
 Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z Nmap-a zostawiam czytelnikowi.
 {: .notice--danger}
@@ -275,15 +275,8 @@ host          port  proto  name    state  info
 172.16.1.167  7223  tcp    ssh     open   OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 Ubuntu Linux; protocol 2.0
 ```
 ## Już bez Metasploita
-Tradycyjnie zacznijmy od Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest fejk. Strona istnieje, tylko tak jest spreparowana, żeby wyglądało, że jej nie ma ;)
-{: .text-justify}
-Sprawdźmy szybko, czy są jakieś ukryte stronki:
-```bash
-dirb http://172.16.1.167/
-```
 Z ciekawszych rzeczy jest **http://172.16.1.167/robots.txt**. Poniżej zawartość:
-=======
-Tradycyjnie zacznijmy od analizy Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest to fejk. Strona istnieje, tylko jest tak spreparowana, żeby wyglądało, że jej nie ma ;)
+Tradycyjnie zacznijmy od analizy Http. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest to fejk. Strona istnieje, tylko jest tak spreparowana, żeby wyglądało, że jej nie ma :smiley:
 {: .text-justify}
 Sprawdźmy szybko, czy są jakieś ukryte stronki:
 ```bash
@@ -347,7 +340,7 @@ W **ftc.html** zaś jest taka ciekawa rzecz:
 #116
 -->
 ```
-Zamieńmy skryptem to na przysępny tekst:
+Zamieńmy skryptem liczby na przystępny tekst:
 ```bash
 #!/bin/bash
 
@@ -373,7 +366,7 @@ uname : test
 se rockyou.txt
 ssh-bruteforce-sudoit
 ```
-Żeby się dostać na serwer ssh musimy użyć metody siłowej, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się Hydra. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Ustawiłem szukanie metodą siłową słowa zaczynające się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie od początku pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach Hydry ustawiłem więcej wątków, niż jest standardowo. Skanowanie przebiegało szybciej.
+Żeby się dostać na serwer ssh, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się Hydra. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach Hydry ustawiłem więcej wątków niż jest standardowo. Skanowanie ssh skończyło się dosyć szybko.
 {: .text-justify}
 ```bash
 hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
@@ -381,7 +374,7 @@ hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 
 ssh test@172.16.1.167 -p 7223
 ```
 ## Mamy Shella
-Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem to się przydało. Mamy parę ciekawych rzeczy:
+Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem się to przydało. Mamy parę ciekawych rzeczy:
 {: .text-justify}
 ```
 99  cat pass.txt
