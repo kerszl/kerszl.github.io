@@ -47,7 +47,7 @@ comments:
   provider: "facebook"
   facebook:
     appid: # optional
-    num_posts: 20 # 5 (default)
+    num_posts: 5
     colorscheme: "dark" # "light" (default), "dark"
   #provider: "utterances"
   #utterances:
