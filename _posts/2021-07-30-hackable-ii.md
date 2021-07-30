@@ -360,5 +360,5 @@ uid=0(root) gid=0(root) groups=0(root)
 root@ubuntu:~# cat /root/root.txt
 ```
 
-Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę Metasploita. Jeżeli się podobał wpis napisz na kerszi@protonmail.com lub skomentuj (jeżeli się da).
+Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę Metasploita. Jeżeli się podobał wpis napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com) lub skomentuj (jeżeli się da). 
 {: .text-justify}
