@@ -118,7 +118,7 @@ sleep 5
 done
 #--------- 
 ```
-I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w wordlist.txt. Użyjmy Hydry.
+I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.txt**. Użyjmy Hydry:
 {: .text-justify}
 ```bash
 hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
