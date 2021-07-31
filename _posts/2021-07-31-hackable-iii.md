@@ -80,11 +80,10 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ## Zawartość
 **http://172.16.1.103/backup/** 
 wordlist.txt – pewnie hasła użytkowników
-**http://172.16.1.103/robots.txt **
-- User-Agente: *
-- Disallow: /config
+{: .notice--info}
 **http://172.16.1.103/config/**
 1.txt - tekst zakodowany w Base64 **MTAwMDA=**
+{: .notice--info}
 Szybkie dekodowanie:
 ```bash
 echo MTAwMDA= | base64 -d
@@ -93,6 +92,7 @@ echo MTAwMDA= | base64 -d
 **http://172.16.1.103/css/**
 2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
 **++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**
+{: .notice--info}
 ```bash
 root@kali:/home/szikers# beef 2.txt
 4444
@@ -103,6 +103,7 @@ Podsumowując mamy:
 - 10000
 - 4444
 - ?
+
 ## Knockd 
 Spróbowałem wejść przez Ssh, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania Ssh używa się Knockd (Trzeba zainstalować w Kali). Bez podania odpowiednich „zapukań” dostęp do Ssh będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. 10000 i 4444. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku 3.jpg, ale nie znalazłem (jak znajdę, zmienię ten wpis). Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na trzeci numer. Napisałem szybko skrypcik.
 {: .text-justify}
