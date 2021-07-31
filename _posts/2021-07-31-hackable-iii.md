@@ -26,7 +26,7 @@ gallery4_5:
 # Wstęp
 [Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/)  jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest tak łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. Metasploita będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na XCP-ng musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
 {: .text-justify}
-## Zaczynamy:
+## Zaczynamy
 ```bash
 msf6 > db_nmap -A -p- 172.16.1.103
 host          port  proto  name  state     info
@@ -37,8 +37,11 @@ host          port  proto  name  state     info
 Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
 {: .text-justify}
 {% include gallery id="gallery1_2"  %}
-Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w HTML-u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora. Sprawdźmy co jeszcze jest na na tym www.
+Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w HTML-u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
+{: .text-justify}
 {% include gallery id="gallery3"  %}
+Sprawdźmy co jest jeszcze na na tym www.
+{: .text-justify}
 ```bash
 root@kali:/home/szikers# gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.103 -x php,txt,html,htm,png,jpg,
 ===============================================================
@@ -75,31 +78,30 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 =============================================================== 
 ```
 ## Zawartość
-```
 http://172.16.1.103/backup/ -> wordlist.txt – pewnie hasła do użytkownika
-```
-```
+{: .notice--info}
 Zawartość http://172.16.1.103/robots.txt 
 User-Agente: *
 Disallow: /config
+{: .notice--info}
 http://172.16.1.103/config/ -> 1.txt
 tekst zakodowany w Base64 **MTAwMDA=**
-```
 ```bash
 echo MTAwMDA= | base64 -d
 10000
 ```
 Mamy pierwszą wartość **10000**, na razie nie wiadomo po co, ale pewnie się to nam przyda.
-```
+{: .text-justify}
 http://172.16.1.103/css/ -> 2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
 **++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**
-```
+{: .notice--info}
 ```bash
 root@kali:/home/szikers# beef 2.txt
 4444
 ```
 ## Knockd
 Jest jeszcze 3.jpg, ale tam nie znalazłem nic ciekawego. Nie mówię, że nie ma. Przez dłuższy czas szukałem jakiejś podatności na WWW. Jednak nie mogłem znaleźć. Spróbowałem wejść przez Ssh, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę __Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com__  i nagle mnie olśniło. Do blokowania Ssh używa się Knockd (Trzeba zainstalować w Kali). Bez podania odpowiednich „zapukań” dostęp do Ssh będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. 10000 i 4444. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku 3.jpg, ale nie znalazłem (jak znajdę, zmienię ten wpis). Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na trzeci numer. Napisałem szybko skrypcik.
+{: .text-justify}
 ```bash
 #!/bin/bash
 for i in {0..65535}; do
@@ -109,6 +111,7 @@ done
 #--------- 
 ```
 I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w wordlist.txt. Użyjmy Hydry.
+{: .text-justify}
 ```bash
 hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 
@@ -120,6 +123,7 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 ```
 ## Shelltris
 W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Być może za jakiś czas ktoś rozwiąże problem, jak nie to pewnie zrobi to ktoś inny. Jak znalazłeś rozwiązanie to napisz [kerszi@protonmail.com](mailto:kerszi@protonmail.com)
+{: .text-justify}
 {% include gallery id="gallery4_5"  %}
 Uwaga, jeżeli chcesz, żeby ta maszyna działała na XCP-ng trzeba podczas startu systemu zmienic w Grubie ro na rw init=/bin/bash, potem F10, w /etc/netplan/00-installer-config.yaml zmieniamy na interfejs eth0. Dodatkowo należy zmienić w /etc/default/knockd na KNOCKD_OPTS="-i eth0".
 {: .text-justify}
