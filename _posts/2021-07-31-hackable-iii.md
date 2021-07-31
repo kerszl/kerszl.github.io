@@ -40,7 +40,7 @@ Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na s
 Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w HTML-u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
-Sprawdźmy co jest jeszcze na na tym www.
+Sprawdźmy co jest jeszcze na na tym serwerze www:
 {: .text-justify}
 ```bash
 root@kali:/home/szikers# gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.103 -x php,txt,html,htm,png,jpg,
@@ -78,22 +78,21 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 =============================================================== 
 ```
 ## Zawartość
-http://172.16.1.103/backup/ -> wordlist.txt – pewnie hasła do użytkownika
-{: .notice--info}
-http://172.16.1.103/robots.txt 
-User-Agente: *
-Disallow: /config
-{: .notice--info}
-http://172.16.1.103/config/ -> 1.txt
-tekst zakodowany w Base64 **MTAwMDA=**
+**http://172.16.1.103/backup/** 
+wordlist.txt – pewnie hasła użytkowników
+**http://172.16.1.103/robots.txt **
+- User-Agente: *
+- Disallow: /config
+**http://172.16.1.103/config/**
+1.txt - tekst zakodowany w Base64 **MTAwMDA=**
+Szybkie dekodowanie:
 ```bash
 echo MTAwMDA= | base64 -d
 10000
 ```
-{: .text-justify}
-http://172.16.1.103/css/ -> 2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
+**http://172.16.1.103/css/**
+2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
 **++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**
-{: .notice--info}
 ```bash
 root@kali:/home/szikers# beef 2.txt
 4444
@@ -104,7 +103,7 @@ Podsumowując mamy:
 - 10000
 - 4444
 - ?
-## Knockd
+## Knockd 
 Spróbowałem wejść przez Ssh, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania Ssh używa się Knockd (Trzeba zainstalować w Kali). Bez podania odpowiednich „zapukań” dostęp do Ssh będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. 10000 i 4444. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku 3.jpg, ale nie znalazłem (jak znajdę, zmienię ten wpis). Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na trzeci numer. Napisałem szybko skrypcik.
 {: .text-justify}
 ```bash
