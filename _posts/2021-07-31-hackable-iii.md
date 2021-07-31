@@ -78,10 +78,12 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 =============================================================== 
 ```
 ## Zawartość
-**http://172.16.1.103/backup/** 
+**http://172.16.1.103/backup/**
+
 wordlist.txt – pewnie hasła użytkowników
 {: .notice--info}
 **http://172.16.1.103/config/**
+
 1.txt - tekst zakodowany w Base64 **MTAwMDA=**
 {: .notice--info}
 Szybkie dekodowanie:
@@ -90,6 +92,7 @@ echo MTAwMDA= | base64 -d
 10000
 ```
 **http://172.16.1.103/css/**
+
 2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
 **++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**
 {: .notice--info}
