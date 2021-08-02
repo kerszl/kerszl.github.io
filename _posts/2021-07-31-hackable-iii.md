@@ -153,7 +153,9 @@ sleep 5
 done
 #--------- 
 ```
-I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.txt**. Użyjmy Hydry:
+I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! 
+## Hydra 
+Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.txt**. Użyjmy Hydry:
 {: .text-justify}
 ```bash
 hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
@@ -164,6 +166,8 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 ...
 [22][ssh] host: 172.16.1.103   login: jubiscleudo   password: onlymy
 ```
+Jak widzimy mamy użytkownika jubiscleudo i hasło onlymy. Wejdźmy na shella.
+{: .text-justify}
 ## Shelltris
 W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka. 😏) Być może za jakiś czas rozwiążę problem, jak nie, to pewnie zrobi to ktoś inny. Jeżeli znalazłeś rozwiązanie to napisz [kerszi@protonmail.com](mailto:kerszi@protonmail.com). 
 {: .text-justify}
