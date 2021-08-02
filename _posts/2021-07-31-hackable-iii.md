@@ -115,6 +115,16 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 ```
 Za to Steghide już coś pokazał:
 ```bash
+root@kali:/home/szikers/hackable3/3# steghide info 3.jpg
+"3.jpg":
+  format: jpeg
+  capacity: 3.6 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase:
+  embedded file "steganopayload148505.txt":
+    size: 12.0 Byte
+    encrypted: rijndael-128, cbc
+    compressed: yes
 root@kali:/home/szikers/hackable3/3# steghide extract -sf 3.jpg
 Enter passphrase:
 wrote extracted data to "steganopayload148505.txt".
