@@ -100,14 +100,35 @@ echo MTAwMDA= | base64 -d
 root@kali:/home/szikers# beef 2.txt
 4444
 ```
-Jest jeszcze 3.jpg, ale tam nie znalazłem nic ciekawego. Nie mówię, że nie ma. Przez dłuższy czas szukałem jakiejś podatności na WWW. Jednak nie mogłem znaleźć.
+3.jpg - jest to plik graficzny. A w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z obrazkami, więc nie rozkminiłem tej zagadki, ale Elias Sousa mi podpowiedział. Binwalk nic ciekawego nie znalazł.
+```bash
+root@kali:/home/szikers/hackable3/3# binwalk 3.jpg
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+
+```
+Za to Steghide już coś pokazał:
+```bash
+root@kali:/home/szikers/hackable3/3# steghide extract -sf 3.jpg
+Enter passphrase:
+wrote extracted data to "steganopayload148505.txt".
+root@kali:/home/szikers/hackable3/3# cat steganopayload148505.txt
+porta:65535 root@kali:/home/szikers/hackable3/3#
+root@kali:/home/szikers/hackable3/3#
+```
+Przy okazji mamy podpowiedź, że chodzi o **port** 65535:
 {: .text-justify}
 Podsumowując mamy:
 - 10000
 - 4444
-- ?
+- 65535
 
 ## Knockd 
+Zanim znalazłem trzecią cyfrę w obrazku, użyłem metody brute-force. Jest ona powolna i robiona na siłę, ale działa.
+{: .text-justify}
+{: .notice--info}
 Spróbowałem wejść przez Ssh, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania Ssh używa się Knockd (Trzeba zainstalować w Kali). Bez podania odpowiednich „zapukań” dostęp do Ssh będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. 10000 i 4444. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku 3.jpg, ale nie znalazłem (jak znajdę, zmienię ten wpis). Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na trzeci numer. Napisałem szybko skrypcik.
 {: .text-justify}
 ```bash
@@ -130,7 +151,7 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 [22][ssh] host: 172.16.1.103   login: jubiscleudo   password: onlymy
 ```
 ## Shelltris
-W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Być może za jakiś czas ktoś rozwiąże problem, jak nie to pewnie zrobi to ktoś inny. Jak znalazłeś rozwiązanie to napisz [kerszi@protonmail.com](mailto:kerszi@protonmail.com)
+W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka. 😏) Być może za jakiś czas rozwiążę problem, jak nie, to pewnie zrobi to ktoś inny. Jeżeli znalazłeś rozwiązanie to napisz [kerszi@protonmail.com](mailto:kerszi@protonmail.com). 
 {: .text-justify}
 {% include gallery id="gallery4_5"  %}
 Uwaga, jeżeli chcesz, żeby ta maszyna działała na XCP-ng trzeba podczas startu systemu zmienic w Grubie ro na rw init=/bin/bash, potem F10, w /etc/netplan/00-installer-config.yaml zmieniamy na interfejs eth0. Dodatkowo należy zmienić w /etc/default/knockd na KNOCKD_OPTS="-i eth0".
