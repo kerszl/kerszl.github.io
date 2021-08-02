@@ -100,7 +100,11 @@ echo MTAwMDA= | base64 -d
 root@kali:/home/szikers# beef 2.txt
 4444
 ```
-3.jpg - jest to plik graficzny. A w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z obrazkami, więc nie rozkminiłem tej zagadki, ale Elias Sousa mi podpowiedział. Binwalk nic ciekawego nie znalazł.
+**http://172.16.1.103/3.jpg**
+
+3.jpg - jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale Elias Sousa mi podpowiedział. 
+{: .notice--info}
+Binwalk nie znalazł nic ciekawego.
 ```bash
 root@kali:/home/szikers/hackable3/3# binwalk 3.jpg
 
