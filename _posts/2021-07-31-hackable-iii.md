@@ -153,7 +153,8 @@ sleep 5
 done
 #--------- 
 ```
-I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Jak nie chcesz czekać na wynik, możesz od razu zastukać
+I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Jak nie chcesz czekać na wynik, możesz od razu zastukać:
+{: .text-justify}
 ```bash
 knock -v 172.16.1.103 10000 4444 65535
 ```
