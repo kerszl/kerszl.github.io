@@ -278,6 +278,11 @@ Rootshell wrzucamy wrzucamy na **Hackable: III** na konto **hackable_3** do kata
 ```bash
 cp /home/hackable_3/rootshell /scripts/
 ```
+Trzeba stworzyć plik **/scripts/to_hackable_3.py**:
+{: .text-justify}
+```bash
+touch /scripts/to_hackable_3.py && chmod +x /scripts/to_hackable_3.py
+```
 A zawartość **/scripts/to_hackable_3.py** może wyglądać tak:
 {: .text-justify}
 ```python
