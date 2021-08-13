@@ -43,7 +43,8 @@ analytics:
     tracking_id          : "UA-199157698-1"
 
 # SEO Related
-google-site-verification : googlee7dce9bd7ff16166.html
+#google-site-verification : googlee7dce9bd7ff16166.html
+google-site-verification :
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
