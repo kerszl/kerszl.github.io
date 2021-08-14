@@ -1,5 +1,5 @@
 ---
-title: "ContainMe: 1"
+title: "ContainMe: 1 (THM-ContainMe-v4)"
 excerpt: " "
 comments: true
 categories:
@@ -22,7 +22,7 @@ gallery2_3:
     image_path: /assets/images/hacking/2021/08/03.png
 ---
 # Wstęp
-[ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. Nie myślcie tylko, że ogólnie czekam na solucję i dopiero wtedy rozwiązuję. Inne maszyny też robiłem głównie sam (co to za zabawa iść krok po kroku). Chyba, że gdzieś po paru dniach utknąłem, to szukałem podpowiedzi, ale jednej. ContainMe: 1 jak nazwa wskazuje jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/), chociaż nazwa pliku (THM-ContainMe-v4.ova) sugeruje, że to jest czwarty obraz. Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
+[ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Nazwa obrazu (**THM-ContainMe-v4.ova**) wskazuje czwartą werjsę(?). Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. **ContainMe: 1**, jak nazwa wskazuje, jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/). Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
 {: .text-justify}
 ## Zaczynamy
 Standardowo na początku użyjemy <mark>Nmap</mark>-a w <mark>Metasploicie</mark>:
@@ -36,7 +36,7 @@ db_nmap -A -p- 172.16.1.218
 172.16.1.218  8022  tcp    ssh           open   OpenSSH 7.7p1 Ubuntu 4ppa1+obfuscated Ubuntu Linux; protocol 2.0 
 ```
 ## WWW
-Widzimy trochę portów. Dwa z nich to **SSH**. Tym zajmiemy się później. Na początku jak zwykle sprawdźmy **WWW**. **Dirb** to nam pokazał:
+Widzimy trochę portów. Dwa z nich to **SSH**. Tym zajmiemy się później. Na początku jak zwykle sprawdźmy **WWW**. <mark>Dirb</mark> to nam pokazał:
 {: .text-justify}
 ```console
 root@kali:/home/szikers# dirb http://172.16.1.218/
@@ -434,7 +434,7 @@ tcp    LISTEN   0        128               0.0.0.0:22            0.0.0.0:*
 tcp    LISTEN   0        128                  [::]:22               [::]:*
 
 ```
-Nic podatnego nie znalazłem na tym serwerze. Jedyne co zostało to **MySql**. Więc to raczej było to. Hasło raczej musiało być proste. Nie było to **mike**, ale hasłem było **password** :smiley:
+Nic podatnego nie znalazłem na tym serwerze. Jedyne co zostało to <mark>MySql</mark>. Więc to raczej było to. Hasło raczej musiało być proste. Nie było to **mike**, ale hasłem było **password** :smiley:
 {: .text-justify}
 ```console
 mike@host2:~$ mysql -umike -ppassword
