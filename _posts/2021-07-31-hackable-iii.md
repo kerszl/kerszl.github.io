@@ -4,10 +4,12 @@ excerpt: " "
 comments: true
 categories:
   - Hacking
+  - Walkthrough  
 tags:
   - Hacking
   - Vulnhub
   - Hackable
+  - Walkthrough  
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1_2:
