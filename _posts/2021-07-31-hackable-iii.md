@@ -11,8 +11,8 @@ tags:
   - Hackable
   - Walkthrough
 redirect_from:
-    - /hacking/hackable-iii/
-    - /hacking/walkthrough/hackable-iii/
+  - /hacking/hackable-iii/
+  - /hacking/walkthrough/hackable-iii/
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1_2:
