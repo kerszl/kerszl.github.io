@@ -19,4 +19,5 @@ alias: [/hacking/walkthrough/hackable-iii]
 ---
 # Wstęp
 Redirect -> /hacking/walkthrough/hackable-iii/
+<script>window.location = "https://kerszl.github.io/hacking/walkthrough/hackable-iii/"; </script>
 {: .text-justify}
