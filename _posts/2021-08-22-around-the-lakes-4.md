@@ -74,10 +74,3 @@ Jak to czasami nad jeziorami bywa, zwłaszcza w drugiej połowie sierpnia, noce 
 {: .text-justify}
 {% include gallery id="gallery" %}
 
-{% comment %}
-{% include video id="OkmhWrZI7Co" provider="youtube" %}
-zielony
-{: .notice--success}
-czerwony
-{: .notice--danger}
-{% endcomment %}
