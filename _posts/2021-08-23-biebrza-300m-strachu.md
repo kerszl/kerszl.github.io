@@ -67,6 +67,8 @@ gallery:
     image_path: /assets/images/rower/2021/1daytrip/07/26.jpg
   - url: /assets/images/rower/2021/1daytrip/07/27.jpg
     image_path: /assets/images/rower/2021/1daytrip/07/27.jpg
+  - url: /assets/images/rower/2021/1daytrip/07/28.jpg
+    image_path: /assets/images/rower/2021/1daytrip/07/28.jpg
 ---
 ![mapka](/assets/images/rower/2021/1daytrip/07/mapka.png)
 
