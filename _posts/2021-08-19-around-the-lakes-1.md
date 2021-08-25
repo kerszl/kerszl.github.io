@@ -49,20 +49,6 @@ gallery:
     image_path: /assets/images/rower/2021/aroundthelakes/01/17.jpg
   - url: /assets/images/rower/2021/aroundthelakes/01/18.jpg
     image_path: /assets/images/rower/2021/aroundthelakes/01/18.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/19.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/19.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/20.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/20.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/21.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/21.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/22.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/22.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/23.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/23.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/24.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/24.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/01/25.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/01/25.jpg
 ---
 ![mapka](/assets/images/rower/2021/aroundthelakes/01/mapka.png)
 
