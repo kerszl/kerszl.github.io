@@ -48,21 +48,7 @@ gallery:
   - url: /assets/images/rower/2021/aroundthelakes/04/17.jpg
     image_path: /assets/images/rower/2021/aroundthelakes/04/17.jpg
   - url: /assets/images/rower/2021/aroundthelakes/04/18.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/18.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/19.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/19.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/20.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/20.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/21.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/21.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/22.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/22.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/23.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/23.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/24.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/24.jpg
-  - url: /assets/images/rower/2021/aroundthelakes/04/25.jpg
-    image_path: /assets/images/rower/2021/aroundthelakes/04/25.jpg
+    image_path: /assets/images/rower/2021/aroundthelakes/04/18.jpg  
 ---
 ![mapka](/assets/images/rower/2021/aroundthelakes/04/mapka.png)
 
