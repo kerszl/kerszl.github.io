@@ -366,6 +366,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 Zainstalujmy <mark>Nmap</mark>-a i przeskanujmy interfejs **eth1**:
 {: .text-justify}
+<mark>Nmap</mark> instalujemy z konta root
+{: .notice--danger}
 ```console
 nmap -sn 172.16.20.0/24
 
