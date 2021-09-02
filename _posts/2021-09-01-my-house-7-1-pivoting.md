@@ -56,6 +56,7 @@ drwxr-xr-x 1 root root 4.0K Oct 23  2018 ..
 -rw-r--r-- 1 root root   18 Oct 23  2018 flag.txt
 ``
 </div>
+
 # Exploit
 Użyjmy **Metasploita** do wrzucenia exploita. :) Wykorzystamy **exploit/multi/script/web_delivery**, a w nim ładunek **linux/x86/meterpreter/reverse_tcp**. Niestety ładunek **PHP** *Meterpretera* nie posiada wszystkich opcji sieciowych. Np. nie ma w nim komendy *arp* i *ifconfig*. Jest za to *portfwd* - komenda do przekierowywania portów, ale czasami może być to za mało.
 {: .text-justify}
