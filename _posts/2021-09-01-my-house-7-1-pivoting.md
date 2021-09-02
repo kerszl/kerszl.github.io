@@ -302,6 +302,7 @@ root@3325411fbe96:~# ls
 flag.txt
 ```
 Ciekawostka jest taka, że nie zawsze mogłem się dobrze połączyć na **Mysql** (o tym później) przez *portfwd* **Metasploita**. Za to bez problemu poszło połączenie przez **SSH** na serwer. Jednak tym sposobem trzeba znać login i hasło. Autor wszystkim to ułatwił: **admin**/**admin**. Pokaże jak to działa. Na jednej konsoli nawiązujemy połączenie:
+{: .text-justify}
 ```bash
 ssh -N -L 24:172.31.20.194:24 admin@172.16.1.167
 ```
@@ -345,9 +346,10 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-09-01 22:00:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2021-09-01 22:00:39
 ```
 Już trochę lepiej, ale łamanie haseł przez pivoting to jest masakra. Nie wiem czy tak jest wszędzie, bo to moja pierwsza próba, ale podejrzewam, że szybko to nie działa.
+{: .text-justify}
 ## MYSQL
 Wracamy do Metasploita. Na ip **172.31.20.10**, porcie **3306** jest **MYSQL**. Też możemy na niego wejść przez *msfconsole* (ile się namęczyłem, zanim mi się udało bez błędu wejść, a okazało się, że to ładunek Metasploita coś miesza, o tym w czerwonej ramce). Login i hasło na **MYSQL**-a było w archiwum **http://172.16.1.167:8115/timeclock/backup/all.zip** w pliku **db.php**. Tę operację najlepiej zrobić na świeżo odpalonym **Metasploicie**. Parę razy mi się nie udało, bo w tle musiały być jakieś pozostałości i był błąd podczas łączenia się do bazy. Port **3306** zamieniłem na **3307**, bo ktoś może używać. Jeżeli zaś **3307** jest otwarty, to należy go zamienić na inny. Więc wychodzimy z **Metasploita** i ponownie wchodzimy. Poniżej jest cała procedura:
-
+{: .text-justify}
 <div class="notice--primary" markdown="1">
 msf6 exploit(multi/script/web_delivery) > exit
 use multi/script/web_delivery
@@ -490,6 +492,8 @@ MariaDB [timeclock]> select * from user_info;
 
 MariaDB [timeclock]>
 ```
-Widzimy, że mamy hasła użytkowników do bazy timeclock. 
+Widzimy, że mamy hasła użytkowników do bazy timeclock.
+{: .text-justify}
 # Słowo na koniec
 Pivoting to niby łatwa sprawa, ale mogą wyjść dziwne okoliczności, jak np. z ładunkiem Metasploita. Jeżeli spodobał się wpis, to napisz mejla.
+{: .text-justify}
