@@ -496,7 +496,7 @@ select * from users;
 
 mysql>
 ```
-```bash
+```console
 mike@host2:~$ su root
 su root
 Password: bjsig4868fgjjeog
