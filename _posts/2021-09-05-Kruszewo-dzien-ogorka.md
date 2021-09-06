@@ -1,5 +1,5 @@
 ---
-title: "Kruszewo - Dzień Ogórka"
+title: "1daytrip - Kruszewo - Dzień Ogórka"
 excerpt: " "
 comments: true
 categories:
@@ -37,5 +37,4 @@ gallery:
 Pierwsza niedziela września, jak co roku w Kruszewie odbywa się Dzień Ogórka. W tym roku była to XXI edycja. Ale tutaj będzie bardziej o trasie z Białegostoku do Kruszynian. Z końca Białegostoku to jest około 20 km, więc warto się przejechać. A jak nie do Kruszynian, to na kładki ze Śliwna do Waniewa. Ale o tym kiedyś napisze, bo już sam nie wiem, czy te kładki są otwarte, czy nie, a nie chce nikogo w błąd wprowadzać. Wyjeżdżając z Białegostoku kierujesz się na Kruszewo i już ;) Proste jak drut. I taka jest ścieżka. Trochę kostki brukowej, trochę asfaltu. Na końcu, jest MOR. Tam spotkałem rowerzystów z Krakowa, którzy zmierzali trasą Greenvelo do Białegostoku. Podobało im się. Wracając do Kruszewa, to 3 km trzeba przejechać ulicą, ale jak nie ma święta to droga jest ok. Na festynie standard: stragany z miodem, ogórkami i kiszoną kapustą. Przy okazji była msza. Dużo ludzi. Ale czemu opisuje taki zwykły, wydawałoby się trip. Otóż przy najbliższym MOR-ze odpoczął sobie rowerzysta. Pytam go skąd jest. Nie rozumiał. To zapytałem po angielsku. Odpowiedział, że z Holandii. Nie byłoby nic w tym nic dziwnego, gdyby Johannes nie miał 79 lat! Dzisiaj przejechał około 100 km. A średnio robił 65. Zaczął trasę z Berlina. Pełny podziw.
 {: .text-justify}
 {% include gallery id="gallery" %}
-{% include video id="w4vzl8Z5Aik" provider="youtube" %}
-To był czerwony szlak, ten łatwiejszy.
+
