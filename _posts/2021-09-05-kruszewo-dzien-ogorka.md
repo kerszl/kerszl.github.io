@@ -27,6 +27,8 @@ gallery:
     image_path: /assets/images/rower/2021/1daytrip/08/06.jpg
   - url: /assets/images/rower/2021/1daytrip/08/07.jpg
     image_path: /assets/images/rower/2021/1daytrip/08/07.jpg
+  - url: /assets/images/rower/2021/1daytrip/08/08.jpg
+    image_path: /assets/images/rower/2021/1daytrip/08/08.jpg
 ---
 ![mapka](/assets/images/rower/2021/1daytrip/08/mapka.png)
 
@@ -34,7 +36,7 @@ gallery:
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Białystok|55.6 km|3:40 h|15 zł|🌤️|Kruszewo->Białystok|
 
-W pierwszą niedziela września, jak co roku w Kruszewie odbywa się **Dzień Ogórka**. W tym roku była to XXI edycja. Ale tutaj będzie bardziej o trasie z Białegostoku do Kruszynian. Z końca Białegostoku to jest około 20 km, więc warto się przejechać. A jak nie do Kruszynian, to na kładki ze Śliwna do Waniewa. Ale o tym kiedyś napisze, bo już sam nie wiem, czy te kładki są otwarte, czy nie, a nie chce nikogo w błąd wprowadzać. Wyjeżdżając z Białegostoku kierujesz się na Kruszewo i już ;) Proste jak drut. I taka jest ścieżka. Trochę kostki brukowej, trochę asfaltu. Na końcu, jest MOR. Tam spotkałem rowerzystów z Krakowa, którzy zmierzali trasą Greenvelo do Białegostoku. Podobało im się. Wracając do Kruszewa, to 3 km trzeba przejechać ulicą, ale jak nie ma święta to droga jest ok. Na festynie standard: stragany z miodem, ogórkami i kiszoną kapustą. Przy okazji była msza. Dużo ludzi. Ale czemu opisuje taki zwykły, wydawałoby się trip. Otóż przy najbliższym MOR-ze odpoczął sobie rowerzysta. Pytam go skąd jest. Nie rozumiał. To zapytałem po angielsku. Odpowiedział, że z Holandii. Nie byłoby nic w tym nic dziwnego, gdyby Johannes nie miał 79 lat! Dzisiaj przejechał około 100 km. A średnio robił 65. Zaczął trasę z Berlina. Pełny podziw.
+W pierwszą niedziela września, jak co roku w Kruszewie odbywa się **Dzień Ogórka**. W tym roku była to XXI edycja. Ale tutaj będzie bardziej o trasie z Białegostoku do Kruszynian. Z końca Białegostoku to jest około 20 km, więc warto się przejechać. A jak nie do Kruszynian, to na kładki ze Śliwna do Waniewa. Ale o tym kiedyś napisze, bo już sam nie wiem, czy te kładki są otwarte, czy nie, a nie chce nikogo w błąd wprowadzać. Wyjeżdżając z Białegostoku kierujesz się na Kruszewo i już ;) Proste jak drut. I taka jest ścieżka. Trochę kostki brukowej, trochę asfaltu. Na końcu, jest MOR. Tam spotkałem rowerzystów z Krakowa, którzy zmierzali trasą Greenvelo do Białegostoku. Podobało im się. Wracając do Kruszewa, to 3 km trzeba przejechać ulicą, ale jak nie ma święta to droga jest ok. Na festynie standard: stragany z miodem, ogórkami i kiszoną kapustą. Przy okazji była msza. Dużo ludzi. Ale czemu opisuje taki zwykły, wydawałoby się trip. Otóż przy najbliższym MOR-ze odpoczął sobie rowerzysta. Pytam go skąd jest. Nie rozumiał. To zapytałem po angielsku. Odpowiedział, że z Holandii. Nie byłoby nic w tym nic dziwnego, gdyby Johannes nie miał 79 lat! Dzisiaj przejechał około 100 km. A średnio robił 65. Zaczął trasę z Berlina. Pełny podziw. Ostatnie zdjęcie zamieszczam dzięki uprzejmości Adriana Bogusza.
 {: .text-justify}
 {% include gallery id="gallery" %}
 
