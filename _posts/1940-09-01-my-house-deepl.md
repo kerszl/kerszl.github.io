@@ -11,16 +11,6 @@ header:
 gallery1:
   - url: /assets/images/hacking/2021/09/01.png
     image_path: /assets/images/hacking/2021/09/01.png
-gallery2_3:
-  - url: /assets/images/hacking/2021/09/02.png
-    image_path: /assets/images/hacking/2021/09/02.png
-  - url: /assets/images/hacking/2021/09/03.png
-    image_path: /assets/images/hacking/2021/09/03.png
-gallery4_5:    
-  - url: /assets/images/hacking/2021/09/04.png
-    image_path: /assets/images/hacking/2021/09/04.png
-  - url: /assets/images/hacking/2021/09/05.png
-    image_path: /assets/images/hacking/2021/09/05.png
 ---
 # Wstęp
 Recently I was looking for something where I could apply Pivoting (get into the server that is behind the server being attacked). On a site with vulnerable machines Vulnhub I found something like this: myHouse7: 1. Unfortunately, this machine can boot with errors, but there are soluions for how to remedy this. On XCP-NG the issue is even more complicated (incompatible interface). How to change the interface to make it work on XCP-NG I wrote here. One more piece of advice from my side regarding myHouse7. When you install the image, do not fire it up completely, but immediately enter the "fallback" mode. Change the interface to eth0 and copy the files from /home/bob/setup somewhere. If it crashes, the installation files will be deleted and you will have to install the virtual machine from scratch. From what I remember the "autostart" file is in /etc/rc.local. And the Docker image installation script is in /home/bob/setup/buildDockerNet.sh. From my notes, if something goes wrong, you need to delete /home/bob/setup/config and then run ./home/bob/setup/buildDockerNet.sh. At first I think you need to convert the network to ETH0 and only then, if everything is ok, run ./home/bob/setup/buildDockerNet.sh. Unfortunately I don't remember exactly how it was, but I assume everything went well and the virtual machine started. As I mentioned Docker, there are 7 containers running from it on the machine.
