@@ -1,15 +1,11 @@
 ---
-title: "myHouse7: 1 - Pivoting"
+title: "myHouse7: 1 - Pivoting - test www.deepl.com"
 excerpt: " "
 comments: true
 categories:
-  - Hacking
-  - Walkthrough
+  - Test
 tags:
-  - Hacking
-  - Vulnhub
-  - Pivoting
-  - Walkthrough  
+  - Test
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1:
