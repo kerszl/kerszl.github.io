@@ -11,19 +11,6 @@ tags:
   - Walkthrough  
 header:
   overlay_image: /assets/images/pasek-hack.png
-gallery1:
-  - url: /assets/images/hacking/2021/09/01.png
-    image_path: /assets/images/hacking/2021/09/01.png
-gallery2_3:
-  - url: /assets/images/hacking/2021/09/02.png
-    image_path: /assets/images/hacking/2021/09/02.png
-  - url: /assets/images/hacking/2021/09/03.png
-    image_path: /assets/images/hacking/2021/09/03.png
-gallery4_5:    
-  - url: /assets/images/hacking/2021/09/04.png
-    image_path: /assets/images/hacking/2021/09/04.png
-  - url: /assets/images/hacking/2021/09/05.png
-    image_path: /assets/images/hacking/2021/09/05.png
 ---
 # Wstęp
 [Funbox: Scriptkiddie](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) jest chyba najłatwiejszą maszyną jaką dane było mi złamać. Jeżeli jesteś początkujący, spróbuj ją przejść bez solucji. To naprawdę jest proste. A jeżeli utknąłeś, to cóż, ten tekst powinien Ci pomóc.
