@@ -13,7 +13,7 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Wstęp
-HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [somu sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na Ubuntu 14.04, więc ja na swoim XPC-NG nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
+HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie roota (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na Ubuntu 14.04, więc ja na swoim XPC-NG nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
 {: .text-justify}
 ## Moduły w Metasploicie
 Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron www. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
@@ -265,9 +265,9 @@ msf6 > wmap_vulns -l
 [*]     GET Res code: 404
 msf6 >
 ```
-Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu Nmap-em, widzimy następujące otwarte porty. 
+Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu **Nmap**em, widzimy następujące otwarte porty. 
 {: .text-justify}
-Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z Nmap-a zostawiam czytelnikowi.
+Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
 {: .notice--danger}
 ```bash
 host          port  proto  name    state  info
@@ -401,7 +401,7 @@ test@ctf:~$
 ```bash
 sudo -u#-1 /bin/bash
 ```
-Ta komenda daje dostęp do root-a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoi, jeszcze widzimy plik **pass.txt**. Mając root-a szybko coś znajdziemy.
+Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoi, jeszcze widzimy plik **pass.txt**. Mając **root**a szybko coś znajdziemy.
 {: .text-justify}
 ```bash
 root@ctf:~# find / -name pass.txt

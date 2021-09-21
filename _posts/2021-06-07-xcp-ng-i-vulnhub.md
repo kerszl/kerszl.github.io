@@ -17,11 +17,11 @@ XCP-ng sprawia dużo problemów, a VMware ESXi jest prawie bezbłędny(?) Przypo
 {: .text-justify}
 
 # Gmeranie czas zacząć
-Nie spodobało mi się to, że nie widzę ip serwera. Jak włamać się na coś, co nawet nie ma swojego adresu? Żeby zilustrować sytuację przetestujmy jakiś obraz. **Ofiarą** tym razem będzie [recon: 1](https://www.vulnhub.com/entry/recon-1,438/). W opisie obrazu jest wzmianka o automatycznym przypisaniu IP, jednak po zainstalowaniu i rekonensansie nie widzimy nowego maka. (Mała dygresja. Jakiś czas temu wyszedł XCP-ng z numerem 8.2. Nie wiadomo czemu, ale obrazy wirtualne wrzucały się na niego masakrycznie długo. Wróciłem więc do wersji 8.1). Pomyślałem, że brak przyznania ip może wiązać się z problemem nazewnictwa interfejsów sieciowych. To co pod VMware działa bezbłędnie, tutaj niestety nie do końca. Na VMware ISO-a odpalają się normalnie, niezależnie czy to jest eth0, czy enp0s, czy jakieś inne cuda. Takie to są skutki zastąpienia starej dobrej nazwy w stylu eth(x) w jakiś dziwoląg typu enp0s3. Wiem, że w niektórych sytuacjach to nazewnictwo jest przydatne i odchodzi się od eth(x, zwłaszcza w chmurze, ale na XCP-ng są przez to problemy.
+Nie spodobało mi się to, że nie widzę ip serwera. Jak włamać się na coś, co nawet nie ma swojego adresu? Żeby zilustrować sytuację przetestujmy jakiś obraz. **Ofiarą** tym razem będzie [recon: 1](https://www.vulnhub.com/entry/recon-1,438/). W opisie obrazu jest wzmianka o automatycznym przypisaniu IP, jednak po zainstalowaniu i rekonensansie nie widzimy nowego maka. (Mała dygresja. Jakiś czas temu wyszedł XCP-ng z numerem 8.2. Nie wiadomo czemu, ale obrazy wirtualne wrzucały się na niego masakrycznie długo. Wróciłem więc do wersji 8.1). Pomyślałem, że brak przyznania ip może wiązać się z problemem nazewnictwa interfejsów sieciowych. To co pod VMware działa bezbłędnie, tutaj niestety nie do końca. Na VMware **ISO**a odpalają się normalnie, niezależnie czy to jest eth0, czy enp0s, czy jakieś inne cuda. Takie to są skutki zastąpienia starej dobrej nazwy w stylu eth(x) w jakiś dziwoląg typu enp0s3. Wiem, że w niektórych sytuacjach to nazewnictwo jest przydatne i odchodzi się od eth(x, zwłaszcza w chmurze, ale na XCP-ng są przez to problemy.
 {: .text-justify}
 
 ## Jak zmienić nazwę interfejsu sieciowego na eth0
-Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się nam pokazać okno Grub-a. Jeżeli się nie pojawi, to trzymamy przycisk **SHIFT**. 
+Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się nam pokazać okno **Grub**a. Jeżeli się nie pojawi, to trzymamy przycisk **SHIFT**. 
 {: .text-justify}
 ![grub](/assets/images/hacking/2021/02/01.png)
 Następnie klawisz **e** i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
@@ -38,7 +38,7 @@ _ro_ Zamieniamy na _rw init=/bin/bash_ Wygląda to mnie więcej tak:
 linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash
 ```
 
-klawisz **F10** i po chwili ładuje się konsola do root-a
+klawisz **F10** i po chwili ładuje się konsola do **root**a
 {: .text-justify}
 
 ![grub](/assets/images/hacking/2021/02/02.png)
@@ -61,7 +61,7 @@ auto enp0s3
 iface enp0s3 inet dhcp
 ```
 
-Mała uwaga: czasami ustawienie sieciówek jest _/etc/netplan/*.yml_ Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem Yaml-a wywalał mi się konfig i nie wiedziałem czemu.
+Mała uwaga: czasami ustawienie sieciówek jest _/etc/netplan/*.yml_ Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem **Yaml**a wywalał mi się konfig i nie wiedziałem czemu.
 {: .text-justify}
 
 W pliku _/etc/network/interface_ zamieniamy _enp0s3_ na _eth0_
@@ -73,7 +73,7 @@ Zaś w  _/etc/default/grub_ należy dodać do _GRUB_CMDLINE_LINUX_ poniższe par
 GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 ```
 
-Komenda _grub-mkconfig_ tworzy konfigurację Grub-a
+Komenda _grub-mkconfig_ tworzy konfigurację **Grub**a
 {: .text-justify}
 
 ```

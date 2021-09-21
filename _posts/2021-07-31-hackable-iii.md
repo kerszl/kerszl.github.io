@@ -43,7 +43,7 @@ host          port  proto  name  state     info
 Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
 {: .text-justify}
 {% include gallery id="gallery1_2"  %}
-Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w HTML-u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
+Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w **HTML**u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
 Sprawdźmy co jest jeszcze na na tym serwerze www:
@@ -179,7 +179,7 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 Jak widzimy mamy użytkownika **jubiscleudo** i hasło **onlymy**. Wejdźmy na shella.
 {: .text-justify}
 ## Shelltris
-W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma root-a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka) 😏
+W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma **root**a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka) 😏
 {: .text-justify}
 {% include gallery id="gallery4_5"  %}
 ## Zostawcie Shelltris w spokoju 
@@ -267,7 +267,7 @@ Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.
 Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
 ```
 ## Włany Rootshell
-Crontab nie może uruchomić z **Root-a** programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył :smiley:, ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na Root-a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+Crontab nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył :smiley:, ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
 ```c
 void main()
 { setuid(0);
@@ -298,7 +298,7 @@ drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
 -rwxr-xr-x  1 root       root       59653 Apr 28 15:06 tetris.sh
 -rwxrwxr-x  1 hackable_3 hackable_3   251 Aug 10 21:59 to_hackable_3.py
 ```
-**Rootshell** ma Suida i Root-a:
+**Rootshell** ma Suida i **Root**a:
 ```console
 hackable_3@ubuntu20:/scripts$ ./rootshell
 root@ubuntu20:/scripts# id

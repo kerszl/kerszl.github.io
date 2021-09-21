@@ -146,7 +146,7 @@ Pozostaje nam wykorzystać adres z końcówką **run**. Najpierw wchodzimy na [l
 ### Curl
 Okazuje się, że potrzebujemy sekretnego klucza, który jest w urlu **http://172.16.1.141:8080/secret**:
 {: .text-justify}
-Wróćmy na chwilę do **Curl**-a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu do **Curl**-a. Wchodząc na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**-a się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token poprzez ciasteczko, domyślnie się nazywa **access_token_cookie**.
+Wróćmy na chwilę do **Curl**a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu do **Curl**a. Wchodząc na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**a się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token poprzez ciasteczko, domyślnie się nazywa **access_token_cookie**.
 {: .text-justify}
 
 ![xcp](/assets/images/hacking/2021/10/08.png)
@@ -186,5 +186,5 @@ Content-Length: 227
 # Koniec
 Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik **flask_blog/app.py**. Tam znajdziecie co trzeba.
 {: .text-justify}
-Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **json**-a oraz metody **GET** i **POST**.
+Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **JSON**a oraz metody **GET** i **POST**.
 {: .text-justify}

@@ -25,7 +25,7 @@ gallery2_3:
 [ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Nazwa obrazu (**THM-ContainMe-v4.ova**) wskazuje czwartą werjsę(?). Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. **ContainMe: 1**, jak nazwa wskazuje, jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/). Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
 {: .text-justify}
 ## Zaczynamy
-Standardowo na początku użyjemy <mark>Nmap</mark>-a w <mark>Metasploicie</mark>:
+Standardowo na początku użyjemy <mark>Nmapa</mark> w <mark>Metasploicie</mark>:
 {: .text-justify}
 ```console
 db_nmap -A -p- 172.16.1.218
@@ -331,8 +331,8 @@ id
 root@host1:/usr/share/man/zh_TW# id
 uid=0(root) gid=33(www-data) groups=33(www-data)
 ```
-### nmap
-No i mamy **Root**-a. Skoro jesteśmy na kontenerze, to sprawdźmy interfejsy sieciowe:
+### Nmap
+No i mamy **Root**a. Skoro jesteśmy na kontenerze, to sprawdźmy interfejsy sieciowe:
 {: .text-justify}
 ```console
 root@host1:/usr/share/man/zh_TW# ifconfig
@@ -364,7 +364,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 49137  bytes 14090165 (14.0 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-Zainstalujmy <mark>Nmap</mark>-a i przeskanujmy interfejs **eth1**:
+Zainstalujmy <mark>Nmapa</mark> i przeskanujmy interfejs **eth1**:
 {: .text-justify}
 <mark>Nmap</mark> instalujemy z konta root
 {: .notice--danger}
