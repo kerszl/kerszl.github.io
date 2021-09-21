@@ -9,19 +9,24 @@ tags:
   - Hacking
   - Tools
   - Vulnhub
+  - nmap
+  - nping
+  - netdiscover
+  - masscan
+  - fping  
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Wstęp
-Od jakiegoś czasu zacząłem opisywać przejście poszczególnych maszyn z serwisu [Vulnhub](https://www.vulnhub.com/). Pewnie też zahaczę o serwis [hackmyvm](https://hackmyvm.eu/), bo jest tam parę ciekawych wirtualek, ale bardzo słabo, a wręcz zdawkowo opisywałem narzędzia, które są pomocne do ich przejścia. Bez nich raczej ciężko sobie poradzić. W tej serii będę opisywał wg mnie najciekawsze programy, ale też i przydatne skrypty, sposoby pomagające w przejściu naszej VM oraz . Oczywiście cały wpis po jakimś czasie może się zmienić, coś może dojść, coś wypaść.
+Od jakiegoś czasu zacząłem opisywać solucje maszyn z serwisu [Vulnhub](https://www.vulnhub.com/). Pewnie też zahaczę o serwis [hackmyvm](https://hackmyvm.eu/), bo jest tam parę ciekawych wirtualek, ale bardzo słabo, a wręcz zdawkowo opisywałem narzędzia, które są pomocne do ich przejścia. Bez nich raczej ciężko sobie poradzić. Będę opisywał (wg mnie) najciekawsze programy, ale też i przydatne skrypty, sposoby pomagające w przejściu naszej VM.
 {: .text-justify}
 # Zaczynamy
 ## Nmap
 ### Z czym to się skanuje?
-[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu Ping, ale czy go można zaliczyć). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaeleźć w gąszczu komend. Pierwsza wersja Nmapa pochodzi z 1997 roku, czyli z XX wieku. Program jest ciągle rozwijany i na obecną chwilę nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się podoba w **Nmap**ie oprócz multum funkcji, to wygodne podawanie zakresu sieci.
+[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu **Ping** - ale czy go można zaliczyć do skanerów sieci?). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaleźć w gąszczu komend. Pierwsza wersja **Nmapa** pochodzi z 1997 roku, czyli aż z XX wieku. :smiley: Program jest ciągle rozwijany i na obecną chwilę chyba nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się w nim podoba, oprócz multum funkcji, to wygodne podawanie zakresu sieci w hostach. Oprócz tego **Nmap** możemy wykorzystać w **Metasploicie** (komenda **db_nmap**).
 {: .text-justify}
 ### Przykłady
-Człowiek się uczy na przykładach, więc parę podam:
+Człowiek się uczy na przykładach, więc podam parę przykładów:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Szybkie skanowanie sieci:
@@ -42,7 +47,7 @@ MAC Address: B6:B6:42:48:B5:89 (Unknown)
 Nmap done: 101 IP addresses (3 hosts up) scanned in 1.83 seconds
 ```
 </div>
-Wygląda to średnio, więc możemy trochę upiększyć nasz wynik dodając skrypt na koniec:
+Wygląda to nie do końca czytelnie, więc możemy trochę upiększyć nasz wynik, dodając skrypt na koniec:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```bash
@@ -54,7 +59,7 @@ nmap -n -sn 172.16.1.100-200 | awk '{if ($1~/Nmap/) printf ($5" "); if ($1~/MAC/
 172.16.1.194 B6:B6:42:48:B5:89
 ```
 </div>
-Jeżeli już wyczailiśmy swoją maszynę do testów, zazwyczaj używa się komendy:
+Jeżeli już wyczailiśmy swoją podatną maszynę z obrazu do testów, zazwyczaj się używa komendy:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Skanowanie pełne
@@ -103,14 +108,14 @@ Network Distance: 1 hop
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 </div>
-Opiszę tutaj parametry programu:
+Parametry programu:
 {: .text-justify}
 - -A - tak jakby skanowanie pełne, skanuje najpotrzebniejsze dla nas rzeczy
-- -p- skanuje wszystkie porty
-- -T5 - czym wyższy wynik, tym skanowanie jest szybsze
-
+- -p- skanuje wszystkie porty (ważne żeby podać, bo czasami są zmyłki)
+- -T5 - czym wyższa cyfra, tym skanowanie jest szybsze
 ## Nping
-Jest jakby uboższym bratem **Nmapa**. Można go ściągnąć [stąd](https://nmap.org/nping/). Służy głównie do pingowania sieci z naciskiem na protokoły ICMP, ARP, TCP itd. Używam go głównie w zastępstwie starego **Arping**a do szybkiego skanowania po **MAC**ach. Tak samo jak **Nmap** ma wygodny format hostów do skanowania.
+Jest jakby "uboższym" bratem **Nmapa**. Można go ściągnąć [stąd](https://nmap.org/nping/). Służy głównie do pingowania sieci z naciskiem na protokoły ICMP, ARP, TCP itd. Używam go głównie w zastępstwie starego **Arping**a do szybkiego skanowania po **MAC**ach. Tak samo jak **Nmap** ma wygodny format zapisu hostów do skanowania.
+{: .text-justify}
 ### Parę przykładów
 <div class="notice--primary" markdown="1">
 ```bash
@@ -156,7 +161,58 @@ RCVD (6.0464s) TCP 172.16.1.108:80 > 172.16.1.10:26710 SA ttl=64 id=0 iplen=44  
 RCVD (8.0494s) TCP 172.16.1.108:443 > 172.16.1.10:26710 RA ttl=64 id=0 iplen=40  seq=0 win=0
 ```
 </div>
+## Netdiscover
+### Przykład użycia
+[Netdiscover](https://github.com/alexxy/netdiscover) wyświetla **na żywo** hosty, które znalazł w sieci. Program jest przydatny np., kiedy chcemy zobaczyć kto się nowy pojawił, albo zniknął. Niestety w programie podajemy całe zakresy sieci, ale to nie powinno przeszkadzać.
+{: .text-justify}
+<div class="notice--primary" markdown="1">
+```bash
+netdiscover -i eth0 -r 172.16.1.0/24
+```
+```console
+ Currently scanning: 172.16.1.0/24   |   Screen View: Unique Hosts
 
-
-
-
+ 3 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 408
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname
+ -----------------------------------------------------------------------------
+ 172.16.1.108    92:25:ca:13:80:8a      1      42  Unknown vendor
+ 172.16.1.135    00:17:9a:25:46:bf      1      60  D-Link Corporation
+ 172.16.1.194    b6:b6:42:48:b5:89      1      42  Unknown vendor
+```
+</div>
+## Masscan
+Bardzo szybki skaner, który znajduje się w [repozytorium](https://github.com/robertdavidgraham/masscan). W sumie nie używam go za często do wyszukiwania otwartych portów wirtualkach, ale zamieszczam go tutaj ze względu na jego szybkość.
+{: .text-justify}
+### Przykład użycia
+<div class="notice--primary" markdown="1">
+```bash
+masscan 172.16.1.108-172.16.1.200 -p80
+```
+```console
+Starting masscan 1.3.2 (http://bit.ly/14GZzcT) at 2021-09-21 17:51:10 GMT
+Initiating SYN Stealth Scan
+Scanning 93 hosts [1 port/host]
+Discovered open port 80/tcp on 172.16.1.135
+Discovered open port 80/tcp on 172.16.1.194
+Discovered open port 80/tcp on 172.16.1.108
+```
+</div>
+## Fping
+### Przykład użycia
+Mały i prosty program do szybkiego pingowania, dobrze się sprawdza w skryptach. Ale uwaga działa tylko na protokole **ICMP**.
+{: .text-justify}
+<div class="notice--primary" markdown="1">
+```bash
+fping -qag 172.16.1.0/24
+```
+```console
+172.16.1.108
+172.16.1.135
+172.16.1.194
+172.16.1.244
+```
+</div>
+#I to już wszystko
+Jak się podobał wpis, daj znać na mejla. A może znasz jakiś ciekawy program, który warto tutaj dodać. Myślę, że będę kontynuował tę serię.
+{: .text-justify}
