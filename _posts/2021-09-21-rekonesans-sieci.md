@@ -23,7 +23,7 @@ Od jakiegoś czasu zacząłem opisywać solucje maszyn z serwisu [Vulnhub](https
 # Zaczynamy
 ## Nmap
 ### Z czym to się skanuje?
-[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu **Ping** - ale czy go można zaliczyć do skanerów sieci?). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaleźć w gąszczu komend. Pierwsza wersja **Nmap**a pochodzi z 1997 roku, czyli aż z XX wieku. :smiley: Program jest ciągle rozwijany i na obecną chwilę chyba nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się w nim podoba, oprócz multum funkcji, to wygodne podawanie zakresu sieci w hostach. Oprócz tego **Nmap** możemy wykorzystać w **Metasploicie** (komenda **db_nmap**).
+[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu **Ping** - ale czy go można zaliczyć do skanerów sieci?). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaleźć w gąszczu komend. Pierwsza wersja **Nmap**a pochodzi z 1997 roku, czyli aż z XX wieku. :smiley: Program jest ciągle rozwijany i na obecną chwilę chyba nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się w nim podoba, oprócz multum funkcji, to wygodne podawanie zakresu sieci w hostach.
 {: .text-justify}
 ### Przykłady
 Człowiek się uczy na przykładach, więc podam parę przykładów:
@@ -62,7 +62,7 @@ nmap -n -sn 172.16.1.100-200 | awk '{if ($1~/Nmap/) printf ($5" "); if ($1~/MAC/
 Jeżeli już wyczailiśmy swoją podatną maszynę z obrazu do testów, zazwyczaj się używa komendy:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
-Skanowanie pełne
+Pełne skanowanie
 ```bash
 nmap -T5 -A -p- 172.16.1.108
 ```
@@ -106,6 +106,63 @@ OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
 OS details: Linux 4.15 - 5.6
 Network Distance: 1 hop
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+```
+</div>
+### Metasploit
+Tak, możemy też użyć **Nmap**a w Metasploicie. Parametry są takie same jak w "zwykłym" programie.
+{: .text-justify}
+#### Przykład użycia
+<div class="notice--primary" markdown="1">
+```console
+msf6 > workspace -a hundred
+[*] Added workspace: hundred
+[*] Workspace: hundred
+msf6 > db_nmap -T5 -A -p- 172.16.1.108
+[*] Nmap: Starting Nmap 7.91 ( https://nmap.org ) at 2021-09-21 20:42 CEST
+[*] Nmap: Nmap scan report for hundred.lan (172.16.1.108)
+[*] Nmap: Host is up (0.00039s latency).
+[*] Nmap: Not shown: 65532 closed ports
+[*] Nmap: PORT   STATE SERVICE VERSION
+[*] Nmap: 21/tcp open  ftp     vsftpd 3.0.3
+[*] Nmap: | ftp-anon: Anonymous FTP login allowed (FTP code 230)
+[*] Nmap: | -rwxrwxrwx    1 0        0             435 Aug 02 06:19 id_rsa [NSE: writeable]
+[*] Nmap: | -rwxrwxrwx    1 1000     1000         1679 Aug 02 06:11 id_rsa.pem [NSE: writeable]
+[*] Nmap: | -rwxrwxrwx    1 1000     1000          451 Aug 02 06:11 id_rsa.pub [NSE: writeable]
+[*] Nmap: |_-rwxrwxrwx    1 0        0             187 Aug 02 06:27 users.txt [NSE: writeable]
+[*] Nmap: | ftp-syst:
+[*] Nmap: |   STAT:
+[*] Nmap: | FTP server status:
+[*] Nmap: |      Connected to ::ffff:172.16.1.10
+[*] Nmap: |      Logged in as ftp
+[*] Nmap: |      TYPE: ASCII
+[*] Nmap: |      No session bandwidth limit
+[*] Nmap: |      Session timeout in seconds is 300
+[*] Nmap: |      Control connection is plain text
+[*] Nmap: |      Data connections will be plain text
+[*] Nmap: |      At session startup, client count was 2
+[*] Nmap: |      vsFTPd 3.0.3 - secure, fast, stable
+[*] Nmap: |_End of status
+[*] Nmap: 22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+[*] Nmap: | ssh-hostkey:
+[*] Nmap: |   2048 ef:28:1f:2a:1a:56:49:9d:77:88:4f:c4:74:56:0f:5c (RSA)
+[*] Nmap: |   256 1d:8d:a0:2e:e9:a3:2d:a1:4d:ec:07:41:75:ce:47:0e (ECDSA)
+[*] Nmap: |_  256 06:80:3b:fc:c5:f7:7d:c5:58:26:83:c4:f7:7e:a3:d9 (ED25519)
+[*] Nmap: 80/tcp open  http    nginx 1.14.2
+[*] Nmap: |_http-server-header: nginx/1.14.2
+[*] Nmap: |_http-title: Site doesn't have a title (text/html).
+[*] Nmap: MAC Address: 92:25:CA:13:80:8A (Unknown)
+[*] Nmap: Device type: general purpose
+[*] Nmap: Running: Linux 4.X|5.X
+[*] Nmap: OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+[*] Nmap: OS details: Linux 4.15 - 5.6
+[*] Nmap: Network Distance: 1 hop
+[*] Nmap: Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+[*] Nmap: TRACEROUTE
+[*] Nmap: HOP RTT     ADDRESS
+[*] Nmap: 1   0.39 ms hundred.lan (172.16.1.108)
+[*] Nmap: OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+[*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 9.98 seconds
+msf6 >
 ```
 </div>
 Parametry programu:
@@ -163,9 +220,9 @@ RCVD (8.0494s) TCP 172.16.1.108:443 > 172.16.1.10:26710 RA ttl=64 id=0 iplen=40 
 ```
 </div>
 ## Netdiscover
-### Przykład użycia
 [Netdiscover](https://github.com/alexxy/netdiscover) wyświetla **na żywo** hosty, które znalazł w sieci. Program jest przydatny np., kiedy chcemy zobaczyć kto się nowy pojawił, albo zniknął. Niestety w programie mamy tylko możliwość wpisania całego zakresu sieci, ale to nie powinno przeszkadzać.
 {: .text-justify}
+### Przykład użycia
 <div class="notice--primary" markdown="1">
 ```bash
 netdiscover -i eth0 -r 172.16.1.0/24
@@ -200,9 +257,9 @@ Discovered open port 80/tcp on 172.16.1.108
 ```
 </div>
 ## Fping
-### Przykład użycia
 Mały i prosty program do szybkiego pingowania, dobrze się sprawdza w skryptach. Ale uwaga działa tylko na protokole **ICMP**.
 {: .text-justify}
+### Przykład użycia
 <div class="notice--primary" markdown="1">
 ```bash
 fping -qag 172.16.1.0/24
