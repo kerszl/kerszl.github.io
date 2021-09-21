@@ -23,7 +23,7 @@ Od jakiegoś czasu zacząłem opisywać solucje maszyn z serwisu [Vulnhub](https
 # Zaczynamy
 ## Nmap
 ### Z czym to się skanuje?
-[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu **Ping** - ale czy go można zaliczyć do skanerów sieci?). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaleźć w gąszczu komend. Pierwsza wersja **Nmapa** pochodzi z 1997 roku, czyli aż z XX wieku. :smiley: Program jest ciągle rozwijany i na obecną chwilę chyba nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się w nim podoba, oprócz multum funkcji, to wygodne podawanie zakresu sieci w hostach. Oprócz tego **Nmap** możemy wykorzystać w **Metasploicie** (komenda **db_nmap**).
+[Nmap](https://nmap.org) jest chyba najstarszym skanerem sieciowym jakiego znam (nie licząc programu **Ping** - ale czy go można zaliczyć do skanerów sieci?). Komendy się wydaje stosując linię komend, co dla niektórych może nie być wygodne, ale na szczęście dla tych osób, są nakładki graficzne, które pomagają się odnaleźć w gąszczu komend. Pierwsza wersja **Nmap**a pochodzi z 1997 roku, czyli aż z XX wieku. :smiley: Program jest ciągle rozwijany i na obecną chwilę chyba nie ma sobie równych. Jest dostępny na wszystkie ważniejsze platformy. To co mi się w nim podoba, oprócz multum funkcji, to wygodne podawanie zakresu sieci w hostach. Oprócz tego **Nmap** możemy wykorzystać w **Metasploicie** (komenda **db_nmap**).
 {: .text-justify}
 ### Przykłady
 Człowiek się uczy na przykładach, więc podam parę przykładów:
@@ -113,8 +113,9 @@ Parametry programu:
 - -A - tak jakby skanowanie pełne, skanuje najpotrzebniejsze dla nas rzeczy
 - -p- skanuje wszystkie porty (ważne żeby podać, bo czasami są zmyłki)
 - -T5 - czym wyższa cyfra, tym skanowanie jest szybsze
+
 ## Nping
-Jest jakby "uboższym" bratem **Nmapa**. Można go ściągnąć [stąd](https://nmap.org/nping/). Służy głównie do pingowania sieci z naciskiem na protokoły ICMP, ARP, TCP itd. Używam go głównie w zastępstwie starego **Arping**a do szybkiego skanowania po **MAC**ach. Tak samo jak **Nmap** ma wygodny format zapisu hostów do skanowania.
+Jest jakby "uboższym" bratem **Nmap**a. Można go ściągnąć [stąd](https://nmap.org/nping/). Służy głównie do pingowania sieci z naciskiem na protokoły ICMP, ARP, TCP itd. Używam go głównie w zastępstwie starego **Arping**a do szybkiego skanowania po **MAC**ach. Tak samo jak **Nmap** ma wygodny format zapisu hostów do skanowania.
 {: .text-justify}
 ### Parę przykładów
 <div class="notice--primary" markdown="1">
@@ -163,7 +164,7 @@ RCVD (8.0494s) TCP 172.16.1.108:443 > 172.16.1.10:26710 RA ttl=64 id=0 iplen=40 
 </div>
 ## Netdiscover
 ### Przykład użycia
-[Netdiscover](https://github.com/alexxy/netdiscover) wyświetla **na żywo** hosty, które znalazł w sieci. Program jest przydatny np., kiedy chcemy zobaczyć kto się nowy pojawił, albo zniknął. Niestety w programie podajemy całe zakresy sieci, ale to nie powinno przeszkadzać.
+[Netdiscover](https://github.com/alexxy/netdiscover) wyświetla **na żywo** hosty, które znalazł w sieci. Program jest przydatny np., kiedy chcemy zobaczyć kto się nowy pojawił, albo zniknął. Niestety w programie mamy tylko możliwość wpisania całego zakresu sieci, ale to nie powinno przeszkadzać.
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```bash
@@ -213,6 +214,6 @@ fping -qag 172.16.1.0/24
 172.16.1.244
 ```
 </div>
-#I to już wszystko
+# I to już wszystko
 Jak się podobał wpis, daj znać na mejla. A może znasz jakiś ciekawy program, który warto tutaj dodać. Myślę, że będę kontynuował tę serię.
 {: .text-justify}
