@@ -100,7 +100,7 @@ msf6 auxiliary(scanner/ftp/anonymous) > wmap_vulns -l
 [*]     file File found.
 [*]     GET Res code: 301
 ```
-Voilà – jest katalog **files**, a w nim plik **CALL.html**, tak jak na było ftp-ie. To jest to samo, tylko widoczne z innych źródeł. Wchodząc na **http://172.16.1.244/files/CALL.html** nic ciekawego nie znajdziemy, chociaż w tytule strony jest **onion**. Nazwa nam nic nie mówi. Jednak wychodzi, że strona www jest powiązana z ftp-em. Przez ftp-a wrzucamy plik, a przez www go odpalamy. Oczywiście do tego użyjemy Metasploita (oprócz wrzutki przez ftp-a). Najlepsze ładunki są z konsolą meterpreter, więc ich szukajmy:
+Voilà – jest katalog **files**, a w nim plik **CALL.html**, tak jak na było **ftp**ie. To jest to samo, tylko widoczne z innych źródeł. Wchodząc na **http://172.16.1.244/files/CALL.html** nic ciekawego nie znajdziemy, chociaż w tytule strony jest **onion**. Nazwa nam nic nie mówi. Jednak wychodzi, że strona www jest powiązana z **ftp**em. Przez **ftp**a wrzucamy plik, a przez www go odpalamy. Oczywiście do tego użyjemy Metasploita (oprócz wrzutki przez **ftp**a). Najlepsze ładunki są z konsolą meterpreter, więc ich szukajmy:
 {: .text-justify}
 ```bash
 root@kali:~# msfvenom -p php/meterpreter/bind_tcp LPORT=5555 > php_meterpreter_bind_tcp.php
@@ -325,17 +325,17 @@ Wchodzimy na konto shreka.
 ```bash
 cat user.txt
 ```
-Wyświetli się obrazek (sam zobacz jaki :smiley: ). Jeszcze zostało wejść na root-a. Mamy plik **Sudoers**, a tam jest taka ciekawa linijka:
+Wyświetli się obrazek (sam zobacz jaki :smiley: ). Jeszcze zostało wejść na **root**a. Mamy plik **Sudoers**, a tam jest taka ciekawa linijka:
 {: .text-justify}
 ```
 %shrek ALL = NOPASSWD:/usr/bin/python3.5
 ```
-Program python3.5 ma uprawnienia root-a, ale tylko z grupy shrek. Trzeba to wykorzystać.
+Program python3.5 ma uprawnienia **root**a, ale tylko z grupy shrek. Trzeba to wykorzystać.
 {: .text-justify}
 ```
 -rwxr-xr-x 2 root root 4460304 Oct  9  2020 /usr/bin/python3.5
 ```
-Najpierw należy się połączyć na sesję nr 10. Tam wpisujemy shell. Bez shell-a nie odpali się nam Sudo:
+Najpierw należy się połączyć na sesję nr 10. Tam wpisujemy shell. Bez **shell**a nie odpali się nam Sudo:
 {: .text-justify}
 ```bash
   Id  Name  Type         Information                        Connection

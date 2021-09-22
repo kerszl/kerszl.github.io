@@ -271,6 +271,25 @@ fping -qag 172.16.1.0/24
 172.16.1.244
 ```
 </div>
+## NBTscan
+Dosyć [stary](http://www.unixwiz.net/tools/nbtscan.html) program, ale pozwala nam szybko zeskanować komputery głównie pod systemami Windows. W wirtualkach jest raczej nieprzydatny, za to w dużych windosowskich sieciach - na pewno się przyda. Zamieszczam go tu jako ciekawostkę. Inną ciekawą rzeczą jest to, że program pamięta czasy **DOS**a. :smiley:
+{: .text-justify}
+### Przykład użycia:
+<div class="notice--primary" markdown="1">
+```bash
+nbtscan 172.16.1.0/24
+```
+```console
+Doing NBT name scan for addresses from 172.16.1.0/24
+
+IP address       NetBIOS Name     Server    User             MAC address
+------------------------------------------------------------------------------
+172.16.1.35      SATMAH96S       <server>   SATMMAH96S       00:00:00:00:00:00
+172.16.1.44      KOMP1            <server>  KOMP1            00:00:00:00:00:00
+172.16.1.113     DESKTOP-32RQ3IP  <server>  <unknown>        xx:xx:xx:1b:xx:e2
+```
+</div>
+
 # I to już wszystko
-Jak się podobał wpis, daj znać na mejla. A może znasz jakiś ciekawy program, który warto tutaj dodać. Myślę, że będę kontynuował tę serię.
+Jak się podobał wpis, daj znać na mejla. A może znasz jakiś ciekawy program, który warto tutaj dodać? Myślę, że będę kontynuował tę serię.
 {: .text-justify}
