@@ -240,7 +240,7 @@ netdiscover -i eth0 -r 172.16.1.0/24
 ```
 </div>
 ## Masscan
-Bardzo szybki skaner, który znajduje się w [repozytorium](https://github.com/robertdavidgraham/masscan). W sumie nie używam go za często do wyszukiwania otwartych portów wirtualkach, ale zamieszczam go tutaj ze względu na jego szybkość.
+Bardzo szybki skaner, który znajduje się w [repozytorium](https://github.com/robertdavidgraham/masscan). W sumie nie używam go za często do wyszukiwania otwartych portów wirtualek, ale zamieszczam go tutaj ze względu na jego szybkość.
 {: .text-justify}
 ### Przykład użycia
 <div class="notice--primary" markdown="1">
