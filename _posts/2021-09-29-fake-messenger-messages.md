@@ -42,6 +42,6 @@ Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i**, a następnie **CTRL+SHIFT+c*
 * Piszemy jakąś wiadomość do kogoś na **Messengerze**. Zamieniamy co tam chcemy. Robimy screena, wysyłamy i robimy zamieszanie ;) To samo można zrobić w programie graficznym, ale tutaj jest szybciej. 
 {: .text-justify}
 # Screeny
-Poniżej zrzuty ekranu mojej rozmowy ze mną. Prawdziwa i zmieniona.
+Poniżej zrzuty ekranu mojej rozmowy ze mną. Prawdziwa i zmieniona. Oczywiście rozmowę innych osób, z którymi rozmawiałeś też możesz zmienić.
 {: .text-justify}
 {% include gallery id="gallery3_4" caption="Rozmowa prawdziwa i fałszywa" %}
