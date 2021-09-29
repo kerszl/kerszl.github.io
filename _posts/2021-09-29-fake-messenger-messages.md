@@ -46,4 +46,5 @@ Piszemy jakąś wiadomość do kogoś na **Messengerze**. Zamieniamy co tam chce
 # Screeny
 Poniżej zrzuty ekranu mojej rozmowy ze mną. Prawdziwa i zmieniona.
 {: .text-justify}
-{% include gallery id="gallery3_4" caption="Rozmowa prawdziwa i fałszywa" %}
+<!-- {% include gallery id="gallery3_4" caption="Rozmowa prawdziwa i fałszywa" %} -->
+<!-- {% include gallery caption="Najciekawsze zdjęcia z dzisiejszego dnia" %} -->
