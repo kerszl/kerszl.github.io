@@ -35,13 +35,12 @@ Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i**, a następnie **CTRL+SHIFT+c*
 {: .text-justify}
 {% include gallery id="gallery1_2" %}
 # Do czego to może służyć?
-## 01
-Szef nas prosił, żebyśmy napisali do kogoś wiadomość, a nam się nie chce tego pisać, wolimy napisać coś innego (wiem, że to głupi przykład). Piszemy jakiś tekst, zamieniamy go i pokazujemy szefowi zmieniony. Oczywiście po jakimś czasie może to się wydać i  w sumie nie wiem po co takie rzeczy robić, ale to jest przykład? 
-## 02
-Chcemy wejść do chronionego budynku. Jedyna przeszkoda, to pilnujący go strażnik. Piszemy do jego szefa na Messengerze teksty typu **dzień dobry**, on coś tam odpowiada. Zamieniamy treści wiadomości na jakąś poważniejszą rozmowę. Np. o wpuszczeniu na teren budynku. Przy okazji sprzedajemy bajkę, że szef jest na konferencji, albo nie może telefonu odebrać, ale za to rozmawialiśmy na Messengerze i szef upoważnił wejście. Pokazujemy to strażnikowi i liczymy na łut szczęścia, że da się nabrać i nas wpuści. Oczywiście wszystko trzeba wcześniej rozplanować; sprawdzić gdzie jest w tej chwili jego szef; mieć jakieś awaryjne wyjścia itd.
+
+1. Szef nas prosił, żebyśmy napisali do kogoś wiadomość, a nam się nie chce tego pisać, wolimy napisać coś innego (wiem, że to głupi przykład). Piszemy jakiś tekst, zamieniamy go i pokazujemy szefowi zmieniony. Oczywiście po jakimś czasie może to się wydać i  w sumie nie wiem po co takie rzeczy robić, ale to jest przykład?
 {: .text-justify}
-## 03
-Piszemy jakąś wiadomość do kogoś na **Messengerze**. Zamieniamy co tam chcemy. Robimy screena, wysyłamy i robimy zamieszanie ;) To samo można zrobić w programie graficznym, ale tutaj jest szybciej. 
+2. Chcemy wejść do chronionego budynku. Jedyna przeszkoda, to pilnujący go strażnik. Piszemy do jego szefa na Messengerze teksty typu **dzień dobry**, on coś tam odpowiada. Zamieniamy treści wiadomości na jakąś poważniejszą rozmowę. Np. o wpuszczeniu na teren budynku. Przy okazji sprzedajemy bajkę, że szef jest na konferencji, albo nie może telefonu odebrać, ale za to rozmawialiśmy na Messengerze i szef upoważnił wejście. Pokazujemy to strażnikowi i liczymy na łut szczęścia, że da się nabrać i nas wpuści. Oczywiście wszystko trzeba wcześniej rozplanować; sprawdzić gdzie jest w tej chwili jego szef; mieć jakieś awaryjne wyjścia itd.
+{: .text-justify}
+3. Piszemy jakąś wiadomość do kogoś na **Messengerze**. Zamieniamy co tam chcemy. Robimy screena, wysyłamy i robimy zamieszanie ;) To samo można zrobić w programie graficznym, ale tutaj jest szybciej. 
 {: .text-justify}
 # Screeny
 Poniżej zrzuty ekranu mojej rozmowy ze mną. Prawdziwa i zmieniona.
