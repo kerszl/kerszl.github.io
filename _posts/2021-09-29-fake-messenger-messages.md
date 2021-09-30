@@ -41,6 +41,9 @@ Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i**, a następnie **CTRL+SHIFT+c*
 {: .text-justify}
 * Piszemy jakąś wiadomość do kogoś na **Messengerze**. Zamieniamy co tam chcemy. Robimy screena, wysyłamy i robimy zamieszanie ;) To samo można zrobić w programie graficznym, ale tutaj jest szybciej. 
 {: .text-justify}
+# Czy to jest moralne?
+To już sobie sam odpowiedz. Wpis pokazuje tylko możliwość, a nie zachęca kogokolwiek do **szkodzenia** innym osobom. Również widać jak łatwo można spreparować rozmowy, których nie było. Poza tym w OSINT, jeżeli tam będziesz, nie takich sztuczek się będziesz imał, aby osiągnąć swój cel.
+{: .text-justify}
 # Screeny
 Poniżej zrzuty ekranu mojej rozmowy ze mną. Prawdziwa i zmieniona. Oczywiście rozmowę innych osób, z którymi rozmawiałeś też możesz zmienić.
 {: .text-justify}
