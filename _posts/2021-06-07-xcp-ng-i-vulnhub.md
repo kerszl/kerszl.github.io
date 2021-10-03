@@ -83,9 +83,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 Resetujemy maszynę i mamy przyznany adres ip.
 {: .text-justify}
 
-Mały update: Ostatnio "poprawiłem" podobny obraz i nie trzeba było ingerować w Gruba.
+Mały update: Ostatnio "poprawiłem" podobny obraz i nie trzeba było ingerować w **Grub**ie.
 {: .text-justify}
 {: .notice--info}
+
+Dodatkowy update: Jeżeli pisząc wyskoczą wam z nieznanych powodów duże litery, a **capsclock** będzie wyłączony i będą się dziać cyrki, nie panikuj. Pomaga wtedy kombinacja SHIFT+TAB i wszysko wraca do normy.
+{: .text-justify}
+{: .notice--danger}
 
 Ps. Taki sposób trochę nam ułatwia włamanie się na serwer. Jednak to jest zabawa i sądzę, że robisz to tylko po to, żeby dobrze ustawić nazwę karty sieciowej, a na serwer się włamiesz metodą przewidzianą przez twórców.
 {: .text-justify}
