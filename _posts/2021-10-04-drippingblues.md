@@ -264,10 +264,10 @@ Jesteśmy na konsoli, jest tam dużo otwartych portów, ale nauczywszy się, że
 Zmieniamy język na inny: Settings->Region and lagunage -> Inny język
 {: .text-justify}
 ```bash
-# pidof accounts-daemon
-# kill -SIGSTOP NrFromPidof
+# NrFromPidof=$(pidof accounts-daemon)
+# kill -SIGSTOP $NrFromPidof
 # rm ~/.pam_environment
-# nohup bash -c "sleep 30s; kill -SIGSEGV NrFromPidof; kill -SIGCONT NrFromPidof" &
+# nohup bash -c "sleep 30s; kill -SIGSEGV $NrFromPidof; kill -SIGCONT $NrFromPidof" &
 ```
 Po wydaniu ostatniej komendy mamy 30 sekund na wylogowanie się. Robimy to, następnie czekamy, aż system nas zaloguje, abyśby mogli stworzyć nowe konto. Mamy dostęp do **root**a przez **su**. Żeby to wszystko lepiej zrozumieć, poniżej zamieszczam filmik z **YouTube**.
 {: .text-justify}
