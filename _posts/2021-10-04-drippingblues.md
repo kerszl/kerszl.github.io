@@ -81,10 +81,10 @@ msf6 > db_nmap -T4 -A -p- 172.16.1.195
 [*] Nmap: OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 [*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 10.31 seconds
 ```
-Są trzy otwarte porty: **21-FTP**,**22-SSH** i **80-WWW**. Już podczas skanowania **Nmap**em widać, że na **FTP** jest dostęp przez **Anonymous**.
+Są trzy otwarte porty: **21-FTP**, **22-SSH** i **80-WWW**. Już podczas skanowania **Nmap**em widać, że na **FTP** jest dostęp przez **Anonymous**.
 {: .text-justify}
 ## 03. Pierwszy fałszywy trop
-Na **FTP** jest plik **respectmydrip.zip**. Oczywiście ma hasło. Spróbujemy je złamać, ale wcześniej trzeba odzyskać hash. Do tego użyjemy **Zip2john** i **John**.
+Na **FTP** jest plik **respectmydrip.zip**. Oczywiście ma hasło. Spróbujemy je złamać, ale wcześniej trzeba odzyskać **hash**. Do tego użyjemy **Zip2john** i **John**.
 {: .text-justify}
 ```bash
 # zip2john respectmydrip.zip > respectmydrip.zip.hash
@@ -131,7 +131,7 @@ GENERATED WORDS: 4612
 END_TIME: Mon Oct  4 17:49:43 2021
 DOWNLOADED: 4612 - FOUND: 3
 ```
-Poniżej zawartość pliku **robots.txt**
+Poniżej zawartość pliku **robots.txt**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.195/robots.txt
@@ -256,12 +256,12 @@ Jest hasło do **Shell**a. Jeżeli przejdziemy do wirtualki, zobaczymy **login**
 {: .text-justify}
 
 ## 06. Ostatnie podpucha
-Jesteśmy na konsoli, jest tam dużo otwartych portów, ale nauczywszy się, że tutaj prawie wszędzie są ślepe zaułki i wirtualka jest na **GNOME**, to może coś będzie łatwego? Sprawdziwszy system jest na **Ubuntu 20.04**, więc można zastosować pewną sztuczkę. Chcę jednak przestrzec, że może się nie udać od razu. Możesz zablokować sobie konsolę przez maksymalne obciążenie procesora. Skasowanie pliku **~/.pam_environment** i restart serwera pomaga. Poniżej opiszę komendy jakie należy wykonać.
+Jesteśmy na konsoli, jest tam dużo otwartych portów, ale nauczywszy się, że tutaj prawie wszędzie są ślepe zaułki i wirtualka jest na **GNOME**, to może coś będzie łatwego? Sprawdziwszy system, widzimy że jest na **Ubuntu 20.04**, więc można zastosować pewną sztuczkę. Chcę jednak przestrzec, że może się nie udać od razu. Możesz zablokować sobie konsolę przez maksymalne obciążenie procesora. Skasowanie pliku **~/.pam_environment** i restart serwera pomaga. Poniżej opiszę komendy jakie należy wykonać.
 {: .text-justify}
 ```bash
 #ln -s /dev/zero ~/.pam_environment
 ```
-Zmieniamy język na inny: Settings->Region and lagunage -> Inny język
+Zmieniamy język na inny: Settings->Region and language -> Other language
 {: .text-justify}
 ```bash
 # NrFromPidof=$(pidof accounts-daemon)
