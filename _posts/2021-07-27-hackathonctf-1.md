@@ -13,13 +13,15 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Metainfo
-* Nazwa:        HackathonCTF: 1
-* Autor:        [somu-sen](https://www.vulnhub.com/author/somu-sen,747/)
-* Wypuszczony:  27.10.2020
-* Link:         [tutaj](https://www.vulnhub.com/entry/hackathonctf-1,591/)
-* Dostępny na:  [vulnhub](https://www.vulnhub.com)
-* Poziom:       Łatwy
-* Nauczysz się: Metasploit, ASCII code, BASE64
+
+|:----|:----|
+|Nazwa|HackathonCTF: 1
+|Autor|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
+|Wypuszczony|27.10.2020|
+|Link|[tutaj](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
+|Dostępny na|[vulnhub](https://www.vulnhub.com)|
+|Poziom|Łatwy|
+|Nauczysz się|Metasploit, ASCII code, BASE64, SUDO|
 
 # Wstęp
 HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
@@ -345,7 +347,7 @@ uname : test
 ftc.html
 <pre>
 <p style="background-color:white;">
-<!-- #117
+&lt;!-- #117
 #115
 #101
 #32
@@ -360,7 +362,7 @@ ftc.html
 #116
 #120
 #116
--->
+--&gt;
 </p>
 </pre>
 </div>
@@ -386,14 +388,18 @@ Po rozkodowaniu wychodzi **se rockyou.txt**.
 Został nam do rozkodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który jest w **robots.txt**. Tam zaś jest zakodowany ciąg w **Base64**.
 {: .text-justify}
 ```bash
-echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
+# echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
 ```
 Po rozkodowaniu otrzymujemy **ssh-bruteforce-sudoit**. Żeby się dostać na serwer ssh, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się **Hydra**. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach **Hydry** ustawiłem więcej wątków niż jest przewidziane standardowo. Skanowanie **SSH** skończyło się dosyć szybko.
 {: .text-justify}
 ```bash
-hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
+# hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
+```
+```console
 [7223][ssh] host: 172.16.1.167   login: test   password: jordan23
-ssh test@172.16.1.167 -p 7223
+```
+```bash
+# ssh test@172.16.1.167 -p 7223
 ```
 ## Mamy Shella
 Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem się to przydało. Mamy parę ciekawych rzeczy:
