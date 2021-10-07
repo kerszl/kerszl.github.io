@@ -91,7 +91,7 @@ msf6 auxiliary(scanner/ftp/anonymous) > wmap_run -e
 ..........
 ..........
 ```
-Zobaczmy co nam Wmap znalazł:
+Zobaczmy co nam **Wmap** znalazł:
 {: .text-justify}
 ```bash
 msf6 auxiliary(scanner/ftp/anonymous) > wmap_vulns -l
@@ -215,7 +215,7 @@ msf6 post(linux/gather/enum_system) > run
 [*] Post module execution completed
 msf6 post(linux/gather/enum_system) > loot
 ```
-komenda loot pozwala nam wyświetlić, to co ściągnęliśmy.
+komenda **loot** pozwala nam wyświetlić, to co ściągnęliśmy.
 {: .text-justify}
 w pliku **20210729214957_default_172.16.1.244_linux.enum.syste_656649.txt** mamy użytkowników z podatnej maszyny
 {: .notice--info}
@@ -295,9 +295,10 @@ msf6 auxiliary(scanner/ssh/ssh_login) > run
 [*] Auxiliary module execution completed
 ```
 ## Wchodzimy na serwer
-Użytkownik **ftp** ma hasło **ftp** ;) Mamy też na to sesję. Żeby połączyć się z wygodnym **Meterpreterem** użyjemy modułu **multi/manage/shell_to_meterpreter**. W module wpisujemy nr sesji. Teraz już zwykłe szukanie dziury w całym… ;) W katalogu **/home** jest plik **important.txt**. W nim zaś zawartość:
+Użytkownik **ftp** ma hasło **ftp** :smiley: Mamy też na to sesję. Żeby połączyć się z wygodnym **Meterpreterem** użyjemy modułu **multi/manage/shell_to_meterpreter**. W module wpisujemy nr sesji. Teraz już zwykłe szukanie dziury w całym… ;) W katalogu **/home** jest plik **important.txt**. W nim zaś zawartość:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
+important.txt
 <pre>
 <p style="background-color:white;">
 run the script to see the data
@@ -364,7 +365,7 @@ Program python3.5 ma uprawnienia **root**a, ale tylko z grupy **shrek**. Trzeba 
 ```
 -rwxr-xr-x 2 root root 4460304 Oct  9  2020 /usr/bin/python3.5
 ```
-Najpierw należy się połączyć na sesję nr 10. Tam wpisujemy shell. Bez **shell**a nie odpali się nam Sudo:
+Najpierw należy się połączyć na sesję nr 10. Tam wpisujemy **shell**. Bez **Shell**a nie odpali się nam **Sudo**:
 {: .text-justify}
 ```bash
   Id  Name  Type         Information                        Connection
@@ -394,6 +395,5 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 root@ubuntu:~# cat /root/root.txt
 ```
-
-Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę Metasploita. Jeżeli się podobał wpis napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com) lub skomentuj (jeżeli się da). 
+Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę **Metasploita**. Jeżeli się podobał wpis napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com) lub skomentuj (jeżeli się da). 
 {: .text-justify}

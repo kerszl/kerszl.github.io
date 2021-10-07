@@ -29,8 +29,16 @@ gallery4_5:
   - url: /assets/images/hacking/2021/06/05.png
     image_path: /assets/images/hacking/2021/06/05.png
 ---
+
+|Nazwa:|Hackable: III|
+|Autor:|[Elias-sousa](https://www.vulnhub.com/author/elias-sousa,804/)|
+|Wypuszczony:|02.06.2021|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-iii,720) - Vulnhub|
+|Poziom:|Średni|
+|Nauczysz się:| |
+
 # Wstęp
-[Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/)  jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest tak łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. Metasploita będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na XCP-ng musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
+[Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/)  jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest tak łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. **Metasploita** będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na **XCP-ng** musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
 {: .text-justify}
 ## Zaczynamy
 ```bash
