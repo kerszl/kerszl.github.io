@@ -1,5 +1,5 @@
 ---
-title: "digitalworld.local: snakeoil - GET, POST"
+title: "Digitalworld.local: snakeoil - GET, POST"
 excerpt: " "
 comments: true
 categories:
@@ -28,7 +28,7 @@ gallery6_7:
 ---
 
 |:----|:----|
-|Nazwa:|digitalworld.local: snakeoil|
+|Nazwa:|Digitalworld.local: snakeoil|
 |Autor:|[Donavan](https://www.vulnhub.com/author/donavan,601/)|
 |Wypuszczony:|23.08.2021|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738) - Vulnhub|
@@ -197,5 +197,5 @@ Content-Length: 227
 # Koniec
 Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik **flask_blog/app.py**. Tam znajdziecie co trzeba.
 {: .text-justify}
-Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **JSON**a oraz metody **GET** i **POST**.
+Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **JSON** oraz metody **GET** i **POST**.
 {: .text-justify}
