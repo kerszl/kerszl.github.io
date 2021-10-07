@@ -23,9 +23,14 @@ Write-up is in Polish language.
 {: .text-justify}
 
 ## 00. Metainfo
-* Wypuszczony: 20.09.2021
-* Poziom: łatwy
-* Obraz możesz ściągnąć [stąd](https://hackmyvm.eu/machines/machine.php?vm=Drippingblues)
+
+|:----|:----|
+|Nazwa:|Drippingblues|
+|Autor:|[Tasiyanci](https://hackmyvm.eu/profile/?user=tasiyanci)|
+|Wypuszczony:|20.09.2021|
+|Do ściągnięcia:|[Stąd](https://hackmyvm.eu/machines/machine.php?vm=Drippingblues) - HackMyVM|
+|Poziom:|Łatwy|
+|Nauczysz się:|Poznasz dużo ślepych zaułków, Ubuntu Gnome|
 
 ## 01. Wstęp
 Ta wirtualka jest bardzo podstępna, dużo czasu zabierają "niepotrzebne" czynności i ślepe zaułki. Jednak to jedna z jej cech. Dzięki temu można dużo rzeczy sobie przypomnieć i nieźle się sfrustrować. :smiley: Obraz również waży niemało, około 3 GB. Jest to zasługa interfejsu graficznego. Być może to jest **GNOME**(?) To może nam dać wskazówkę, że niekoniecznie trzeba się włamywać przez konsolę, a może tak?
@@ -259,7 +264,7 @@ Jest hasło do **Shell**a. Jeżeli przejdziemy do wirtualki, zobaczymy **login**
 Jesteśmy na konsoli, jest tam dużo otwartych portów, ale nauczywszy się, że tutaj prawie wszędzie są ślepe zaułki i wirtualka jest na **GNOME**, to może coś będzie łatwego? Sprawdziwszy system, widzimy że jest na **Ubuntu 20.04**, więc można zastosować pewną sztuczkę. Chcę jednak przestrzec, że może się nie udać od razu. Możesz zablokować sobie konsolę przez maksymalne obciążenie procesora. Skasowanie pliku **~/.pam_environment** i restart serwera pomaga. Poniżej opiszę komendy jakie należy wykonać.
 {: .text-justify}
 ```bash
-#ln -s /dev/zero ~/.pam_environment
+# ln -s /dev/zero ~/.pam_environment
 ```
 Zmieniamy język na inny: Settings->Region and language -> Other language
 {: .text-justify}
