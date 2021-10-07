@@ -12,11 +12,20 @@ tags:
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
+
+|:----|:----|
+|Nazwa:|Funbox: Scriptkiddie|
+|Autor:|[0815R2d2](https://www.vulnhub.com/author/0815r2d2,714/)|
+|Wypuszczony:|10.07.2021|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) - Vulnhub|
+|Poziom:|Łatwy|
+|Nauczysz się:|Metasploit, Podstawy|
+
 # Wstęp
 [Funbox: Scriptkiddie](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) jest chyba najłatwiejszą maszyną jaką dane było mi złamać. Jeżeli jesteś początkujący, spróbuj ją przejść bez solucji. To naprawdę jest proste. A jeżeli utknąłeś, to cóż, ten tekst powinien Ci pomóc.
 {: .text-justify}
 # Zaczynamy
-Najpierw użyjemy **Metasploita** i zaczniemy od standardowego skanowania portów:
+Najpierw użyjemy **Metasploit**a i zaczniemy od standardowego skanowania portów:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```console

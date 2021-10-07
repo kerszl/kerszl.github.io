@@ -8,8 +8,8 @@ categories:
 tags:
   - Hacking
   - Vulnhub
-  - Pivoting
   - Walkthrough  
+  - Pivoting
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1:
@@ -30,7 +30,7 @@ gallery4_5:
 |:----|:----|
 |Nazwa:|myHouse7: 1|
 |Autor:|[Thepcn3rd](https://www.vulnhub.com/author/thepcn3rd,608/)|
-|Wypuszczony:|2.11.2018|
+|Wypuszczony:|02.11.2018|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/myhouse7-1,286/) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Pivoting|
@@ -509,5 +509,5 @@ MariaDB [timeclock]>
 Widzimy, że mamy hasła użytkowników do bazy timeclock.
 {: .text-justify}
 # Słowo na koniec
-Pivoting to niby łatwa sprawa, ale mogą wyjść dziwne okoliczności, jak np. z ładunkiem Metasploita. Jeżeli spodobał się wpis, to napisz mejla.
+**Pivoting** to niby łatwa sprawa, ale mogą wyjść dziwne okoliczności, jak np. z ładunkiem **Metasploit**a. Jeżeli spodobał się wpis, to napisz mejla.
 {: .text-justify}
