@@ -94,15 +94,17 @@ Na **FTP** jest plik **respectmydrip.zip**. Oczywiście ma hasło. Spróbujemy j
 ```bash
 # zip2john respectmydrip.zip > respectmydrip.zip.hash
 # john -wordlist=/usr/share/wordlists/rockyou.txt respectmydrip.zip.hash
-# Press 'q' or Ctrl-C to abort, almost any other key for status
-# 072528035        (respectmydrip.zip/respectmydrip.txt)
+Press 'q' or Ctrl-C to abort, almost any other key for status
+072528035        (respectmydrip.zip/respectmydrip.txt)
 ```
 Hasło do rozpakowania pliku to **072528035**.  Odzyskaliśmy dwa pliki, jeden to jest wskazówka:
 <div class="notice--primary" markdown="1">
 respectmydrip.txt
-```
+<pre>
+<p style="background-color:white;">
 just focus on "drip"
-```
+</p>
+</pre>
 </div>
 A drugi to **secret.zip**. Niestety nie udało się złamać do niego hasła. W sumie wyszło, że to pierwsza podpucha.
 {: .text-justify}
@@ -140,17 +142,20 @@ Poniżej zawartość pliku **robots.txt**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.195/robots.txt
-```
+<pre>
+<p style="background-color:white;">
 User-agent: *
 Disallow: /dripisreal.txt
 Disallow: /etc/dripispowerful.html
-```
+</p>
+</pre>
 </div>
 Zobaczmy co się kryję pod **dripisreal.txt**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.195/dripisreal.txt
-```
+<pre>
+<p style="background-color:white;">
 hello dear hacker wannabe,
 
 go for this lyrics:
@@ -162,7 +167,8 @@ count the n words and put them side by side then md5sum it
 ie, hellohellohellohello >> md5sum hellohellohellohello
 
 it's the password of ssh
-```
+</p>
+</pre>
 </div>
 Jest tam odwołanie do strony. Ze strony należy ściągnąć tekst piosenki, policzyć(?) i ułożyć wyrazy obok siebie. Wchodząc tam widzimy tekst piosenki, ale nie wiadomo, które słowa brać pod uwagę itd. Po konsultacjach okazało się, że to jest kolejna podpucha. To już druga. Nie marnujmy na to czasu.
 {: .text-justify}
@@ -173,11 +179,13 @@ Plik **index.php** zawiera taką wiadomość:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.195/index.php
-```
+<pre>
+<p style="background-color:white;">
 driftingblues is hacked again so it's now called drippingblues. :D hahaha
 by
 travisscott & thugger 
-```
+</p>
+</pre>
 </div>
 Jednak co należy zauważyć, to że **index.php** jest to plik w formacie **PHP**. Nieśmiało można założyć, że będzie można coś z tym zrobić. Należy znaleźć parametr. Można go albo zgadnąć, albo sprawdzić wszystkie opcje. Tym razem na tapetę weźmiemy większy słownik **rockyou.txt**.
 {: .text-justify}
@@ -213,49 +221,7 @@ Po dłuższym czasie mamy parametr. W sumie można było go zgadnąć, prawda? :
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 view-source:http://172.16.1.195/index.php?drip=/etc/dripispowerful.html
-```
-<!DOCTYPE html>
-<html>
-<body>
-<style>
-body {
-background-image: url('drippin.jpg');
-background-repeat: no-repeat;
-}
-
-@font-face {
-    font-family: Segoe;
-    src: url('segoeui.ttf');
-}
-
-.mainfo {
-  text-align: center;
-  border: 1px solid #000000;
-  font-family: 'Segoe';
-  padding: 5px;
-  background-color: #ffffff;
-  margin-top: 300px;
-}
-
-.emoji {
-	width: 32px;
-	}
-</style>
-password is:
-imdrippinbiatch
-</body>
-</html>
-
-<html>
-<body>
-driftingblues is hacked again so it's now called drippingblues. :D hahaha
-<br>
-by
-<br>
-travisscott & thugger
-</body>
-</html>
-```
+![obraz](/assets/images/hacking/2021/15/03.png)
 </div>
 Jest hasło do **Shell**a. Jeżeli przejdziemy do wirtualki, zobaczymy **login**.
 {: .text-justify}
