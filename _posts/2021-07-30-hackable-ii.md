@@ -8,8 +8,8 @@ categories:
 tags:
   - Hacking
   - Vulnhub
-  - Walkthrough
   - Hackable
+  - Walkthrough  
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---

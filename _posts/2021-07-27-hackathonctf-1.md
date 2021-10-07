@@ -8,8 +8,8 @@ categories:
 tags:
   - Hacking
   - Vulnhub
-  - Walkthrough
-  - HackathonCTF
+  - Walkthrough  
+  - HackathonCTF  
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
@@ -19,7 +19,7 @@ header:
 |Nazwa:|HackathonCTF: 1|
 |Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
 |Wypuszczony:|27.10.2020|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Metasploit, Sudo, ASCII, Base64|
 

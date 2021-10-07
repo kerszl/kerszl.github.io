@@ -8,8 +8,8 @@ categories:
 tags:
   - Hacking
   - Vulnhub
-  - Hackable
   - Walkthrough
+  - Hackable  
 redirect_from:
   - /hacking/hackable-iii/
   - /hacking/walkthrough/hackable-iii/
