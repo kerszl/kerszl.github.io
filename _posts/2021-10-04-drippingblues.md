@@ -179,13 +179,13 @@ Plik **index.php** zawiera taką wiadomość:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.195/index.php
-<pre>
 <p style="background-color:white;">
+<pre>
 driftingblues is hacked again so it's now called drippingblues. :D hahaha
 by
 travisscott & thugger 
-</p>
 </pre>
+</p>
 </div>
 Jednak co należy zauważyć, to że **index.php** jest to plik w formacie **PHP**. Nieśmiało można założyć, że będzie można coś z tym zrobić. Należy znaleźć parametr. Można go albo zgadnąć, albo sprawdzić wszystkie opcje. Tym razem na tapetę weźmiemy większy słownik **rockyou.txt**.
 {: .text-justify}
