@@ -14,15 +14,15 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Metainfo
-| tab1|tab2 |
+
+| | |
 |:----|:----|
 |Nazwa:|HackathonCTF: 1|
 |Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
 |Wypuszczony:|27.10.2020|
-|Link:|[Tutaj](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
-|Dostępny na:|[Vulnhub](https://www.vulnhub.com)|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
 |Poziom:|Łatwy|
-|Nauczysz się:|Metasploit, ASCII, BASE64, SUDO|
+|Nauczysz się:|Metasploit, Sudo, ASCII, BASE64|
 
 # Wstęp
 **HackathonCTF:1** został stworzony, jak i dużo innych ciekawych obrazów, przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła.
