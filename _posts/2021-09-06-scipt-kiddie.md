@@ -8,7 +8,8 @@ categories:
 tags:
   - Hacking
   - Vulnhub
-  - Walkthrough  
+  - Walkthrough
+  - Scriptkiddie
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---

