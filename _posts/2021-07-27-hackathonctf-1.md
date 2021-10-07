@@ -14,7 +14,7 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Metainfo
-| | |
+| tab1|tab2 |
 |:----|:----|
 |Nazwa:|HackathonCTF: 1|
 |Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
@@ -25,7 +25,7 @@ header:
 |Nauczysz się:|Metasploit, ASCII, BASE64, SUDO|
 
 # Wstęp
-**HackathonCTF:1** został stworzony (jak i dużo innych ciekawych obrazów) przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
+**HackathonCTF:1** został stworzony, jak i dużo innych ciekawych obrazów, przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła.
 {: .text-justify}
 ## Moduły w Metasploicie
 Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron **WWW**. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
@@ -277,9 +277,9 @@ msf6 > wmap_vulns -l
 [*]     GET Res code: 404
 msf6 >
 ```
-Niestety, poza zakodowanym ciągiem w Base64 (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu **Nmap**em, widzimy następujące otwarte porty. 
+Niestety, poza zakodowanym ciągiem w **Base64** (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu **Nmap**em, widzimy następujące otwarte porty.
 {: .text-justify}
-Należy pamiętać o przełączniku **-p-**, ponieważ ssh jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
+Należy pamiętać o przełączniku **-p-**, ponieważ **SSH** jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
 {: .notice--danger}
 ```bash
 host          port  proto  name    state  info
@@ -290,10 +290,8 @@ host          port  proto  name    state  info
 172.16.1.167  7223  tcp    ssh     open   OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 Ubuntu Linux; protocol 2.0
 ```
 ## Już bez Metasploita
-Z ciekawszych rzeczy jest **http://172.16.1.167/robots.txt**. Poniżej zawartość:
-Tradycyjnie zacznijmy od analizy **HTTP**. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest to fejk. Strona istnieje, tylko jest tak spreparowana, żeby wyglądało, że jej nie ma :smiley:
+Tradycyjnie zacznijmy od analizy **HTTP**. Wchodzimy na stronę (u mnie 172.16.1.167) i widzimy komunikat, że nie ma strony. Jednak jeżeli się przyjrzycie, to jest to fejk. Strona istnieje, tylko jest tak spreparowana, żeby wyglądało, że jej nie ma :smiley: Sprawdźmy szybko, czy są jakieś ukryte stronki:
 {: .text-justify}
-Sprawdźmy szybko, czy są jakieś ukryte stronki:
 ```bash
 # dirb http://172.16.1.167/
 ```
@@ -329,7 +327,7 @@ c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==
 </p>
 </pre>
 </div>
-**Dirb** nic więcej nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów (ctf, ftc, sudo). Próba wejścia na **http://172.16.1.167/sudo** kończy się fiaskiem. Podobnie jest z ctf i ftc. Poszerzmy skanowanie pod kątem plików z rozszerzeniami: **txt,php,html,htm**:
+**Dirb** nic więcej nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów (**ctf, ftc, sudo**). Próba wejścia na **http://172.16.1.167/sudo** kończy się fiaskiem. Podobnie jest z **ctf** i **ftc**. Poszerzmy skanowanie pod kątem plików z rozszerzeniami: **txt,php,html,htm**:
 {: .text-justify}
 ```bash
 # gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.167 -x php,txt,html,htm
