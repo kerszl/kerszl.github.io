@@ -24,11 +24,11 @@ gallery2_3:
 
 |:----|:----|
 |Nazwa:|ContainMe: 1|
-|Autor:|[it-security-works](https://www.vulnhub.com/author/it-security-works,811/)|
+|Autor:|[It-security-works](https://www.vulnhub.com/author/it-security-works,811/)|
 |Wypuszczony:|29.07.2021|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/containme-1,729/) - Vulnhub|
 |Poziom:|Łatwy|
-|Nauczysz się:|Metasploit, LXD|
+|Nauczysz się:|Metasploit, LXD, Kontenery|
 
 # Wstęp
 [ContainMe: 1](https://www.vulnhub.com/entry/containme-1,729/) jest obrazem z lipca 2021 roku. Nazwa obrazu (**THM-ContainMe-v4.ova**) wskazuje czwartą wersję(?). Na chwilę obecną (12.08.2021) nie znalazłem żadnej solucji, więc nie było podpowiedzi. **ContainMe: 1**, jak nazwa wskazuje, jest to pierwsza maszyna z [serii ContainMe](https://www.vulnhub.com/series/containme,490/). Autorem jest [IT Security Works](https://www.vulnhub.com/author/it-security-works,811/).
@@ -260,7 +260,7 @@ sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
 pollinate:x:108:1::/var/cache/pollinate:/bin/false
 mike:x:1001:1001::/home/mike:/bin/bash
 ```
-Mała uwaga: zamiast używać komendy **shell** w **Meterpreterze**, lepiej wpisać **shell -t**.
+Mała uwaga: zamiast używać komendy **Shell** w **Meterpreterze**, lepiej wpisać **shell -t**.
 {: .text-justify}
 {: .notice--warning}
 
@@ -301,7 +301,7 @@ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 www-data@host1:/home/mike$
 ```
-Jest to **Shell**, który działa z hasłem **mike**. Nic to nam nie daję, jesteśmy przecież na **Shellu** z id 33. Poszukajmy plików z **Suid**:
+Jest to **Shell**, który działa z hasłem **mike**. Nic to nam nie daję, jesteśmy przecież na **Shellu** z **id 33**. Poszukajmy plików z **Suid**:
 {: .text-justify}
 ```bash
 # www-data@host1:/home/mike$ find / -perm -4000 2>/dev/null
