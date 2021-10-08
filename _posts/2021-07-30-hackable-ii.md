@@ -13,6 +13,10 @@ tags:
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
+# Hackable: II
+Write-up is in Polish language.
+
+# Metainfo
 
 |:----|:----|
 |Nazwa:|Hackable: II|

@@ -29,6 +29,8 @@ gallery6_7:
 # Digitalworld.local: snakeoil
 Write-up is in Polish language.
 
+# Metainfo
+
 |:----|:----|
 |Nazwa:|Digitalworld.local: snakeoil|
 |Autor:|[Donavan](https://www.vulnhub.com/author/donavan,601/)|

@@ -29,6 +29,8 @@ gallery4_5:
 # myHouse7: 1
 Write-up is in Polish language.
 
+# Metainfo
+
 |:----|:----|
 |Nazwa:|myHouse7: 1|
 |Autor:|[Thepcn3rd](https://www.vulnhub.com/author/thepcn3rd,608/)|

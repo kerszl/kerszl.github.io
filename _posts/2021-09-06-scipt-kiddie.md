@@ -16,6 +16,8 @@ header:
 # Funbox: Scriptkiddie
 Write-up is in Polish language.
 
+# Metainfo
+
 |:----|:----|
 |Nazwa:|Funbox: Scriptkiddie|
 |Autor:|[0815R2d2](https://www.vulnhub.com/author/0815r2d2,714/)|

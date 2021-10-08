@@ -29,6 +29,10 @@ gallery4_5:
   - url: /assets/images/hacking/2021/06/05.png
     image_path: /assets/images/hacking/2021/06/05.png
 ---
+# Hackable: III
+Write-up is in Polish language.
+
+# Metainfo
 
 |:----|:----|
 |Nazwa:|Hackable: III|
