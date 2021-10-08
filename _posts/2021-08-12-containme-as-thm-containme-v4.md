@@ -513,5 +513,5 @@ mysql>
 # mike@host2:~$ su root
 Password: bjsig4868fgjjeog
 ```
-W katalogu root był spakowany plik zipem. Hasło do pliku wcześniej znaleźliśmy w bazie. Po rozpakowaniu pliku zdobyliśmy flagę.
+W katalogu **/root** był spakowany plik zipem. Hasło do pliku wcześniej znaleźliśmy w bazie. Po rozpakowaniu pliku zdobyliśmy flagę.
 {: .text-justify}
