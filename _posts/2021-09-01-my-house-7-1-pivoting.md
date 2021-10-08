@@ -26,6 +26,8 @@ gallery4_5:
   - url: /assets/images/hacking/2021/09/05.png
     image_path: /assets/images/hacking/2021/09/05.png
 ---
+# myHouse7: 1
+Write-up is in Polish language.
 
 |:----|:----|
 |Nazwa:|myHouse7: 1|

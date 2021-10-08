@@ -26,6 +26,8 @@ gallery6_7:
   - url: /assets/images/hacking/2021/10/07.png
     image_path: /assets/images/hacking/2021/10/07.png
 ---
+# Digitalworld.local: snakeoil
+Write-up is in Polish language.
 
 |:----|:----|
 |Nazwa:|Digitalworld.local: snakeoil|

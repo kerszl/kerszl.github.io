@@ -13,6 +13,8 @@ tags:
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
+# Funbox: Scriptkiddie
+Write-up is in Polish language.
 
 |:----|:----|
 |Nazwa:|Funbox: Scriptkiddie|
