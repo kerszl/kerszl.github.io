@@ -226,7 +226,7 @@ view-source:http://172.16.1.195/index.php?drip=/etc/dripispowerful.html
 Jest hasło do **Shell**a. Jeżeli przejdziemy do wirtualki, zobaczymy **login**.
 {: .text-justify}
 
-## 06. Ostatnie podpucha
+## 06. Ostatnia podpucha
 Jesteśmy na konsoli, jest tam dużo otwartych portów, ale nauczywszy się, że tutaj prawie wszędzie są ślepe zaułki i wirtualka jest na **GNOME**, to może coś będzie łatwego? Sprawdziwszy system, widzimy że jest na **Ubuntu 20.04**, więc można zastosować pewną sztuczkę. Chcę jednak przestrzec, że może się nie udać od razu. Możesz zablokować sobie konsolę przez maksymalne obciążenie procesora. Skasowanie pliku **~/.pam_environment** i restart serwera pomaga. Poniżej opiszę komendy jakie należy wykonać.
 {: .text-justify}
 ```bash
