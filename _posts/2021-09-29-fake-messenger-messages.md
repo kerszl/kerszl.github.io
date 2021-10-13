@@ -20,7 +20,7 @@ gallery3_4:
 ---
 # Wstęp
 
-Trochę ten artykuł jest żartobliwy, bo to z hakingiem jednak ma mało wspólnego, chyba że wzbudzenie u kogoś emocji, ale chyba można to podciągnąć pod OSINT.
+Trochę ten artykuł jest żartobliwy, bo to z hakingiem jednak ma mało wspólnego, chyba że wzbudzenie u kogoś emocji, ale chyba można to podciągnąć pod socjotechnikę.
 {: .text-justify}
 
 # Ale o co tu chodzi?
@@ -55,7 +55,7 @@ Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i**, a następnie **CTRL+SHIFT+c*
 
 # Czy to jest moralne?
 
-To już sobie sam odpowiedz. Wpis pokazuje tylko możliwość, a nie zachęca kogokolwiek do **szkodzenia** innym osobom. Również widać jak łatwo można spreparować rozmowy, których nie było. Poza tym w OSINT, jeżeli tam będziesz, nie takich sztuczek się będziesz imał, aby osiągnąć swój cel.
+To już sobie sam odpowiedz. Wpis pokazuje tylko możliwość, a nie zachęca kogokolwiek do **szkodzenia** innym osobom. Również widać jak łatwo można spreparować rozmowy, których nie było. Poza tym działając w socjotechnice, jeżeli tam będziesz, nie takich sztuczek się będziesz imał, aby osiągnąć swój cel.
 {: .text-justify}
 
 # Screeny
