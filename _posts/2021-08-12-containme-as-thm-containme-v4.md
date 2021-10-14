@@ -72,7 +72,7 @@ GENERATED WORDS: 4612
 + http://172.16.1.218/index.php (CODE:200|SIZE:329)
 + http://172.16.1.218/info.php (CODE:200|SIZE:69012)
 ```
-To wystarczy, więcej nie trzeba skanować. W **index.html** jest zwykła strona **Debian**a. W **info.php** jest informacja o **Apache**, **PHP** i przy tym dowiadujemy się, że strona stoi na kontenerze **LXD**:
+To wystarczy, więcej nie trzeba skanować. W __index.html__ jest zwykła strona **Debian**a. W __info.php__ jest informacja o **Apache**, **PHP** i przy tym dowiadujemy się, że strona stoi na kontenerze **LXD**:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.218/info.php
@@ -264,7 +264,7 @@ sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
 pollinate:x:108:1::/var/cache/pollinate:/bin/false
 mike:x:1001:1001::/home/mike:/bin/bash
 ```
-Mała uwaga: zamiast używać komendy **Shell** w **Meterpreterze**, lepiej wpisać **shell -t**.
+Mała uwaga: zamiast używać komendy **Shell** w **Meterpreterze**, lepiej wpisać __shell -t__.
 {: .text-justify}
 {: .notice--warning}
 
@@ -380,7 +380,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 49137  bytes 14090165 (14.0 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-Zainstalujmy <mark>Nmapa</mark> i przeskanujmy interfejs **eth1**:
+Zainstalujmy <mark>Nmapa</mark> i przeskanujmy interfejs __eth1__:
 {: .text-justify}
 <mark>Nmap</mark> instalujemy z konta **root**:
 {: .text-justify}

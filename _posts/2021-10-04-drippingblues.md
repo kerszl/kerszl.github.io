@@ -35,6 +35,7 @@ Write-up is in Polish language.
 ## 01. Wstęp
 Ta wirtualka jest bardzo podstępna, dużo czasu zabierają "niepotrzebne" czynności i ślepe zaułki. Jednak to jedna z jej cech. Dzięki temu można dużo rzeczy sobie przypomnieć i nieźle się sfrustrować. :smiley: Obraz również waży niemało, około 3 GB. Jest to zasługa interfejsu graficznego. Być może to jest **GNOME**(?) To może nam dać wskazówkę, że niekoniecznie trzeba się włamywać przez konsolę, a może tak?
 {: .text-justify}
+
 ## 02. Szukanie otwartych portów
 Zaczniemy jednak od konsoli.
 {: .text-justify}
@@ -88,6 +89,7 @@ msf6 > db_nmap -T4 -A -p- 172.16.1.195
 ```
 Są trzy otwarte porty: **21-FTP**, **22-SSH** i **80-WWW**. Już podczas skanowania **Nmap**em widać, że na **FTP** jest dostęp przez **Anonymous**.
 {: .text-justify}
+
 ## 03. Pierwszy fałszywy trop
 Na **FTP** jest plik **respectmydrip.zip**. Oczywiście ma hasło. Spróbujemy je złamać, ale wcześniej trzeba odzyskać **hash**. Do tego użyjemy **Zip2john** i **John**.
 {: .text-justify}
@@ -240,9 +242,10 @@ Zmieniamy język na inny: Settings->Region and language -> Other language
 # rm ~/.pam_environment
 # nohup bash -c "sleep 30s; kill -SIGSEGV $NrFromPidof; kill -SIGCONT $NrFromPidof" &
 ```
-Po wydaniu ostatniej komendy mamy 30 sekund na wylogowanie się. Robimy to, następnie czekamy, aż system nas zaloguje, abyśby mogli stworzyć nowe konto. Mamy dostęp do **root**a przez **su**. Żeby to wszystko lepiej zrozumieć, poniżej zamieszczam filmik z **YouTube**.
+Po wydaniu ostatniej komendy mamy 30 sekund na wylogowanie się. Robimy to, następnie czekamy, aż system nas zaloguje, abyśby mogli stworzyć nowe konto. Mamy dostęp do **root**a przez komendę __su__. Żeby to wszystko lepiej zrozumieć, poniżej zamieszczam filmik z **YouTube**.
 {: .text-justify}
 {% include video id="8IjTq7GBupw" provider="youtube" %}
+
 ## 07. Na dziś to już wszystko
 Jeżeli podobał się wpis, napisz mejla na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
 {: .text-justify}

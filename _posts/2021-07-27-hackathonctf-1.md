@@ -281,7 +281,8 @@ msf6 >
 ```
 Niestety, poza zakodowanym ciągiem w **Base64** (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu **Nmap**em, widzimy następujące otwarte porty.
 {: .text-justify}
-Należy pamiętać o przełączniku **-p-**, ponieważ **SSH** jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
+Należy pamiętać o przełączniku __-p-__, ponieważ **SSH** jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
+{: .text-justify}
 {: .notice--danger}
 ```bash
 host          port  proto  name    state  info
@@ -436,7 +437,7 @@ Dekodujemy:
 # test@ctf:~$ echo Q1RGZGZyR0hZalVzU3NLS0AxMjM0NQo= | base64 -d
 CTFdfrGHYjUsSsKK@12345
 ```
-Jest hasło, ale nie wiadomo do czego. :smiley: Potem się okazało, że się przydało do pliku **/var/zip.rar**. W pliku nic nie było.
+Jest hasło, ale nie wiadomo do czego. :smiley: Potem się okazało, że się przydało do pliku __/var/zip.rar__. W pliku nic nie było.
 {: .text-justify}
 Podsumowując: Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
 {: .notice--success}

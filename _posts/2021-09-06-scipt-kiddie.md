@@ -29,6 +29,7 @@ Write-up is in Polish language.
 # Wstęp
 [Funbox: Scriptkiddie](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) jest chyba najłatwiejszą maszyną jaką dane było mi złamać. Jeżeli jesteś początkujący, spróbuj ją przejść bez solucji. To naprawdę jest proste. A jeżeli utknąłeś, to cóż, ten tekst powinien Ci pomóc.
 {: .text-justify}
+
 # Zaczynamy
 Najpierw użyjemy **Metasploit**a i zaczniemy od standardowego skanowania portów:
 {: .text-justify}
@@ -193,6 +194,7 @@ uid=0(root) gid=0(root) groups=0(root),65534(nogroup)
 
 ```
 </div>
+
 # Kończymy
 Komentarz jest zbędny. Patrzyłem, też inne usługi, ale nie mogłem nic na nie znaleźć. :smiley:
 {: .text-justify}

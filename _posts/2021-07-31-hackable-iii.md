@@ -56,7 +56,7 @@ host          port  proto  name  state     info
 Mamy dwa porty, 80 i 22. Jeden jest filtrowany. Zacznijmy od www. Wchodząc na stronę mamy takie coś (Kierujemy się na górny lewy róg) i mamy menu.
 {: .text-justify}
 {% include gallery id="gallery1_2"  %}
-Logowanie nic nam nie daje. W kodzie źródłowym (**http://172.16.1.103/login_page/login.html**) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się **Burpsuite**m i odpalając powyższy link, **Burpsuite** kieruje nas do  **http://172.16.1.103/login.php**, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w **PHP**. Z początku myślałem, że to jest ułatwienie dla pentestera i **PHP** nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w **HTML**, tyle że ma rozszerzenie **php**! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
+Logowanie nic nam nie daje. W kodzie źródłowym (__http://172.16.1.103/login_page/login.html__) jest informacja, że to może do końca nie działać: *This page is not ready, may give error*. Bawiąc się **Burpsuite**m i odpalając powyższy link, **Burpsuite** kieruje nas do __http://172.16.1.103/login.php__, a tam jest coś dziwnego, zamiast wyniku z logowania, dostajemy kod źródłowy w **PHP**. Z początku myślałem, że to jest ułatwienie dla pentestera i **PHP** nam wyświetla tę informacje, żeby ułatwić zadanie, ale nie. Niezależnie jakie parametry podasz, to jest zwykły kod w **HTML**, tyle że ma rozszerzenie __.php__! Na nic się zda wstrzykiwanie parametrów. Zanim do tego doszedłem minęło trochę czasu, ale to był ciekawy pomysł autora.
 {: .text-justify}
 {% include gallery id="gallery3"  %}
 Sprawdźmy co jest jeszcze na na tym serwerze **WWW**:
@@ -135,7 +135,7 @@ W **2.txt** jest kod w Brainfuck (**++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>
 # root@kali:/home/szikers# beef 2.txt
 4444
 ```
-**http://172.16.1.103/3.jpg** jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale **Elias Sousa** mi podpowiedział. 
+__http://172.16.1.103/3.jpg__ jest to plik graficzny, a w nim pewnie ukryty przekaz. Nie miałem wcześniej do czynienia z łamaniem obrazków, więc nie rozkminiłem tej zagadki, ale **Elias Sousa** mi podpowiedział. 
 {: .text-justify}
 **Binwalk** nie znalazł nic ciekawego.
 {: .text-justify}
@@ -166,7 +166,7 @@ root@kali:/home/szikers/hackable3/3# cat steganopayload148505.txt
 porta:65535 root@kali:/home/szikers/hackable3/3#
 root@kali:/home/szikers/hackable3/3#
 ```
-Przy okazji mamy podpowiedź, że chodzi o **port** 65535:
+Przy okazji mamy podpowiedź, że chodzi o **port 65535**:
 {: .text-justify}
 Podsumowując mamy:
 - 10000
@@ -177,7 +177,7 @@ Podsumowując mamy:
 Zanim znalazłem trzecią cyfrę w obrazku, użyłem metody brute-force. Jest ona powolna i robiona na siłę, ale działa.
 {: .text-justify}
 {: .notice--info}
-Spróbowałem wejść przez **SSH**, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania **SSH** używa się **Knockd** (Trzeba zainstalować w **Kali**). Bez podania odpowiednich „zapukań” dostęp do **SSH** będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. **10000** i **4444**. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku **3.jpg**, ale nie znalazłem. Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na znalezienie trzeciej liczby. Napisałem szybko skrypcik.
+Spróbowałem wejść przez **SSH**, ale była blokada. Jeszcze raz przejrzałem kody, przeczytałem notatkę: *Please, jubiscleudo, don't forget to activate the port knocking when exiting your section, and tell the boss not to forget to approve the .jpg file - dev_suport@hackable3.com*  i nagle mnie olśniło. Do blokowania **SSH** używa się **Knockd** (Trzeba zainstalować w **Kali**). Bez podania odpowiednich „zapukań” dostęp do **SSH** będzie utrudniony. Zazwyczaj podaje się 3 parametry w przeciągu 5 sekund. Dwa pierwsze mamy. **10000** i **4444**. Trzeci być może gdzieś jest w tej maszynie, szukałem w pliku __3.jpg__, ale nie znalazłem. Nie mamy trzeciego numeru, ale możemy spróbować bruteforce, chociaż to może potrwać parę dni. Jest 65536 możliwości (0-65535) na znalezienie trzeciej liczby. Napisałem szybko skrypcik.
 {: .text-justify}
 ```bash
 #!/bin/bash
@@ -186,13 +186,13 @@ knock -v 172.16.1.103 10000 4444 $i
 sleep 5
 done
 ```
-I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i **XCP-ng**. Znalazłem w logach, że **Knockd** nasłuchiwał na **ensp03**. Niestety wszedłem sztuczką na **root**a i zamieniłem w konfigu **ensp03** na **eth0**. Po zakończeniu działania powyższego skryptu **SSH** wpuścił mnie! Jak nie chcesz czekać na wynik, możesz od razu zastukać:
+I co? Nie działa (prawdę mówiąc nie czekałem tyle dni). Niestety to była wina maszyny i **XCP-ng**. Znalazłem w logach, że **Knockd** nasłuchiwał na __ensp03__. Niestety wszedłem sztuczką na **root**a i zamieniłem w konfigu __ensp03__ na __eth0__. Po zakończeniu działania powyższego skryptu **SSH** wpuścił mnie! Jak nie chcesz czekać na wynik, możesz od razu zastukać:
 {: .text-justify}
 ```bash
 # knock -v 172.16.1.103 10000 4444 65535
 ```
 ## Hydra 
-Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.txt**. Użyjmy Hydry:
+Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w __wordlist.txt__. Użyjmy **Hydry**:
 {: .text-justify}
 ```bash
 # hydra -V -T 64 ssh://172.16.1.103 -l jubiscleudo -P wordlist.txt
@@ -206,11 +206,11 @@ Użytkownikiem zapewne jest **jubiscleudo**, a hasło pewnie jest w **wordlist.t
 Jak widzimy mamy użytkownika **jubiscleudo** i hasło **onlymy**. Wejdźmy na Shella.
 {: .text-justify}
 ## Shelltris
-W katalogu **scripts** jest plik **tetris.sh**. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik **getch.c**. I nic. Nie ma **root**a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (Elias Souls mi wspomniał, że Shelltris to pułapka) 😏
+W katalogu __scripts__ jest plik __tetris.sh__. Po uruchomieniu brakuje w nim pliku getch i program blokuje cały system. Popatrzyłem na kod źródłowy i zobaczyłem, że oryginalny nazywa się **ShellTris**. Ściągnałem cały [kod](https://shellscriptgames.com/shelltris/tarballs/shelltris-1.1.tar.gz). Skompilowałem na swoim shellu plik __getch.c__. I nic. Nie ma **root**a. Pliki mają identyczną zawartość, ale być coś może nasłuchuje i sprawdza? (**Elias Souls** mi wspomniał, że **Shelltris** to pułapka) 😏
 {: .text-justify}
 {% include gallery id="gallery4_5"  %}
 ## Zostawcie Shelltris w spokoju 
-**Shelltris** to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu **/var/www/html**
+**Shelltris** to pułapka, zostawcie to. Wcześniej pominąłem jedną ważną rzecz, a to mnie zablokowało na dłużej. Co prawda podpatrzyłem w [solucji](https://nepcodex.com/2021/07/hackable-iii-walkthrough-vulnhub/) tylko tą jedną rzecz, bo i tak rozwiązanie jest inne i **Eliasa Soulsa** też coś pokazał, ale zrobiłem to po swojemu. Jeszcze raz przeszedłem do katalogu __/var/www/html__
 {: .text-justify}
 ```bash
 # jubiscleudo@ubuntu20:/var/www/html$ ls -la
@@ -232,7 +232,7 @@ drwxr-xr-x 5 www-data www-data  4096 Jun 30 20:37 login_page
 -rw-r--r-- 1 www-data www-data    33 Apr 21 17:58 robots.txt
 -rw-r--r-- 1 root     root        24 Jul 30 18:30 test.php
 ```
-Pominąłem **.backup_config.php**, a w nim jest login i hasło dla użytkownika **hackable_3**
+Pominąłem __.backup_config.php__, a w nim jest login i hasło dla użytkownika **hackable_3**
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 .backup_config.php
@@ -264,7 +264,7 @@ Logując się na **Shell**a użytkownika **hackable_3** i wypisując komendę **
 # hackable_3@ubuntu20:/var/www/html$ id
 uid=1000(hackable_3) gid=1000(hackable_3) groups=1000(hackable_3),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd)
 ```
-**hackable_3** jest w grupie **adm**. Poszukajmy, to może coś znajdziemy ciekawego:
+Konto **hackable_3** jest w grupie **adm**. Poszukajmy, to może coś znajdziemy ciekawego:
 {: .text-justify}
 ```bash
 # hackable_3@ubuntu20:/var/www/html$ grep adm /etc/group
@@ -298,7 +298,7 @@ Aug 10 22:38:01 ubuntu20 CRON[5193]: (root) CMD (python3 /scripts/to_hackable_3.
 Aug 10 22:40:01 ubuntu20 CRON[5201]: (root) CMD (python3 /scripts/to_hackable_3.py)
 ```
 ## Rootshell
-**Crontab** nie może uruchomić z **Root**a programu **/scripts/to_hackable_3.py**. Akcja działa co 2 minuty. Pomóżmy mu, aby się **Crontab** nie męczył. :smiley: Ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj **gcc**) prosty **rootshell** napisany w języku **C** i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **Root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
+**Crontab** nie może uruchomić z **root**a programu __/scripts/to_hackable_3.py__. Akcja działa co 2 minuty. Pomóżmy mu, aby się **Crontab** nie męczył. :smiley: Ale zanim to nastąpi skompilujmy u siebie na konsoli (niestety nie mamy tutaj __gcc__) prosty **rootshell** napisany w języku **C** i wrzućmy go na konto. A czemu tak się bawić? Zwykłe skrypty z ustawionym bitem Suid nie przechodzą na **root**a z innego użytkownika, więc najlepiej napisać program i go skompilować:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 rootshell
