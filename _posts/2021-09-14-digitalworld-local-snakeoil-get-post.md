@@ -44,7 +44,7 @@ Write-up is in Polish language.
 {: .text-justify}
 # Zaczynamy
 ## Metasploit i Db_nmap
-Jeżeli nie chcecie ciągle wpisywać tych samych komend, **Metasploit** umożliwia nam w pewnym sensie automatyzację. Wystarczy użyć polecenie **resource**. A jak to działa? Po prostu tworzymy komendy w pliku i potem uruchamiamy wpisując __resource [nazwa_zasobów]__. Prawda, że proste? 
+Jeżeli nie chcecie ciągle wpisywać tych samych komend, **Metasploit** umożliwia nam w pewnym sensie automatyzację. Wystarczy użyć polecenie **resource**. A jak to działa? Po prostu tworzymy komendy w pliku i potem uruchamiamy wpisując _resource [nazwa_zasobów]_. Prawda, że proste? 
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```bash
@@ -118,7 +118,7 @@ users                   [Status: 200, Size: 267, Words: 9, Lines: 2]
 Prawdę mówiąc w tym wypadku **Dirb** dałby taki sam wynik, ale we **Ffuf** można stosować filtry, np. wyszukiwać tylko pliki, które zawierają słowo **password**.
 {: .text-justify}
 # Metody GET, POST
-**Ffuf** znalazł trochę plików. Interesować nas zaś będą: __login__, __registration__, __run__, __secret__, zaś __users__ niekoniecznie. Jak widzicie, podczas skanu nie wszystkie zwróciły kod powrotu **200**. Niektóre mają **405**, a to oznacza, że do przeszukiwania niektórych zasobów używaliśmy niedozwolonych metod - w tym wypadku **GET**. Plik __secret__ ma kod **500**, czyli wewnętrzny błąd serwera. 
+**Ffuf** znalazł trochę plików. Interesować nas zaś będą: _login_, _registration_, _run_, _secret_, zaś _users_ niekoniecznie. Jak widzicie, podczas skanu nie wszystkie zwróciły kod powrotu **200**. Niektóre mają **405**, a to oznacza, że do przeszukiwania niektórych zasobów używaliśmy niedozwolonych metod - w tym wypadku **GET**. Plik _secret_ ma kod **500**, czyli wewnętrzny błąd serwera. 
 {: .text-justify}
 ### curl
 Widzimy, że kod powrotu dla **login** wynosi **405**, więc **GET** jest w tym wypadku niedozwoloną metodą. Uruchamiając program **Curl** z parametrem **-I** widzimy, że metodami, które można użyć są **OPTIONS** i **POST**:
@@ -155,12 +155,12 @@ Jak widzimy, nie ma użytkownika **snackoil**. Więc go zakładamy i nadajemy mu
 ![xcp](/assets/images/hacking/2021/10/05.png)
 
 ### Burp Suite
-Pozostaje nam wykorzystać adres z końcówką **run**. Najpierw wchodzimy na [link](http://172.16.1.141:8080/run) przez przeglądarkę i przechwytujemy nagłówek poprzez **Burp Suite**. Potem przechodzimy do sekcji __repeater__ i wysyłamy nagłówek. Podczas tej czynności dostajemy komunikat **Method Not Allowed**. Więc zamieniamy **GET** na **POST**. Należy pamiętać, żeby w nagłówku dodać __Content-Type: application/json__. Na poniższych rysunkach jest przedstawione jak to wygląda:
+Pozostaje nam wykorzystać adres z końcówką **run**. Najpierw wchodzimy na [link](http://172.16.1.141:8080/run) przez przeglądarkę i przechwytujemy nagłówek poprzez **Burp Suite**. Potem przechodzimy do sekcji _repeater_ i wysyłamy nagłówek. Podczas tej czynności dostajemy komunikat **Method Not Allowed**. Więc zamieniamy **GET** na **POST**. Należy pamiętać, żeby w nagłówku dodać _Content-Type: application/json_. Na poniższych rysunkach jest przedstawione jak to wygląda:
 {: .text-justify}
 {% include gallery id="gallery6_7" caption="Burp Suite" %}
 
 ### Curl
-Okazuje się, że potrzebujemy sekretnego klucza, który jest w urlu __http://172.16.1.141:8080/secret__:
+Okazuje się, że potrzebujemy sekretnego klucza, który jest w urlu _http://172.16.1.141:8080/secret_:
 {: .text-justify}
 Wróćmy na chwilę do **Curl**a, ale nie zamykajmy jeszcze okna w **Burp Suite**. Przechodzimy znowu do **Curl**a. Wchodząc na podany [link](https://flask-jwt-extended.readthedocs.io/en/stable/options/) frameworka **Flask**a się dowiadujemy, że opcja **JWT_ACCESS_COOKIE_NAME** umożliwia wysłanie nasz token poprzez ciasteczko, domyślnie się nazywa **access_token_cookie**.
 {: .text-justify}
@@ -203,7 +203,7 @@ Content-Length: 227
 </pre>
 
 # Koniec
-Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik __flask_blog/app.py__. Tam znajdziecie co trzeba.
+Wysyłamy nagłówek i jesteśmy na **patrick@SNAKEOIL**. Na koniec podpowiem, że interesuje nas plik _flask_blog/app.py_. Tam znajdziecie co trzeba.
 {: .text-justify}
 Mam nadzieję, że ten tutorial pomógł wam trochę poćwiczyć **JSON** oraz metody **GET** i **POST**.
 {: .text-justify}

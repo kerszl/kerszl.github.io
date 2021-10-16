@@ -21,10 +21,10 @@ Nie spodobało mi się to, że nie widzę ip serwera. Jak włamać się na coś,
 {: .text-justify}
 
 ## Jak zmienić nazwę interfejsu sieciowego na eth0
-Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się nam pokazać okno **GRUB**a. Jeżeli się nie pojawi, to trzymamy przycisk __Shift__. 
+Pozostaje nam zmienić nazwę sieciówki. Podczas startu systemu powinno się nam pokazać okno **GRUB**a. Jeżeli się nie pojawi, to trzymamy przycisk _Shift_. 
 {: .text-justify}
 ![grub](/assets/images/hacking/2021/02/01.png)
-Następnie klawisz __e__ i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
+Następnie klawisz _e_ i szukamy wpis, gdzie zazwyczaj na początku jest Linux, na końcu RO, chociaż nie jest to regułą. U nas to będzie
 {: .text-justify}
 
 ``` 
@@ -38,7 +38,7 @@ _ro_ Zamieniamy na _rw init=/bin/bash_ Wygląda to mnie więcej tak:
 linux  /boot/vmlinuz-4.4.0-142-generic root=UUID=ed440236-4e13-4670-80d6-7617e64... rw init=/bin/bash
 ```
 
-klawisz __F10__ i po chwili ładuje się konsola do **root**a
+klawisz _F10_ i po chwili ładuje się konsola do **root**a
 {: .text-justify}
 
 ![grub](/assets/images/hacking/2021/02/02.png)
@@ -63,19 +63,19 @@ auto enp0s3
 iface enp0s3 inet dhcp
 ```
 
-Mała uwaga: czasami ustawienie sieciówek jest _/etc/netplan/*.yml_ Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem __Yaml__ wywalał mi się konfig i nie wiedziałem czemu.
+Mała uwaga: czasami ustawienie sieciówek jest _/etc/netplan/*.yml_ Tam przy ich edycji należy uważać z odstępami; nie robić tabów, tylko spacje. Muszą być równe odstępy. Kiedyś, kiedy nie znałem _Yaml_ wywalał mi się konfig i nie wiedziałem czemu.
 {: .text-justify}
 
-W pliku __/etc/network/interface__ zamieniamy __enp0s3__ na __eth0__
+W pliku _/etc/network/interface_ zamieniamy _enp0s3_ na _eth0_
 {: .text-justify}
 
-Zaś w  __/etc/default/grub__ należy dodać do __GRUB_CMDLINE_LINUX__ poniższe parametry
+Zaś w  _/etc/default/grub_ należy dodać do _GRUB_CMDLINE_LINUX_ poniższe parametry
 {: .text-justify}
 ```
 GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 ```
 
-Komenda __grub-mkconfig__ tworzy konfigurację **GRUB**a
+Komenda _grub-mkconfig_ tworzy konfigurację **GRUB**a
 {: .text-justify}
 
 ```
@@ -89,7 +89,7 @@ Mały update: Ostatnio "poprawiłem" podobny obraz i nie trzeba było ingerować
 {: .text-justify}
 {: .notice--info}
 
-Dodatkowy update: Jeżeli pisząc wyskoczą wam z nieznanych powodów duże litery, a __Caps Lock__ będzie wyłączony i będą się dziać cyrki, nie panikuj. Pomaga wtedy kombinacja __Shift+Tab__ i wszysko wraca do normy.
+Dodatkowy update: Jeżeli pisząc wyskoczą wam z nieznanych powodów duże litery, a _Caps Lock_ będzie wyłączony i będą się dziać cyrki, nie panikuj. Pomaga wtedy kombinacja _Shift+Tab_ i wszysko wraca do normy.
 {: .text-justify}
 {: .notice--danger}
 

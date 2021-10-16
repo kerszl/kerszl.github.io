@@ -40,7 +40,7 @@ Write-up is in Polish language.
 |Nauczysz się:|Pivoting|
 
 # Wstęp
-Ostatnio szukałem czegoś, gdzie mógłbym zastosować Pivoting (dostać się na serwer, który jest za serwerem atakowanym). Na serwisie z podatnymi maszynami [Vulnhub](https://www.vulnhub.com/) znalazłem coś takiego: [myHouse7: 1](https://www.vulnhub.com/entry/myhouse7-1,286/). Niestety ta maszyna może się uruchomić z błędami, ale do tego są odpowiednie [solucje](https://pwnstorm.tech/myhouse-7-1-capture-the-flag-walkthrough/) jak temu zaradzić. Na XCP-NG jeszcze bardziej jest sprawa skomplikowana (niekompatybilny interfejs). Jak zmienić interfejs, żeby dobrze działał na XCP-NG pisałem już [tutaj](https://kerszl.github.io/hacking/xcp-ng-i-vulnhub/). Jeszcze jedna rada z mojej strony odnośnie **myHouse7**. Kiedy obraz zainstalujecie, to nie odpalajcie go do końca, ale od razu wejdźcie w tryb "awaryjny". Zmieńcie interfejs na eth0 i gdzieś zgrajcie pliki z __/home/bob/setup__. Jak to się źle odpali, to się pokasują pliki do instalacji i trzeba będzie od początku wirtualkę zainstalować. Z tego co pamiętam, to plik __"autostart"__ jest w __/etc/rc.local__. A skrypt instalacyjny obrazów **Dockera** jest w __/home/bob/setup/buildDockerNet.sh__. Z moich notatek wynika, że jeżeli coś źle pójdzie, to trzeba skasować **/home/bob/setup/config** i potem uruchomić __./home/bob/setup/buildDockerNet.sh__. Na początku chyba trzeba przerobić sieciówkę na __eth0__ i dopiero potem, jak wszystko jest ok, uruchomić __./home/bob/setup/buildDockerNet.sh__. Niestety nie pamiętam dokładnie jak to było, ale zakładam, że wszystko poszło dobrze i wirtualka wystartowała. Jak już wspomniałem o **Dockerze**, to na maszynie jest 7 działających z niego kontenerów.
+Ostatnio szukałem czegoś, gdzie mógłbym zastosować Pivoting (dostać się na serwer, który jest za serwerem atakowanym). Na serwisie z podatnymi maszynami [Vulnhub](https://www.vulnhub.com/) znalazłem coś takiego: [myHouse7: 1](https://www.vulnhub.com/entry/myhouse7-1,286/). Niestety ta maszyna może się uruchomić z błędami, ale do tego są odpowiednie [solucje](https://pwnstorm.tech/myhouse-7-1-capture-the-flag-walkthrough/) jak temu zaradzić. Na XCP-NG jeszcze bardziej jest sprawa skomplikowana (niekompatybilny interfejs). Jak zmienić interfejs, żeby dobrze działał na XCP-NG pisałem już [tutaj](https://kerszl.github.io/hacking/xcp-ng-i-vulnhub/). Jeszcze jedna rada z mojej strony odnośnie **myHouse7**. Kiedy obraz zainstalujecie, to nie odpalajcie go do końca, ale od razu wejdźcie w tryb "awaryjny". Zmieńcie interfejs na eth0 i gdzieś zgrajcie pliki z _/home/bob/setup_. Jak to się źle odpali, to się pokasują pliki do instalacji i trzeba będzie od początku wirtualkę zainstalować. Z tego co pamiętam, to plik _"autostart"_ jest w _/etc/rc.local_. A skrypt instalacyjny obrazów **Dockera** jest w _/home/bob/setup/buildDockerNet.sh_. Z moich notatek wynika, że jeżeli coś źle pójdzie, to trzeba skasować **/home/bob/setup/config** i potem uruchomić _./home/bob/setup/buildDockerNet.sh_. Na początku chyba trzeba przerobić sieciówkę na _eth0_ i dopiero potem, jak wszystko jest ok, uruchomić _./home/bob/setup/buildDockerNet.sh_. Niestety nie pamiętam dokładnie jak to było, ale zakładam, że wszystko poszło dobrze i wirtualka wystartowała. Jak już wspomniałem o **Dockerze**, to na maszynie jest 7 działających z niego kontenerów.
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Pod tym adresem http://172.16.1.167:20000/ powinno być mniej więcej coś takiego:
@@ -51,13 +51,13 @@ Mamy przy okazji pierwszą flagę, a jest ich 20 lub 19. Autor to dobrze opisał
 
 # Zaczynamy
 Nie będę opisywał skanowania portów, bo już to pewnie doskonale znacie. Napomknę, że na porcie **8115** jest zainstalowany
-[Anchor CMS](https://anchorcms.com/) w wersji [0.12.7](https://github.com/anchorcms/anchor-cms/releases/download/0.12.7/anchor-cms-0.12.7-bundled.zip). Możecie ściągnąć sobie kod i zobaczyć, jak to tam wszystko wygląda. Od strony przeglądarki możemy sobie chodzić po katalogach i np. wejść na __http://172.16.1.167:8115/anchor/__. Wszystkie katalogi są takie jak w źródle. To co przykuło moją uwagę, to wpis w pierwszym poście: __/timeclock/backup/__
+[Anchor CMS](https://anchorcms.com/) w wersji [0.12.7](https://github.com/anchorcms/anchor-cms/releases/download/0.12.7/anchor-cms-0.12.7-bundled.zip). Możecie ściągnąć sobie kod i zobaczyć, jak to tam wszystko wygląda. Od strony przeglądarki możemy sobie chodzić po katalogach i np. wejść na _http://172.16.1.167:8115/anchor/_. Wszystkie katalogi są takie jak w źródle. To co przykuło moją uwagę, to wpis w pierwszym poście: _/timeclock/backup/_
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.167:8115/
 {% include gallery id="gallery2_3"  %}
 </div>
-Wchodząc na __http://172.16.1.167:8115/timeclock/backup/__ dostajemy piękny dostęp do **Shella**, dzięki komendzie __browse_backups.php__. Odpalając ją mamy listing katalogu, a to już jest wskazówka do wrzucenia tam exploita. Wykonajmy zalecaną komendę. Widzimy, że komenda **ls%20-lha** wyświetliła nam zawartość katalogu:
+Wchodząc na _http://172.16.1.167:8115/timeclock/backup/_ dostajemy piękny dostęp do **Shella**, dzięki komendzie _browse_backups.php_. Odpalając ją mamy listing katalogu, a to już jest wskazówka do wrzucenia tam exploita. Wykonajmy zalecaną komendę. Widzimy, że komenda **ls%20-lha** wyświetliła nam zawartość katalogu:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 http://172.16.1.167:8115//timeclock/backup/browse_backups.php?cmd=ls%20-lha
@@ -74,7 +74,7 @@ drwxr-xr-x 1 root root 4.0K Oct 23  2018 ..
 </div>
 
 # Exploit
-Użyjmy **Metasploita** do wrzucenia exploita. :) Wykorzystamy **exploit/multi/script/web_delivery**, a w nim ładunek **linux/x86/meterpreter/reverse_tcp**. Niestety ładunek **PHP** **Meterpretera** nie posiada wszystkich opcji sieciowych. Np. nie ma w nim komendy __arp__ i __ifconfig__. Jest za to __portfwd__ - komenda do przekierowywania portów, ale czasami może być to za mało.
+Użyjmy **Metasploita** do wrzucenia exploita. :) Wykorzystamy **exploit/multi/script/web_delivery**, a w nim ładunek **linux/x86/meterpreter/reverse_tcp**. Niestety ładunek **PHP** **Meterpretera** nie posiada wszystkich opcji sieciowych. Np. nie ma w nim komendy _arp_ i _ifconfig_. Jest za to _portfwd_ - komenda do przekierowywania portów, ale czasami może być to za mało.
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Wpisujemy:
@@ -202,7 +202,7 @@ ARP cache
 meterpreter > background
 [*] Backgrounding session 1...
 ```
-Schowajmy sesje w tło (background) i stwórzmy routing dla sieci __172.31.20.0/24__ (1 oznacza nr. sesji):
+Schowajmy sesje w tło (background) i stwórzmy routing dla sieci _172.31.20.0/24_ (1 oznacza nr. sesji):
 {: .text-justify}
 ```console
 msf6 exploit(multi/script/web_delivery) > route add 172.31.20.0/24 1
@@ -219,7 +219,7 @@ IPv4 Active Routing Table
 [*] There are currently no IPv6 routes defined.
 msf6 exploit(multi/script/web_delivery) >
 ```
-Teraz możemy skanować serwery z naszego komputera, które widzi tylko serwer __172.16.1.167__:
+Teraz możemy skanować serwery z naszego komputera, które widzi tylko serwer _172.16.1.167_:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```console
@@ -237,10 +237,10 @@ msf6 auxiliary(scanner/portscan/tcp) >
 [+] 172.31.20.194:        - 172.31.20.194:24 - TCP OPEN
 ```
 </div>
-Jak widzimy, jest otwarty port __24__ na ip __172.31.20.194__.
+Jak widzimy, jest otwarty port _24_ na ip _172.31.20.194_.
 {: .text-justify}
 # Pivoting
-Teraz możemy przekierować cały ruch z __172.31.20.194__, a dokładniej jeden port na naszą lokalną maszynę:
+Teraz możemy przekierować cały ruch z _172.31.20.194_, a dokładniej jeden port na naszą lokalną maszynę:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```console
@@ -320,7 +320,7 @@ root@3325411fbe96:~#
 root@3325411fbe96:~# ls
 flag.txt
 ```
-Ciekawostka jest taka, że nie zawsze mogłem się dobrze połączyć na **Mysql** (o tym później) przez __portfwd__ **Metasploit**a. Za to bez problemu poszło połączenie przez **SSH** na serwer. Jednak tym sposobem trzeba znać login i hasło. Autor wszystkim to ułatwił: **admin**/**admin**. Pokaże jak to działa. Na jednej konsoli nawiązujemy połączenie:
+Ciekawostka jest taka, że nie zawsze mogłem się dobrze połączyć na **Mysql** (o tym później) przez _portfwd_ **Metasploit**a. Za to bez problemu poszło połączenie przez **SSH** na serwer. Jednak tym sposobem trzeba znać login i hasło. Autor wszystkim to ułatwił: **admin**/**admin**. Pokaże jak to działa. Na jednej konsoli nawiązujemy połączenie:
 {: .text-justify}
 ```bash
 # ssh -N -L 24:172.31.20.194:24 admin@172.16.1.167
@@ -368,7 +368,7 @@ Już trochę lepiej, ale łamanie haseł przez pivoting to jest masakra. Nie wie
 {: .text-justify}
 
 ## MYSQL
-Wracamy do Metasploita. Na ip __172.31.20.10__, porcie **3306** jest **MYSQL**. Też możemy na niego wejść przez *msfconsole* (ile się namęczyłem, zanim mi się udało bez błędu wejść, a okazało się, że to ładunek Metasploita coś miesza, o tym w czerwonej ramce). Login i hasło na **MYSQL**a było w archiwum __http://172.16.1.167:8115/timeclock/backup/all.zip__ w pliku **db.php**. Tę operację najlepiej zrobić na świeżo odpalonym **Metasploicie**. Parę razy mi się nie udało, bo w tle musiały być jakieś pozostałości i był błąd podczas łączenia się do bazy. Port **3306** zamieniłem na **3307**, bo ktoś może używać. Jeżeli zaś **3307** jest otwarty, to należy go zamienić na inny. Więc wychodzimy z **Metasploita** i ponownie wchodzimy. Poniżej jest cała procedura:
+Wracamy do Metasploita. Na ip _172.31.20.10_, porcie **3306** jest **MYSQL**. Też możemy na niego wejść przez *msfconsole* (ile się namęczyłem, zanim mi się udało bez błędu wejść, a okazało się, że to ładunek Metasploita coś miesza, o tym w czerwonej ramce). Login i hasło na **MYSQL**a było w archiwum _http://172.16.1.167:8115/timeclock/backup/all.zip_ w pliku **db.php**. Tę operację najlepiej zrobić na świeżo odpalonym **Metasploicie**. Parę razy mi się nie udało, bo w tle musiały być jakieś pozostałości i był błąd podczas łączenia się do bazy. Port **3306** zamieniłem na **3307**, bo ktoś może używać. Jeżeli zaś **3307** jest otwarty, to należy go zamienić na inny. Więc wychodzimy z **Metasploita** i ponownie wchodzimy. Poniżej jest cała procedura:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 ```console

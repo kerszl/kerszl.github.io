@@ -242,7 +242,7 @@ Zmieniamy język na inny: Settings->Region and language -> Other language
 # rm ~/.pam_environment
 # nohup bash -c "sleep 30s; kill -SIGSEGV $NrFromPidof; kill -SIGCONT $NrFromPidof" &
 ```
-Po wydaniu ostatniej komendy mamy 30 sekund na wylogowanie się. Robimy to, następnie czekamy, aż system nas zaloguje, abyśby mogli stworzyć nowe konto. Mamy dostęp do **root**a przez komendę __su__. Żeby to wszystko lepiej zrozumieć, poniżej zamieszczam filmik z **YouTube**.
+Po wydaniu ostatniej komendy mamy 30 sekund na wylogowanie się. Robimy to, następnie czekamy, aż system nas zaloguje, abyśby mogli stworzyć nowe konto. Mamy dostęp do **root**a przez komendę _su_. Żeby to wszystko lepiej zrozumieć, poniżej zamieszczam filmik z **YouTube**.
 {: .text-justify}
 {% include video id="8IjTq7GBupw" provider="youtube" %}
 

