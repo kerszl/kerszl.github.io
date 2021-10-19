@@ -59,7 +59,7 @@ define( 'DB_HOST', 'localhost' );
 </div>
 
 ## /usr/share/wordpress/wp-content/uploads
-Jeżeli nie zabezpieczyłeś tego katalogu, a tak było chyba w starszych **Wordpress**ach, każdy z zewnątrz mógł przeglądać katalogi, wchodząc na _https://strona/wp-content/uploads/_. Takie strony łatwo można znaleźć wpisując w **Google** _inurl:"/wp-content/uploads/" site:pl_ Jak to wygląda, możesz też zobaczyć opisie wirtualki. [vulny](https://kerszl.github.io/hacking/walkthrough/vulny/)
+Jeżeli nie zabezpieczyłeś tego katalogu, a tak było chyba w starszych **Wordpress**ach, każdy z zewnątrz mógł przeglądać katalogi, wchodząc na _https://strona/wp-content/uploads/_. Takie strony łatwo można znaleźć wpisując w **Google** _inurl:"/wp-content/uploads/" site:pl_ Jak to wygląda, możesz też zobaczyć opisie wirtualki. [Vulny](https://kerszl.github.io/hacking/walkthrough/vulny/)
 {: .text-justify}
 
 ## Użytkownicy
@@ -82,10 +82,10 @@ Szukanie użytkowników już może narobić hałasu:
 ```bash
 # wpscan --enumerate u --url https://strona --api-token=[twoj token]
 ```
-Jeżeli znamy nazwę użytkownika i chcemy znaleźć jego hasło, możemy użyć **brute-force**.
+Jeżeli znamy nazwę użytkownika i chcemy znaleźć jego hasło, możemy użyć **brute-force**:
 {: .text-justify}
 ```bash
-# wpscan --url beloved -U uzytkownik -P wpscan -P /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000.txt --url https://strona --api-token=[twój token]
+# wpscan --url https://strona -U uzytkownik -P wpscan -P /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000.txt --url https://strona --api-token=[twój token]
 ```
 Ostatnia tutaj wspomniana komenda, czyli szukanie podatnych pluginów i tematów. To narobi dużo szumu. Przykład ten, a nawet mocniejszy możecie poćwiczyć na wirtualce [Beloved](https://kerszl.github.io/hacking/walkthrough/beloved/).:
 {: .text-justify}
@@ -94,7 +94,7 @@ Ostatnia tutaj wspomniana komenda, czyli szukanie podatnych pluginów i tematów
 ```
 
 ## Metasploit
-Oprócz funkcji enumeracji w **Wordpress**ie w **Metasploicie** mamy multum wtyczek. Na początek enumeracja:
+W programie oprócz funkcji enumeracji **Wordpress**a mamy multum wtyczek. Na początek jednak enumeracja:
 {: .text-justify}
 
 ### Enumeracja
@@ -128,7 +128,7 @@ Module options (auxiliary/scanner/http/wordpress_scanner):
 ```
 
 ### Shell
-Dosyć ciekawym eksploitem jest _wp_admin_shell_upload_. Za jego pomocą możemy wejść na konsolę. Niestety trzeba mieć uprawnienia administratora, po to żeby stworzyć jakiś plugin. Dalej opiszę, jak czasem możemy sobie zwiększyć uprawnienia.
+Dosyć ciekawym eksploitem jest _wp_admin_shell_upload_. Za jego pomocą możemy wejść na konsolę. Niestety trzeba mieć uprawnienia administratora, po to żeby stworzyć jakiś plugin. Na końcu opiszę, jak czasami możemy sobie zwiększyć uprawnienia.
 {: .text-justify}
 ```console
 msf6 auxiliary(scanner/http/wordpress_scanner) > use unix/webapp/wp_admin_shell_upload
@@ -160,7 +160,7 @@ Payload options (php/meterpreter/reverse_tcp):
 ### Eksploity
 
 #### wp_file_manager_rce
-Ostatnio dosyć popularnym eksploitem (2020-09) jest _WordPress File Manager Unauthenticated Remote Code Execution_. Jest również dostępny w Metasploice. Możesz go przetestować na już wcześniej wspomnianej wirtualce [vulny](https://kerszl.github.io/hacking/walkthrough/vulny/).
+Ostatnio dosyć popularnym eksploitem (2020-09) jest _WordPress File Manager Unauthenticated Remote Code Execution_. Jest również dostępny w Metasploice. Możesz go przetestować na już wcześniej wspomnianej wirtualce [Vulny](https://kerszl.github.io/hacking/walkthrough/vulny/).
 {: .text-justify}
 
 ```console
@@ -224,19 +224,18 @@ msf6 exploit(unix/webapp/wp_wpdiscuz_unauthenticated_file_upload) > run
 [!] This exploit may require manual cleanup of 'oRmLwLOvrhs.php' on the target
 ```
 #### wp_plainview_activity_monitor_rce
-To już dosyć stara podatność, ale pewnie jak poszukasz to znajdziesz. Przykład użycia znajdziesz w [Dc6](https://kerszl.github.io/hacking/walkthrough/dc-6/)
+To już dosyć stary plugin, ale pewnie jak poszukasz to go gdzieś znajdziesz w Internecie. Przykład użycia znajdziesz w [Dc6](https://kerszl.github.io/hacking/walkthrough/dc-6/)
 {: .text-justify}
 
 # 404.php
-Jeżeli mamy możliwość edycji pliku _404.php_, to możemy wstawić tam eksploita. Wchodzimy na _http://strona/wp-admin/_, dalej _tematy http://172.16.1.109/wp-admin/theme-editor.php_ i wrzucamy do _404.php_ po edycji eksploita z [pentestmonkey](https://github.com/pentestmonkey/php-reverse-shell). Na naszym serwerze uruchamiamy „nasłuchiwacza” komendą _nc -lvnp 1234_, a na Wordpressie odpalamy jakąś stronę której nie ma _http://strona/?p=1234_
-Możesz to przećwiczyć na [colddbox-easy](https://www.vulnhub.com/entry/colddbox-easy,586/). Solucje znajdziesz [tu](https://infosecwriteups.com/tryhackme-colddbox-easy-write-up-2bb4d113b79d)
+Jeżeli mamy możliwość edycji pliku _404.php_, to możemy wstawić tam eksploita. Wchodzimy na _http://strona/wp-admin/_, dalej _tematy http://172.16.1.109/wp-admin/theme-editor.php_ i wrzucamy do _404.php_ po edycji eksploita z [pentestmonkey](https://github.com/pentestmonkey/php-reverse-shell). Na naszym serwerze uruchamiamy **nasłuchiwacza** komendą _nc -lvnp 1234_, a na **Wordpressie** odpalamy jakąś stronę której nie ma, np. _http://strona/?p=1234_. Możesz to przećwiczyć na [colddbox-easy](https://www.vulnhub.com/entry/colddbox-easy,586/). Solucje znajdziesz [tu](https://infosecwriteups.com/tryhackme-colddbox-easy-write-up-2bb4d113b79d)
 {: .text-justify}
 
 # Zwiększanie uprawnień użytkownika
-Jeżeli zalogowaliśmy się na jakieś konto (nie admina) i chcemy sobie zwiększyć uprawnienia, to czasami udaje się pewna sztuczka. Do niej użyjemy programu **Burp Suite** https://portswigger.net/burp. W **Wordpress**ie zaś wchodzimy na _users->your profile->update profile_. Przechwytujemy zapytanie nagłówka _POST /wp-admin/profile.php HTTP/1.1_ i dodajemy na koniec *&ure_other_roles=administrator*. Było to sprawdzane ne **Wordpress**ie w wersji 5.1.1 i 5.8.1. Poniżej przykładowe obrazki z tej akcji:
+Jeżeli zalogowaliśmy się na jakieś konto (nie admina) i chcemy sobie zwiększyć uprawnienia, to czasami udaje się pewna sztuczka. Do niej użyjemy programu **Burp Suite** https://portswigger.net/burp. W **Wordpress**ie zaś wchodzimy na _users->"your profile"->"update profile"_. Przechwytujemy zapytanie nagłówka _POST /wp-admin/profile.php HTTP/1.1_ i dodajemy na koniec *&ure_other_roles=administrator*. Było to sprawdzane ne **Wordpress**ie w wersji 5.1.1 i 5.8.1. Poniżej przykładowe obrazki z tej akcji:
 {: .text-justify}
 {% include gallery id="gallery1_4" %}
 
 # Koniec
-Jeżeli będzie coś ciekawego w tym temacie, to będę aktualizować ten wpis. A Jeżeli znalazłe(a)ś jakieś błędy lub znasz ciekawe podatności **Wordpress**a napisz mejla na [kerszi@protonmail.com](mailto:kerszi@protonmail.com). Ciekawe wpisy tutaj dodam.
+W miarę możliwości będę aktualizować ten wpis. A Jeżeli znalazłe(a)ś jakieś błędy lub znasz ciekawe podatności **Wordpress**a napisz mejla na [kerszi@protonmail.com](mailto:kerszi@protonmail.com). Ciekawe pomysły tutaj zamieszczę.
 {: .text-justify}
