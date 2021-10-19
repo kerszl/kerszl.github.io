@@ -63,12 +63,12 @@ Jeżeli nie zabezpieczyłeś tego katalogu, a tak było chyba w starszych **Word
 {: .text-justify}
 
 ## Użytkownicy
-Ciekawym katalogiem jest _https://strona/wp-json/wp/v2/users/_ oraz *https://strona/author/<login>*. Przykład możemy zobaczyć na stronie [Sekuraka](https://sekurak.pl/wp-json/wp/v2/users/) (mam nadzieje, że się nie obrażą na mnie za ten link, ale pewnie to świadomie udostępnili). Możemy również zobaczyć wpisy autora [ac](https://sekurak.pl/author/ac/)
+Ciekawym katalogiem jest _https://strona/wp-json/wp/v2/users/_ oraz _https://strona/author/[login]_. Przykład możemy zobaczyć na stronie [Sekuraka](https://sekurak.pl/wp-json/wp/v2/users/) (mam nadzieje, że się nie obrażą na mnie za ten link, ale pewnie to świadomie udostępnili). Możemy również zobaczyć wpisy autora [ac](https://sekurak.pl/author/ac/)
 {: .text-justify}
 
 # Przydatne programy
 To było sprawdzanie ręczne, ale od czego mamy programy? Znam dwa, ale polecam tylko jeden.
-**Wpforce** działał dosyć problemowo i nie jest aktualizowany tak jak **Wpscan**, więc polecam ten drugi. Warto zarejestrować się na stronę [wpscan](https://wpscan.com/api) i ściągnąć sobie darmowy **TOKEN**. Dzięki temu możemy odczytać 25 darmowych **żądań API** dziennie, a to nam daje rozszerzoną informacje o skanowaniu. Oczywiście możemy tę liczbę zwiększyć, ale za to już dodatkowo się płaci. Bez **TOKEN**a też możemy skanować, jednak wynik nie będzie tak dokładny.
+**Wpforce** działał dosyć problemowo i nie jest aktualizowany tak jak **Wpscan**. Wybór jest oczywisty - ten drugi program. Warto się zarejestrować na [stronie](https://wpscan.com/api) i ściągnąć sobie darmowy **TOKEN**. Dzięki temu możemy odczytać 25 darmowych **żądań API** dziennie, a to nam daje rozszerzoną informacje o skanowaniu. Oczywiście możemy tę liczbę zwiększyć, ale za to już dodatkowo się płaci. Bez **TOKEN**a też możemy skanować, jednak wynik nie będzie tak dokładny.
 {: .text-justify}
 
 ## Wpscan
