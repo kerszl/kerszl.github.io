@@ -23,7 +23,7 @@ gallery1_4:
 ---
 
 # Wstęp
-**Wordpress** ma już prawie dwadzieścia lat (pierwsze wydanie było w 2003 roku). A co to jest? To chyba prawie każdy wie, kto się interesuje **CMS**-ami. Przypomnę, zaczerpnąwszy z definicji **Wikipedii**, że jest to system zarządzania treścią napisany w języku **PHP** korzystający z Bazy **MySQL**. Jest zaprojektowany głównie do obsługi blogów, ale nie tylko. **PHP** i **MySQL** od czasu do czasu łapią jakieś bugi, ale niekoniecznie to jest powodem jego słabości. Tutaj nie będę opisywał, jak zabezpieczyć **Wordpress**a, o tym możesz przeczytać w bardzo ciekawym artykule, który był parę lat temu opisywany na [Sekuraku](https://sekurak.pl/jak-zabezpieczyc-wordpress-poradnik-krok-po-kroku/). Skupię się głównie na tym jak wykorzystać błędy **Wordpress**a na konkretnych maszynach wirtualnych. Wirtualki są z serwisów [vulnhub](https://www.vulnhub.com/) i [hackmyvm](https://hackmyvm.eu). Polecam zwłaszcza ten drugi serwis. Ciągle są dodawane nowe wirtualki. Praktycznie w każdej jest jakiś nowy pomysł na zdobycie flag. Jest punktacja za to punktacja, a co najważniejsze, wszystko jest za darmo.
+**Wordpress** ma już prawie dwadzieścia lat (pierwsze wydanie było w 2003 roku). A co to jest? To chyba prawie każdy wie, kto się interesuje **CMS**-ami. Przypomnę, zaczerpnąwszy z definicji **Wikipedii**, że jest to system zarządzania treścią napisany w języku **PHP** korzystający z Bazy **MySQL**. Jest zaprojektowany głównie do obsługi blogów, ale nie tylko. **PHP** i **MySQL** od czasu do czasu łapią jakieś bugi, ale niekoniecznie to jest powodem jego słabości. Tutaj nie będę opisywał, jak zabezpieczyć **Wordpress**a, o tym możesz przeczytać w bardzo ciekawym artykule, który był parę lat temu opisywany na [Sekuraku](https://sekurak.pl/jak-zabezpieczyc-wordpress-poradnik-krok-po-kroku/). Skupię się głównie na tym jak wykorzystać błędy **Wordpress**a na konkretnych maszynach wirtualnych. Wirtualki są z serwisów [vulnhub](https://www.vulnhub.com/) i [hackmyvm](https://hackmyvm.eu). Polecam zwłaszcza ten drugi serwis. Ciągle są dodawane nowe wirtualki. Głównie są one pod Linuxem. Praktycznie w każdej jest jakiś nowy pomysł na zdobycie flag. Czasami to aż głowa od tego pęka, a po fakcie myślisz, jakie to było proste. Za zdobycie konta użytkownika i **root**a jest punktacja. A jeżeli gdzieś utkniesz, to na **Discordzie** są osoby chętne do pomocy. Nie poprowadzą Ciebie za rączkę, ale możliwe, że dostaniesz jakąś wskazówkę. Poza tym większość maszyn ma solucje, a za napisanie też można dostać punkt. Nie musi być po angielsku. Dużo osób pisze w ojczystym języku: polskim, japońskim, hiszpańskim. A co jest dosyć ważne, wszystko jest za darmo.
 {: .text-justify}
 
 # Podstawy podstaw
@@ -224,7 +224,7 @@ msf6 exploit(unix/webapp/wp_wpdiscuz_unauthenticated_file_upload) > run
 [!] This exploit may require manual cleanup of 'oRmLwLOvrhs.php' on the target
 ```
 #### wp_plainview_activity_monitor_rce
-To już dosyć stary plugin, ale pewnie jak poszukasz to go gdzieś znajdziesz w Internecie. Przykład użycia znajdziesz w [Dc6](https://kerszl.github.io/hacking/walkthrough/dc-6/)
+To już dosyć stary plugin, ale pewnie jak poszukasz to go gdzieś znajdziesz w Internecie. Przykład użycia znajdziesz w [Dc6](https://kerszl.github.io/hacking/walkthrough/dc-6/).
 {: .text-justify}
 
 # 404.php
