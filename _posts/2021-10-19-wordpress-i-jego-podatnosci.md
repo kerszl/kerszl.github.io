@@ -44,6 +44,7 @@ Ciekawym plikiem dla włamywacza jest _/usr/share/wordpress/wp-config.php_ w kt�
 
 <div class="notice--primary" markdown="1">
 /usr/share/wordpress/wp-config.php
+<pre>
 <p style="background-color:white;">
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'baza' );
@@ -54,6 +55,7 @@ define( 'DB_PASSWORD', 'haslo' );
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
 </p>
+</pre>
 </div>
 
 ## /usr/share/wordpress/wp-content/uploads
@@ -61,7 +63,7 @@ Jeżeli nie zabezpieczyłeś tego katalogu, a tak było chyba w starszych **Word
 {: .text-justify}
 
 ## Użytkownicy
-Ciekawym katalogiem jest _https://strona/wp-json/wp/v2/users/_ oraz _https://strona/author/<login>_. Przykład możemy zobaczyć na stronie [Sekuraka](https://sekurak.pl/wp-json/wp/v2/users/) (mam nadzieje, że się nie obrażą na mnie za ten link, ale pewnie to świadomie udostępnili). Możemy również zobaczyć wpisy autora [ac](https://sekurak.pl/author/ac/)
+Ciekawym katalogiem jest _https://strona/wp-json/wp/v2/users/_ oraz *https://strona/author/<login>*. Przykład możemy zobaczyć na stronie [Sekuraka](https://sekurak.pl/wp-json/wp/v2/users/) (mam nadzieje, że się nie obrażą na mnie za ten link, ale pewnie to świadomie udostępnili). Możemy również zobaczyć wpisy autora [ac](https://sekurak.pl/author/ac/)
 {: .text-justify}
 
 # Przydatne programy
