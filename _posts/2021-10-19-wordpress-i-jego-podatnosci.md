@@ -160,7 +160,7 @@ Payload options (php/meterpreter/reverse_tcp):
 ### Eksploity
 
 #### wp_file_manager_rce
-Ostatnio dosyć popularnym eksploitem (2020-09) jest _WordPress File Manager Unauthenticated Remote Code Execution_. Jest również dostępny w Metasploice. Możesz go przetestować na już wcześniej wspomnianej wirtualce [Vulny](https://kerszl.github.io/hacking/walkthrough/vulny/).
+Ostatnio dosyć popularnym eksploitem (2020-09) jest _WordPress File Manager Unauthenticated Remote Code Execution_. Jest również dostępny w **Metasploicie**. Możesz go przetestować na już wcześniej wspomnianej wirtualce [Vulny](https://kerszl.github.io/hacking/walkthrough/vulny/).
 {: .text-justify}
 
 ```console
