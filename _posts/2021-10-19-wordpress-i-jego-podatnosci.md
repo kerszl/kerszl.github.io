@@ -85,7 +85,7 @@ Szukanie użytkowników już może narobić hałasu:
 Jeżeli znamy nazwę użytkownika i chcemy znaleźć jego hasło, możemy użyć **brute-force**:
 {: .text-justify}
 ```bash
-# wpscan --url https://strona -U uzytkownik -P wpscan -P /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000.txt --url https://strona --api-token=[twój token]
+# wpscan --url https://strona -U uzytkownik -P /usr/share/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000.txt --url https://strona --api-token=[twój token]
 ```
 Ostatnia tutaj wspomniana komenda, czyli szukanie podatnych pluginów i tematów. To narobi dużo szumu. Przykład ten, a nawet mocniejszy możecie poćwiczyć na wirtualce [Beloved](https://kerszl.github.io/hacking/walkthrough/beloved/).:
 {: .text-justify}
