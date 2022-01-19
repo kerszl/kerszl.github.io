@@ -1,5 +1,5 @@
 ---
-title: "[01] Rekonesans sieci: Nmap, Netdiscover..."
+title: "[01] Rekonesans sieci"
 excerpt: " "
 comments: true
 categories:
