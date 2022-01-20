@@ -101,10 +101,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [Dirsearch](https://github.com/maurosoria/dirsearch) został napisany w **Pythonie** i wymaga co najmniej wersji 3.7. Niestety jego instalacja nastręcza sporo problemów. Jest to raczej spowodowane dziwnymi zależnościami bibliotek. Dobrze, jakby był w jakimś repozytorium. Niestety, na razie go nie ma. Zaletą programu jest wynik skanowania, który jest wyświetlany w kolorze, który to ułatwia przejrzenie wyniku. Z ciekawszych rzeczy jest opcja zamiany słów ze słownika na duże, małe litery lub tylko zamianę pierwszą dużą literę. Używałem go jakiś czas, jednak jego crashe zniechęciły mnie do niego, a nowsze wersje nie chciały się poprawnie zainstalować. Domyślnie ustawia najbardziej popularne rozszerzenia plików. Tak jak w **Dirb** wystarczy tylko podać ścieżkę do serwera. Resztę załatwia program.
 {: .text-justify}
 ```bash
-dirsearch -u http://serve.lan/
+root@kali:/usr/share/wordlists# dirsearch -u http://serve.lan/
 ```
 ```bash
-root@kali:/usr/share/wordlists# dirsearch -u http://serve.lan/
 
   _|. _ _  _  _  _ _|_    v0.4.2
  (_||| _) (/_(_|| (_| )
@@ -157,7 +156,8 @@ Jak widać program na końcu się "wyłożył".
 
 ```bash
 root@kali:/tmp/dirsearch# feroxbuster -u http://serve.lan
-
+```
+```bash
  ___  ___  __   __     __      __         __   ___
 |__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
 |    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
