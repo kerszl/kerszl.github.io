@@ -16,12 +16,12 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Do czego to służy?
-Na serwerach **HTTP** znajduje się dużo ukrytych plików lub katalogów, które nie są udostępniane w linkach i o których mają wiedzieć tylko odpowiednie osoby. Jednak przypadkowo ktoś może zapomnieć usunać jakieś zdjęcie, zapomniany kod w PHP, ZIP, a nawet plik z hasłami. Dzięki temu możemy mieć jakiś punkt zaczepienia w poznaniu słabego punktu tego serwera. Przeszukiwanie plików najczęściej odbywa się metodą słownikową. Sukces jednak w dużej mierze zależy od dobrego słownika i rozpoznania środowiska. Trzeba wiedzieć co można spodziewać się znaleźć. Dobry skaner też tutaj ma tutaj znaczenie, chociaż wg. mnie ważniejszy jest słownik. Większość programów skanujących oferuje podobne funkcje, mimo to preferuje [feroxbuster](https://github.com/epi052/feroxbuster). Wszystkie testy "szukaczy" zostały wykonane na wirtualnej maszynie [serve](https://hackmyvm.eu/machines/machine.php?vm=Serve), która się znajduje na świetnym serwisie z podatnymi wirtualkami [hackmyvm](https://hackmyvm.eu)
+Na serwerach **HTTP** często znajduje się dużo ukrytych dla plików lub katalogów, które nie są udostępniane w linkach strony. Jednak przypadkowo ktoś może zapomnieć usunać jakieś zdjęcie, zapomniany kod w PHP, ZIP, repozytorium, a nawet plik z hasłami. Dzięki odkrytym przez nas plikom, możemy mieć jakiś punkt zaczepienia w poznaniu słabego punktu serwera i ogólnie dowiedzieć się o nim czegoś więcej. Znajdowanie plików najczęściej odbywa się metodą słownikową. Sukces jednak w dużej mierze zależy od dobrego słownika i wcześniejszego rozpoznania środowiska. Dobrze wiedzieć czego szukać. Dobry skaner też tutaj ma znaczenie, chociaż wg mnie ważniejszy jest słownik. Większość programów skanujących oferuje podobne funkcje, mimo to preferuję [Feroxbuster](https://github.com/epi052/feroxbuster). Wszystkie testy "wyszukiwaczy" zostały wykonane na wirtualnej maszynie [serve](https://hackmyvm.eu/machines/machine.php?vm=Serve), która się znajduje na świetnym serwisie z podatnymi wirtualkami [hackmyvm](https://hackmyvm.eu).
 {: .text-justify}
 
 # Programy
 ## Dirb
-**Dirb** jest jednym z najstarszym znanym mi skanerem treści. Można go znaleźć w Kali Linuxie. Wersja jest 2.2 pochodzi z 2009 roku i nie widać następcy. Jednak ten podeszły wiek programu nie przeszkadza jego funkcjonowaniu. Skaner jest bardzo prosty w użyciu. Wystarczy w parametrze podać scieżkę do serwera **WWW** i ewentualnie do słownika. Skaner standardowo identyfikuje się jako "Mozilla/4.0" :smiley: i tak jak wszystkie skanery przeszukuje rekurencyjnie, co oczywiście można zmienić.
+**Dirb** jest jednym z najstarszym znanym mi skanerem treści. Można go znaleźć w Kali Linuxie. Wersja 2.2 pochodzi z 2009 roku i nie widać następnej. Jednak ten podeszły wiek programu nie przeszkadza w jego funkcjonowaniu. Skaner jest bardzo prosty w użyciu. Wystarczy w parametrze podać scieżkę do serwera **WWW** i ewentualnie do słownika. Program standardowo identyfikuje się jako "Mozilla/4.0" :smiley: i tak jak wszystkie znane mi skanery przeszukuje rekurencyjnie, co oczywiście można zmienić.
 {: .text-justify}
 ```bash
 root@kali:/usr/share/wordlists# dirb http://serve.lan
@@ -60,11 +60,12 @@ GENERATED WORDS: 4612
 END_TIME: Wed Jan 19 21:50:24 2022
 DOWNLOADED: 18448 - FOUND: 5
 ```
-Słownik zawiera tylko 4612 słów, wiec nie jest zbyt obszerny, jednak dosłownie w dziesięć sekund znalazł pięc elementów. To niestety nie wszystko co miał znaleźć, ale używając innego słownika, pewnie byłoby lepiej. Prosty skaner do szybkiego szukania.
+Słownik zawiera tylko 4612 słów, wiec nie jest zbyt obszerny, jednak dosłownie w dziesięć sekund znalazł pięc elementów. To niestety nie wszystko, ale używając innego słownika, pewnie byłoby lepiej. Prosty skaner na start.
 {: .text-justify}
 
 ## Gobuster
-[Gobuster](https://github.com/OJ/gobuster) jest już nowszym programem, który działa od razu na dziesięciu wątkach. Ma to co inne programy tego typu. Jest możliwość doklejenia do nazwy rozszerzenia. Oprócz przeszukiwania katalogów można też enumerować **DNS**y, wirtualne hosty, a nawet kubełki **S3** na **Amazonie**. 
+[Gobuster](https://github.com/OJ/gobuster) jest już nowszym programem, który działa od razu na dziesięciu wątkach. Ma podstawowe funkcje, co programy tego typu. Jest możliwość doklejenia do nazwy rozszerzenia. Oprócz przeszukiwania katalogów można też enumerować **DNS**y, wirtualne hosty, a nawet kubełki **S3** na **Amazonie**.
+{: .text-justify}
 ```bash
 root@kali:/usr/share/wordlists# gobuster dir -u http://serve.lan -w /usr/share/dirb/wordlists/common.txt
 ```
@@ -97,7 +98,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ```
 
 ## Dirsearch
-[Dirsearch](https://github.com/maurosoria/dirsearch) został napisany w **Pythonie** i wymaga co najmniej wersji 3.7. Niestety jego instalacja nastręcza sporo problemów. Jest to raczej spowodowane dziwnymi zależnościami bibliotek. Dobrze, jakby był w jakimś repozytorium, niestety, na razie go nie ma. Zaletą jest wynik skanowani, który jest wyświetlany w kolorze. Ważniejsze elementy są jaśniejsze, co ułatwia przejrzenie wyniku. Z ciekawszych rzeczy jest opcja zamiany słów np. na duże litery, lub tylko pierwszą dużą literę. Używałem go jakiś czas, jednak jego crashe zniechęciły mnie do niego, a nowsze wersje nie chciały się poprawnie zainstalować. Tak jak w **Dirb** wystarczy tylko podać ścieżkę do serwera. Resztę załatwia program.
+[Dirsearch](https://github.com/maurosoria/dirsearch) został napisany w **Pythonie** i wymaga co najmniej wersji 3.7. Niestety jego instalacja nastręcza sporo problemów. Jest to raczej spowodowane dziwnymi zależnościami bibliotek. Dobrze, jakby był w jakimś repozytorium. Niestety, na razie go nie ma. Zaletą programu jest wynik skanowania, który jest wyświetlany w kolorze, który to ułatwia przejrzenie wyniku. Z ciekawszych rzeczy jest opcja zamiany słów ze słownika na duże, małe litery lub tylko zamianę pierwszą dużą literę. Używałem go jakiś czas, jednak jego crashe zniechęciły mnie do niego, a nowsze wersje nie chciały się poprawnie zainstalować. Domyślnie ustawia najbardziej popularne rozszerzenia plików. Tak jak w **Dirb** wystarczy tylko podać ścieżkę do serwera. Resztę załatwia program.
 {: .text-justify}
 ```bash
 dirsearch -u http://serve.lan/
@@ -147,11 +148,11 @@ Target: http://serve.lan/
 Task Completed
 <dirsearch.dirsearch.Program object at 0x7f8c2bea9a90>
 ```
-Jak widać program na końcu się "wyłożył". Znalazł zaś to samo, co wcześniejsze programy.
+Jak widać program na końcu się "wyłożył".
 {: .text-justify}
 
 ## Feroxbuster
-[Feroxbuster] (https://github.com/epi052/feroxbuster) to mój ulubiony skaner. W przeciwieństwie do **Dirsearch**a znajduje się w repozytorium, więc raczej nie powinno być problemu z jego zainstalowaniem. Ma bardzo czytelny i bajerancki ekran wynikowy z różnymi ikonkami. Ogromną zaletą tego szukacza jest to, że można podczas skanowania zatrzymać przeszukiwanie dowolnie wybranego katalogu. Widać ile znaleziony plik ma linii, słów, kod odpowiedzi, jest nawet bezpośredni link do niego, co jest bardzo przydatne, a nie wszędzie to widziałem. Dodatkowo program używa rekurencji, jednak domyślnie wyszukuje tylko elementy bez rozszerzeń, ale można uzupełnić to przeszukiwanie rozszerzeń parametrem **-x**. I uwaga, program domyślnie używa aż pięćdziesiąt wątków, więc może narobić szumu. Z dodatkowych zalet, to można używać też IPv6, co jest bardzo rzadkie w tego typu programach. Może też przeszukiwać linki ze znalezionego dokumentu. 
+[Feroxbuster](https://github.com/epi052/feroxbuster) to mój ulubiony skaner. W przeciwieństwie do **Dirsearch**a znajduje się w repozytorium, więc raczej nie powinno być problemu z jego zainstalowaniem. Ma bardzo czytelny i wprost bajerancki ekran wynikowy z różnymi ikonkami, ale nie tylko ikonkami człowiek żyje. Widać ile znaleziony plik ma linii, słów, jest widoczny kod odpowiedzi i nawet bezpośredni link do niego, co jest bardzo przydatne, a nie wszędzie to widziałem. Ogromną zaletą tego skanera jest to, że podczas pracy można podczas anulować przeszukiwanie wybranego katalogu. Dodatkowo program używa rekurencji, czyli wchodzi w głąb katalogów i je przeszukuje. Jednak, co jest moim zdaniem wadą i zaletą, domyślnie wyszukuje tylko elementy bez rozszerzeń, ale można to zmienić parametrem **-x**. I uwaga, program domyślnie używa aż pięćdziesiąt wątków, więc może narobić szumu. Z dodatkowych zalet, to można używać też IPv6, co jest bardzo rzadkie w tego typu programach (tylko to tu widziałem). Jest też opcja przeszukiwania linków ze znalezionego dokumentu. 
 {: .text-justify}
 
 ```bash
@@ -206,7 +207,7 @@ root@kali:/tmp/dirsearch# wordlists
 ├── rockyou.txt
 └── seclists -> /usr/share/seclists
 ```
-Słowniki znajdują się w katalogu */usr/share/wordlists*. Najczęściej używanym jest */usr/share/dirb/wordlists/common.txt*, lecz on nie zawsze znajduje wszystko. Używam też słownika */usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-small.txt* i większego */usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt*. Polecam też słownik z seclist */usr/share/seclists/Discovery/Web-Content/common.txt*. W katalogu */usr/share/seclists* jest bardzo dużo plików, nawet za dużo, i na odpowiednie okazje. Dobrze też wiedzieć czego się szuka. Inne są słowniki do typowych imion, nazwisk, kont użytkowników itd.
+Słowniki znajdują się w katalogu */usr/share/wordlists*. Najczęściej używanym jest */usr/share/dirb/wordlists/common.txt*, lecz on nie zawsze znajduje wszystko. Używam też słownika */usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-small.txt* i większego */usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt*. Polecam też słownik z seclist */usr/share/seclists/Discovery/Web-Content/common.txt*. W katalogu */usr/share/seclists* jest bardzo dużo plików, nawet za dużo, i na odpowiednie okazje. Dobrze też wiedzieć czego się szuka. Inne są słowniki do imion, nazwisk, kont systemowych, aplikacji.
 {: .text-justify}
 <div class="notice--primary" markdown="1">
 Lista słowników które używam wg kolejności
@@ -224,6 +225,6 @@ Lista słowników które używam wg kolejności
 </div>
 
 # Koniec
-Wyszukiwanie schowanych plików zależy nie tylko od programu, ale też od słownika. Dobrze również wiedzieć jakiego typu pliki spodziewamy się znaleźć. Jak znalazłeś jakieś błędy napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
+Wyszukiwanie schowanych plików zależy nie tylko od programu, ale też od słownika. Dobrze również wiedzieć jakiego typu pliki spodziewamy się znaleźć. Jak znalazłeś jakieś błędy, masz sugestie,  napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
 {: .text-justify}
 
