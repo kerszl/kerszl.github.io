@@ -16,7 +16,7 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Do czego to służy?
-Na serwerach **HTTP** często znajduje się dużo ukrytych dla plików lub katalogów, które nie są udostępniane w linkach strony. Jednak przypadkowo ktoś może zapomnieć usunać jakieś zdjęcie, zapomniany kod w PHP, ZIP, repozytorium, a nawet plik z hasłami. Dzięki odkrytym przez nas plikom, możemy mieć jakiś punkt zaczepienia w poznaniu słabego punktu serwera i ogólnie dowiedzieć się o nim czegoś więcej. Znajdowanie plików najczęściej odbywa się metodą słownikową. Sukces jednak w dużej mierze zależy od dobrego słownika i wcześniejszego rozpoznania środowiska. Dobrze wiedzieć czego szukać. Dobry skaner też tutaj ma znaczenie, chociaż wg mnie ważniejszy jest słownik. Większość programów skanujących oferuje podobne funkcje, mimo to preferuję [Feroxbuster](https://github.com/epi052/feroxbuster). Wszystkie testy "wyszukiwaczy" zostały wykonane na wirtualnej maszynie [serve](https://hackmyvm.eu/machines/machine.php?vm=Serve), która się znajduje na świetnym serwisie z podatnymi wirtualkami [hackmyvm](https://hackmyvm.eu).
+Na serwerach **HTTP** często znajduje się dużo ukrytych plików lub katalogów, które nie są udostępniane w linkach strony.  Przypadkowo ktoś może zapomnieć usunać jakieś zdjęcie, zapomniany kod w PHP, ZIP, repozytorium, a nawet plik z hasłami. Dzięki odkrytym przez nas plikom, możemy mieć jakiś punkt zaczepienia w poznaniu słabego punktu serwera i ogólnie dowiedzieć się o nim czegoś więcej. Znajdowanie plików najczęściej odbywa się metodą słownikową. Sukces jednak w dużej mierze zależy od dobrego słownika i wcześniejszego rozpoznania środowiska. Dobrze wiedzieć czego szukać. Dobry skaner też tutaj ma znaczenie, chociaż wg mnie ważniejszy jest słownik. Większość programów skanujących oferuje podobne funkcje, mimo to preferuję [Feroxbuster](https://github.com/epi052/feroxbuster). Wszystkie testy "wyszukiwaczy" zostały wykonane na wirtualnej maszynie [serve](https://hackmyvm.eu/machines/machine.php?vm=Serve), która się znajduje na świetnym serwisie z podatnymi wirtualkami [hackmyvm](https://hackmyvm.eu).
 {: .text-justify}
 
 # Programy
@@ -225,6 +225,6 @@ Lista słowników które używam wg kolejności
 </div>
 
 # Koniec
-Sukces dużo zależy od słownika, odpowiednio dobranych rozszerzeń, trochę szczęścia i wiedzy co możemy znaleźć. Program jest w mniejszym stopniu ważny. Oprócz wymienionych wcześniej narzędzi, to fuzzery takie jak **Ffuf** lub **Wfuzz** też można użyć do przeszukiwania katalogów, jednak są raczej używane do szukania parametrów w pliku np. w **PHP**. Jeżeli znalazłeś jakieś błędy, masz sugestie, napisz na[kerszi@protonmail.com](mailto:kerszi@protonmail.com).
+Czy nam się uda coś znaleźć czy nie, to tak jak wcześniej napisałem, dużo zależy od słownika, odpowiednio dobranych rozszerzeń, trochę szczęścia i wiedzy co możemy znaleźć. Program jest w mniejszym stopniu ważny. Oprócz wymienionych wcześniej narzędzi, to fuzzery takie jak **Ffuf** lub **Wfuzz** też można użyć do przeszukiwania katalogów, jednak są raczej używane do szukania parametrów w pliku np. w **PHP**. Jeżeli znalazłeś jakieś błędy, masz sugestie, napisz na[kerszi@protonmail.com](mailto:kerszi@protonmail.com).
 {: .text-justify}
 
