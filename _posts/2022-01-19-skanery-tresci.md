@@ -225,6 +225,6 @@ Lista słowników które używam wg kolejności
 </div>
 
 # Koniec
-Wyszukiwanie schowanych plików zależy nie tylko od programu, ale też od słownika. Dobrze również wiedzieć jakiego typu pliki spodziewamy się znaleźć. Jak znalazłeś jakieś błędy, masz sugestie,  napisz na [kerszi@protonmail.com](mailto:kerszi@protonmail.com).
+Sukces dużo zależy od słownika, odpowiednio dobranych rozszerzeń, trochę szczęścia i wiedzy co możemy znaleźć. Program jest w mniejszym stopniu ważny. Oprócz wymienionych wcześniej narzędzi, to fuzzery takie jak **Ffuf** lub **Wfuzz** też można użyć do przeszukiwania katalogów, jednak są raczej używane do szukania parametrów w pliku np. w **PHP**. Jeżeli znalazłeś jakieś błędy, masz sugestie, napisz na[kerszi@protonmail.com](mailto:kerszi@protonmail.com).
 {: .text-justify}
 
