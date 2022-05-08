@@ -46,5 +46,5 @@ Tu coś powinno być **test**.
 
 {% include gallery id="gallery" %}
 <!--
-{% include video id="770VWcs8g9E" provider="youtube" %--}
+{% include video id="770VWcs8g9E" provider="youtube" %}
 -->
