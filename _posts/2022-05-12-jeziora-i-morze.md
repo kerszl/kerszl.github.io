@@ -18,5 +18,5 @@ header:
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |Olsztyn| km| h| zł| pogoda| dest|
 
-Tu coś powinno być **test**.
+Tu coś powinno być **test2**.
 {: .text-justify}
