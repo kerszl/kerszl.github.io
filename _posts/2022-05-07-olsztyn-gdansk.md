@@ -39,8 +39,7 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-<!--emoti weather -- ☀️🌤️🌥️🌦️🌧️🌩️-->
-|Olsztyn| km| h| zł| pogoda| dest|
+|Olsztyn| km| h| zł|☀️🌤️🌥️🌦️🌧️🌩️| dest|
 
 Tu coś powinno być **test**.
 {: .text-justify}
