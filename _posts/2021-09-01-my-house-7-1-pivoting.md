@@ -46,7 +46,7 @@ Ostatnio szukałem czegoś, gdzie mógłbym zastosować Pivoting (dostać się n
 Pod tym adresem http://172.16.1.167:20000/ powinno być mniej więcej coś takiego:
 {% include gallery id="gallery1"  %}
 </div>
-Mamy przy okazji pierwszą flagę, a jest ich 20 lub 19. Autor to dobrze opisał. Flaga ma zapis **{{tryharder:xxx}}**, gdzie **xxxx** jest cyfrą z zakresu **1...9999**. Nie będę opisywał całego przejścia. Częściowa solucja jest [tutaj](https://www.youtube.com/watch?v=hdEjBxhBsVw) i [tutaj](https://www.youtube.com/watch?v=AlZFjc574tM). Motasem Hamdan w drugiej części się skupił na pivotingu, jednak autor trochę poszedł na skróty i użył go przez dostęp do serwera na którym jest odpalony **Docker**. A jeżeli nie mamy takiego dostępu, to co wtedy? Na pomoc przychodzi nam **Metasploit** i jego przekierowanie portów (komenda **portfwd**). Jednak do końca też to dobrze nie działa. Np. nie zawsze udało mi się połączyć przez pivoting **Metasploita** z bazą **Mysql** (o tym później), za to z serwerem **Dockera** na którym jest **SSH** już się to udało bez problemu. Opiszę tutaj pivoting przez **Metasploita** i bez, z dostępem do serwera i przekierowanie portów przez **SSH -L**.
+Mamy przy okazji pierwszą flagę, a jest ich 20 lub 19. Autor to dobrze opisał. Flaga ma zapis "{{tryharder:xxx}}", gdzie **xxxx** jest cyfrą z zakresu **1...9999**. Nie będę opisywał całego przejścia. Częściowa solucja jest [tutaj](https://www.youtube.com/watch?v=hdEjBxhBsVw) i [tutaj](https://www.youtube.com/watch?v=AlZFjc574tM). Motasem Hamdan w drugiej części się skupił na pivotingu, jednak autor trochę poszedł na skróty i użył go przez dostęp do serwera na którym jest odpalony **Docker**. A jeżeli nie mamy takiego dostępu, to co wtedy? Na pomoc przychodzi nam **Metasploit** i jego przekierowanie portów (komenda **portfwd**). Jednak do końca też to dobrze nie działa. Np. nie zawsze udało mi się połączyć przez pivoting **Metasploita** z bazą **Mysql** (o tym później), za to z serwerem **Dockera** na którym jest **SSH** już się to udało bez problemu. Opiszę tutaj pivoting przez **Metasploita** i bez, z dostępem do serwera i przekierowanie portów przez **SSH -L**.
 {: .text-justify}
 
 # Zaczynamy
@@ -302,7 +302,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.58 seconds
 {: .text-justify}
 ```console
 root@kali:/home/szikers/myhouse7-1# ssh 127.0.0.1 -p 24
-FLAG: {{tryharder:308}}
+FLAG: "{{tryharder:308}}"
 root@127.0.0.1's password:
 Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
