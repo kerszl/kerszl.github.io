@@ -1,5 +1,5 @@
 ---
-title: "[02] Skanery treści"
+title: "[02] jakas bzdura"
 excerpt: " "
 comments: true
 categories:
