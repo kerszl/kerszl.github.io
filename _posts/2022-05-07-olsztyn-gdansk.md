@@ -37,14 +37,15 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2022/olsztyn_gdansk/01/mapka.png)
 
+<!---emotki ☀️🌤️🌥️🌦️🌧️🌩️ --->
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Olsztyn| km| h| zł|☀️🌤️🌥️🌦️🌧️🌩️| dest|
+|Olsztyn| km| h| zł|pogoda| dest|
 
-Tu coś powinno być **test**.
+Tutaj będzie opowieść **test**.
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-<!--
+<!---
 {% include video id="770VWcs8g9E" provider="youtube" %}
--->
+--->
