@@ -1,3 +1,4 @@
+---
 title: "Olsztyn->Gdansk: Dzień 1"
 excerpt: " "
 comments: true
