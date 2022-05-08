@@ -1,5 +1,5 @@
 ---
-title: "Olsztyn->Gdansk: Dzień 1"
+title: "Olsztyn->Gdańsk: Dzień 1"
 excerpt: " "
 comments: true
 categories:
@@ -37,15 +37,13 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2022/olsztyn_gdansk/01/mapka.png)
 
-<!---emotki ☀️🌤️🌥️🌦️🌧️🌩️ --->
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Olsztyn| km| h| zł|pogoda| dest|
+|Olsztyn| km| h| zł|☀️🌤️🌥️🌦️🌧️🌩️| dest|
 
 Tutaj będzie opowieść **test**.
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-<!---
 {% include video id="770VWcs8g9E" provider="youtube" %}
---->
+
