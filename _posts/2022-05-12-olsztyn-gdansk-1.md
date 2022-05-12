@@ -39,11 +39,10 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Olsztyn| km| h| zł|☀️🌤️🌥️🌦️🌧️🌩️| dest|
+|Olsztyn| 71 km| 6h| 173 zł|🌤️🌧️🌩️|Godkowo|
 
-Tutaj będzie opowieść **test**.
+Ranne wstawanie, to jest jedna z najgorszych rzeczy, która może mnie spotkać, zwłaszcza kiedy budzik dzwoni przed 4ta rano, ale o 5:15 jest pociąg Rybak PKP intercity, który jedzie do Szczecina. Nic, trzeba wstać, zwlaszcza że bilet kosztował grosze, a dokładniej 19 zł+9 za rower. Tym razem wziąłem mała sakwę 22 litry, bo to będzie krótki wypad. 
+Po 9tej pociąg był już w Olsztynie. Stamtąd zaczynałem rowerowy trip. Niestety z północy nadciągała ulewa, którą się przeczekało w McDonaldzie. O 10tej miało nie padać, ale spoko, padało i zmokłem. Potem już było lepiej, tylko brudny rower po błotku i wiatr, który wiał w północnego zachodu. Ten wiatr przegnał chmury do Białegostoku (wybaczcie, chciałem mieć dobra pogodę ;) ). Droga męcząca. Od Olsztyna w stronę północy niestety jest dużo górek. UP&DOWN i tak w kółko. Ale za to po drodze były czaple, sarenki i miejscowość Pupki, która robiła furorę. Potem w miejscowości Miłakowo spotkała mnie miła niespodzianka. Obiad za 20 zł ( a mogło być za 17 jakbym wcześniej zdążył). Przejrzałem menu. Szok - pizza za 17 zł. Takie cenę to widziałem wieki temu... Cóż pojadłem i trzeba ruszać dalej. Do zabookowanego noclegu - dolina sadosiów w Godkowie zostało około 20 km. Koszt noclegu śmiesznie tanio - 60 pare zł, ale jutro może być tak kolorowo. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-[//]: #  {% include video id="770VWcs8g9E" provider="youtube" %}
-[comment]: <> komentarz
