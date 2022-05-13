@@ -45,5 +45,3 @@ Piątek trzynastego to nie jest szczęśliwy dzień. Na początku też tak było
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-[//]: #  {% include video id="770VWcs8g9E" provider="youtube" %}
-[comment]: <> komentarz
