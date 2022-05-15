@@ -39,11 +39,10 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|Olsztyn| km| h| zł|☀️🌤️🌥️🌦️🌧️🌩️| dest|
+|Gdańsk|9km|1h|226zł|☀️|Sopot|
 
-Tutaj będzie opowieść **test**.
+Ostatni dzień minitripu był przeznaczony raczej na zwiedzanie, plażowanie niż jazdę rowerem. Około godziny 8 wstałem (no, może wcześniej), napisałem pochlebną recenzję pensjonatu. I za to dostałem kawę od pani recepcjonistki. Na śniadanie pojechałem do mega drogiego maka, gdzie ostatnio jedzenie jest mega mini. Reklama McDonalda, gdzie osiłek jest utażsamiany z mcmuffinkiem dającym pełno energii to ściema!!! Kanapka jest taka mała, że nawet kot sąsiada by się nią nie najadł!!! A cena?! Kawa i kanapka 20 zł... Legenda taniego maka obróciła się w gruz!!! Po (obfitym, hahaha) śniadaniu pojechałem kolejką SKM do Sopotu na plażę(Na szczęście w pensjonacie zjadłem bułki z serkiem, które kupił wczoraj). W Sopocie posiedziałem trochę na plaży, posłuchalem jak ludzie za obiady płacą po 150 zł i wróciłem do Gdańska. Powrót, czyli Rower+SKM. Potem zwiedzanie Gdańska, dobry lunch, który był w stylu burgera z bułki z węglem (?) i mięso mielone (średni pomysł, bo mięso wyskakuje). Parę fotek i czas wracać... Pociąg do Białegostoku o 15:55. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-[//]: #  {% include video id="770VWcs8g9E" provider="youtube" %}
-[comment]: <> komentarz
+
