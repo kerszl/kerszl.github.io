@@ -34,6 +34,12 @@ gallery:
     image_path: /assets/images/rower/2022/olsztyn_gdansk/04/09.jpg
   - url: /assets/images/rower/2022/olsztyn_gdansk/04/10.jpg
     image_path: /assets/images/rower/2022/olsztyn_gdansk/04/10.jpg
+  - url: /assets/images/rower/2022/olsztyn_gdansk/04/11.jpg
+    image_path: /assets/images/rower/2022/olsztyn_gdansk/04/11.jpg
+  - url: /assets/images/rower/2022/olsztyn_gdansk/04/12.jpg
+    image_path: /assets/images/rower/2022/olsztyn_gdansk/04/12.jpg
+  - url: /assets/images/rower/2022/olsztyn_gdansk/04/13.jpg
+    image_path: /assets/images/rower/2022/olsztyn_gdansk/04/13.jpg
 ---
 ![mapka](/assets/images/rower/2022/olsztyn_gdansk/04/mapka.png)
 
