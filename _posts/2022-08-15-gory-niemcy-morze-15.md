@@ -57,3 +57,5 @@ Mam nadzieję, że dzisiaj też tutaj coś napiszę.
 {: .text-justify}
 
 {% include gallery id="gallery" %}
+Test z video
+{% include video id="w4vzl8Z5Aik" provider="youtube" %}
