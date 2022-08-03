@@ -1,5 +1,5 @@
 ---
-title: "Góry-Niemcy-Morze: Dzień 02"
+title: "Góry-Niemcy-Morze: pkp - krzeszowice - Kołobrzeg"
 excerpt: " "
 comments: true
 categories:
