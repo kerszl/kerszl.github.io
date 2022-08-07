@@ -51,9 +51,9 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|start| ile km| ile h| ile zł|☀️🌤️🌧️🌩️|Koniec|
+|Bakenberg| 72 km| 7 h| 211 zł|🌤️|Zicker |
 
-Mam nadzieję, że dzisiaj też tutaj coś napiszę.
+Wyjazd byl po 10tej. Oddałem chip do lazienki. Po drodze minąłem jeszcze pare kempingow. A tak sie  martwiłem, że nie będzie miejsc,trzeba było jeszcze poszukac, ale tam gdzie byłem było ok. Nawet sklep otworzyli w niedzielę. Kupilem jakiś napój w plastykowym opakowaniu. Sklepikarz powiedział, mi żebym jak wypije to nie wyrzucał, to dostanę 25 centów. Szok, za śmieci tyle kasy. Ciekawe czy u nas w Polsce tak bedzie? Wypiłem smoothie plus. Oddałem opakowanie i 25 centów w kieszeni. Dojechawszy do Glowe zaszedłem do indyjskiej restauracji. Mała zupa i kurczak w curry 23 euro. Zupę mogłem sobie darować, tyle co nic. Kurczak był ok. Przy okazji podładowałem smartfona. Jadąc dalej zobaczylem otwarty sklep netto. Od 12-18. Też jakoś Niemcy obchodzą przepisy handlu w niedzielę. W Netto był automat zabierający plastykowe/szklane butelki. Za Fritza cole dostałem 8 centów, drugiej butelki nie przyjął. Teraz już wiem, czemu nie spotkałem nigdzie śmietnika na butelki. Po prostu można je oddać do maszyny, a paragon obniży cenę zakupow. Wychodząc ze sklepu zobaczyłem punkt ładowania elektrycznych rowerów. Niemcy pokochali elektryczne rowery. Widziałem ich tam więcej niż hulajnóg. Chciałem sprawdzić czy gniazdko działa i czy mogę podładować, ale zaraz, zaraz. Ładowarkę zostawilem w indyjskiej restauracji.  Na szczęście było to blisko. Wróciłem, a pani zapytała, czy wróciłem po ładowarkę. Zajechałem pod sklep i sprawdziłem czy w stacji ładująca rowery jest przydatna do ładowania komórki. Działało. Potem jechałem na południe. W okolicy bergen auf rugen zaczęły się ekstremalne górki. Po zachodniej strony wyspy tego nie było. Jakoś dojechałem na kemping koło miejscowości Zicker. Średni, ale jest miejsce na namioty i za pakiet internetowy trzeba płacić. Też dłużej nie mogę posiedzieć. Mogę do 10. Za całość zapłacilem 16 euro. Prysznic 2x 3 euro. 1 giga danych 1 Euro. To pierwszy kemping gdzie płaciłem za internet. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
