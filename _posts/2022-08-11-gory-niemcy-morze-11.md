@@ -51,9 +51,9 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|start| ile km| ile h| ile zł|☀️🌤️🌧️🌩️|Koniec|
+|stary Borek | 0 km| 0 h| ile zł|☀️|stary borek|
 
-Mam nadzieję, że dzisiaj też tutaj coś napiszę.
+Plażowanie, odpoczynek. Dziś bez relacji. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
