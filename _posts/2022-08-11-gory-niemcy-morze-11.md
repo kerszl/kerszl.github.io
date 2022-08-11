@@ -51,9 +51,9 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|stary Borek | 0 km| 0 h| ile zł|☀️|stary borek|
+|Stary Borek | 0 km| 0 h| 60.90 zł|☀️|Stary borek|
 
-Plażowanie, odpoczynek. Dziś bez relacji. 
+Plażowanie, odpoczynek. Dziś bez relacji,tylko zdjęcia. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
