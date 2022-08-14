@@ -51,9 +51,9 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|start| ile km| ile h| ile zł|☀️🌤️🌧️🌩️|Koniec|
+|Rowy| 46 km| 7 h| 71 zł|☀️|Łeba|
 
-Mam nadzieję, że dzisiaj też tutaj coś napiszę.
+Chciałem dzisiaj zrobić z 60 km, ale jednak nie zdążyłem i wyszło 46. Może tak mało, bo za późno wyjechałem (koło 11), no i droga nie zawsze była łatwa. Zapłaciłem za bilet do Słówińskiego Narodowego Parku w Rówku. Chyba 7 zł. Jest tam ok, dużo atrakcji oraz ławeczki, kosze na śmieci. Najpierw trasa była dosyć dobra. Szutr, zero wkurzającego piasku (jeżeli nie zboczałem), ale wyjeżdżając z lasu zaczely się schody, a tak naprawdę płyty. Jakoś to przejechałem. W Smołdzinie trochę asfaltu. Tam zjadłem dzienną rację żywnościową (dzięki Michał). Wystarczyło do torebki wlać 100 ml wody i po 12 minutach makaron po Bolońsku się podgrzal. W zestawie był jeszcze batonik, dżem, sucharki i coś tam jeszcze. Może być. Zjadłem i kierowałem się na bagna, czyli na Kluki. Ale wcześniej droga była z płyty i asfaltu. Zazwyczaj omijałem te trasę i zjeżdżałem na południe na R10, ale chciałem się zmierzyć ze słynną bestią. Przez dłuższy czas było dosyć sucho, więc bestia była osłabiona, chociaż były ostrzeżenia, że trasa może być nieprzejezdna. Jednak większość odcinku przeprowadziłem rower bez problemu, bywało nawet, że podjechałem. Ale słyszałem opowieści, że ludzie byli tam po kolana w błocie. To mnie akurat nie spotkało. Bagna Izbickie są bardzo ciekawe i polecam przejechać/przejść ten odcinek. Potem już odcinek Izbica-Ameryka. Droga tam jest ok. Później zaczyna się męczący piach, piach, piach i piach. Dojechawszy do Żarnowska od razu odbiłem na wschód na asfalt. Nie wiem czy żółty szlak był przejezdny czy nie. Nie chciałem sprawdzać. I tak dojechałem do Łeby. Wiedząc, że jest zlot motocyklistów, pojechałem, bez wybrzydzania, na pierwszy lepszy kemping. Akurat na Marco Polo. Było wolne miejsce. Potem trafiłem nad morze. Pogadałem z fanami motorów o zlocie. 
 {: .text-justify}
 
 {% include gallery id="gallery" %}
