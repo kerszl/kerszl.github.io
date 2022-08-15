@@ -51,11 +51,11 @@ gallery:
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|start| ile km| ile h| ile zł|☀️🌤️🌧️🌩️|Koniec|
+|Łeba | 50 km| 4 h| 117 zł|☀️🌩️|Dębki|
 
-Mam nadzieję, że dzisiaj też tutaj coś napiszę.
+
+Około 6stej rano obudził mnie odgłos roweru, który przejechał koło namiotu. To mnie obudziło, żadne psy, koty, Niemcy, pociąg. Przy tych głosach spałem jak zabity. Ale rower... Okazało się, że inny rowerzysta postanowił wcześniej wyruszyć. Wyskoczyłem z namiotu i porozmawiałem z nim. Jechał do Władysławowa, przynajmniej miał taki zamiar. Ale skoro mnie już tak rano obudził, to postanowiłem pojechać do Rąbki i dalej na Wydmy Ruchome. Być w Łebie i nie być na wydmach, to jak być nad morzem i się nie kąpać (zanurzyłem się do kolan) albo być nad morzem i nie zjeść ryby (zjadłem szprotkę z puszki). Pojechałem do Rąbki rowerem, ale już dalej mi się nie chciało ciągać z bagażami, więc pojechałem molexem, a co, pierwszy raz jechałem. Jakie to jest ciche. 28 km/h max. Fajna jazda. 14 zl to nie tak dużo za chwilę luksusu. Jednak molex przejechał tylko 3 km. Dalej, 2 km, trzeba było iść już z buta. Wydmy jak wydmy. Parę lat temu też tutaj byłem, ale tak dobrze to wspominałem, że musiałem pojechać i teraz. No i zobaczyłem pierwszy płatny parking dla rowerów. 10 zł (zakaz opierania rowerów o drzewa). To sobie nieźle wymyślili. Nie wiem, czy takie bzdury można egzekwować, ale widać, że na wszystkim można zarobić. Nie zapłaciłem, bo rower zostawiłem na parkingu molexów. Kierowca mi go zaprowadził. Na wydmach zrobiłem parę fotek. To już jednak trochę inne wydmy niż parę lat temu. W sumie się poruszają. Czae jechać. Droga była średnia, nie za łatwa, nie za trudna. Jednak wiatr i upał utrudniały jazdę. Ostatni odcinek z Białogóry pokonałem w tempie ekspresowym. W Dębkach trafiłem na kemping Lesny. Powiedzieli mi, że zawsze się znajdzie miejsce dla rowerzystów, a tak się bałem że przez te weekendowe tłumy nie będę miał gdzie spać na kempingu. Dalej nie jechałem, chociaż mogłem. Poszedłem na plażę, a ludzie uciekali, bo zbliżała się burza. Posiedziałem parę godzin i przyszła. Potem do baru na piwo i kończę podróż. Jutro wracam. Urlop się kończy. Dziękuję wszystkim za lajki i komentarze. No i będę tęsknił za polskim morzem (niemieckim trochę też - te prysznice dla psów). Mam nadzieję, że jeszcze kiedyś odwiedzę Bałtyk.
 {: .text-justify}
 
 {% include gallery id="gallery" %}
-Test z video
-{% include video id="w4vzl8Z5Aik" provider="youtube" %}
+
