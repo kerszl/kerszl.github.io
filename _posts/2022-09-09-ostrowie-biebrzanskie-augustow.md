@@ -62,7 +62,7 @@ gallery:
   - url: /assets/images/rower/2022/1daytrip/02/25.jpg
     image_path: /assets/images/rower/2022/1daytrip/02/25.jpg    
   - url: /assets/images/rower/2022/1daytrip/02/26.jpg
-    image_path: /assets/images/rower/2022/1daytrip/02/26.jpg    
+    image_path: /assets/images/rower/2022/1daytrip/02/26.jpg        
 ---
 ![mapka](/assets/images/rower/2022/1daytrip/02/mapka.png)
 
