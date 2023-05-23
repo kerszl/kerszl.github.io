@@ -17,7 +17,7 @@ Trochę ten artykuł jest żartobliwy, bo to z hakingiem jednak ma mało wspóln
 
 # Przygotowanie
 
-**serwer1**
+## serwer1
 Wchodzimy na serwer i generujemy, jeżeli nie mamy, klucz komendą: 
 ```bash
 ssh-keygen
@@ -29,7 +29,7 @@ ssh-copy-id user@serwer2
 potwierdzamy wszystko
 {: .text-justify}
 
-**serwer2**
+## serwer2
 Wchodzimy na serwer i generujemy, jeżeli nie mamy, klucz komendą: 
 ```bash
 ssh-keygen
