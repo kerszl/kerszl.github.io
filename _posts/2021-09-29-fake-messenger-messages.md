@@ -40,7 +40,7 @@ Tak, ale tylko „lokalnie”. Czyli my tylko widzimy te zmiany. Po zamknięciu 
 
 # Jak to zrobić?
 
-Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i**, a następnie **CTRL+SHIFT+c**. Przechodzimy do okna wiadomości, którą chcemy zmienić. Inspektor automatycznie skoczy do kodu i podświetli linię. Tam zmieniamy wiadomość. W naszym oknie tekst automatycznie się zmieni. Zamykamy inspektora. I to wszystko :smiley:
+Wchodzimy na Messengera, wciskamy **CTRL+SHIFT+i** lub odpalamy z menu **Narzędzia->Narzędzia przeglądarki->Narzędzia dla twórców witryn**, a następnie **CTRL+SHIFT+c**. Przechodzimy do okna wiadomości, którą chcemy zmienić. Inspektor automatycznie skoczy do kodu i podświetli linię. Tam zmieniamy wiadomość. W naszym oknie tekst automatycznie się zmieni. Zamykamy inspektora. I to wszystko :smiley:
 {: .text-justify}
 {% include gallery id="gallery1_2" %}
 
