@@ -28,6 +28,8 @@ gallery:
     image_path: /assets/images/inne/2023/01/07.jpg
   - url: /assets/images/inne/2023/01/08.jpg
     image_path: /assets/images/inne/2023/01/08.jpg
+  - url: /assets/images/inne/2023/01/09.jpg
+    image_path: /assets/images/inne/2023/01/09.jpg    
 ---
 ![mapka](/assets/images/inne/2023/01/mapka.png)
 
