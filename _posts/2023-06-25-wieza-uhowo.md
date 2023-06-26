@@ -1,3 +1,4 @@
+---
 title: "1daytrip - Uhowo"
 excerpt: " "
 comments: true
