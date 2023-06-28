@@ -49,7 +49,7 @@ gallery:
   - url: /assets/images/inne/2023/02/18.jpg
     image_path: /assets/images/inne/2023/02/18.jpg    
 ---
-Jedno zdjęcie mówi więcej niż tysiąc słów, a zdjęć jest siedemnaście.
+Jedno zdjęcie mówi więcej niż tysiąc słów, a zdjęć jest osiemnaście, w tym jedno wygenerowane przez [midjourney](https://midjourney.com) na podstawie trzeciego zdjęcia.
 {: .text-justify}
 
 {% include gallery id="gallery" %}
