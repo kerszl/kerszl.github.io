@@ -46,7 +46,7 @@ gallery:
     image_path: /assets/images/inne/2023/02/16.jpg    
   - url: /assets/images/inne/2023/02/17.jpg
     image_path: /assets/images/inne/2023/02/17.jpg    
-- url: /assets/images/inne/2023/02/18.jpg
+  - url: /assets/images/inne/2023/02/18.jpg
     image_path: /assets/images/inne/2023/02/18.jpg    
 ---
 Jedno zdjęcie mówi więcej niż tysiąc słów, a zdjęć jest siedemnaście.
