@@ -68,4 +68,4 @@ W sobotni poranek deszcz przywitał mnie przy wyjściu. "Będzie ciężka podró
 {: .text-justify}
 {% include gallery id="gallery" %}
 
-{% include video id="AeQ4x9oxtUc&t" provider="youtube" %}
+{% include video id="AeQ4x9oxtUc" provider="youtube" %}
