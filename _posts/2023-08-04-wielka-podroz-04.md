@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróz - Dzień: 2"
+title: "Wielka podróż: 02. Preslov-Kosice (SK)"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróz - Dzień: 8"
+title: "Wielka podróż: 08."
 excerpt: " "
 comments: true
 categories:
