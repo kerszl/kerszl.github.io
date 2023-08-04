@@ -53,9 +53,49 @@ gallery:
     image_path: /assets/images/rower/2023/wielka_podroz/29/19.jpg
   - url: /assets/images/rower/2023/wielka_podroz/29/20.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/29/20.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/21.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/21.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/22.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/22.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/23.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/23.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/24.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/24.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/25.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/25.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/26.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/26.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/27.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/27.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/28.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/28.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/29.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/29.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/30.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/30.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/31.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/31.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/32.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/32.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/33.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/33.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/34.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/34.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/35.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/35.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/36.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/36.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/37.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/37.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/38.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/38.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/39.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/39.jpg
+  - url: /assets/images/rower/2023/wielka_podroz/29/40.jpg
+    image_path: /assets/images/rower/2023/wielka_podroz/29/40.jpg
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/29/mapka.png)
 
-Tutaj bedzie tekst
+Wroc tu pozniej, jeszcze opisuje :)
 {: .text-justify}
 {% include gallery id="gallery" %}
