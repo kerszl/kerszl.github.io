@@ -41,8 +41,6 @@ gallery:
     image_path: /assets/images/rower/2023/wielka_podroz/06/13.jpg
   - url: /assets/images/rower/2023/wielka_podroz/06/14.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/06/14.jpg
-  - url: /assets/images/rower/2023/wielka_podroz/06/15.jpg
-    image_path: /assets/images/rower/2023/wielka_podroz/06/15.jpg
   - url: /assets/images/rower/2023/wielka_podroz/06/16.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/06/16.jpg
   - url: /assets/images/rower/2023/wielka_podroz/06/17.jpg
