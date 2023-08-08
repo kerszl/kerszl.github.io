@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 06. "
+title: "Wielka podróż: 06. Sarud - Törökszentmiklós - HU"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,10 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/08/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Oj, działo się dzisiaj, oj działo. A chciałem tylko mieć jeden spokojny dzień. Zaczęło się od tego, że wczoraj zarezerwowałem nocleg w Cegled i zapłaciłem z góry. Po 10 minutach dzwoni do mnie gość i mówi, żebym anulował, bo nie ma miejsc. Po co się w ogóle ogłaszał? Dobrze, anulowałem. Na szczęście booking zwrócił mi pieniądze, nie od razu, ale zwrócił. Potem znowu booking, tym razem w Szolnok. Nikt nie dzwonił. Poszedłem spać.
+{% include gallery id="gallery" %}
+Rano się spakowałem i pojechałem do Szolnok. Jechałem stosunkowo szybko, mimo że był silny wiatr. Dojeżdżam na wyznaczone miejsce, a tam nikogo nie ma. Zadzwoniłem do gościa, a on mówi, że od pół roku nie prowadzi hotelu i został zablokowany na bookingu (choć nadal pobierał opłaty). Również to zgłosiłem. O nie, już trzeci raz nie będę rezerwować na bookingu. Zostało mi tylko kampingowe rozwiązanie. Jest jeden w Szolnok. Wyglądał na domki bardziej dla sportowców. Dojeżdżam tam, pytam o nocleg a oni delikatnie mi sugerowali, abym się wyniósł i spędził noc w parku. Nie zamierzałem jednak tam jechać. Ale na mapie widziałem, że jest jeden kemping 15 km na wschód od Szolnoka. Zadzwoniłem tam. Odpowiedziała mi kobieta - I dont speak English. Zapytałem, camping - ok. Powiedziała, że camping jest w porządku. Więc pojechałem. Oczywiście normalną drogą nie mogłem, bo były tam zakazy wjazdu dla rowerów. Musiałem jechać ścieżkami bocznymi.
+{% include gallery id="gallery" %}
+Tam spotkałem miłą Węgierkę Judit, która trochę ze mną podjechała i zapewniła, że nie ma tu niedźwiedzi ani wilków. Są natomiast lisy, jelenie i zające. Mówiła prawdę. Pożegnałem się z nią i jej przyjaciółmi, którzy dołączyli później. Dalej droga była trudna, ale pełna różnych stworzeń. Były nawet drapieżne ptaki. Zrobiłem kilka zdjęć, ale czas nieubłaganie mijał, więc nie miałem czasu na zabawę w fotografa. Dojechałem na kemping w Törökszentmiklós, a tam pani powiedziała, że jest już zamknięty i mnie nie wpuści. Poprosiłem, żeby mnie wpuściła. Mówiłem, że do nich dzwoniłem, a inna pani powiedziała, żebym przyjechał. Na szczęście w końcu mnie wpuściła. Rozbiłem namiot i pojechałem do Lidla. Był otwarty do 21:00. Tam kupiłem trochę rzemieślniczego piwa.
 {: .text-justify}
 {% include gallery id="gallery" %}
