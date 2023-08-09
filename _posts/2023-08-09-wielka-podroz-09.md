@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 07. "
+title: "Wielka podróż: 07. Törökszentmiklós - Kecskemét (HU)"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,8 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/09/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Węgry mają słabe drogi, chociaż widziałem, że coś dzisiaj robią. Ale trzeba przyznać, że miłośnicy zwierząt poczują tam raj. Jadąc polnymi drogami, co chwila wyskakiwał mi jakiś jeleń, zając i inny zwierzak. W Polsce tak często nie widziałem tych zwierzaków. Po opłaceniu kempingu i pożegnaniu się z czeską rodziną, ruszyłem w stronę Kecskemét. Na szczęście dzisiaj prawie obyło się bez dziwnych przygód, oprócz tego, że wiatr dziś wiał od południa, ale trudno. Dawałem radę... Drogi były lepsze i gorsze, jak zwykle.
+{: .text-justify}
+Aż dojechałem do promu. Na szczęście miałem drobne. Przejazd kosztował mnie około 1 zł (szok). Potem znalazłem kemping w Kecskemét. Zajeżdżam, a mówią mi, że nie ma możliwości rozbicia się. Okazało się, że trafiłem na kemping tylko dla surferów, który był obok mojego docelowego. Ale 1 km dalej już mogłem spokojnie rozbić namiot.Tam usłyszałem, jak ktoś rozmawia po polsku. Był to rodak Kuba, który także się rozbił na tym kempingu. Recepcja była zamknięta, ale się dowiedziałem się z kartki co robić. Czyli zadzwonić do właściciela i powiedzieć, że się rozbiłem. zrobiłem tak. Potem poszedłem wypić piwo ze Słowakami. Fajnie się gadało, zwłaszcza że jeden z nich pracował w Polsce.
 {: .text-justify}
 {% include gallery id="gallery" %}
