@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 08."
+title: "Wielka podróż: 08. Törökszentmiklós - Kiskunhalas - HU"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,10 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/10/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Rano pożegnałem się z braćmi Słowakami, którymi dzień wcześniej piłem ich samogon (52%), oraz swoje piwo. Pożegnałem się również z rodakiem Kubą i postanowiłem ruszyć na południe, w stronę Serbii. tylko ciekaw, czy rowery szybciej się przemieszczają i mogą wcisnąć się przed samochody osobowe?
+{: .text-justify}
+Droga tym razem była niestety ruchliwa i niebezpieczna. Jednak od czasu do czasu pojawiały się ścieżki rowerowe, z których bardzo chętnie korzystałem. Dzisiejsza trasa prowadziła przez Jakabszállás, Bocsa, Tázlár - gdzie kupiłem po raz kolejny wyśmienitą, zimną kawę w puszce. Na taki upał, to jest wprost wymarzony napój. Polecam. Pije się jak złoto. W sumie wcześniej też już to piłem, ale tak mi posmakowała, że jak gdzieś ją widzę, to kupuję i piję - Hell Coffee Coconut. Jest też wersja latte. Ale dość reklamy. 
+{: .text-justify}
+Ponieważ wiatr był dosyć słaby, chociaż północny, wiał we mnie, ale że cały czas był asfalt, więc w 4 godziny już dojechałem na miejsce. Dokładnie o godzinie 16:00 meldowałem się na kempingu Halas. Powiem, że każdy kolejny kemping jest coraz lepszy. Tu nawet był basen. A kąpiel w taki upał to spełnienie marzeń. Była nawet woda borowa. Wieczorem czekało na mnie zimne piwko.
 {: .text-justify}
 {% include gallery id="gallery" %}
