@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 09."
+title: "Wielka podróż: 09. Kiskunhalas <-> Subotnica - HU - SRB"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,14 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/11/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Ponieważ byłem blisko serbskiej granicy (30 parę km), chciałem odwiedzić ten kraj.  Niestety,  Serbia nie należy do UE (więc się bałem, że na granicy długo mnie przetrzymają). Granica zaś znajduje się przy mieście Tompa. Podróż z Kiskunhalas zajęła mi tylko godzinę z kawałkiem. Jechałem szybko, bo namiot i większość sprzętu zostawiłem na kempingu i do tego wiatr mi sprzyjał. Wziąłem tylko trochę prowiantu, dużo napojów i oczywiście dinary serbskie. 
+{: .text-justify}
+Samochodów wtedy na granicy nie było dużo. Stanąłem za nimi i czekałem. Po 5 minutach zobaczyłem, że jest ukryty pas dla rowerów i pieszych. Wtoczyłem się tam i szybko się przeprawiłem do Serbii. Całość zajęła mi około 10 minut. Rozmowy telefoniczne i internet wychodzą mi drożej, więc nawet nie skorzystałem. Niby jakieś ulgi miały być, ale po co mam tam tracić kasę, skoro mam parędziesiąt gigabajtów do wykorzystania w Unii. Więc tylko wysłałem sms testowy. Drogi w Serbii są średniej jakości, ale mają ścieżki rowerowe, po których zasuwały motory (na Węgrzech też to widziałem). Ceny za to są dużo tańsze niż w Polsce. Widziałem promocję w Lidlu, piwo Argus za 1 złoty z kawałkiem (44 dinary). Magnesy na lodówkę wahają się od 50 do 200 dinarów (2-7 złotych). Jeden magnes kosztował 120 dinarów. Pani nie miała wydać reszty z 200 dinarów. Nie chciałem reszty, była taka szczęśliwa. Serbów mogłem zrozumieć jako tako, jak nie po słowiańsku to po angielsku. Godna pochwały była zupa za 10 złotych, w której się zmieściły 3 dolewki. Na ryneczku kupiłem jakiś alkohol, pljeszkawice i trochę magnesów. 
+{: .text-justify}
+Ciekawie jest, że na Serbii piszą cyrylicą i łacińskim alfabetem i czymś jeszcze. Jedna miejscowość była nawet pisana na cztery sposoby. Później pooglądałem trochę Suboticę, pojechałem do Popalić i czas było wracać. Trochę się za długo ociągałem, bo jak wracałem, to przy granicy byłem dopiero o 17:00. A tam ogromne kolejki samochodów na Węgry, niestety nie było pasa dla pieszych, więc się wepchnąłem, ale celnikom to nie przeszkadzało. Przepuścili bez problemu. Będąc samochodem stałbym z 2 godziny albo i dłużej. 
+{: .text-justify}
+Później na Węgrzech spotkałem Niemca, który podróżował z psem. Pytałem, gdzie jedzie. Powiedział, że jedzie z Serbii i zatrzymuje się tu w polu, bo już nie ma siły. Nie chciał ze mną jechać do Kiskunhalas na kemping. 
+{: .text-justify}
+Pierwszy kraj po byłej Jugosławii - Serbia - zaliczony.
 {: .text-justify}
 {% include gallery id="gallery" %}
