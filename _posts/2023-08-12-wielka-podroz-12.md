@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 10."
+title: "Wielka podróż: 10.Kiskunhalas - Baja (HU)"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,8 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/12/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Wczoraj, po odwiedzeniu Serbii, byłem mocno zmęczony, ale poszedłem poleżeć w gorącej wodzie borowej. Dobrze mi to zrobiło. Rano powtórzyłem akcję, ale oprócz tego poszedłem do sauny i znowu poleżałem w ciepłej wodzie borowej. Jeżeli będziecie w Kiskunhalas i nie będziecie mieli gdzie nocować, to kemping Napheny jest świetną opcją. W cenie 40 zł macie dodatkowo sauny, basen, wodę borową (chyba to była borowa) i pełno atrakcji, nie licząc noclegu. Nie dziwne, że Niemcy tam przesiadują parę tygodni. Wyjechałem dopiero koło 12:00, dużo czasu zajęła mi wymiana dinarów serbskich w kantorze. 
+{: .text-justify}
+Wyjechałem wreszcie. Wiatr był spokojny, ale temperatura była ponad 30 stopni. Niestety, jest sobota, a na Węgrzech w ten dzień wcześniej sklepy zamykają, ale kupiłem wcześniej dużo napojów na ten upalny trip. Nawet w takiej mieścinie jak Csavoly sklepy były otwarte do 13:00. Na szczęście w mieście rosła dzika śliwka. Zebrałem stamtąd trochę jej owoców. Zawsze jakaś alternatywa, jak nie będzie nic do jedzenia. Moim celem miało być dzisiaj Nagybaracska, ale tak mi się spodobało w Baja nad Dunajem, że tam zostałem i do tego miałem wątpliwości co do kempingu nad Nagybaracska. A w Baja był pewny kemping i do tego jest darmowy (nie licząc toalet i pryszniców). Za zaoszczędzone pieniądze poszedłem sobie kupić pizzę. Na koniec posiedziałem nad Dunajem i wypiłem krafty. 
 {: .text-justify}
 {% include gallery id="gallery" %}
