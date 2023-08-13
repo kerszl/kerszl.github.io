@@ -102,6 +102,6 @@ Miałem dwie opcje: teraz mostem w Baja lub jakimś promem po drodze. Popatrzył
 {: .text-justify}
 Zajechałem do parku narodowego, gdzie wcześniej odbywała się wycinka. Potem kierowałem się na Bata. A tam była droga zamknięta (zakaz wyjazdu z parku? Z drugiej strony wjechałem). Nie do wiary, i to na kłódkę. Pewnie bo była niedziela ;) Jakoś obszedłem system (dosłownie), ale zajęło mi to z pół godziny (przerzucanie rowera, sakiew). Poczułem się jak uchodźca. Potem na pocieszenie była górka o nachyleniu 10%. Na szczęście dużo ich nie było. Potem były mniejsze. 
 {: .text-justify}
-W Dunaszekcso oczywiście sklepy były zamknięte, i aż do Villany. Tam mi się skończyły zapasy napojów, ale kupiłem sobie napój na teraz i na drogę w jakiejś lodziarni. Zostało mi parę kilometrów do Harkany. Tam rozbiłem namiot na kempingu termalnym, a jutro pójdę na basen. Ale na dobranoc odwiedziłem restaurację Robinsona, gdzie zamówiłem danie Paleo.
+W Dunaszekcso oczywiście sklepy były zamknięte, i aż do Villany. Tam mi się skończyły zapasy napojów, ale kupiłem sobie napój na teraz i na drogę w jakiejś lodziarni. Zostało mi parę kilometrów do Harkany. Tam rozbiłem namiot na kempingu termalnym,,gdzie recepcjonista mówił po polsku, a jutro pójdę na basen. Ale na dobranoc odwiedziłem restaurację Robinsona, gdzie zamówiłem danie Paleo.
 {: .text-justify}
 {% include gallery id="gallery" %}
