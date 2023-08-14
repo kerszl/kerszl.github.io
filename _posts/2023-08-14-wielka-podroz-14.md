@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 12."
+title: "Wielka podróż: 12. Harkany - Nasice - HU-HR"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,10 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/14/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Dzisiaj był ostatni dzień mojej wyprawy na Węgry. Małe sprostowanie odnośnie otwartych sklepów w niedzielę na Węgrzech. Są tam zamknięte, ale nie wszystkie. Market Lidl był otwarty. Przechodząc do ostatniego dnia pobytu w tym kraju, wcześniej poszedłem na baseny, co kosztowało mnie tylko 16 zł. Być może dlatego, że byłem gościem kempingu. Poszedłem do sauny, popływałem. A potem na kempingu zacząłem się pakować, aby wreszcie przekroczyć granicę chorwacką.
+{: .text-justify}
+Na granicy wciąż widać bramki. Chorwacja niedawno dołączyła do strefy Schengen. Rok temu pewnie bym stał w kolejce, tak jak na granicy z Serbią. Dzisiaj przejechałem niewiele kilometrów, bo wczorajsza setka wymęczyła mnie i tygodniowy maraton namiotowy zmusił mnie do spania na jakimś łóżku. Zarezerwowałem pokój w Nasice w restauracji. Niestety była nieczynna, ale nocleg z pewnością będę miał. 
+{: .text-justify}
+Do morza mam jeszcze daleko, a te góry naprawdę mnie przerażają.
 {: .text-justify}
 {% include gallery id="gallery" %}
