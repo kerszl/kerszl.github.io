@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 13. "
+title: "Wielka podróż: 13. Našice - Nova Gradiška - HR"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,18 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/15/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Wczoraj zapanował jakiś dziwny zamęt. Mając przeczucie, poszedłem do sklepu, kupiłem pieczywo i wędliny na kanapki oraz dużą ilość napojów. Po powrocie do hotelu, od razu zasnąłem. Regeneracyjny sen trwał 9 godzin. Po przebudzeniu się zjadłem kanapki i, patrząc rano na mapę, wiedziałem, że czeka mnie 300-metrowy podjazd o długości 3 km. Wiedziałem, że może być ciężko, dlatego starałem się wyjechać wcześnie rano kiedy wiatr jest mały i słońce nie praży. Około godziny 10:00 temperatura była na poziomie 26 stopni. 
+{: .text-justify}
+Po przejechaniu 300 metrów podjazdu, dałem sobie dość. Zsiadłem i prowadziłem rower pod górę. Kiedy próbowałem odpocząć, jakieś duże owady o wielkości małego wróbla zaczęły mnie atakować, więc nie było mowy o zatrzymaniu się. Musiałem iść dalej, pod górę. Spotykałem podjazdy o nachyleniu 7%, a nawet 10%. W ten sposób przebyłem całe 3 km, by wreszcie znaleźć się na wzniesieniu. Zjazd był 3-kilometrowy. Wprost coś pięknego! Niedługo moje hamulce będą do wymiany, na szczęście mam ze sobą klocki.
+{: .text-justify}
+Zjeżdżając, mijałem kolarzy jadących pod górę... To musieli być zawodowcy. Nawet jeden z nich pomachał mi. Zjazd trwał kilka minut i w ten sposób wjechałem do doliny. Najpierw pojawiła się miejscowość Bosniakija. A tam wszystko było zamknięte. 
+{: .text-justify}
+To był 15 sierpnia i padł pomysł, że to święto. Ale przecież jestem w Chorwacji. Okazało się, że i u nich tego dnia jest święto. Czyżby to był dzień postu? Dowiedziałem się później na stacji, że to jest jakieś święto, gdzie prawie wszystko jest zamknięte. Rozumiem, każdy potrzebuje czasami odpocząć.
+{: .text-justify}
+W Pleternicy - większym mieście, otwarte były tylko kawiarnie i bary. Na szczęście, miałem zapasy na taki czarny dzień. Po przejechaniu 40 km i mijając zamknięte restauracje i pizzerie, znalazłem wiatę, wyciągnąłem z torby drugi z trzech "jedzenie-napój" - "This is food". To dało mi trochę energii i kopa, a do tego pomagał mi wiatr od wschodu. 
+{: .text-justify}
+Z takim wsparciem dotarłem do Nova Gradiška, gdzie była restauracja przed prawie moim hotelem. Nie zwlekając, zamówiłem zupę, drugie danie i piwo (w Chorwacji można mieć 0.5 promila bez konsekwencji) - koszt 20 euro. Jak widać, Chorwacja jest droższa od Węgier. Po zjedzeniu i wypiciu, doczłapałem. się do swojego hotelu, który kosztował mnie 40 euro ze śniadaniem.
+{: .text-justify}
+Ps. przekroczyłem pierwszy tysiąc.
 {: .text-justify}
 {% include gallery id="gallery" %}
