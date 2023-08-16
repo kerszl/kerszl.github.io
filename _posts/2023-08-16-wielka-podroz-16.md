@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 14. "
+title: "Wielka podróż: 14.Nova Gradiška - Staza -  HR <> BA"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,13 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/16/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Śniadanie hotelowe miałem wliczone w cenę, było dość obfite: parówki, omlet, a żeby się reszta nie zmarnowała i hotel nie musiał wyrzucić, to wziąłem na drogę banany, jabłka, słodkie bułki, desery. Niestety, jedzenie i napoje w Chorwacji są dość drogie. Więc butelek nie będę wyrzucał, a uzupełniał wodą z noclegowni. Dzisiejszym celem było odwiedzić następny kraj bałkański - Bośnię i Hercegowinę. 
+{: .text-justify}
+Ale zanim to zrobiłem, omijałem rozwalone i zniszczone domy, dziurawe mosty - to chyba są pamiątki po wojnie. Granicę z Bośnią przekroczyłem w Hrvatska Dubica. Za rzeką Una jest Kozarska Dubica. Jako że byłem rowerem, praktycznie przekroczyłem bez kolejki. 
+{: .text-justify}
+Zajęło mi to około 10 minut. Posiedziałem tam trochę, zjadłem burgera, kupiłem pamiątki i zacząłem wracać. Jakoś tak mi się podoba ta Bośnia: jest tanio - dobry burger z colą kosztuje tylko 20 zł. Jest ich taka marka, może miasto mi nie pasowało, czułem tam jakiś niepokój. Z państw spoza Unii Serbia bardziej mi przypadła do gustu, a myślałem, że będzie odwrotnie. 
+{: .text-justify}
+Ale może kiedyś tam wrócę na dłużej. To górzysty kraj. Na pewno ma piękne widoki. Powrót przez granicę również zabrał mi parę minut, chociaż samochodów było dużo na granicy. 20 km dalej, w Chorwacji, miałem zarezerwowany nocleg. Nie było sklepów obok, ale na szczęście na kolację zjadłem śniadanie z hotelu i usmażyłem jajka. 
+Pozbywam się piw, mielonek, zbędnych bagaży. Zbliżam się do gór.
 {: .text-justify}
 {% include gallery id="gallery" %}
