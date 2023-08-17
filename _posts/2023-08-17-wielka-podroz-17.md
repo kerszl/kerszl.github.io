@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 15."
+title: "Wielka podróż: 15. Staza - hrvatsko Selo - HR"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,8 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/17/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Wczoraj do Staza (nocleg z bookingu) zajechałem dosyć zmęczony, praktycznie nie miałem co jeść. Google maps pokazywał i sklep 20 km dalej. Zjadłem więc na śniadanie resztki z wyprawy i mielonkę (żelazna rezerwa z Polski), ugotowałem ryż z jakimiś dodatkami na drogę, spakowałam się, pożegnałem z drugim gościem z Węgier, który przyjechał na motorze i ruszyłem. Nie minęło 200 metrów, a był sklep. Ja nie mogę, głoduję, a Google maps takie żarty mi robi. 
+{: .text-justify}
+Nic to. W mielonce jest dużo powera, więc przejechałem 10 km, a na tym odcinku była budka z fastfoodami. Niestety nie działała, bo zabrakło prądu. Przed Petrinja były 2 duże górki, do tego upał, ale jakieś je pokonałem. W Petrinja poszedłem do Lidlu, narobiłem zakupów, potem w parku zjadłem ryż z sosem i jazda. Czekały Wzniesienia na 100 metrów w górę. Jedno nawet pokonałem nie schodząc z roweru. Ale z resztą było ciężko. 30 kilo bagażu robi swoje. Po tych męczarniach zajechałem do hrvatska Selo. Tam mialem wypasiony booking i kosztował tylko 20 euro. Pralka, lodówka, kuchnia, tv, cisza, po prostu super 
 {: .text-justify}
 {% include gallery id="gallery" %}
