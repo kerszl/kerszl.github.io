@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 16. "
+title: "Wielka podróż: 16. Selo - Brezova Glava +30 km - HR"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,12 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/18/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+To miał być spokojny dzień. Tylko jedna górka do pokonania i tylko 40 km jazdy, bo chciałem odpocząć przed wielką górą, ale kolega B. wykrakał, że za mało akcji. Więc akcja była, ale niezamierzona. Zacznę od początku: Z pensjonatu w Sela aż się nie chciało wyjeżdżać, tak pięknie tam było, ale morze czekało. Pokonawszy jedną górkę (150 metrów pod górę), odpocząłem sobie w Vojnic. Tam zjadłem makaron z sosem bolognese i ruszyłem dalej. 
+{: .text-justify}
+Do kempingu Radonja było blisko (kaczka w herbie). Byłem tam przed 15:00. Recepcja była zamknięta, ale kemping był spoko. Nie był zagrodzony, jak te na Węgrzech. Kto tak wcześnie na kempingi zajeżdża? Zadzwoniłem, a on powiedział, że ktoś zaraz przyjedzie. Przyjechała Pani, skasowała 13 euro. I wszystko byłoby ok, ale zobaczyłem, że powietrze zeszło z przedniego koła. Nauczony doświadczeniem, że jak tak się dzieje, to opona do wymiany. 
+{: .text-justify}
+A była nowa przed wyjazdem (już ponad 1240 km zrobiła) . Google tym razem powiedziało mi, że najbliższy rowerowy jest w Karlovac. Wymieniłem dętkę i tam pojechałem. Oczywiście, w pierwszym rowerowym nie było opon. Po co komu opony, to dętki padają, ale właściciel nakierował mnie na drugi rowerowy. Tam kupiłem oponę, zjadłem coś z fastfooda (wielki wybór) i zacząłem wracać na kemping. 
+{: .text-justify}
+Po 6 km znowu dętka padła, a nie miałem przy sobie zapasowej dętki i łatek. Wszystko zostało na kempingu. Co mi zostało? Prowadzić rower 8 km, a jutro wymienię tę przednią oponę na nową i tą starą ****
 {: .text-justify}
 {% include gallery id="gallery" %}
