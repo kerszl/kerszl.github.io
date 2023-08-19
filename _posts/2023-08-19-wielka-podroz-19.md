@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 17"
+title: "Wielka podróż: 17 Brezova Glava - Vinica HR - SVK"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,10 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/19/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Rano założyłem nową oponę i dętkę. Zjadłem wczorajszy sos bolognese z makaronem - nie zepsuło się, było u Marca w lodówce. Jedząc, zauważyłem, że kot dziwnie na mnie patrzy. Zastanawiałem się, czy koty jedzą bolognese z makaronem. Nie byłem pewien, ale rzuciłem mu kawałek - zjadł. Rzuciłem więcej - również zjadł. Nawet się oblizał. Okazało się, że to niewybredny kot, w przeciwieństwie do wielu domowych kocurów, które jedzą tylko specjalne jedzenie.
+{: .text-justify}
+Później, w restauracji, zjadłem jeszcze obiad za 100 zł. Wiem, Chorwacja jest droga. Porcja była tak duża, że wziąłem resztę na drogę. Po posiłku, obrałem kurs na następny kraj - Słowenię. Przedemną były trzy mordercze wzgórza, stąd ostatnio takie małe odcinki robię. Upał, podjazdy i niepewność co do stanu opony robią swoje. W Duga Resa zatrzymałem się nad rzeką Mreznica. niestety wpadł mi obiektyw do wody,ale wszystko działa,tylko zaparował. Na Słowenii byłem dosyć wcześnie, około szesnastej. Rozbiłem namiot na kempingu Katra, w miejscowości Vinica, nad rzeką Kupa. Odwiedziłem tamtejsze sklepy, wydają mi się być taniej niż na Chorwacji.
+i{: .text-justify}
+W tle rozpościerały się piękne widoki, czysta rzeka... Wrażenia niezapomniane. Jutro przede mną największy podjazd, więc trzymajcie za mnie kciuki. Dzięki.
 {: .text-justify}
 {% include gallery id="gallery" %}
