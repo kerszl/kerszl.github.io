@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 17 Brezova Glava - Vinica HR - SVK"
+title: "Wielka podróż: 17 Brezova Glava - Vinica HR - SI"
 excerpt: " "
 comments: true
 categories:

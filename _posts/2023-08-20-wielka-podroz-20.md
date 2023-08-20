@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 18. "
+title: "Wielka podróż: 18. Vinica - Delnice - SI - HR"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,12 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/20/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Dzisiaj była dla mnie czarna niedziela. I nie chodziło o to, że niektóre sklepy były zamknięte, nie chodziło nawet o mordercze podjazdy (ponad 1000 metrów w górę), nie chodziło o upał (przyzwyczaiłem się), ale o cholerne KOŁO, które przebijało moje dętki!!! Przedwczoraj kupiłem nową oponę. Wczoraj dojechałem na niej do Słowenii. Wszystko było ok. Dzisiaj wyruszyłem dosyć wcześnie, przejechałem kilka kilometrów i flak. Co jest do cholery? (Jak dojadę do większego miasta, od razu kupuję nowe koło). Założyłem klejoną dętkę. Starczyła na 15 km. Zacząłem kleić łatką samoprzylepną. Pomogło na 15 km. Łatka puściła. Miałem jeszcze jedną nieklejoną dętkę, bałem się jej użyć, ale to zrobiłem. Do celu zostało mi 20 km. Do tego te wysokie podjazdy. Pierwszy podjazd był ok, 10 km i 300 metrów pod górę. Spoko. Dałem radę. Drugi to była masakra - 6 km i 300 metrów pod górę. 
+{: .text-justify}
+Jeszcze te padające dętki. Na szczęście mijałem Chorwatów, którzy robili coś przy domach i prosiłem o wodę do butelek, których zapobiegawczo nie wyrzucałem. Pytali mnie, czy mam nocleg? Mówiłem, że mam w Delnicach. Życzyli mi dobrej drogi. Co do napojów, to w sklepie rano kupiłem 6 butelek, ale dzięki Chorwatom poszło chyba z 10. Batoniki też mi dały powera. Ostatnie 20 km prawie w całości przejechałem. Dętka nie pękła. Nie wiem, czy to pasek w kole, czy może szprycha się wbija? Ale pasek nie jest dziurawy. 
+{: .text-justify}
+Dzisiaj mam super apartament, to pomyślę co dalej. Do morza już niedaleko.
+{: .text-justify}
+Dzięki za trzymanie kciuków, na pewno pomogło, tak bym w lesie spał z niedźwiedziami.
 {: .text-justify}
 {% include gallery id="gallery" %}
