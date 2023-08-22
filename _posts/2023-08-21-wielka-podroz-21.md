@@ -96,8 +96,6 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/21/mapka.png)
 
-19. Delnice -  Njivice 59 km - HR
-
 Rano w Delnicach poszedłem szukać serwisu rowerowego. Google zapewniało, że są dwa. Nie było jednak żadnego. Jeśli moja dętka znowu pęknie, to będzie problem. 10 km od Delnic był kemping nad jeziorem Lokvarsko. Pojechałem tam, bo zrozumiałem z rozmowy z Chorwatem, który dał mi wczoraj wodę, że co 20 lat jezioro zalewa kemping, albo dzieje się coś magicznego. Jednak Bałem się robić dodatkowe kilometry, wiedząc, że moja nowa dętka może pęknąć w każdej chwili. W najgorszym wypadku zostałbym na tym kempingu. Jednak nie darowałbym sobie, jakbym tego nie zobaczył. 
 Dojechałem do jeziora, ale go nie było. Wyschło. Więc o to chodziło? :) Może kiedyś znowu się pojawi :) Na szczęście, dętka mi nie pękła. Zaryzykowałem i pojechałem dalej. I znowu musiałem pokonać stromy podjazd na 800 metrów. Trudno było, musiałem prowadzić rower. 
 {: .text-justify}
@@ -107,6 +105,6 @@ Ale jakoś to przeszło. Do Krk zostało około 20 km. Dam radę - pomyślałem.
 {: .text-justify}
 Przejechałem około 1400 km. Odwiedziłem Polskę, Słowację, Węgry, Serbię, Chorwację, Bośnię i Hercegowinę, Słowenię. Najgorsza była końcówka trasy. Ale zobaczyć morze – było bezcenne. W nawigacji pomagał mi komputer Garmin i aplikacja Locus Maps. Garmin często wprowadzał mnie jednak w błąd, ale Locus go korygował. Podróż zabrała mi dużo, energii, zdrowia, ale było warto. W życiu bym tego nie zamienił (no, może po za paroma rzeczami) 
 {: .text-justify}
-Dziękuję wszystkim za wsparcie, doping (BT, PP, AB, JK, WŁ, AH, EP, TT, MK) i porady o pralce (B i G), wyszukanie trasy (KC), uwagi do korekty (TT), chorwatom za wodę, rodzicom i tym o których zapomniałem.
+Dziękuję wszystkim za wsparcie, doping (BT, PP, AB, JK, WŁ, AH, EP, TT, MK) i porady o pralce (B i G), wyszukanie trasy na pociągi (KC), uwagi do korekty (TT), chorwatom za wodę, rodzicom i tym o których zapomniałem.
 {: .text-justify}
 {% include gallery id="gallery" %}
