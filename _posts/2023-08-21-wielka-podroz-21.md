@@ -107,4 +107,8 @@ Przejechałem około 1400 km. Odwiedziłem Polskę, Słowację, Węgry, Serbię,
 {: .text-justify}
 Dziękuję wszystkim za wsparcie, doping (BT, PP, AB, JK, WŁ, AH, EP, TT, MK) i porady o pralce (B i G), wyszukanie trasy na pociągi (KC), uwagi do korekty (TT), chorwatom za wodę, rodzicom i tym o których zapomniałem.
 {: .text-justify}
+update
+{: .text-justify}
+Pojechałem do serwisu rowerowego oddalonego o 1.1 km. Problemem okazał się pasek, który się wżynal, dziurawić oponę oraz opiłek który też mógł dziurawić koło. polecam świetny serwis Bike Box w Njivice.
+{: .text-justify}
 {% include gallery id="gallery" %}

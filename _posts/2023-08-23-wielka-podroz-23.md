@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 21"
+title: "Wielka podróż: - Krk i Njivice - Chorwacja"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,6 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/23/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Na prośbę mamy zamieszczam zdjęcia.
 {: .text-justify}
 {% include gallery id="gallery" %}
