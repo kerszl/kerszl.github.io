@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 23."
+title: "Wielka podróż: 23. Njivinice - Draga - Chorwacja"
 excerpt: " "
 comments: true
 categories:
@@ -96,6 +96,8 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/25/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Na tym etapie pokonałem chyba najmniej kilometrów podczas całej podróży, ale widoki były jednymi z najciekawszych, które spotkałem. Mimo ogromnego upału i ciężkich podjazdów, urok krajobrazu był niezaprzeczalny. Zatrzymywałem się co kilka kilometrów, nie mogąc oprzeć się pokusie zrobienia zdjęć. Na drodze było dużo ciężarówek; czasami to pomagało, zapewniając kilka sekund cienia, który rzeczywiście mi się przydał. Podjazdy były mordercze, z nachyleniem powyżej 11%, ale udało mi się dojechać na szczyt i zrobić piękne zdjęcia. 
+{: .text-justify}
+Na koniec dojechałem do miejscowości Draga, gdzie znalazłem świetny hostel. Jego właściciel okazał się na tyle gościnny, że postanowił nas poczęstować owocami, mlekiem i innymi produktami. Spędziłem resztę wieczoru z dwiema dziewczynami, którym pomogłem skontaktować się z właścicielem. Przyjechały one z Amsterdamu i poczęstowały mnie piwami rzemieślniczymi z tego miasta - w końcu coś innego niż "korporacyjne" piwo. To była naprawdę udana końcówka podróży. Jutro planuję powrót pociągiem z Rijeki do Pragi.
 {: .text-justify}
 {% include gallery id="gallery" %}
