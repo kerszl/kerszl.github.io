@@ -1,13 +1,12 @@
 ---
-title: "Wielka podróż: 25. "
+title: "Wielka podróż: 25. Praga"
 excerpt: " "
 comments: true
 categories:
-  - Wycieczka rowerowa
+  - miasta
 tags:
   - wielka podróż
-  - Wycieczka rowerowa
-  - Rower
+  - miasta
 header:
   overlay_image: random
   #overlay_filter: rgba(255, 255, 255, 0.3)
@@ -96,6 +95,6 @@ gallery:
 ---
 ![mapka](/assets/images/rower/2023/wielka_podroz/27/mapka.png)
 
-Wroc tu pozniej, jeszcze opisuje :)
+Krecik, mosty, starówka i całe miasto - czyli Praga
 {: .text-justify}
 {% include gallery id="gallery" %}
