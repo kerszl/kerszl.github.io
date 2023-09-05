@@ -1,3 +1,4 @@
+#plik był w katalogu _posts
 dzien=1
 for i in {03..31}
 do
