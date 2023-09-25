@@ -16,7 +16,9 @@ gallery:
     image_path: /assets/images/rower/2023/wielki-test/01/01.jpg
 ---
 
-#[![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)](https://connect.garmin.com/modern/activity/embed/11834432843)
+<!---
+[![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)](https://connect.garmin.com/modern/activity/embed/11834432843)
+-->
 [![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)](https://connect.garmin.com/modern/activity/embed/11834432843)
 [![mapka2](/assets/images/rower/2023/wielki-test/01/mapka.png)]
 
