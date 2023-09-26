@@ -128,7 +128,7 @@ done
 echo "---" >> "$POST_FILE_PATH"
 echo '<!---'>> "$POST_FILE_PATH"
 echo '<a href="https://connect.garmin.com/modern/activity/embed/wpisz_numer" onclick="window.open(this.href); return false;">' >> "$POST_FILE_PATH"
-echo "[![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)]" >> "$POST_FILE_PATH"
+echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
 echo '</a>' >> "$POST_FILE_PATH"
 echo '-->'>> "$POST_FILE_PATH"
 
