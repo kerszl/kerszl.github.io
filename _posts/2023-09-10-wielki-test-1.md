@@ -24,6 +24,9 @@ gallery:
 <a href="https://connect.garmin.com/modern/activity/embed/11834432843" target="_blank">
   ![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)
 </a>
+<a href="https://connect.garmin.com/modern/activity/embed/11834432843" onclick="window.open(this.href); return false;">
+  ![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)
+</a>
 
 
 
