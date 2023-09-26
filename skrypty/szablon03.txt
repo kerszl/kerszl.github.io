@@ -1,0 +1,6 @@
+{: .text-justify}
+{% include gallery id="gallery" %}
+<!---
+{% include video id="tGySBog5v7c" provider="youtube" %}
+-->
+

@@ -1,0 +1,13 @@
+excerpt: " "
+comments: true
+categories:
+  - Wycieczka rowerowa
+tags:
+  - 1daytrip
+  - Wycieczka rowerowa
+  - Rower
+header:
+  overlay_image: random
+  #overlay_filter: rgba(255, 255, 255, 0.3)
+  #caption: Random code by: [**© Shahar Shani-Kadmiel**](https://shaharkadmiel.github.io)"
+gallery:

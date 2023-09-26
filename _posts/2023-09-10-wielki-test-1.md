@@ -21,6 +21,10 @@ gallery:
 -->
 [![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)](https://connect.garmin.com/modern/activity/embed/11834432843)
 [![mapka2](/assets/images/rower/2023/wielki-test/01/mapka.png)]
+<a href="https://connect.garmin.com/modern/activity/embed/11834432843" target="_blank">
+  ![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)
+</a>
+
 
 
 Wielki test 1
