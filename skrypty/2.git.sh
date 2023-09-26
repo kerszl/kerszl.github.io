@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_PATH='data/data/com.termux/files/home/repo/kerszl.github.io/'
+REPO_PATH='/data/data/com.termux/files/home/repo/kerszl.github.io/'
 if [ $# -le 0 ]; then
 echo parametr to wpis do gita
 exit
