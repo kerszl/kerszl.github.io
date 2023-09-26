@@ -3,7 +3,7 @@ comments: true
 categories:
   - Wycieczka rowerowa
 tags:
-  - 1daytrip
+  - NAZWA_SPECJALNA_WYCIECZKI
   - Wycieczka rowerowa
   - Rower
 header:

@@ -1,3 +1,6 @@
+{: .text-justify}
+{% include gallery id="gallery" %}
 <!---
-[![mapka](/assets/images/rower/2023/wielki-test/01/mapka.png)](https://connect.garmin.com/modern/activity/embed/11834432843)
+{% include video id="tGySBog5v7c" provider="youtube" %}
 -->
+
