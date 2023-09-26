@@ -19,8 +19,11 @@ TEKST_DO_WKLEJENIA=$SKRYPT_PATH"tekst_do_wklejenia.txt"
 SZABLON01="$SKRYPT_PATH"szablon01.txt
 SZABLON02="$SKRYPT_PATH"szablon02.txt
 
-#POST_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/_posts/"
-POST_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/_posts/"
+#ANDROID
+POST_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/_posts/"
+
+#PC
+#POST_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/_posts/"
 
 #1 etap - sprawdzanie katalogow
 
