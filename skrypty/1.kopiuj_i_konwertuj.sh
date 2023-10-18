@@ -71,6 +71,14 @@ fi
 #2 etap
 count=1
 
+if [ -z "$(find $PICTURES_BLOG_PATH -name '*.png' -print -quit)" ]; 
+then echo "Brak pliku *.png (mapka) w katalogu $PICTURES_BLOG_PATH"
+	exit
+fi
+
+echo kopiuje mapke  - mapka.png
+cp -f $PICTURES_BLOG_PATH/*.png "$PODROZ_PATH/$2"/mapka.png
+
 echo zmienian nazwy na cyfry i kopiuje do $1
 for i in "$PICTURES_BLOG_PATH"/*.jpg "$PICTURES_BLOG_PATH"/*.JPG
 
@@ -88,8 +96,6 @@ do
 	convert  $i -resize 30% $i
 done
 
-echo kopiuje mapke  - mapka.png
-cp -f $PICTURES_BLOG_PATH/*.png "$PODROZ_PATH/$2"/mapka.png
 
 
 #---3 etap
@@ -132,7 +138,7 @@ echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$
 echo '</a>' >> "$POST_FILE_PATH"
 echo '-->'>> "$POST_FILE_PATH"
 
-echo "[![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)]" >> "$POST_FILE_PATH"
+echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
 echo >> "$POST_FILE_PATH"
 sed '1d;2,${/[[:alpha:]]/,$!d};s/^$/{: .text-justify}/'  "$TEKST_DO_WKLEJENIA" >> "$POST_FILE_PATH"
 cat "$SZABLON02" >> "$POST_FILE_PATH"
