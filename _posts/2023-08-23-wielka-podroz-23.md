@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: - Krk i Njivice - Chorwacja"
+title: "Wielka podróż: - Krk i Njivice (HR)"
 excerpt: " "
 comments: true
 categories:

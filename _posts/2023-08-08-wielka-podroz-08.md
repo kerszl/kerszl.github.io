@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 06. Sarud - Törökszentmiklós - HU"
+title: "Wielka podróż: 06. Sarud - Törökszentmiklós (HU)"
 excerpt: " "
 comments: true
 categories:

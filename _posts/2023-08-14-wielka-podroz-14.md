@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 12. Harkany - Nasice - HU-HR"
+title: "Wielka podróż: 12. Harkany - Nasice (HU-HR)"
 excerpt: " "
 comments: true
 categories:

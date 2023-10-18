@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 16. Selo - Brezova Glava +30 km - HR"
+title: "Wielka podróż: 16. Selo - Brezova Glava +30 km (HR)"
 excerpt: " "
 comments: true
 categories:

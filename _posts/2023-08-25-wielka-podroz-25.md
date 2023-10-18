@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 23. Njivinice - Draga - Chorwacja"
+title: "Wielka podróż: 23. Njivinice - Draga (HR)"
 excerpt: " "
 comments: true
 categories:

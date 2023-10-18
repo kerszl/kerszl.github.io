@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 10.Kiskunhalas - Baja (HU)"
+title: "Wielka podróż: 10. Kiskunhalas - Baja (HU)"
 excerpt: " "
 comments: true
 categories:

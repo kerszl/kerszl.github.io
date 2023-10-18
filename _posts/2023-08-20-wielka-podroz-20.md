@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 18. Vinica - Delnice - SI - HR"
+title: "Wielka podróż: 18. Vinica - Delnice - SI (HR)"
 excerpt: " "
 comments: true
 categories:

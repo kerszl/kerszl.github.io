@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Hajnówka - Białystok"
+title: "Hajnówka - Białystok"
 excerpt: " "
 comments: true
 categories:

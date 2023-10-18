@@ -147,7 +147,10 @@ echo >> "$POST_FILE_PATH"
 sed '1d;2,${/[[:alpha:]]/,$!d};s/^$/{: .text-justify}/'  "$TEKST_DO_WKLEJENIA" >> "$POST_FILE_PATH"
 cat "$SZABLON02" >> "$POST_FILE_PATH"
 
-
 sed -i "s/NAZWA_SPECJALNA_WYCIECZKI/$1/" "$POST_FILE_PATH"
 
-
+echo "Edytować plik "$POST_FILE_PATH"? [y/n]?"
+        read ask
+        if [[ $ask == y ]]; then
+            vim $POST_FILE_PATH
+        fi 

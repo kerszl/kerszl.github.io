@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 15. Staza - hrvatsko Selo - HR"
+title: "Wielka podróż: 15. Staza - hrvatsko Selo (HR)"
 excerpt: " "
 comments: true
 categories:
