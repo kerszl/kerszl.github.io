@@ -31,7 +31,7 @@ if [ $# -eq 1 ]; then
 	if [ ! -d "$PODROZ_PATH" ]; then
 		echo "Nie ma katalogu $PODROZ_PATH"		
 	else
-	  echo zawartosc "$PODROZ_PATH"
+	  echo Zawartosc "$PODROZ_PATH"
 	  ls -lah "$PODROZ_PATH"
 	fi
 exit	
@@ -64,22 +64,26 @@ then
 	exit
 fi
 
-
+if [ $(sed -n 1p $TEKST_DO_WKLEJENIA | wc -m) -gt 70 ];
+then
+echo "Tytul (1. linia) w $TEKST_DO_WKLEJENIA nie moze być dluzszy niz 70 znaków"
+exit
+fi
 
 
 
 #2 etap
 count=1
 
-if [ -z "$(find $PICTURES_BLOG_PATH -name '*.png' -print -quit)" ]; 
-then echo "Brak pliku *.png (mapka) w katalogu $PICTURES_BLOG_PATH"
+if [ -z "$(find $PICTURES_BLOG_PATH -name '*.png' -print -quit)" ]; then 
+    echo "Brak pliku *.png (mapka) w katalogu $PICTURES_BLOG_PATH"
 	exit
 fi
 
-echo kopiuje mapke  - mapka.png
+echo Kopiuje mapke  - mapka.png
 cp -f $PICTURES_BLOG_PATH/*.png "$PODROZ_PATH/$2"/mapka.png
 
-echo zmienian nazwy na cyfry i kopiuje do $1
+echo Zmienian nazwy na cyfry i kopiuje do $1
 for i in "$PICTURES_BLOG_PATH"/*.jpg "$PICTURES_BLOG_PATH"/*.JPG
 
 do
@@ -88,7 +92,7 @@ do
 	cp -f $i "$PODROZ_PATH"/$2/$newfile
 done
 
-echo redukuje rozmiar do 30%
+echo Redukuje rozmiar do 30%
 
 
 for i in "$PODROZ_PATH/$2"/*.jpg
