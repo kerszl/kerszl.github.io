@@ -16,8 +16,6 @@ Czasami lepiej jest zainstalować od nowa Kali Linux niż motać się z aktualiz
 {: .text-justify}
 
 # Skrypt kopiujący workspace do plików
-**Omówię ten skrypt:**
-{: .text-justify}
 W tablicy są tworzone nazwy workspace, które są pobierane z Metasploita. Zawieruchy z Sedem są potrzebne, aby skasować kolory i spacje. Następnie w pętli są odczytywane nazwy workspace i dzięki komendzie msfconsole są eksportowane workspace do plików.
 {: .text-justify}
 ```bash
@@ -40,8 +38,6 @@ echo "Eksportowano workspace $PLIK do $SCIEZKA$PLIK$PLIK_PWDUMP_SUFFIX"
 done
 ```
 # Skrypt kopiujący workspace z plików
-**Omówię ten skrypt:**
-{: .text-justify}
 Skrypt jest praktycznie odwrotnością wcześniejszego. W tablicy są tworzone nazwy workspace, które są pobierane z plików.Następnie w pętli są odczytywane nazwy workspace i dzięki msfconsole są importowane do Metasploita. Najpierw jest to tworzone dla plików *.xml, następnie dla plików *.pwdump. Proponuję się zapoznać z komendami wykonanymi przez msfconsole.
 {: .text-justify}
 ```bash
