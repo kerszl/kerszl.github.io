@@ -69,6 +69,7 @@ fi
 printf "Tytuł: "
 sed -n 1p "$TEKST_DO_WKLEJENIA"
 
+printf "Czy to odpowiedni tytuł [y/n]?: "
         read ask
         if [[ $ask == "n" ]]; then
             echo "Tytuł to jest pierwsza linia w pliku $TEKST_DO_WKLEJENIA"
