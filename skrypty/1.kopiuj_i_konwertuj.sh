@@ -11,13 +11,14 @@ PODROZ_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/assets/image
 #PODROZ_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/assets/images/rower/$YEAR/$1"
 
 #ANDROID
-SKRYPT_PATH='/data/data/com.termux/files/home/repo/kerszl.github.io/skrypty/'
+SKRYPT_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/skrypty/"
 #PC
-#SKRYPT_PATH='/mnt/d/moje programy i inne/GNU/kerszl.github.io/skrypty/'
+#SKRYPT_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/skrypty/"
 
 TEKST_DO_WKLEJENIA=$SKRYPT_PATH"tekst_do_wklejenia.txt"
 SZABLON01="$SKRYPT_PATH"szablon01.txt
 SZABLON02="$SKRYPT_PATH"szablon02.txt
+SZABLON03="$SKRYPT_PATH"szablon02.txt.video
 
 #ANDROID
 POST_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/_posts/"
@@ -64,12 +65,15 @@ then
 	exit
 fi
 
-if [ $(sed -n 1p $TEKST_DO_WKLEJENIA | wc -m) -gt 70 ];
-then
-echo "Tytul (1. linia) w $TEKST_DO_WKLEJENIA nie moze być dluzszy niz 70 znaków"
-exit
-fi
+#if [ $(sed -n 1p $TEKST_DO_WKLEJENIA | wc -m) -gt 70 ];
+printf "Tytuł: "
+sed -n 1p "$TEKST_DO_WKLEJENIA"
 
+        read ask
+        if [[ $ask == "n" ]]; then
+            echo "Tytuł to jest pierwsza linia w pliku $TEKST_DO_WKLEJENIA"
+			exit
+        fi 
 
 
 #2 etap
@@ -99,8 +103,6 @@ for i in "$PODROZ_PATH/$2"/*.jpg
 do                                                 
 	convert  $i -resize 30% $i
 done
-
-
 
 #---3 etap
 #przeniesc na koniec - poczatek
@@ -136,21 +138,35 @@ echo ${plik/*kerszl.github.io/} >> "$POST_FILE_PATH"
 done
 
 echo "---" >> "$POST_FILE_PATH"
-echo '<!---'>> "$POST_FILE_PATH"
-echo '<a href="https://connect.garmin.com/modern/activity/embed/wpisz_numer" onclick="window.open(this.href); return false;">' >> "$POST_FILE_PATH"
-echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
-echo '</a>' >> "$POST_FILE_PATH"
-echo '-->'>> "$POST_FILE_PATH"
 
-echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
+printf "Czy link z mapki ma być z Garmina [y/n]? "
+        read ask
+        if [[ $ask == "y" ]]; then
+		printf "Podaj numer treningu ze strony Garmina: "
+		read wpisz_numer
+			echo '<a href="https://connect.garmin.com/modern/activity/embed/'$wpisz_numer'" onclick="window.open(this.href); return false;">' >> "$POST_FILE_PATH"
+			echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
+			echo "</a>" >> "$POST_FILE_PATH"            
+        else
+		echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
+		fi
+
 echo >> "$POST_FILE_PATH"
 sed '1d;2,${/[[:alpha:]]/,$!d};s/^$/{: .text-justify}/'  "$TEKST_DO_WKLEJENIA" >> "$POST_FILE_PATH"
 cat "$SZABLON02" >> "$POST_FILE_PATH"
 
 sed -i "s/NAZWA_SPECJALNA_WYCIECZKI/$1/" "$POST_FILE_PATH"
 
-echo "Edytować plik "$POST_FILE_PATH"? [y/n]?"
+printf "Czy zamieszczasz video? [y/n] "
         read ask
-        if [[ $ask == y ]]; then
+        if [[ $ask == "y" ]]; then
+		printf "Podaj numer video ze strony Youtube: "
+		read youtube_numer
+		echo '{% include video id="'$youtube_numer'" provider="youtube" %}' >> "$POST_FILE_PATH"				
+        fi 
+
+printf "Edytować plik "$POST_FILE_PATH"? [y/n] "
+        read ask
+        if [[ $ask == "y" ]]; then
             vim $POST_FILE_PATH
         fi 
