@@ -14,7 +14,6 @@ header:
 # Słowem wstępu
 Czasami lepiej jest zainstalować od nowa Kali Linux niż motać się z aktualizacjami z dawnych wersji. Ale co z naszymi workspace'-ami. Problem z eksportowaniem jednego workspace praktycznie nie istnieje. Wystarczy jedna komenda. Gorzej jest jak chcesz ich przenieść dużo więcej. Możesz to zrobić ręcznie, ale od czego są skrypty?
 {: .text-justify}
-
 # Skrypt kopiujący workspace do plików
 W tablicy są tworzone nazwy workspace, które są pobierane z Metasploita. Zawieruchy z Sedem są potrzebne, aby skasować kolory i spacje. Następnie w pętli są odczytywane nazwy workspace i dzięki komendzie msfconsole są eksportowane workspace do plików.
 {: .text-justify}
