@@ -41,11 +41,11 @@ tar xvf hakujemy.ovm
 ## 2.2 Operacje na Proxmoxie
 Teraz przystępujemy do konwersji: 
 - tworzymy kolejny numer ID maszyny
-- tworzymy  wirtualkę
+- tworzymy wirtualkę (należy wziąć pod uwagę, że nazwa musi być zgodna z FQDM)
 - importujemy dysk 
 - przypisujemy dysk do wirtualki
 - ustawiamy w biosie startowanie z naszego dysku
-Poniżej jest skrypt co to robi
+Poniżej są komendy, które to robią:
 {: .text-justify}
 ```bash
 #Bierzemy Najwieksze ID i dodajemy kolejny numer
@@ -88,7 +88,7 @@ iface enp0s3 inet dhcp
 Można sprawdzić jaką kartę sieciową wykrył system. Do tego służy komenda *ip a*. Najczęściej to jest _ens18_. Aby wszystko wstało poprawnie nazwę można zmienić poprzez *sed*.
 {: .text-justify}
 ```bash
-sed -i \'s/enp0s3/ens18/\' /etc/network/interface
+sed -i 's/enp0s3/ens18/g' /etc/network/interface
 ```
 # 4. Koniec
 Restart i hakujemy. Na koniec załączam mój skrypt, który ułatwia większość operacji.
@@ -99,8 +99,8 @@ Restart i hakujemy. Na koniec załączam mój skrypt, który ułatwia większoś
 #1. ustawienie odbierania
 #2. ustawienie nadawania
 #3. konwersja
-CATALOG_WSL="/mnt/g/utils/obrazy systemowe/Linux/hacking/virtualki do testow/hackmyvm_vulnhub/"
-CATALOG_PROXMOX="/var/lib/vz/ova"
+KATALOG_OBRAZOW="/mnt/g/utils/obrazy systemowe/Linux/hacking/virtualki do testow/obrazy-hackmyvm/"
+KATALOG_PROXMOX="/var/lib/vz/ova"
 IP_PROXMOX='172.16.1.6'
 PORT_PROXMOX='12345'
 
@@ -111,56 +111,75 @@ fi
 
 if ! $( grep -q '.\.ova$' <<< $2 )
 then
-echo nazwa pliku powinna się konczyć na ova
+echo Nazwa pliku powinna się konczyć na ova
 exit
 fi
+
 
 NAME=${2/%.ova/}
 
 
 if [ $1 == 'odbieram' ]; then
-    cd $CATALOG_PROXMOX
-    nc -vnl -p $PORT_PROXMOX > $2    
+    cd $KATALOG_PROXMOX
+    nc -vnl -p $PORT_PROXMOX > $2
 fi
 
 if [ $1 == 'wysylam' ]; then
     #cd $CATALOG_WSL
-    if [ ! -f $2 ]; then
-    echo "Brak pliku: $2"    
+    echo "Szukam           : $2"
+    SZUKANY_PLIK=$(find "$KATALOG_OBRAZOW" -name  $2 -print -quit)
+
+    if [ -z "$SZUKANY_PLIK" ]; then
+    echo "Nie mogę znaleźć : $2"
     exit
     else
     #przełącznik -N działa tylko z wersja netcat-OpenBSD
-    pv -p -t $2 | nc -N $IP_PROXMOX $PORT_PROXMOX
+    echo "Wysyłam          : $SZUKANY_PLIK"
+    pv -p -t "$SZUKANY_PLIK" | nc -N $IP_PROXMOX $PORT_PROXMOX
     fi
 fi
 
-
 if [ $1 == 'konwertuje' ]; then
-    
     if [ ! -f $2 ]; then
-    echo "Brak pliku: $2"    
+    echo "Brak pliku: $2"
     exit
     fi
-#Rozpakowujemy
-echo Wyodrebniam pliki z archiwum $2":"
-tar xvf $2
-echo
+
+#Sprawdzamy czy nie nie ma w nazwie obrazu znaku _
+NAME_DISK=$(tar tf "$2" --wildcards '*.vmdk')
+
+if [[ "$NAME" =~ "_" ]]; then
+echo "Uwaga: w nazwie maszyny "$NAME" jest znak \"_\". Zamieniam nazwe z "$NAME" na ${NAME//_/-}"
+NAME=${NAME//_/-}
+fi
+
+echo Wyodrebniam plik $NAME_DISK z "$2"
+tar xf "$2" "$NAME_DISK"
+
 
 #Bierzemy Najwieksze ID i dodajemy kolejny numer
 NEW_ID=$(qm list | awk '$1 ~ /[[:digit:]]/ {if ($1>b) (b=$1)} END{print b+1}')
 #Tworzymy wirtualke
-qm create $NEW_ID --name hakujemy --memory 1024 --net0 virtio,bridge=vmbr0
-qm importdisk $NEW_ID hakujemy-disk001.vmdk local-lvm -format qcow2
+qm create $NEW_ID --name $NAME --memory 1024 --net0 virtio,bridge=vmbr0
+#Importujemy dysk
+qm importdisk $NEW_ID $NAME_DISK local-lvm -format qcow2
+#Przypisowujemy dysk
 qm set $NEW_ID --scsi0 local-lvm:vm-$NEW_ID-disk-0
 #Ustawiamy w biosie bootowanie na dysk
 qm set $NEW_ID --boot c --bootdisk scsi0
 
-echo 
+echo Kasuje pl $NAME_DISK
+rm $NAME_DISK
+#-----Ostatni komunikat
+
+
+echo
 echo Edytuj karte sieciową w wirtualce:
-echo 
+echo
 echo Debian
 echo sed -i \'s/enp0s3/ens18/\' /etc/network/interface
-echo 
+echo
 echo Ubuntu
 fi
+
 ```
