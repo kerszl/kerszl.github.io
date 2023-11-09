@@ -40,7 +40,8 @@ logo: "/assets/images/smile.jpg"
 analytics:
   provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "UA-199157698-1"
+#    tracking_id          : "UA-199157698-1"
+    tracking_id          : "377566640"
 
 # SEO Related
 #google-site-verification : googlee7dce9bd7ff16166.html
