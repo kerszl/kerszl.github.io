@@ -34,7 +34,7 @@ Write-up is in Polish language.
 |:----|:----|
 |Nazwa:|Digitalworld.local: snakeoil|
 |Autor:|[Donavan](https://www.vulnhub.com/author/donavan,601/)|
-|Wypuszczony:|23.08.2021|
+|Wypuszczony:|2021-08-23|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Metasploit, JSON, Tokeny|

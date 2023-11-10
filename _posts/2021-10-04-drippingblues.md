@@ -27,7 +27,7 @@ Write-up is in Polish language.
 |:----|:----|
 |Nazwa:|Drippingblues|
 |Autor:|[Tasiyanci](https://hackmyvm.eu/profile/?user=tasiyanci)|
-|Wypuszczony:|20.09.2021|
+|Wypuszczony:|2021-09-20|
 |Do ściągnięcia:|[Stąd](https://hackmyvm.eu/machines/machine.php?vm=Drippingblues) - HackMyVM|
 |Poziom:|Łatwy|
 |Nauczysz się:|Poznasz dużo ślepych zaułków, Ubuntu Gnome|

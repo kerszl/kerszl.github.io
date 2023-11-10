@@ -21,7 +21,7 @@ Write-up is in Polish language.
 |:----|:----|
 |Nazwa:|Hackable: II|
 |Autor:|[Elias-sousa](https://www.vulnhub.com/author/elias-sousa,804/)|
-|Wypuszczony:|15.06.2021|
+|Wypuszczony:|2021-06-15|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-ii,711) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Metasploit i moduły|

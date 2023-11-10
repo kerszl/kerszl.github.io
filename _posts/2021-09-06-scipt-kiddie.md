@@ -21,7 +21,7 @@ Write-up is in Polish language.
 |:----|:----|
 |Nazwa:|Funbox: Scriptkiddie|
 |Autor:|[0815R2d2](https://www.vulnhub.com/author/0815r2d2,714/)|
-|Wypuszczony:|10.07.2021|
+|Wypuszczony:|2021-07-10|
 |Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) - Vulnhub|
 |Poziom:|Łatwy|
 |Nauczysz się:|Metasploit, Podstawy|
