@@ -61,7 +61,7 @@ Please specify the hash-mode with -m [hash-mode].
 ```
 Tak jak wyżej napisałem, nasuwa się odpowiedź że został użyty **SHA1**.
 ## 1. 2. i 3. hash
-Do łamania użyłem Hashcata. John the ripper, też sobie by poradził, ale nie tak szybko jak Hashcat. To było najprostsze, wystarczyło uruchomić tryb a3 bruteforce z domyślnymi i poczekać aż skończy łamać osiem znaków.
+Do łamania użyłem **Hashcata**. John the ripper, też sobie by poradził, ale nie tak szybko jak Hashcat. To było najprostsze, wystarczyło uruchomić tryb a3 czyli bruteforce z **domyślnymi** parametrami i poczekać aż program skończy łamać od jednego do ośmiu znaków. Najpierw zacząłem kombinować z różnymi maskami, ale domyślne są najlepsze. Czyli maska **?1?2?2?2?2?2?2?3**, a opis maski wygląda tak **-1 ?l?d?u**, **-2 ?l?d**, **-3 ?l?d*!$@_**. Ustawiając __wszystko__ dla ośmiu znaków łamanie trwałoby dużo dłużej.
 {: .text-justify}
 
 ```powershell
@@ -107,12 +107,11 @@ Hardware.Mon.#2..: N/A
 11611d749d0a4df9a91bdc6967a05a4a85df7ffb:anw22ii2
 [s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>
 ```
-Poczekałem aż program skończy łamać 8 znaków (pamiętajcie, że były to domyślne ustawienia maski) i kiedy Hashcat zaczął łamać dziewięć znaków, po prostu przerwałem. Za długo to by trwało na początek. Trzeba było znaleźć inną metodę.
+Poczekałem aż program skończy łamać osiem znaków i kiedy **Hashcat** zaczął łamać dziewięć znaków, po prostu przerwałem. Za długo to by trwało na początek. Trzeba było znaleźć inną metodę.
 {: .text-justify}
 ## 4. Hash
 Tym razem użyłem popularnego słownika **rockyou.txt**. Komenda tym razem wyglądała tak:
 {: .text-justify}
-
 ```powershell
 .\hashcat.exe -O -m100 -a0 .\hashe.txt .\dict\rockyou.txt
 ```
@@ -143,7 +142,6 @@ Hardware.Mon.#2..: N/A
 ```
 Niestety, mimo błyskawicznej analizy, nie przyniosło to efektu. Spróbowałem z regułami **OneRuleToRuleThemAll.rule**
 {: .text-justify}
-
 ```powershell
 Session..........: hashcat
 Status...........: Running
@@ -178,11 +176,10 @@ Czwarty hash, jak widać został złamany. Zostało jeszcze sześć. Poczekałem
 ## 5. i 6. hash
 Spróbowałem teraz pozgrywać słowa ze strony [strona](https://sekurak.pl/zlam-hashe-hasla-i-zdobadz-bezplatne-wejscie-na-sekurak-academy-2024/). Do tego użyłem programu **Cewl**.
 {: .text-justify}
-
 ```bash
 cewl https://sklep.securitum.pl/ > sekurak-academy-2024.txt
 ```
-Zanim wszystko **cewl** przemielił, trochę czasu mu to zabrało. Jednak po parunastu (parudziesięciu) minutach miałem gotowy słownik ze słowami. Zakładałem, że w haśle nie ma polskich liter więc się ich pozbyłem programem **Iconv**. Przy okazji posortowałem słownik i pozbyłem się duplikatów.
+Zanim wszystko **Cewl** przemielił, trochę czasu mu to zabrało. Jednak po parunastu (parudziesięciu) minutach miałem gotowy słownik ze słowami. Zakładałem, że w haśle nie ma polskich liter więc się ich pozbyłem programem **Iconv**. Przy okazji posortowałem słownik i pozbyłem się duplikatów.
 {: .text-justify}
 ```bash
 iconv -f=utf-8 -t=ascii//TRANSLIT < sekurak-academy-2024.txt | tr '[:upper:]' '[:lower:]' | sort | uniq  > sekurak-academy-2024-no-diacritic.txt
@@ -208,7 +205,6 @@ Zacząłem kombinować ze słowami ze strony o konkursie. Do wygenerowanego sło
 ```powershell
 .\hashcat.exe -O -m100 -a0 .\hashe.txt .\dict\sekurak-academy-2024-no-diacritic.txt -r .\rules\OneRuleToRuleThemAll.rule
 ```
-
 ```
 db13ca089eb4860896567399a30558f2c1fc69e7:sekurak.academy
 9ca2065c0db9c96e7c2610bc3646991b590620f8:sekurak2024
@@ -216,9 +212,8 @@ db13ca089eb4860896567399a30558f2c1fc69e7:sekurak.academy
 **sekurak.academy** został złamany i przy okazji **sekurak2024**.
 {: .text-justify}
 ## 9. hash
-Już zostało mało hashy do złamania, więc zacząłem się bawić z różnymi maskami i z bruteforce z ośmioma, dziewięcioma, dziesięcioma literami. Niestety nic to nie dało. Pomyślałem sobie, że może coś jest ukryte na stronie w obrazkach. Nie mogłem tam nic znaleźć (może jest, jeszcze nie wiem). W akcie desperacji spróbowałem z nowym słownikiem. Tym razem użyłem polskiego. Ściągnąłem plik ze strony [sjp](https://sjp.pl/sl/odmiany/) i przerobiłem na słownik. Poniżej podaje skrypt, który pomaga to ściągnąć i przerobić.
+Już zostało mało hashy do złamania, więc zacząłem się bawić z różnymi maskami i z bruteforce z ośmioma, dziewięcioma, dziesięcioma literami. Niestety - zero efektów. Pomyślałem sobie, że może coś jest ukryte na stronie w obrazkach, ale nie mogłem tam nic znaleźć (okazało się, że nie tędy droga). W akcie desperacji spróbowałem z nowym słownikiem. Tym razem użyłem polskiego. Ściągnąłem plik ze strony [sjp](https://sjp.pl/sl/odmiany/) i przerobiłem na słownik przyjazny dla **Hashcata**. Poniżej podaje skrypt, który pomaga to ściągnąć i przerobić.
 {: .text-justify}
-
 ```bash
 #uwaga, sprawdz czy są polskie znaki
 #pl_PL.UTF-8
@@ -250,14 +245,11 @@ tr ',' '\n' < $PLIK_W_SJP | tr -d '\t '  | tr '[:upper:]' '[:lower:]'| sort | un
 echo Przetwarzanie - usuwanie polskich znakow - $PLIK_WYNIKOWY_NO_DIAC
 iconv -f=utf-8 -t=ascii//TRANSLIT  $PLIK_WYNIKOWY_DIAC > $PLIK_WYNIKOWY_NO_DIAC
 ```
-
 Odpaliłem słownik w trybie dwóch słowników.
 {: .text-justify}
-
 ```powershell
 .\hashcat.exe -O -m100 -a1 .\hashe.txt .\dict\odm_pl_no_diacritic.txt .\dict\odm_pl_no_diacritic.txt
 ```
-
 ```powershell
 [s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>
 
@@ -290,8 +282,7 @@ e68e8854e4da8055832f1a00ced5ac8772611a64:bezpiecznakura
 ```
 Dziewiąte hasełko pękło.
 {: .text-justify}
-
 ## 10. hash
-Niestety nie udało mi się złamać. Ciągle czekam na wyniki na stronie, tam pewnie zostaną podane. Ogólnie to była świetna zabawa. Dzięki Sekurak.
+Niestety nie udało mi się złamać dziesiątego hasła. Okazało się, że jest to połączenie trzech różnych słów. [Tutaj](https://nfsec.pl/security/6547) można o tym poczytać. Ogólnie to była świetna zabawa. Dzięki Sekurak.
 {: .text-justify}
 
