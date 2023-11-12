@@ -61,7 +61,7 @@ Please specify the hash-mode with -m [hash-mode].
 ```
 Tak jak wyżej napisałem, nasuwa się odpowiedź że został użyty **SHA1**.
 ## 1. 2. i 3. hash
-Do łamania użyłem **Hashcata**. John the ripper, też sobie by poradził, ale nie tak szybko jak Hashcat. To było najprostsze, wystarczyło uruchomić tryb a3 czyli bruteforce z **domyślnymi** parametrami i poczekać aż program skończy łamać od jednego do ośmiu znaków. Najpierw zacząłem kombinować z różnymi maskami, ale domyślne są najlepsze. Czyli maska **?1?2?2?2?2?2?2?3**, a opis maski wygląda tak **-1 ?l?d?u**, **-2 ?l?d**, **-3 ?l?d*!$@_**. Ustawiając __wszystko__ dla ośmiu znaków łamanie trwałoby dużo dłużej.
+Do łamania użyłem **Hashcata**. John the ripper, też sobie by poradził, ale nie tak szybko jak Hashcat. Pierwsza próba ze słownikiem **rockyou.txt** nie dała żadnych efektów, ale łamanie bruteforce to był strzał w dziesiątke. To było najprostsze, wystarczyło uruchomić tryb a3 czyli bruteforce z **domyślnymi** parametrami i poczekać aż program skończy łamać od jednego do ośmiu znaków. Najpierw zacząłem kombinować z różnymi maskami, ale domyślne są najlepsze. Czyli maska **?1?2?2?2?2?2?2?3**, a opis maski wygląda tak **-1 ?l?d?u**, **-2 ?l?d**, **-3 ?l?d*!$@_**. Ustawiając __wszystko__ dla ośmiu znaków łamanie trwałoby dużo dłużej.
 {: .text-justify}
 
 ```powershell
@@ -70,13 +70,13 @@ Do łamania użyłem **Hashcata**. John the ripper, też sobie by poradził, ale
 Już po paru sekundach dwa hashe zostały złamane:
 {: .text-justify}
 
-Pierwszy i drugi hash
+Pierwszy i drugi hash:
 {: .text-justify}
 ```
 cc713abadd413446b499a795a963e3358e6bea37:Ow0jw2
 61e5851b40d661bd046bdd96577fc4e81b7ae625:seqrak
 ```
-Po pięciu, sześciu minutach poległ trzeci hash.
+Po pięciu, sześciu minutach poległ trzeci hash:
 
 ```powershell
 Session..........: hashcat
