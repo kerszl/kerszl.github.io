@@ -202,7 +202,7 @@ Dwa kolejne hasła zostały odkryte:
 3c37442f864f1921808a2440c7657311df38b919:bezpiecznykurak
 283d5cb401e9de6a2e56f97166a639479fb86aee:akademiasekuraka
 ```
-## 7. i 8 hash
+## 7. i 8. hash
 Zacząłem kombinować ze słowami ze strony o konkursie. Do wygenerowanego słownika ze strony dorzuciłem między innymi **Sekurak.Academy**. Zdziwił mnie trochę zapis tego słowa. Na początku nic to nie dało, ale z regułami **OneRuleToRuleThemAll.rule** sprawa wyglądała lepiej.
 {: .text-justify}
 ```powershell

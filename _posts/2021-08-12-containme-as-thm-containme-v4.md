@@ -30,8 +30,9 @@ Write-up is in Polish language.
 |Nazwa:|ContainMe: 1|
 |Autor:|[It-security-works](https://www.vulnhub.com/author/it-security-works,811/)|
 |Wypuszczony:|2021-07-29|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/containme-1,729/) - Vulnhub|
+|Do ściągnięcia:|[Vulnhub](https://www.vulnhub.com/entry/containme-1,729/)|
 |Poziom:|Łatwy|
+|System:|Linux|
 |Nauczysz się:|Metasploit, LXD, Kontenery|
 
 # Wstęp

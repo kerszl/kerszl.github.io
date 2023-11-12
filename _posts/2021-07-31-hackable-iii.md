@@ -38,8 +38,9 @@ Write-up is in Polish language.
 |Nazwa:|Hackable: III|
 |Autor:|[Elias-sousa](https://www.vulnhub.com/author/elias-sousa,804/)|
 |Wypuszczony:|2021-06-02|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackable-iii,720) - Vulnhub|
+|Do ściągnięcia:|[Vulnhub](https://www.vulnhub.com/entry/hackable-iii,720)|
 |Poziom:|Średni|
+|System:|Linux|
 |Nauczysz się:|Metasploit, Brainfuck, Steghide, Rootshell, C|
 
 # Wstęp

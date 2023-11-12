@@ -35,8 +35,9 @@ Write-up is in Polish language.
 |Nazwa:|myHouse7: 1|
 |Autor:|[Thepcn3rd](https://www.vulnhub.com/author/thepcn3rd,608/)|
 |Wypuszczony:|2018-11-02|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/myhouse7-1,286/) - Vulnhub|
+|Do ściągnięcia:|[Vulnhub](https://www.vulnhub.com/entry/myhouse7-1,286/)|
 |Poziom:|Łatwy|
+|System:|Linux|
 |Nauczysz się:|Pivoting|
 
 # Wstęp

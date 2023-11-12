@@ -22,8 +22,9 @@ Write-up is in Polish language.
 |Nazwa:|HackathonCTF: 1|
 |Autor:|[Somu-sen](https://www.vulnhub.com/author/somu-sen,747/)|
 |Wypuszczony:|2020-10-27|
-|Do ściągnięcia:|[Stąd](https://www.vulnhub.com/entry/hackathonctf-1,591/) - Vulnhub|
+|Do ściągnięcia:|[Vulnhub](https://www.vulnhub.com/entry/hackathonctf-1,591/)|
 |Poziom:|Łatwy|
+|System:|Linux|
 |Nauczysz się:|Metasploit, Sudo, ASCII, Base64|
 
 # Wstęp
