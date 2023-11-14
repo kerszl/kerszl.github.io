@@ -4,10 +4,10 @@ wyswietl_help ()
 {
 echo Wymagany jest parametr -a i -m
 echo -a autor
-echo -d data wydania maszyny
+echo -d data wydania maszyny [opcjonalnie]
 echo -j jezyk [opcjonalnie]
 echo -m nazwa maszyny
-echo -p Poziom trudności
+echo -p Poziom trudności [opcjonalnie]
 echo -s system [opcjonalnie]
 }
 

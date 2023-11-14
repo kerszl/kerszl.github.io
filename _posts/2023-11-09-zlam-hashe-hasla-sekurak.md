@@ -12,7 +12,7 @@ header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 # Słowem wstępu
-Ostatnio [Sekurak](https://sekurak.pl) ogłosił dnia 31.10.2023 kolejny [konkurs](https://sekurak.pl/zlam-hashe-hasla-i-zdobadz-bezplatne-wejscie-na-sekurak-academy-2024/) na złamanie hashy. Pierwsze 10 osób otrzymało bezpłatne wejście na [Sekurak Academy 2024](https://sekurak.academy/). Termin nadsyłania wyników minął 07.11.2023. Dzisiaj jest już 09.11.2023, więc publikuje sposób tego co udało mi się złamać (niestety tylko 9 z 10 hashy), ale opisze przebieg w jaki udało mi się tego dokonać. Do całej operacji użyłem programu Hashcat, wspomogła mnie karta graficzna **Radeon RX 6600** oraz troszkę **Intel(R) UHD Graphics 770**.
+Ostatnio [Sekurak](https://sekurak.pl) ogłosił dnia 31.10.2023 kolejny [konkurs](https://sekurak.pl/zlam-hashe-hasla-i-zdobadz-bezplatne-wejscie-na-sekurak-academy-2024/) na złamanie hashy. Pierwsze dziesięć osób otrzymało bezpłatne wejście na [Sekurak Academy 2024](https://sekurak.academy/). Termin nadsyłania wyników minął 07.11.2023. Dzisiaj jest już 09.11.2023, więc publikuje sposób tego co udało mi się złamać (niestety tylko dziewięć z dziesięciu hashy), ale opisze przebieg w jaki udało mi się tego dokonać. Do całej operacji użyłem programu **Hashcat**, wspomogła mnie karta graficzna **Radeon RX 6600** oraz troszkę **Intel(R) UHD Graphics 770**.
 {: .text-justify}
 
 # Hashe
@@ -200,7 +200,7 @@ Dwa kolejne hasła zostały odkryte:
 283d5cb401e9de6a2e56f97166a639479fb86aee:akademiasekuraka
 ```
 ## 7. i 8. hash
-Zacząłem kombinować ze słowami ze strony o konkursie. Do wygenerowanego słownika ze strony dorzuciłem między innymi **Sekurak.Academy**. Zdziwił mnie trochę zapis tego słowa. Na początku nic to nie dało, ale z regułami **OneRuleToRuleThemAll.rule** sprawa wyglądała lepiej.
+Zacząłem kombinować ze słowami ze strony o konkursie. Do wygenerowanego słownika ze strony dorzuciłem między innymi __Sekurak.Academy__. Zdziwił mnie trochę zapis tego słowa. Na początku nic to nie dało, ale z regułami **OneRuleToRuleThemAll.rule** sprawa wyglądała lepiej.
 {: .text-justify}
 ```powershell
 .\hashcat.exe -O -m100 -a0 .\hashe.txt .\dict\sekurak-academy-2024-no-diacritic.txt -r .\rules\OneRuleToRuleThemAll.rule
@@ -209,7 +209,7 @@ Zacząłem kombinować ze słowami ze strony o konkursie. Do wygenerowanego sło
 db13ca089eb4860896567399a30558f2c1fc69e7:sekurak.academy
 9ca2065c0db9c96e7c2610bc3646991b590620f8:sekurak2024
 ```
-**sekurak.academy** został złamany i przy okazji **sekurak2024**.
+__sekurak.academy__ został złamany i przy okazji __sekurak2024__.
 {: .text-justify}
 ## 9. hash
 Już zostało mało hashy do złamania, więc zacząłem się bawić z różnymi maskami i z bruteforce z ośmioma, dziewięcioma, dziesięcioma literami. Niestety - zero efektów. Pomyślałem sobie, że może coś jest ukryte na stronie w obrazkach, ale nie mogłem tam nic znaleźć (okazało się, że nie tędy droga). W akcie desperacji spróbowałem z nowym słownikiem. Tym razem użyłem polskiego. Ściągnąłem plik ze strony [sjp](https://sjp.pl/sl/odmiany/) i przerobiłem na słownik przyjazny dla **Hashcata**. Poniżej podaje skrypt, który pomaga to ściągnąć i przerobić.
@@ -283,6 +283,6 @@ e68e8854e4da8055832f1a00ced5ac8772611a64:bezpiecznakura
 Dziewiąte hasełko pękło.
 {: .text-justify}
 ## 10. hash
-Niestety nie udało mi się złamać dziesiątego hasła. Okazało się, że jest to połączenie trzech różnych słów. [Tutaj](https://nfsec.pl/security/6547) można o tym poczytać. Ogólnie to była świetna zabawa. Dzięki Sekurak.
+Niestety nie udało mi się złamać dziesiątego hasła. Okazało się, że jest to połączenie trzech różnych słów. [Tutaj](https://nfsec.pl/security/6547) można o tym poczytać. Ogólnie to była świetna zabawa. Dzięki **Sekurak**.
 {: .text-justify}
 
