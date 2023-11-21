@@ -133,10 +133,10 @@ Pozgrywałem wszystkie strony, chociaż były na nich podobne słowa, zebrałem 
 ```bash
 cat *.txt | sort -u > elite-economists.hmv.all.txt
 ```
-# 04. Bruteforce
+# 05. Bruteforce
 Myślałem - a co tam - może się uda coś znaleźć, czyli __login__ i __hasło__ metodą słownikową i wejście na **SSH**. Użytkowników mamy, słowa też. Więc trzeba to połączyć Aby to znaleźć można użyć między innymi programy: **Hydra** i **Ncat**. Zobaczymy który szybciej to zrobi.
 {: .text-justify}
-## 04a. Ncrack
+## 05a. Ncrack
 ```bash
 ncrack -v -U users.txt -P /usr/share/wordlists/rockyou.txt ssh://172.16.1.178
 ```
@@ -158,7 +158,7 @@ Probes sent: 2010 | timed-out: 0 | prematurely-closed: 1984
 
 Ncrack finished.
 ```
-## 04b. Hydra
+## 05b. Hydra
 ```bash
 hydra -v -L users.txt -P elite-economists.hmv.all ssh://elite-economists.hmv
 ```
@@ -174,7 +174,7 @@ Discovered credentials for ssh on 172.16.1.178 22/tcp:
 ```
 Jak widzimy, **Ncrack** się uporał z tym w sześć minut i od razu zakończył, zaś **Hydrze** zajęło to dwadzieścia minut. Po złamaniu hasła dalej kontynuowała skanowanie. Pewnie jest opcja, żeby zakończyć skanowanie od razu po znalezieniu hasła, ale ja odpalałem wszystko z ustawień standardowych. Login i hasło jest jak się domyślacie - do **SSH**.
 {: .text-justify}
-# 05. root
+# 06. root
 Ostatni etap jest najprostszy, mimo, że jest dużo ślepych uliczek. Odpalamy:
 ```bash
 sudo -l
