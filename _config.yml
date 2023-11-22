@@ -92,23 +92,22 @@ author:
   location         : "Poland"
   bio    : "Zajmuję się komputerami od lat 90. (XX wieku). Najpierw był C64, potem Amiga, a od 25 lat PC. Tematy tutaj poruszane będą różne, ale głównie związane z IT i wycieczkami rowerowymi."
   links:
-    - label: "kerszi@protonmail.com "
+    - label: "Mail"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:kerszi@protonmail.com      
-    - label: "https://kerszl.github.io"
+    - label: "Github"
       icon: "fas fa-fw fa-link"
       url: "https://kerszl.github.io"
-#    - label: "Twitter"
-#      icon: "fab fa-fw fa-twitter-square"
-#      url: "https://twitter.com/"
-    - label: "https://github.com/kerszl"
+    - label: "Blog"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/kerszl"
-    - label: "https://www.youtube.com/channel/UCgipITkFiSZY4N_v9ry5uvQ"
+    - label: "YouTube"
       icon: "fab fa-wf- fa-youtube"
       url: "https://www.youtube.com/channel/UCgipITkFiSZY4N_v9ry5uvQ"
-      
-    
+    - label: "HackMyVm - ranking"
+      icon: "fas fa-fw fa-link"
+      url: "https://hackmyvm.eu/public/?u=kerszi"
+          
 #    - label: "Instagram"
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"

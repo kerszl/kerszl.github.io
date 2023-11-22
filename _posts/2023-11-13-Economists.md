@@ -84,6 +84,11 @@ msf6 > db_nmap -A 172.16.1.178
 ```
 Port 21, 22 i 80 są otwarte. Czyli FTP, SSH i WWW.
 {: .text-justify}
+- **21/tcp** - FTP 
+- **22/tcp** - SSH
+- **80/tcp** - WWW
+
+
 # 03. FTP
 Najpierw należy sprawdzić, jaki jest dostęp na **FTP**. Być może w trybie __anonymous__. Można to sprawdzić wchodzą przez zwykłego __ftp-a__, albo użyć moduł z **Metasploita**. Polecam moduł, ponieważ z automatu zapiszę się to do zdobytych haseł.
 {: .text-justify}
