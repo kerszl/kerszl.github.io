@@ -82,12 +82,11 @@ msf6 > db_nmap -A 172.16.1.178
 [*] Nmap: OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 [*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 8.34 seconds
 ```
-Port 21, 22 i 80 są otwarte. Czyli FTP, SSH i WWW.
+Otwarte porty:
 {: .text-justify}
 - **21/tcp** - FTP 
 - **22/tcp** - SSH
 - **80/tcp** - WWW
-
 
 # 03. FTP
 Najpierw należy sprawdzić, jaki jest dostęp na **FTP**. Być może w trybie __anonymous__. Można to sprawdzić wchodzą przez zwykłego __ftp-a__, albo użyć moduł z **Metasploita**. Polecam moduł, ponieważ z automatu zapiszę się to do zdobytych haseł.
