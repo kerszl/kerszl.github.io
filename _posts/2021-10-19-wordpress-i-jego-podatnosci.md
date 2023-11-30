@@ -7,8 +7,6 @@ categories:
 tags:
   - Hacking
   - CMS
-  - Vulnhub
-  - HackMyVM
 header:
   overlay_image: /assets/images/pasek-hack.png
 gallery1_4:

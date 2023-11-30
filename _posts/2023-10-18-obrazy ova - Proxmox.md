@@ -8,7 +8,6 @@ tags:
   - Hacking
   - Proxmox
   - VirtualBox
-  - HackMyVM
   - Tools
 header:
   overlay_image: /assets/images/pasek-hack.png

