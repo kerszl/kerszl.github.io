@@ -177,6 +177,7 @@ Przyjrzyjmy się bardziej **/usr/local/bin**:
 ```bash
 getfacl /usr/local/bin
 ```
+```bash
 getfacl: Removing leading '/' from absolute path names
 # file: usr/local/bin
 # owner: root
