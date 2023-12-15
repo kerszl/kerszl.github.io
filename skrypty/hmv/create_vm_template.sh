@@ -7,7 +7,7 @@ echo -a autor
 echo -d data wydania maszyny [opcjonalnie]
 echo -j jezyk [opcjonalnie]
 echo -m nazwa maszyny
-echo -p Poziom trudności [opcjonalnie]
+echo -p Poziom trudności [opcjonalnie'(1-3)']
 echo -s system [opcjonalnie]
 }
 
