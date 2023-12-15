@@ -28,7 +28,7 @@ header:
 |You'll learn:|reverse shell|
 
 # 01. Entry
-**Whitedoor** is the second machine from [Pylon](https://hackmyvm.eu/profile/?user=Pylon). It is easier than the previous one and is recommended for beginners, if someone has not had any experience with this "sport", they can have some fun with it, and for the rest it is a piece of cake, which does not mean that it is bad.
+[Whitedoor](https://hackmyvm.eu/machines/machine.php?vm=Whitedoor) is the second machine from [Pylon](https://hackmyvm.eu/profile/?user=Pylon). It is easier than the previous one and is recommended for beginners, if someone has not had any experience with this "sport", they can have some fun with it, and for the rest it is a piece of cake, which does not mean that it is bad.
 {: .text-justify}
 # 02. Beginning
 In the beginning there was scanning:
@@ -93,11 +93,12 @@ There are 3 ports open:
 - **21/tcp** - FTP
 - **22/tcp** - SSH
 - **80/tcp** - Apache WWW
+
 # 03. Reverse shell i WWW
 There was nothing interesting on the ftp, it was a bit of a misnomer. But when we enter the website we see something like this:
 {: .text-justify}
 ![01](/assets/images/hacking/2023/06/01.png)
-W komunikacie jest oznajmione, że działa tylko komenda **ls**:
+The message states that only the **ls** command works:
 {: .text-justify}
 ![Alt text](image.png)
 {: .text-justify}
@@ -158,7 +159,7 @@ cat ./whiteshell/Desktop/.my_secret_password.txt
 ```bash
 whiteshell:*****
 ```
-We see the password, which is encoded with **Base64**. We decode and have access to the **whiteshell** account:
+We see the password, which is encoded with **Base64**. We decode twice and have access to the **whiteshell** account:
 {: .text-justify}
 ```bash
 base64 -d <<< haselkowbase64
@@ -187,7 +188,7 @@ We have a password that is easy to crack in the program: **Hashcat** or **John**
 hashcat -O -m3200 -a0 hashe\whiteshell.txt dict\rockyou.txt
 ```
 # 06. root
-Wpisujemy:
+Type:
 {: .text-justify}
 ```bash
 Gonzalo@whitedoor:~$ sudo -l
@@ -202,7 +203,7 @@ User Gonzalo may run the following commands on whitedoor:
 ```bash
 sudo /usr/bin/vim
 ```
-W programie **Vim** zaś:
+In the **Vim** program:
 {: .text-justify}
 ```bash
 :!bash
