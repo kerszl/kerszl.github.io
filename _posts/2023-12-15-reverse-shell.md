@@ -108,7 +108,7 @@ usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i interval] [-M ttl]
                 -z              Zero-I/O mode [used for scanning]
         Port numbers can be individual or ranges: lo-hi [inclusive]
 ```
-## Nmap-ncat (od Network Mapper)
+## Nmap-ncat (od autora Network Mapper)
 Żeby jeszcze bardziej namieszać, jest jeszcze jest **Ncat** od osoby, która napisała program **Nmap (Network Mapper)**, czyli od Gordona Lyona. Pogram charakteryzuje się dosyć wysoką wersją (w porównaniu do pierwowzoru). Na szczęście (albo i nie) są przełączniki _-c_ i _-e_ pozwalające uruchomić **Bash** lub inną konsolę. Na **Redhacie** pakiet nazywa się _nmap-ncat_, zaś na **Debianie** po prostu _ncat_. Zauważyłem, że na **Debianie** możemy mieć dwa **Netcaty**. Jeżeli są dwa, to ten pierwotny nazywa _nc.traditional_, drugi zaś normalnie _nc_. Help naszego programu od **Nmapa** wygląda tak:
 {: .text-justify}
 ```bash
