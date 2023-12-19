@@ -98,9 +98,8 @@ There are 3 ports open:
 There was nothing interesting on the ftp, it was a bit of a misnomer. But when we enter the website we see something like this:
 {: .text-justify}
 ![01](/assets/images/hacking/2023/06/01.png)
-The message states that only the **ls** command works:
 {: .text-justify}
-![Alt text](image.png)
+We see the message that only the **ls** command works:
 {: .text-justify}
 On the server, which I checked, there is probably no **nc** command, but we can immediately go further and do something like this:
 ## 03a. Listening 
