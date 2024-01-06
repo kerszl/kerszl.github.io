@@ -25,7 +25,7 @@ header:
 |Ściągnij:|[HackMyVM](https://hackmyvm.eu/machines/machine.php?vm=Animetronic)|
 |Poziom:|Łatwy|
 |System:|Linux|
-|Nauczysz się:| |
+|Nauczysz się:| tworzenia haseł|
 
 # 01. Wstęp
 Niestety, trzeba było czekać ponad miesiąc, żeby ta maszynka była złamywalna. Można było to zrobić wchodząc przez GRUB, ale nie na tym polega zabawa. Teraz maszynka jest "złamywalna". Tym razem będzie bez opisów, same działania :smiley:
