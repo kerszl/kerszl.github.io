@@ -5,10 +5,10 @@ wyswietl_help ()
 echo Wymagany jest parametr -a i -m
 echo -a autor
 echo -d data wydania maszyny [opcjonalnie]
-echo -j jezyk [opcjonalnie]
+echo -j jezyk [opcjonalnie '(polski,angielski)']
 echo -m nazwa maszyny
-echo -p Poziom trudności [opcjonalnie'(1-3)']
-echo -s system [opcjonalnie]
+echo -p Poziom trudności [opcjonalnie '(1-3)']
+echo -s system [opcjonalnie '(Linux, Windows)']
 }
 
 if  [ $# -lt 3 ]; then
