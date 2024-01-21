@@ -59,43 +59,30 @@ sudo -uindia /usr/bin/choom -n 0 -- bash
 
 ```bash
 sudo /usr/local/bin/trans -pager less
+translator
 ```
 06. Final
 ```bash
-word
-/wərd/
+translator
+/ˈtranzˌlādər/
 
-palabra
+(♂) traductor
+(♀) traductora
 
-Definiciones de word
+Definiciones de translator
 [ English -> Español ]
 
 sustantivo
-    (la) palabra
-        word, term, speech
-    (el) término
-        term, end, word, terminus, concept, definition
-    (la) voz
-        voice, word, vocals
-    (el) vocablo
-        word, term
-    (la) noticia
-        news, news item, report, piece of news
-    (el) verbo
-        verb
-    (el) dicho
-        saying, word, adage, statement, dictum, expression
-    (la) orden
-        order, command, warrant, sequence, arrangement, word
-    (el) aviso
-        notice, warning, ad, announcement, message, notification
-    (el) recado
-        message
-    (la) indicación
-        indication, sign, suggestion, hint, direction, word
+    (el) traductor
+        translator, interpreter, dragoman
 
-verbo
-    decir
-        say, tell, speak, mention, call, word
+translator
+    traductor, intérprete
 !bash
+```
+```bash
+# sudo /usr/local/bin/trans -pager less
+translator
+Did you mean: translate
+root@translator:/home/ocean# 
 ```
