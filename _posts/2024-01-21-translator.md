@@ -56,12 +56,11 @@ ssh ocean@http://172.16.1.121
 sudo -uindia /usr/bin/choom -n 0 -- bash
 ```
 # 05.
-
 ```bash
 sudo /usr/local/bin/trans -pager less
 translator
 ```
-06. Final
+# 06. Final
 ```bash
 translator
 /ˈtranzˌlādər/
