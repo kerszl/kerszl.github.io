@@ -5,7 +5,7 @@ wyswietl_help ()
 echo Wymagany jest parametr -a i -m
 echo -a autor
 echo -d data wydania maszyny [opcjonalnie]
-echo -j jezyk [opcjonalnie '(polski,angielski)']
+echo -j jezyk [opcjonalnie '(polski,english)']
 echo -m nazwa maszyny
 echo -p Poziom trudności [opcjonalnie '(1-3)']
 echo -s system [opcjonalnie '(Linux, Windows)']
@@ -88,7 +88,7 @@ POZIOM_NP="Trudny"
 ;;
 esac
 
-elif [[ $JEZYK_P == 'angielski' ]]; then
+elif [[ $JEZYK_P == 'english' ]]; then
 NAZWA_N="Title"
 AUTOR_N="Author"
 WYPUSZCZONY_N="Release date"
