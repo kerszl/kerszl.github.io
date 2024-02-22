@@ -32,8 +32,8 @@ Niestety, trzeba było czekać ponad miesiąc, żeby ta maszynka była złamywal
 {: .text-justify}
 
 ```bash
-root@kali2023:~/hmv/animetronic# netdiscover -P -r 172.16.1.0 | grep "PCS Systemtechnik GmbH"
- 172.16.1.189    08:00:27:07:16:90      1      60  PCS Systemtechnik GmbH
+netdiscover -P -r 172.16.1.0 | grep "PCS Systemtechnik GmbH"
+# 172.16.1.189    08:00:27:07:16:90      1      60  PCS Systemtechnik GmbH
 ```
 ```bash
 msf6 > db_nmap -T4 -A -p- 172.16.1.189

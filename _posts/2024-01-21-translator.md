@@ -58,7 +58,7 @@ sudo -uindia /usr/bin/choom -n 0 -- bash
 # 05.
 ```bash
 sudo /usr/local/bin/trans -pager less
-translator
+# translator
 ```
 # 06. Final
 ```bash
@@ -80,8 +80,10 @@ translator
 !bash
 ```
 ```bash
-# sudo /usr/local/bin/trans -pager less
-translator
-Did you mean: translate
-root@translator:/home/ocean# 
+sudo /usr/local/bin/trans -pager less
+```
+```bash
+# translator
+# Did you mean: translate
+# root@translator:/home/ocean# 
 ```
