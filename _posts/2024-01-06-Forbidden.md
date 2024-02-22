@@ -37,7 +37,7 @@ Po wstępnym wykryciu ip **Netdiscoverem**
 netdiscover -P -r 172.16.1.0 | grep "PCS Systemtechnik GmbH"
 ```
 ```bash
- 172.16.1.161    08:00:27:3c:42:d7      1      60  PCS Systemtechnik GmbH
+# 172.16.1.161    08:00:27:3c:42:d7      1      60  PCS Systemtechnik GmbH
 ```
 i skanowaniu **Nmapem**:
 {: .text-justify}
@@ -151,12 +151,12 @@ Będąc na koncie _marta_ wydajemy komendę _sudo -l_. Wynikiem zaś jest:
 {: .text-justify}
 ```bash
 marta@forbidden:~$ sudo -l
-Matching Defaults entries for marta on forbidden:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+# Matching Defaults entries for marta on forbidden:
+#    env_reset, mail_badpass,
+#    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
 
-User marta may run the following commands on forbidden:
-    (ALL : ALL) NOPASSWD: /usr/bin/join
+# User marta may run the following commands on forbidden:
+#    (ALL : ALL) NOPASSWD: /usr/bin/join
 ```
 Niestety polecenie _sudo /usr/bin/join_ nie daje nam dostępu do konta **Roota**, jednak umożliwia przeczytanie pliku _/etc/shadow_. W nim zaś są zawarte hasła.
 ```bash

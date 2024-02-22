@@ -62,21 +62,21 @@ sudo /usr/local/bin/trans -pager less
 ```
 # 06. Final
 ```bash
-translator
-/ˈtranzˌlādər/
+# translator
+# /ˈtranzˌlādər/
 
-(♂) traductor
-(♀) traductora
+# (♂) traductor
+# (♀) traductora
 
-Definiciones de translator
-[ English -> Español ]
+# Definiciones de translator
+# [ English -> Español ]
 
-sustantivo
-    (el) traductor
-        translator, interpreter, dragoman
+# sustantivo
+#    (el) traductor
+#        translator, interpreter, dragoman
 
-translator
-    traductor, intérprete
+# translator
+#    traductor, intérprete
 !bash
 ```
 ```bash

