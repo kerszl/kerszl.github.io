@@ -5,7 +5,7 @@ wyswietl_help ()
 echo Wymagany jest parametr -a i -m
 echo -a autor
 echo -d data wydania maszyny [opcjonalnie]
-echo -j jezyk [opcjonalnie '(polski,english)']
+echo -j jezyk [opcjonalnie '(polski, english)']
 echo -m nazwa maszyny
 echo -p Poziom trudności [opcjonalnie '(1-3)']
 echo -s system [opcjonalnie '(Linux, Windows)']
@@ -138,7 +138,12 @@ echo "|$POZIOM_N:|$POZIOM_NP|" >> $NAZWA_PLIKU
 echo "|$SYSTEM_N:|$SYSTEM_P|" >> $NAZWA_PLIKU
 echo "|$NAUCZYSZ_N:| |" >> $NAZWA_PLIKU
 echo >> $NAZWA_PLIKU
-echo "# 01. Wstęp" >> $NAZWA_PLIKU
+
+if [[ $JEZYK_P == 'polski' ]]; then
+    echo "# 01. Wstęp" >> $NAZWA_PLIKU
+elif [[ $JEZYK_P == 'english' ]]; then
+    echo "# 01. Entry" >> $NAZWA_PLIKU
+fi
 
 
 
