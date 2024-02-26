@@ -267,7 +267,7 @@ henry@animetronic:~$ find / -type f -name henrypassword.txt 2>/dev/null
 ```
 ```bash
 cat /home/henry/.new_folder/dir289/dir26/dir10/henrypassword.txt
-******
+# ******
 ```
 ```bash
 su - henry

@@ -208,7 +208,7 @@ Sprawdźmy kolejność przeszukiwania katalogów przez **Basha**(zakładając, �
 {: .text-justify}
 ```bash
 www-data@rooSter-Run:/home/matthieu$ echo $PATH
-echo $PATH
+# echo $PATH
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 Zobaczmy gdzie jest **Bash**:
