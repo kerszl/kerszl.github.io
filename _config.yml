@@ -97,10 +97,10 @@ author:
       url: mailto:kerszi@protonmail.com      
     - label: "Github"
       icon: "fas fa-fw fa-link"
-      url: "https://kerszl.github.io"
+      url: "https://github.com/kerszl"
     - label: "Blog"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/kerszl"
+      url: "https://kerszl.github.io"
     - label: "YouTube"
       icon: "fab fa-wf- fa-youtube"
       url: "https://www.youtube.com/channel/UCgipITkFiSZY4N_v9ry5uvQ"
