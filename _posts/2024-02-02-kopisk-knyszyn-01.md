@@ -25,8 +25,7 @@ gallery:
   - url: /assets/images/inne/2024/01/06.jpg
     image_path: /assets/images/inne/2024/01/06.jpg
 ---
-<a href="#" onclick="window.open('https://connect.garmin.com/modern/activity/embed/14112370937', 'newwindow', 'width=800, height=600'); return false;">Białystok Kolarstwo szosowe</a>
-![mapka](/assets/images/inne/2024/01/mapka.png)
+[![mapka](/assets/images/inne/2024/01/mapka.png)](https://connect.garmin.com/modern/activity/13687604998)
 
 27 stycznia odbył się pierwszy w tym roku spacer pod marką **4PoryPuszczy**, który zorganizował **Andrzej**. Autobus tym razem odjeżdżał z dworca już o 8:30 więc trzeba było trochę wcześniej wstać, niż ostatnio jesienią. Wysiedliśmy się na przystanku **Kopisk Szosa**, bilet nie był drogi, kosztował 12 zł. Tym razem frekwencja bardzo dopisała, bo było aż 29 osób, w tym ponad 20 kobiet. Droga była bardzo łatwa, mimo ostrzeżeń o 60 centymetrowej warstwie śniegu, której na szczęście nie było. Śnieg mocno stopniał, więc było lżej. Po około 21 kilometrach dotarliśmy na przystanek w **Knyszynie**. Autobus powrotny był już o 14:42.
 {: .text-justify}
