@@ -46,7 +46,7 @@ gallery:
   - url: /assets/images/rower/2023/1daytrip/06/16.jpg
     image_path: /assets/images/rower/2023/1daytrip/06/16.jpg            
 ---
-![mapka](/assets/images/rower/2023/1daytrip/06/mapka.png)
+[![mapka](/assets/images/rower/2023/1daytrip/06/mapka.png)](https://connect.garmin.com/modern/activity/11985329207)
 
 Jest to dosyć długa trasa, ale wiedzie przez dosyć ciekawe miejsca. Aby się dostać z Białegostoku do Hajnówki polecam pociąg. Bilet na obecną chwilę jest bardzo tani, kosztuje około 21 zł. Wyjechać najlepiej rano, ale ja wyjechałem o 9:15. W Hajnówce byłem już o 10:33. Stamtąd udałem się do drzewa roku 2021, czyli dęba Dunin. Następnie, aby nie być za szybko w Białymstoku udałem się do Narwi, a stamtąd do Odrynek, gdzie znajduje się pustelnia. Później już były Bondary, Stary Dwór, a tam zalew Siemianówka. Stamtąd prowadziła droga do Michalowa i zabłudowa. Niestety droga z Zabłudowa do Białegostoku jest dosyć niebezpieczna, więc lepiej zamiast do Zabłudowa pojechać z Michalowa na Folwarki wielkie, Folwarki Małe i Rafałówkę, tam już jest bezpieczniej.
 {: .text-justify}

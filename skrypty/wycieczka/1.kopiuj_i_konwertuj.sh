@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 YEAR=$(date +'%Y')
 
 #ANDROID
@@ -23,10 +24,13 @@ SZABLON03="$SKRYPT_PATH"szablon02.txt.video
 #ANDROID
 POST_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/_posts/"
 
+
+
 #PC
 #POST_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/_posts/"
 
 #1 etap - sprawdzanie katalogow
+
 
 if [ $# -eq 1 ]; then
 	if [ ! -d "$PODROZ_PATH" ]; then
@@ -110,11 +114,13 @@ done
 
 SCIEZKA_WIELKIEJ_PODROZY="$PODROZ_PATH/$2/"
 
+
 if [ ! "$(ls -A "$SCIEZKA_WIELKIEJ_PODROZY")" ]; then
     echo "Brak plikow w $SCIEZKA_WIELKIEJ_PODROZY"
 	exit
 fi	
 	
+
 
 Y_M_D=$(date +'%Y-%m-%d-')
 PLIK_MD=$Y_M_D$1"-"$2".md"
@@ -145,9 +151,11 @@ printf "Czy link z mapki ma być z Garmina [y/n]? "
         if [[ $ask == "y" ]]; then
 		printf "Podaj numer treningu ze strony Garmina: "
 		read wpisz_numer
-			echo '<a href="https://connect.garmin.com/modern/activity/embed/'$wpisz_numer'" onclick="window.open(this.href); return false;">' >> "$POST_FILE_PATH"
-			echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
-			echo "</a>" >> "$POST_FILE_PATH"            
+		    # stare
+			#echo '<a href="https://connect.garmin.com/modern/activity/embed/'$wpisz_numer'" onclick="window.open(this.href); return false;">' >> "$POST_FILE_PATH"
+			#echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
+			#echo "</a>" >> "$POST_FILE_PATH"			
+			echo "[![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)](https://connect.garmin.com/modern/activity/""$wpisz_numer"")" >> "$POST_FILE_PATH"
         else
 		echo "![mapka]("${SCIEZKA_WIELKIEJ_PODROZY/*kerszl.github.io/}"mapka.png)" >> "$POST_FILE_PATH"
 		fi
