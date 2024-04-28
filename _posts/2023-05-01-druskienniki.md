@@ -42,7 +42,7 @@ gallery:
   - url: /assets/images/rower/2023/1daytrip/01/14.jpg
     image_path: /assets/images/rower/2023/1daytrip/01/14.jpg       
 ---
-![mapka](/assets/images/rower/2023/1daytrip/01/mapka.png)
+[![mapka](/assets/images/rower/2023/1daytrip/01/mapka.png)](https://connect.garmin.com/modern/activity/11024066034)
 
 |Początek|Dystans|Czas|Koszt|Pogoda|Koniec|
 |:---:|:---:|:---:|:---:|:---:|:---:|
