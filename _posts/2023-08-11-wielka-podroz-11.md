@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/11/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/11/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/11/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/11/mapka.png)](https://connect.garmin.com/modern/activity/11766076235)
 
 Ponieważ byłem blisko serbskiej granicy (30 parę km), chciałem odwiedzić ten kraj.  Niestety,  Serbia nie należy do UE (więc się bałem, że na granicy długo mnie przetrzymają). Granica zaś znajduje się przy mieście Tompa. Podróż z Kiskunhalas zajęła mi tylko godzinę z kawałkiem. Jechałem szybko, bo namiot i większość sprzętu zostawiłem na kempingu i do tego wiatr mi sprzyjał. Wziąłem tylko trochę prowiantu, dużo napojów i oczywiście dinary serbskie. 
 {: .text-justify}

@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/07/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/07/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/07/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/07/mapka.png)](https://connect.garmin.com/modern/activity/11733913542)
 
 Jak zwykle nie spieszyłem się z wyjazdem. Pożegnałem się z gospodarzem Bonifacym i współlokatorami, po czym wyruszyłem dalej na południowy zachód. Tym razem miałem na celu dotarcie do kempingu (wreszcie namiot). Prognoza pogody była dosyć optymistyczna, choć miało wiać z zachodu. Ech, albo pada deszcz, albo wieje. Trudno. Trzeba jechać dalej. Niestety, co druga "lepsza" droga okazywała się niedostępna dla rowerów. Na szczęście szybko znalazłem objazdy (choć nierówności na nich były), czasami musiałem przejechać kilka metrów poboczem. To nie jest do końca kraj przyjazny dla rowerzystów. Na Słowacji nie było tylu zakazów.
 {: .text-justify}

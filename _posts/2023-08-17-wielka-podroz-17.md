@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/17/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/17/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/17/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/17/mapka.png)](https://connect.garmin.com/modern/activity/11811370960)
 
 Wczoraj do Staza (nocleg z bookingu) zajechałem dosyć zmęczony, praktycznie nie miałem co jeść. Google maps pokazywał i sklep 20 km dalej. Zjadłem więc na śniadanie resztki z wyprawy i mielonkę (żelazna rezerwa z Polski), ugotowałem ryż z jakimiś dodatkami na drogę, spakowałam się, pożegnałem z drugim gościem z Węgier, który przyjechał na motorze i ruszyłem. Nie minęło 200 metrów, a był sklep. Ja nie mogę, głoduję, a Google maps takie żarty mi robi. 
 {: .text-justify}

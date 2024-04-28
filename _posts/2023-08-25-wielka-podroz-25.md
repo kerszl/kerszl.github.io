@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/25/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/25/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/25/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/25/mapka.png)](https://connect.garmin.com/modern/activity/11870769193)
 
 Na tym etapie pokonałem chyba najmniej kilometrów podczas całej podróży, ale widoki były jednymi z najciekawszych, które spotkałem. Mimo ogromnego upału i ciężkich podjazdów, urok krajobrazu był niezaprzeczalny. Zatrzymywałem się co kilka kilometrów, nie mogąc oprzeć się pokusie zrobienia zdjęć. Na drodze było dużo ciężarówek; czasami to pomagało, zapewniając kilka sekund cienia, który rzeczywiście mi się przydał. Podjazdy były mordercze, z nachyleniem powyżej 11%, ale udało mi się dojechać na szczyt i zrobić piękne zdjęcia. 
 {: .text-justify}

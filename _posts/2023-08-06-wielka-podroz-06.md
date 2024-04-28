@@ -92,7 +92,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/06/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/06/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/06/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/06/mapka.png)](https://connect.garmin.com/modern/activity/11727842215)
 
 Wychodząc z domu spotkałem gości, którzy zapytali mnie po angielsku, gdzie jest gospodyni. Powiedziałem, że w domu obok. Okazało się oczywiście, że to Polacy, a jeden nawet mnie rozpoznał, jak parę lat temu go spotkałem jeżdżąc dookoła Polski.
 {: .text-justify}

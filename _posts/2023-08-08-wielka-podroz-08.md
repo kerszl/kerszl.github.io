@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/08/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/08/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/08/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/08/mapka.png)](https://connect.garmin.com/modern/activity/11742780942)
 
 Oj, działo się dzisiaj, oj działo. A chciałem tylko mieć jeden spokojny dzień. Zaczęło się od tego, że wczoraj zarezerwowałem nocleg w Cegled i zapłaciłem z góry. Po 10 minutach dzwoni do mnie gość i mówi, żebym anulował, bo nie ma miejsc. Po co się w ogóle ogłaszał? Dobrze, anulowałem. Na szczęście booking zwrócił mi pieniądze, nie od razu, ale zwrócił. Potem znowu booking, tym razem w Szolnok. Nikt nie dzwonił. Poszedłem spać.
 {: .text-justify}

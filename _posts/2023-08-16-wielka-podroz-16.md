@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/16/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/16/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/16/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/16/mapka.png)](https://connect.garmin.com/modern/activity/11803786064)
 
 Śniadanie hotelowe miałem wliczone w cenę, było dość obfite: parówki, omlet, a żeby się reszta nie zmarnowała i hotel nie musiał wyrzucić, to wziąłem na drogę banany, jabłka, słodkie bułki, desery. Niestety, jedzenie i napoje w Chorwacji są dość drogie. Więc butelek nie będę wyrzucał, a uzupełniał wodą z noclegowni. Dzisiejszym celem było odwiedzić następny kraj bałkański - Bośnię i Hercegowinę. 
 {: .text-justify}

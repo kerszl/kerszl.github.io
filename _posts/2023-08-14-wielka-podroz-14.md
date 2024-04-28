@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/14/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/14/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/14/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/14/mapka.png)](https://connect.garmin.com/modern/activity/11787205889)
 
 Dzisiaj był ostatni dzień mojej wyprawy na Węgry. Małe sprostowanie odnośnie otwartych sklepów w niedzielę na Węgrzech. Są tam zamknięte, ale nie wszystkie. Market Lidl był otwarty. Przechodząc do ostatniego dnia pobytu w tym kraju, wcześniej poszedłem na baseny, co kosztowało mnie tylko 16 zł. Być może dlatego, że byłem gościem kempingu. Poszedłem do sauny, popływałem. A potem na kempingu zacząłem się pakować, aby wreszcie przekroczyć granicę chorwacką.
 {: .text-justify}

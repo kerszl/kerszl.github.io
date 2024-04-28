@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/18/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/18/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/18/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/18/mapka.png)](https://connect.garmin.com/modern/activity/11817688442)
 
 To miał być spokojny dzień. Tylko jedna górka do pokonania i tylko 40 km jazdy, bo chciałem odpocząć przed wielką górą, ale kolega B. wykrakał, że za mało akcji. Więc akcja była, ale niezamierzona. Zacznę od początku: Z pensjonatu w Sela aż się nie chciało wyjeżdżać, tak pięknie tam było, ale morze czekało. Pokonawszy jedną górkę (150 metrów pod górę), odpocząłem sobie w Vojnic. Tam zjadłem makaron z sosem bolognese i ruszyłem dalej. 
 {: .text-justify}

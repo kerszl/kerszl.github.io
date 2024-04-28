@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/09/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/09/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/09/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/09/mapka.png)](https://connect.garmin.com/modern/activity/11750644617)
 
 Węgry mają słabe drogi, chociaż widziałem, że coś dzisiaj robią. Ale trzeba przyznać, że miłośnicy zwierząt poczują tam raj. Jadąc polnymi drogami, co chwila wyskakiwał mi jakiś jeleń, zając i inny zwierzak. W Polsce tak często nie widziałem tych zwierzaków. Po opłaceniu kempingu i pożegnaniu się z czeską rodziną, ruszyłem w stronę Kecskemét. Na szczęście dzisiaj prawie obyło się bez dziwnych przygód, oprócz tego, że wiatr dziś wiał od południa, ale trudno. Dawałem radę... Drogi były lepsze i gorsze, jak zwykle.
 {: .text-justify}

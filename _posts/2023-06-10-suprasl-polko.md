@@ -31,8 +31,7 @@ gallery:
   - url: /assets/images/inne/2023/01/09.jpg
     image_path: /assets/images/inne/2023/01/09.jpg    
 ---
-![mapka](/assets/images/inne/2023/01/mapka.png)
-
+[![mapka](/assets/images/inne/2023/01/mapka.png)](https://connect.garmin.com/modern/activity/11310632220)
 **Ostatni lot?**
 
 Zaczęło się niewinnie. Rano pojechałem z ojcem na kajaki do Supraśla. Zajechaliśmy wcześnie, około dziesiątej. Oczywiście kajaków wolnych nie było, ale po odegraniu scenki z jakiegoś głupiego filmu, pani się zlitowała i wypożyczyła nam kajak. Podkreśliła, że koniec będzie w Pólku, a nie w Nowodworcach. Trudno, to i tak kilometry, a nie metry. Po półtorej godzinie dojechaliśmy do "mety". Akurat przyjechał Pan od kajaków z firmy "Kajaki nad rzeką", przy okazji pochwalił się, że przez rok schudł 10 kilogramów. Ważył już tylko 150, a nie 160. Zabrał nas i kajak z powrotem do Supraśla. Trwało to tylko 9 minut. Jednak poczułem niedosyt i poprosiłem ojca, żeby zawiózł mnie na Pólko. Chciałem tam polatać dronem. Puściłem więc chrząszcza nad rzeką, żeby się wylatał i ponagrywał trochę pływających kajaków i inne widoki. Niestety, w pewnym momencie mocniejszy wiatr powiał, ja wcisnąłem eksperymentalną opcję i dzielny lotnik zawisł na drzewie na wysokości 30 metrów. Nie chciał stamtąd zejść. 

@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/10/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/10/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/10/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/10/mapka.png)](https://connect.garmin.com/modern/activity/11756798339)
 
 Rano pożegnałem się z braćmi Słowakami, którymi dzień wcześniej piłem ich samogon (52%), oraz swoje piwo. Pożegnałem się również z rodakiem Kubą i postanowiłem ruszyć na południe, w stronę Serbii. tylko ciekaw, czy rowery szybciej się przemieszczają i mogą wcisnąć się przed samochody osobowe?
 {: .text-justify}

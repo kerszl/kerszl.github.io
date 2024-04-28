@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/13/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/13/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/13/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/13/mapka.png)](https://connect.garmin.com/modern/activity/11781186363)
 
 W niedzielę na Węgrzech zazwyczaj wszystko jest zamknięte: zamknięte promy (na pewno któryś działał, ale wolałem nie ryzykować), zamknięte sklepy (1/100 był czynny), zamknięte drogi. O tym później. Spanie nad Dunajem w sobotę ma swoje uroki i wady. Do wad można zaliczyć rozchodzenie się techniawki znad drugiego brzegu. Było młócenie do 4 rano. Wiem, bo się o tej porze obudziłem. Cisza mnie obudziła ;) A potem, o 7:00 rano, gadka Niemców. Jednak trochę pospałem. Zjadłem gyrosa z wczoraj, który zamówiłem w Kiskunhalas. Dzień wożenia w sakwie źle na niego nie wpłynął. Dobra, czas jechać - kierunek Harkany. Jednak po drodze trzeba było się przedostać na drugą stronę Dunaju.
 {: .text-justify}

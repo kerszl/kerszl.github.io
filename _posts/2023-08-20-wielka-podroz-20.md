@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/20/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/20/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/20/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/20/mapka.png)](https://connect.garmin.com/modern/activity/11834432843)
 
 Dzisiaj była dla mnie czarna niedziela. I nie chodziło o to, że niektóre sklepy były zamknięte, nie chodziło nawet o mordercze podjazdy (ponad 1000 metrów w górę), nie chodziło o upał (przyzwyczaiłem się), ale o cholerne KOŁO, które przebijało moje dętki!!! Przedwczoraj kupiłem nową oponę. Wczoraj dojechałem na niej do Słowenii. Wszystko było ok. Dzisiaj wyruszyłem dosyć wcześnie, przejechałem kilka kilometrów i flak. Co jest do cholery? (Jak dojadę do większego miasta, od razu kupuję nowe koło). Założyłem klejoną dętkę. Starczyła na 15 km. Zacząłem kleić łatką samoprzylepną. Pomogło na 15 km. Łatka puściła. Miałem jeszcze jedną nieklejoną dętkę, bałem się jej użyć, ale to zrobiłem. Do celu zostało mi 20 km. Do tego te wysokie podjazdy. Pierwszy podjazd był ok, 10 km i 300 metrów pod górę. Spoko. Dałem radę. Drugi to była masakra - 6 km i 300 metrów pod górę. 
 {: .text-justify}

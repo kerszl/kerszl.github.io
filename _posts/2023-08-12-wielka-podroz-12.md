@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/12/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/12/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/12/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/12/mapka.png)](https://connect.garmin.com/modern/activity/11772446353)
 
 Wczoraj, po odwiedzeniu Serbii, byłem mocno zmęczony, ale poszedłem poleżeć w gorącej wodzie borowej. Dobrze mi to zrobiło. Rano powtórzyłem akcję, ale oprócz tego poszedłem do sauny i znowu poleżałem w ciepłej wodzie borowej. Jeżeli będziecie w Kiskunhalas i nie będziecie mieli gdzie nocować, to kemping Napheny jest świetną opcją. W cenie 40 zł macie dodatkowo sauny, basen, wodę borową (chyba to była borowa) i pełno atrakcji, nie licząc noclegu. Nie dziwne, że Niemcy tam przesiadują parę tygodni. Wyjechałem dopiero koło 12:00, dużo czasu zajęła mi wymiana dinarów serbskich w kantorze. 
 {: .text-justify}

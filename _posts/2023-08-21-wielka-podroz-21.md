@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/21/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/21/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/21/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/21/mapka.png)](https://connect.garmin.com/modern/activity/11843041303)
 
 Rano w Delnicach poszedłem szukać serwisu rowerowego. Google zapewniało, że są dwa. Nie było jednak żadnego. Jeśli moja dętka znowu pęknie, to będzie problem. 10 km od Delnic był kemping nad jeziorem Lokvarsko. Pojechałem tam, bo zrozumiałem z rozmowy z Chorwatem, który dał mi wczoraj wodę, że co 20 lat jezioro zalewa kemping, albo dzieje się coś magicznego. Jednak Bałem się robić dodatkowe kilometry, wiedząc, że moja nowa dętka może pęknąć w każdej chwili. W najgorszym wypadku zostałbym na tym kempingu. Jednak nie darowałbym sobie, jakbym tego nie zobaczył. 
 Dojechałem do jeziora, ale go nie było. Wyschło. Więc o to chodziło? :) Może kiedyś znowu się pojawi :) Na szczęście, dętka mi nie pękła. Zaryzykowałem i pojechałem dalej. I znowu musiałem pokonać stromy podjazd na 800 metrów. Trudno było, musiałem prowadzić rower. 

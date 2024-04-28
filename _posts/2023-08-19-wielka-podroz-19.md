@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/19/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/19/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/19/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/19/mapka.png)](https://connect.garmin.com/modern/activity/11825895180)
 
 Rano założyłem nową oponę i dętkę. Zjadłem wczorajszy sos bolognese z makaronem - nie zepsuło się, było u Marca w lodówce. Jedząc, zauważyłem, że kot dziwnie na mnie patrzy. Zastanawiałem się, czy koty jedzą bolognese z makaronem. Nie byłem pewien, ale rzuciłem mu kawałek - zjadł. Rzuciłem więcej - również zjadł. Nawet się oblizał. Okazało się, że to niewybredny kot, w przeciwieństwie do wielu domowych kocurów, które jedzą tylko specjalne jedzenie.
 {: .text-justify}

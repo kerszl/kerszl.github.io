@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/23/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/23/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/23/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/23/mapka.png)](https://connect.garmin.com/modern/activity/11857819504)
 
 Na prośbę mamy zamieszczam zdjęcia.
 {: .text-justify}

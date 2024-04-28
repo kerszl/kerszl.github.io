@@ -93,7 +93,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/27/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/27/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/27/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/27/mapka.png)](https://connect.garmin.com/modern/activity/11885334785)
 
 Krecik, mosty, starówka i całe miasto - czyli Praga
 {: .text-justify}

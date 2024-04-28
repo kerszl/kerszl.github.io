@@ -94,7 +94,7 @@ gallery:
   - url: /assets/images/rower/2023/wielka_podroz/15/40.jpg
     image_path: /assets/images/rower/2023/wielka_podroz/15/40.jpg
 ---
-![mapka](/assets/images/rower/2023/wielka_podroz/15/mapka.png)
+[![mapka](/assets/images/rower/2023/wielka_podroz/15/mapka.png)](https://connect.garmin.com/modern/activity/11795468445)
 
 Wczoraj zapanował jakiś dziwny zamęt. Mając przeczucie, poszedłem do sklepu, kupiłem pieczywo i wędliny na kanapki oraz dużą ilość napojów. Po powrocie do hotelu, od razu zasnąłem. Regeneracyjny sen trwał 9 godzin. Po przebudzeniu się zjadłem kanapki i, patrząc rano na mapę, wiedziałem, że czeka mnie 300-metrowy podjazd o długości 3 km. Wiedziałem, że może być ciężko, dlatego starałem się wyjechać wcześnie rano kiedy wiatr jest mały i słońce nie praży. Około godziny 10:00 temperatura była na poziomie 26 stopni. 
 {: .text-justify}
