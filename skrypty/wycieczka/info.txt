@@ -1,0 +1,17 @@
+1. Stworzyc nazwe wycieczki (tam gdzie są zdjecia np:
+\kerszl.github.io\assets\images\rower\2024\wielki_trip
+2. Skasowac wczesniejsze i skopiowac zdjecia, ktore mają pojsc na blog:
+do katalogu: /data/data/com.termux/files/home/storage/pictures/blog
+Nazwy automat zmienia
+*.jpg (zdjecia z tripu)
+*.png (mapka.png)
+3. Wyedytowac tekst w pliku tekst_do_wklejenia.txt
+Miasto - ilosc - km
+
+Przykladowy tekst
+
+3. Uruchomic skrypt ./1 wielki_trip 01
+-wielki_trip - nazwa wycieczki
+-01 - ktory dzien
+
+nie robic innych linkow

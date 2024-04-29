@@ -1,5 +1,5 @@
 ---
-title: "Kopisk (Szosa) - Knyszyn - 24 km"
+title: "Kopisk (Szosa) - Knyszyn - 25 km"
 excerpt: " "
 comments: true
 categories:
