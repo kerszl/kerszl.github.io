@@ -4,7 +4,11 @@
 YEAR=$(date +'%Y')
 
 #ANDROID
+#Widok ze smartfona
+#nazwy zdjęc automat zmienia, wazne aby byly jpg, i mapka (png)
+#/storage/emulated/0/Pictures/blog
 PICTURES_BLOG_PATH='/data/data/com.termux/files/home/storage/pictures/blog'
+
 
 #ANDROID
 PODROZ_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/assets/images/rower/$YEAR/$1"
