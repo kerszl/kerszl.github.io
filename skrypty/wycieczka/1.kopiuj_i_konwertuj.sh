@@ -16,9 +16,9 @@ PODROZ_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/assets/image
 #PODROZ_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/assets/images/rower/$YEAR/$1"
 
 #ANDROID
-SKRYPT_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/skrypty/"
+SKRYPT_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/skrypty/wycieczka/"
 #PC
-#SKRYPT_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/skrypty/"
+#SKRYPT_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/skrypty/wycieczka/"
 
 TEKST_DO_WKLEJENIA=$SKRYPT_PATH"tekst_do_wklejenia.txt"
 SZABLON01="$SKRYPT_PATH"szablon01.txt
