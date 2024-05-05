@@ -6,9 +6,13 @@ echo parametr to wpis do gita
 exit
 fi
 
-cd $REPO_PATH
-#git pull
+cd "$REPO_PATH"
+echo git pull
+git pull
+echo git add .
 git add .         
+echo git commit ...
 git commit -m $1
+echo git push
 git push
 
