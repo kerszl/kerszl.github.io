@@ -9,17 +9,6 @@ YEAR=$(date +'%Y')
 #/storage/emulated/0/Pictures/blog
 PICTURES_BLOG_PATH='/data/data/com.termux/files/home/storage/pictures/blog'
 
-
-
-printf "Data jazdy: $YEAR"
-        read ask
-        if [[ $ask == "n" ]]; then
-            echo "Tytuł to jest pierwsza linia w pliku $TEKST_DO_WKLEJENIA"
-			exit
-        fi 
-
-exit
-
 #ANDROID
 PODROZ_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/assets/images/rower/$YEAR/$1"
 #PC
