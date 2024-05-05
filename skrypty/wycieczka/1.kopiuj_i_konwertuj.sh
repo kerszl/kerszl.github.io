@@ -1,7 +1,7 @@
 #!/bin/bash
 
-
 YEAR=$(date +'%Y')
+
 
 #ANDROID
 #Widok ze smartfona
@@ -9,6 +9,16 @@ YEAR=$(date +'%Y')
 #/storage/emulated/0/Pictures/blog
 PICTURES_BLOG_PATH='/data/data/com.termux/files/home/storage/pictures/blog'
 
+
+
+printf "Data jazdy: $YEAR"
+        read ask
+        if [[ $ask == "n" ]]; then
+            echo "Tytuł to jest pierwsza linia w pliku $TEKST_DO_WKLEJENIA"
+			exit
+        fi 
+
+exit
 
 #ANDROID
 PODROZ_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/assets/images/rower/$YEAR/$1"
@@ -29,12 +39,10 @@ SZABLON03="$SKRYPT_PATH"szablon02.txt.video
 POST_PATH="/data/data/com.termux/files/home/repo/kerszl.github.io/_posts/"
 
 
-
 #PC
 #POST_PATH="/mnt/d/moje programy i inne/GNU/kerszl.github.io/_posts/"
 
 #1 etap - sprawdzanie katalogow
-
 
 if [ $# -eq 1 ]; then
 	if [ ! -d "$PODROZ_PATH" ]; then
@@ -50,8 +58,8 @@ fi
 if [ $# -ne 2 ]; then
 echo Parametry to [nazwa wycieczki][katalog]
 plik=$(basename "$0")
-echo './'$plik "1daytrip     -" wyswietla zawartosc "1daytrip"
-echo './'$plik "1daytrip  01 -" tworzy katalog
+echo './'$plik "1daytrip     -" wyświetla zawartość "1daytrip"
+echo './'$plik "1daytrip  01 -" tworzy dzień jazdy
 exit
 fi
 
@@ -124,10 +132,10 @@ if [ ! "$(ls -A "$SCIEZKA_WIELKIEJ_PODROZY")" ]; then
 	exit
 fi	
 	
+Y_M_D=$(date +'%Y-%m-%d')
+read -p "Wpisz date wycieczki: " -re -i "$Y_M_D" Y_M_D
 
-
-Y_M_D=$(date +'%Y-%m-%d-')
-PLIK_MD=$Y_M_D$1"-"$2".md"
+PLIK_MD=$Y_M_D"-"$1"-"$2".md"
 POST_FILE_PATH="$POST_PATH$PLIK_MD"
 
 echo Tworze i edytuje plik: "$POST_FILE_PATH"
