@@ -17,7 +17,7 @@ gallery:
   - url: /assets/images/inne/2024/01/02.jpg
     image_path: /assets/images/inne/2024/01/02.jpg
   - url: /assets/images/inne/2024/01/03.jpg
-    image_path: /assets/images/inne/2024/01/03.jpg
+    image_path: /assets/images/inne2024/01/03.jpg
   - url: /assets/images/inne/2024/01/04.jpg
     image_path: /assets/images/inne/2024/01/04.jpg
   - url: /assets/images/inne/2024/01/05.jpg
@@ -32,3 +32,4 @@ gallery:
 {% include gallery id="gallery" %}
 
 {% include video id="G5Zr0Jj-pZ8" provider="youtube" %}
+/
