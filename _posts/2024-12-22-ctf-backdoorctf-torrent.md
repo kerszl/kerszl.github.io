@@ -26,6 +26,8 @@ header:
 
 # 01. Description
 ![alt text](/assets/images/hacking/2024/05/01.png)
+{: .text-justify}
+
 On **December 22-23**, the 24-hour Indian CTF competition `BackdoorCTF'24` took place, with a weight of about **50 points**. Indian CTFs are often considered easy, but this one was not. However, one advantage was that it included a **forensics** category, which is rarely featured in extremely difficult CTFs. Still, it was a very challenging competition. It featured categories like **PWN**, **reverse engineering**, **forensics**, and others. Some tasks remained unsolved, and many had only a handful of solutions.
 My team, **MindCrafters**, got **15th place** out of **477 teams**. But returning to the challenge **Torrent Tempest**—it was one of the most difficult tasks I have tackled in any CTF.
 {: .text-justify}
