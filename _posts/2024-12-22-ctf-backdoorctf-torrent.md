@@ -26,7 +26,7 @@ header:
 
 # 01. Description
 On **December 22-23**, the 24-hour Indian CTF competition `BackdoorCTF'24` took place, with a weight of about **50 points**. Indian CTFs are often considered easy, but this one was not. However, one advantage was that it included a **forensics** category, which is rarely featured in extremely difficult CTFs. Still, it was a very challenging competition. It featured categories like **PWN**, **reverse engineering**, **forensics**, and others. Some tasks remained unsolved, and many had only a handful of solutions.
-My team, `MindCrafters`, secured **15th place** out of **477 teams**. But returning to the challenge **Torrent Tempest**—it was one of the most difficult tasks I have tackled in any CTF.
+My team, **`**MindCrafters**, got **15th place** out of **477 teams**. But returning to the challenge **Torrent Tempest**—it was one of the most difficult tasks I have tackled in any CTF.
 {: .text-justify}
 
 # 02. torrent.pcap
@@ -130,7 +130,7 @@ assemble_file(pieces, "output.zip")
 # 04. key.txt
 The file `key.txt` was **120 bytes** in size. It was relatively easy to decode, with one caveat: **rot13** decoding on **dcode.fr** produced a slightly different result than on **CyberChef**. Below is the decoding process:
 {: .text-justify}
-```bash
+```text
 NjcgNzUgNzIgNWYgNjMgNDAgNjYgNjYgNmEgMzAgNjUgNzEgNWYgNzYgNjYgNWYgMzQgNjYgNWYgNzIgNmUgNmQgNmMgNWYgNmUgNjYgNWYgNGUgNGYgNTA= -> base64
 67 75 72 5f 63 40 66 66 6a 30 65 71 5f 76 66 5f 34 66 5f 72 6e 6d 6c 5f 6e 66 5f 4e 4f 50 -> ascii
 gur_c@ffj0eq_vf_4f_rnml_nf_NOP -> rot13 (dcode.fr)
@@ -153,8 +153,7 @@ The flag looked like this:
 flag{t0rr3n7_tr0ub13_s0rt3d_ftw!!}
 ```
 
-# 07. DeepSound
-
-To był bardzo ciekawy CTF, jednak zadania były trochę za trudne. Za mało było łatwych zadań.
-
+# 07. Summary
+It was a very interesting CTF, but the challenges were a bit too difficult. There were too few easy tasks.
+{: .text-justify}
 
