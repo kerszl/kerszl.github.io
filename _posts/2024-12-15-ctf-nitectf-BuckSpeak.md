@@ -1,5 +1,5 @@
 ---
-title: "niteCTF 2024 - Forens/BuckSpeak"
+title: "niteCTF 2024 - Forensics/BuckSpeak"
 excerpt: " "
 comments: true
 categories:
