@@ -25,19 +25,20 @@ header:
 
 
 # 01. Description
+![alt text](/assets/images/hacking/2024/05/01.png)
 On **December 22-23**, the 24-hour Indian CTF competition `BackdoorCTF'24` took place, with a weight of about **50 points**. Indian CTFs are often considered easy, but this one was not. However, one advantage was that it included a **forensics** category, which is rarely featured in extremely difficult CTFs. Still, it was a very challenging competition. It featured categories like **PWN**, **reverse engineering**, **forensics**, and others. Some tasks remained unsolved, and many had only a handful of solutions.
-My team, **`**MindCrafters**, got **15th place** out of **477 teams**. But returning to the challenge **Torrent Tempest**—it was one of the most difficult tasks I have tackled in any CTF.
+My team, **MindCrafters**, got **15th place** out of **477 teams**. But returning to the challenge **Torrent Tempest**—it was one of the most difficult tasks I have tackled in any CTF.
 {: .text-justify}
 
 # 02. torrent.pcap
 The file `torrent.pcap` was about **192 megabytes** in size. It was a pcap file, which meant it could be analyzed using tools like **Wireshark**, **Tshark**, etc. Upon opening it in Wireshark, this is what we see:  
 {: .text-justify}  
-![alt text](/assets/images/hacking/2024/05/01.png)  
+![alt text](/assets/images/hacking/2024/05/02.png)  
 a plethora of packets from **BitTorrent**. BitTorrent splits the entire file into smaller pieces. As seen in the **Request** query, there is a **Piece** with an identifier, offset, and length, e.g., `(Idx:0x2, Begin:0x1fee6, Len:0xffd3)`. From my observations, these pieces range from `0x01` to `0xfa`. The packets are limited to around **64 kilobytes**, so it was likely necessary to assemble them all. However, I first attempted to inspect a single packet.
 {: .text-justify}
 Interestingly, I found a **PZ signature** within it, indicating a **ZIP file**. Inside, I noticed the names of two files: `key.txt` and `secret.wav`. After manual analysis and unpacking the content using **CyberChef**, I managed to view the contents of `key.txt`. It was a relatively short file. The header indicated it would occupy **120 bytes** after unpacking, so it could be extracted immediately—but more on that later. Unfortunately, `secret.wav`, according to its header, was **16 MB** in size. Therefore, the entire torrent needed to be reconstructed.
 {: .text-justify}
-![alt text](/assets/images/hacking/2024/05/02.png)
+![alt text](/assets/images/hacking/2024/05/03.png)
 
 # 03. output.zip
 After hours of attempts at searching, writing code, learning about the technical workings of BitTorrent, and discussing it with ChatGPT, I finally made progress. At some point, ChatGPT wrote a program for me, but the resulting file was much too large. As I mentioned earlier, the `wav` file was supposed to be around **16 MB**, so the output shouldn't have been much larger. 
@@ -141,12 +142,12 @@ the_p@ssw0rd_is_4s_eazy_as_ABC (correct)
 # 05. secret.wav
 This file was significantly larger, occupying **19,983,022 bytes**. It contained some music, but the key must have had a purpose. I checked it with **`steghide`** and **`DeepSound`**. When using `DeepSound`, it prompted me for a password. This was a good sign that the file had been encoded using this program. The second key turned out to be correct. However, it took a lot of effort to figure out the issue—it turned out something was wrong with the decoding process. Later, I reviewed the logic of the password, and everything finally made sense.
 {: .text-justify}
-![alt text](/assets/images/hacking/2024/05/03.png)
+![alt text](/assets/images/hacking/2024/05/04.png)
 
 # 06. DeepSound
 After entering the password, I was able to retrieve the flag.
 {: .text-justify}
-![alt text](/assets/images/hacking/2024/05/04.png)
+![alt text](/assets/images/hacking/2024/05/05.png)
 The flag looked like this: 
 {: .text-justify}
 ```bash
