@@ -25,7 +25,12 @@ header:
 
 
 # 01. Description
-**BuckBeak** From the task description: `Buckbeak is trying to say something deep but is frustrated as nobody bücking understands him. Can you help him out?` This is a fairly difficult challenge, filled with traps and endless subtasks. But let's start from the beginning. We are given a file `bucking.wav`, which plays some sound. Searching "bücking" on Google reveals a character from Harry Potter and a cipher related to musical notes, which is available on Wikipedia.
+**BuckBeak** From the task description:
+{: .text-justify}
+```text
+Buckbeak is trying to say something deep but is frustrated as nobody bücking understands him. Can you help him out?
+```
+This is a fairly difficult challenge, filled with traps and endless subtasks. But let's start from the beginning. We are given a file **bucking.wav**, which plays some sound. Searching **bücking** on Google reveals a character from Harry Potter and a cipher related to musical notes, which is available on Wikipedia.
 {: .text-justify}
 ![alt text](/assets/images/hacking/2024/04/01.png)
 
@@ -35,19 +40,27 @@ This makes sense since it might be some kind of cipher. I don't know much about 
 # 02. AnthemScore
 AnthemScore is a program that converts played music into sheet music. Unfortunately, the trial version only processes 30 seconds and needs to be adjusted to 3/4, but I managed to work around it.
 ![alt text](/assets/images/hacking/2024/04/02.png)
-After manually analyzing and decoding, the sentence obtained is...
-`usephrasetruefansreadthebookstohearsomethingdeep`
+After manually examining the notes and decoding the bucking code, the resulting sentence is:
+```text
+usephrasetruefansreadthebookstohearsomethingdeep
+```
 Is this the flag? Oh no. Is this a cipher? Also no.
 {: .text-justify}
 
 # 03. Deep Sound
-When uploading the file to the Deep Sound program, it asks for a password. Is the password `usephrasetruefansreadthebookstohearsomethingdeep`? Oh no, that would be too simple.
+When uploading the file to the Deep Sound program, it asks for a password. Is the password 
+```text
+usephrasetruefansreadthebookstohearsomethingdeep
+```
+Oh no, that would be too simple.
 The actual password is:
-`truefansreadthebooks`
+```text
+truefansreadthebooks
+```
 ![alt text](/assets/images/hacking/2024/04/03.png)
 
 # 03. mkvinfo & mkvextract
-Okay, we have a file `screech.mkv`, and it contains a video of Buckbeak, but is this the end? Oh no, that would be too simple ;)
+Okay, we have a file ***screech.mkv***, and it contains a video of Buckbeak, but is this the end? Oh no, that would be too simple ;)
 {: .text-justify}
 ![alt text](/assets/images/hacking/2024/04/04.png)
 
@@ -67,8 +80,8 @@ mkvinfo screech.mkv
 # |  + File data: size 112136
 # |  + File UID: 4317686372283026958
 ```
-Oh, there are fonts `Buckbeak.otf`.
-I extracted them.
+Oh, there are fonts ***Buckbeak.otf***. I extracted them.
+{: .text-justify}
 ```bash
 mkvextract attachments screech.mkv 1:Buckbeak.otf
 The attachment #1, ID 17636095151199042832, MIME type application/x-truetype-font, size 109032, is written to 'Buckbeak.otf'.
