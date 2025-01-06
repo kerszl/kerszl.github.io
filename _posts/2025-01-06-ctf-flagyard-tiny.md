@@ -14,7 +14,7 @@ tags:
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
-# Forens/Torrent Tempest
+# Flagyard - Tiny
 {: .text-justify}
 
 ## 00. Metainfo
@@ -26,7 +26,7 @@ header:
 
 # 01. Description
 ## Introduction
-This task comes from the challenge platform **flagyard.com** and is marked as **easy**. However, the solution requires creative techniques and in-depth knowledge of exploitation concepts. While the binary is small and lacks traditional protections, the limited set of gadgets and syscall handling makes this challenge more intricate than it initially appears.
+This task comes from the challenge platform [Flagyard](https://flagyard.com/) and is marked as **easy**. However, the solution requires creative techniques and in-depth knowledge of exploitation concepts. While the binary is small and lacks traditional protections, the limited set of gadgets and syscall handling makes this challenge more intricate than it initially appears.
 {: .text-justify}
 
 ## Binary Information
