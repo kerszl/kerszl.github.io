@@ -10,6 +10,7 @@ tags:
   - Hacking
   - Walkthrough
   - CTF
+  - Flagyard
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
@@ -19,7 +20,8 @@ header:
 ## 00. Metainfo
 
 |:----|:----|
-|CTF:|[Flagyard - tiny](https://flagyard.com/labs/training-labs/13/challenges/3f614fb4-65b8-48a3-894a-3e918a6d182d)|
+|Portal:|[Flagyard](https://flagyard.com/)|
+|Task:|[Tiny](https://flagyard.com/labs/training-labs/13/challenges/3f614fb4-65b8-48a3-894a-3e918a6d182d)|
 |Category:|PWN|
 
 # 01. Description
@@ -148,6 +150,7 @@ The binary lacks standard protections, which makes it theoretically exploitable.
 - Despite its simplicity in appearance, this binary requires an advanced understanding of syscall behavior and ROP chains to exploit effectively.
 
 ## Summary
-It was a very interesting CTF. I learned alot, passion, new technique for me.
+This was an interesting challenge. It taught me a new technique, patience, and the importance of not giving up. Despite its minimalistic design, the task required a deep understanding of system calls and exploitation strategies, making it a rewarding learning experience.
 {: .text-justify}
+
 
