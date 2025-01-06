@@ -25,7 +25,6 @@ header:
 |Category:|PWN|
 
 # 01. Description
-**Oto tłumaczenie na język angielski:**
 Next challenge from Flagyard. I also spent some time on it, but I went in a different direction than before. Anyway, you’ll see for yourselves. Below is the source code showing how to get through it.
 {: .text-justify}
 ## Solve in Python
