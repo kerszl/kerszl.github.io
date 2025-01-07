@@ -133,14 +133,13 @@ The binary lacks standard protections, which makes it theoretically exploitable.
    - The payload first loads `.bss` into `rsi` and calls `read`. After sending `/bin/sh`, execution "returns" to the main payload in `sendafter`. At this point:
      - A syscall is executed with `rax = 15`, triggering `sigreturn`.
      - The frame on the stack configures the registers for the final `execve` syscall.
-
+```plaintext
+p.sendafter(p64(pop_rsi)+p64(bss)+p64(read)                  p64(syscall)+bytes(frame))
+                                           ⬊                      ⬈
+          					p.send(b"/bin/sh"+b"\x00"*8)      
+```
 5. **Executing the `execve` Syscall:**
    - The `execve` syscall is executed with the configured registers, launching an interactive shell.
-```plaintext
-p.sendafter(p64(pop_rsi)+p64(bss)+p64(read)                      p64(syscall)+bytes(frame))
-                                          ⬊                      ⬈
-          							             p.send(b"/bin/sh"+b"\x00"*8)      
-```
 
 ### **Key Takeaways**
 - This exploit demonstrates the power of SROP in a minimalistic binary with limited gadgets.
