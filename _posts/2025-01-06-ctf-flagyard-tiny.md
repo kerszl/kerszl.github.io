@@ -120,29 +120,27 @@ p.interactive()                           # Switch to interactive mode to access
 The binary lacks standard protections, which makes it theoretically exploitable. However, it compensates for this with very limited gadgets and built-in syscall handling, requiring a creative approach using Sigreturn-Oriented Programming (SROP).
 {: .text-justify}
 ### **Step-by-Step Explanation**
-
 1. **Dynamic Resolution of Gadgets:**
    - The `pop rsi` gadget is dynamically resolved using `binary.sym["gadget"]`. This makes the exploit more robust to changes in the binary.
 
 2. **Writable Memory Section:**
    - The `.bss` section (address `0x402008`) is used as a writable location to store the `/bin/sh` string.
 
-3. **Crafting the Payload:**
-   - The payload is built to:
-     1. Load the `.bss` address into the `rsi` register using the `pop rsi` gadget.
-     2. Call the `read` function to write `/bin/sh` into `.bss`.
-     3. Set up a `SigreturnFrame` to configure the registers for the `execve` syscall.
+3. **Data Injection (`/bin/sh`):**
+   - The string `/bin/sh` is sent in a separate line along with null bytes (`\\x00`). This operation writes `/bin/sh` to `.bss` and sets `rax = 15` (number of bytes read by the `read` syscall).
 
-4. **Triggering the Sigreturn:**
-   - After sending `/bin/sh` to the binary, the `read` syscall completes and sets `rax = 15` (number of bytes read), triggering the `sigreturn` syscall.
-   - The `sigreturn` syscall uses the `SigreturnFrame` to set all necessary registers:
-     - `rax = 59`: Syscall number for `execve`.
-     - `rdi = 0x402008`: Address of `/bin/sh` in `.bss`.
-     - `rsi = 0` and `rdx = 0`: NULL pointers for arguments and environment variables.
-     - `rip = syscall`: Address of the syscall gadget.
+4. **ROP Chain Execution:**
+   - The payload first loads `.bss` into `rsi` and calls `read`. After sending `/bin/sh`, execution "returns" to the main payload in `sendafter`. At this point:
+     - A syscall is executed with `rax = 15`, triggering `sigreturn`.
+     - The frame on the stack configures the registers for the final `execve` syscall.
 
 5. **Executing the `execve` Syscall:**
-   - The `execve` syscall executes successfully, launching an interactive shell.
+   - The `execve` syscall is executed with the configured registers, launching an interactive shell.
+```plaintext
+p.sendafter(p64(pop_rsi)+p64(bss)+p64(read)                      p64(syscall)+bytes(frame))
+                                          ⬊                      ⬈
+          							             p.send(b"/bin/sh"+b"\x00"*8)      
+```
 
 ### **Key Takeaways**
 - This exploit demonstrates the power of SROP in a minimalistic binary with limited gadgets.
