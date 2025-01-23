@@ -11,6 +11,7 @@ tags:
   - Walkthrough
   - CTF
   - Flagyard
+  - PWN
 header:
   overlay_image: /assets/images/pasek-hack.png
 ---
