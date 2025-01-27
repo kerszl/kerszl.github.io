@@ -107,6 +107,10 @@ author:
     - label: "HackMyVm - ranking"
       icon: "fas fa-fw fa-link"
       url: "https://hackmyvm.eu/public/?u=kerszi"
+    - label: "CTF Group: MindCrafters"
+      icon: "fas fa-fw fa-link"
+      url: "https://mindcrafters.xyz/members/kerszi/"
+      
           
 #    - label: "Instagram"
 #      icon: "fab fa-fw fa-instagram"

