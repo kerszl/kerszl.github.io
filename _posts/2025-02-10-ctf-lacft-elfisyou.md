@@ -30,13 +30,13 @@ header:
 ![Description](/assets/images/hacking/2025/03/01.png)
 
 Od razu wspomnę, że ta solucja jest również dostępna w języku angielskim na [tej stronie](http://mindcrafters.xyz/writeups/elfisyou).
-
+{: .text-justify}
 Zgodnie z opisem, **ELF** to gra polegająca na przesuwaniu klocków w celu zbudowania działającego programu. Na początku dostajemy wyjaśnienie, co należy zrobić, więc wydaje się, że nie powinno być trudno... Ale jest – i to bardzo.
-
+{: .text-justify}
 Pamiętacie kultową grę **`Baba Is You`**? To były czasy, gdy siedziało się przed ekranem, nie mając pojęcia, co zrobić, a rozwiązanie okazywało się zupełnie nieszablonowe – jak np. przesunięcie całego płotu. W nawiązaniu do tej gry pojawiło się świetne zadanie **`reverse`** z turnieju [CTF](https://lac.tf/). Nie, to nie jest *Baba Is You* – to jest **elfisyou**. Można się domyślać, że chodzi o plik w formacie **ELF**.
-
+{: .text-justify}
 Do pobrania mamy program w Pythonie, plik Dockera do uruchomienia lokalnie oraz uszkodzoną binarkę, którą możemy testować offline. Jednak głównym celem jest połączenie się online i odpowiednie ułożenie bajtów. Zadanie rozwiązało 14 drużyn, w tym moja – **[MindCrafters](http://mindcrafters.xyz/)** – jako ostatnia.
-
+{: .text-justify}
 ![Description](/assets/images/hacking/2025/03/02.png)
 
 {: .text-justify}
@@ -48,6 +48,7 @@ socat file:$(tty),raw,echo=0 tcp:chall.lac.tf:31189
 Widzimy obrazek:
 {: .text-justify}
 ![elf](/assets/images/hacking/2025/03/03.png)
+{: .text-justify}
 Na którym znajduje się pole o rozmiarach 13x13. To jest bardzo ważne, o czym później się przekonamy. W prawym górnym rogu znajduje się zielony kwadrat, którym możemy poruszać się po planszy i przesuwać inne bajty. Można również przesunąć kilka bajtów jednocześnie.
 {: .text-justify}
 Poruszamy się klawiszami `wsad`. Przesunąłem kilka bajtów, ale gdy okazało się, że trzeba wykonać wiele przesunięć, łatwo było o pomyłkę. Wtedy użyłem do tego biblioteki `PWN tools` w Pythonie. Ku mojemu zaskoczeniu działała dobrze, choć samo łączenie i przesuwanie trwało dość długo. Jednak po wyłączeniu p.clean() oraz pause działało płynnie – i to online! Byłem w szoku, bo na mało którym `CTF-ie` spotkałem tak świetną infrastrukturę. 
