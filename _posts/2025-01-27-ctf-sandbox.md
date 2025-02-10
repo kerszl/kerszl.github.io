@@ -26,7 +26,7 @@ header:
 |Category:|PWN|
 
 ## Wstęp
-Następny artykuł po polsku i następny PWN z FlagYar? A jak - wersja angielska będzie [tutaj](https://mindcrafters.xyz/writeups/sandbox/). A co mnie skłoniło do opisania tego zacnego PWN-a? Jak zwykle nietypowosc skonstruowania zagadania. W niedzielę miałem skończyć zaległe PWN-y, ale [Da1sy](https://mindcrafters.xyz/members/da1sy/) poprosił mnie, czy bym się nie przyjrzał temu taskowi, bo działa to u niego lokalnie, ale nie działa już zdalnie na serwerze. Zadanie jest proste. Odpalasz program, wrzucasz shellcode i masz flagę. Proste. Czyżby?
+Następny artykuł po polsku i następny PWN z FlagYar? A jak - wersja angielska będzie [tutaj](https://mindcrafters.xyz/writeups/sandbox/). A co mnie skłoniło do opisania tego zacnego PWN-a? Jak zwykle nietypowosc skonstruowania zagadania. W niedzielę miałem skończyć zaległe PWN-y, ale [da1sy](https://mindcrafters.xyz/members/da1sy/) poprosił mnie, czy bym się nie przyjrzał temu taskowi, bo działa to u niego lokalnie, ale nie działa już zdalnie na serwerze. Zadanie jest proste. Odpalasz program, wrzucasz shellcode i masz flagę. Proste. Czyżby?
 {: .text-justify}
 
 ## Opis techniczny
@@ -92,7 +92,7 @@ undefined8 main(void)
 # Analiza
 Co mogło pójść nie tak? Syscall `write`, `open` i `read` są blokowane. Jednak `sendfile` i `openat` pozostają dozwolone. Teoretycznie, powinniśmy być w stanie otworzyć plik `flag` za pomocą `openat`, a następnie przesłać go na `stdout` za pomocą `sendfile`. Co więcej, jest wystarczająco dużo miejsca na bufor na stosie. Proste? Niestety, nie do końca.
 {: .text-justify}
-Tak jak wspomniał [Da1sy](https://mindcrafters.xyz/members/da1sy/), działa to lokalnie, ale nie działa zdalnie. Dlaczego? Prawdopodobnie plik `flag` ma inną nazwę. W związku z tym spróbowałem odczytać samego siebie, czyli plik `sbx`. To zadziałało zdalnie. Następnie sprawdziłem całą ścieżkę `/app/sbx`, co również działało poprawnie. To oznacza, że odczyt działa zdalnie. 
+Tak jak wspomniał [da1sy](https://mindcrafters.xyz/members/da1sy/), działa to lokalnie, ale nie działa zdalnie. Dlaczego? Prawdopodobnie plik `flag` ma inną nazwę. W związku z tym spróbowałem odczytać samego siebie, czyli plik `sbx`. To zadziałało zdalnie. Następnie sprawdziłem całą ścieżkę `/app/sbx`, co również działało poprawnie. To oznacza, że odczyt działa zdalnie. 
 {: .text-justify}
 Pozostało zidentyfikować nazwę pliku z flagą. Zapytałem ChatGPT, czy istnieje syscall umożliwiający odczytanie zawartości katalogu. Na szczęście wskazał `getdents64`. Miejsce na bufor umieściłem w sekcji `.bss`. Według `info file` w `pwndbg`, sekcja `.bss` miała tylko 8 wolnych bajtów:  
 {: .text-justify}
