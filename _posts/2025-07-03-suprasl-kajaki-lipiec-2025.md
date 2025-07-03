@@ -1,5 +1,5 @@
 ---
-title: "Kajakiem nad rzeką Supraśł"
+title: "Kajakiem nad rzeką Supraśl"
 excerpt: " "
 comments: true
 categories:
