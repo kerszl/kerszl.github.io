@@ -1,5 +1,5 @@
 ---
-title: "4 pory puszczy Krolowy Most->Supraśl (Zima 2026)"
+title: "4 Pory Puszczy - Królowy Most->Supraśl (Zima 2026)"
 excerpt: " "
 comments: true
 categories:
