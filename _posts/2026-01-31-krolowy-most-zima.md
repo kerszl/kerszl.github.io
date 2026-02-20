@@ -82,7 +82,8 @@ Autobus powrotny miał być około 14:20, ale przyszliśmy już o 13:00, więc c
 
 Po sesji z alpakami poszliśmy zobaczyć słynne **„zamarznięte wodospady”** w Supraślu. Robiły ogromne wrażenie. Na rzece Supraśl dostrzegliśmy też kaczki, które znalazły sobie skrawek niezamarzniętej wody do pływania. 
 
-O 14:20, zgodnie z planem, przyjechał autobus. Wszyscy byli szczęśliwi, że w końcu mogą się ogrzać. Co ciekawe, bilet powrotny był tańszy – kosztował 6 zł.
+O 14:20, zgodnie z planem, przyjechał autobus. Wszyscy byli szczęśliwi, że w końcu mogą się ogrzać. Co ciekawe, bilet powrotny był tańszy – kosztował tylko 6 zł.
+
 
 {: .text-justify}
 {% include gallery id="gallery" %}
