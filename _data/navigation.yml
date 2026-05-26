@@ -1,0 +1,9 @@
+main:
+  - title: "Posty"
+    url: /posts/
+  - title: "Kategorie"
+    url: /categories/
+  - title: "Tagi"
+    url: /tags/
+  - title: "O mnie"
+    url: /about/
