@@ -77,12 +77,7 @@ gallery:
     image_path: /assets/images/inne/2026/03/32.jpg
   - url: /assets/images/inne/2026/03/33.jpg
     image_path: /assets/images/inne/2026/03/33.jpg
-  - url: /assets/images/inne/2026/03/34.jpg
-    image_path: /assets/images/inne/2026/03/34.jpg
-  - url: /assets/images/inne/2026/03/35.jpg
-    image_path: /assets/images/inne/2026/03/35.jpg
-  - url: /assets/images/inne/2026/03/36.jpg
-    image_path: /assets/images/inne/2026/03/36.jpg
+
 ---
 
 W dniach 17–21 czerwca, jak co roku, w Pólku na Podlasiu odbyły się obchody Nocy Świętojańskiej, zwanej także Nocą Kupały. W tym roku udało mi się uwiecznić to wyjątkowe wydarzenie z lotu ptaka, wykonując kilka ujęć z drona.
