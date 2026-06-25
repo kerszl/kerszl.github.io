@@ -1,0 +1,396 @@
+/* ==========================================================================
+   Custom CSS Overrides for a Premium, Modern Blog Design
+   ========================================================================== */
+
+/* 1. Base Typography and Spacing */
+body {
+  background-color: #f8fafc; /* light slate background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #334155;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page__content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.page__content p {
+  margin-bottom: 1.6em;
+}
+
+.page__content a {
+  color: #0284c7; /* modern blue accent */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.2);
+  transition: all 0.25s ease;
+}
+
+.page__content a:hover {
+  color: #0369a1;
+  border-bottom-color: #0369a1;
+  background-color: rgba(2, 132, 199, 0.03);
+}
+
+.page__title {
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em !important;
+}
+
+/* 2. Modern Navigation Bar (Sticky with Glassmorphism) */
+.masthead {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.masthead__menu-item a {
+  font-weight: 600 !important;
+  color: #475569 !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.masthead__menu-item a:hover {
+  color: #0284c7 !important;
+}
+
+/* 3. Premium Cards in Archive Lists & Grids */
+.grid__item {
+  margin-bottom: 2em;
+}
+
+.archive__item {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.015);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.archive__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.03);
+  border-color: #cbd5e1;
+}
+
+.archive__item-teaser {
+  max-height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.archive__item-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.archive__item:hover .archive__item-teaser img {
+  transform: scale(1.04);
+}
+
+.archive__item-title {
+  margin: 18px 20px 8px 20px !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+.archive__item-title a {
+  color: #0f172a !important;
+  text-decoration: none !important;
+}
+
+.archive__item-title a:hover {
+  color: #0284c7 !important;
+}
+
+.archive__item-excerpt {
+  margin: 0 20px 20px 20px !important;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.archive__item .page__meta {
+  margin: 0 20px 8px 20px !important;
+  font-size: 0.8rem !important;
+  color: #64748b;
+  border: none !important;
+}
+
+/* List Item Formatting */
+.list__item {
+  margin-bottom: 1.5em;
+}
+
+.list__item .archive__item {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  flex-direction: column;
+}
+
+.list__item .archive__item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.list__item .archive__item-title {
+  margin: 0 0 10px 0 !important;
+  font-size: 1.4rem !important;
+}
+
+.list__item .archive__item-excerpt {
+  margin: 0 !important;
+}
+
+.list__item .archive__item .page__meta {
+  margin: 0 0 10px 0 !important;
+}
+
+/* 4. Beautiful Photo Galleries */
+figure.half, figure.third, figure.gallery {
+  display: grid;
+  gap: 16px;
+  margin: 2.5em 0;
+}
+
+figure.half {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+figure.third {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+figure.half > a, figure.half > img,
+figure.third > a, figure.third > img {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  aspect-ratio: 4/3;
+  margin: 0 !important;
+}
+
+figure.half > a img, figure.third > a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+figure.half > a:hover, figure.half > img:hover,
+figure.third > a:hover, figure.third > img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+figure.half > a:hover img, figure.third > a:hover img {
+  transform: scale(1.05);
+}
+
+.figcaption {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.9em;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+/* 5. Beautiful Maps and Garmin Activity Integrations */
+a:has(img[alt="mapka"]),
+a:has(img[src*="mapka"]) {
+  display: block;
+  position: relative;
+  margin: 2.5em 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+a:has(img[alt="mapka"]):hover,
+a:has(img[src*="mapka"]):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+a img[alt="mapka"],
+a img[src*="mapka"] {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+a:has(img[alt="mapka"]):hover img,
+a:has(img[src*="mapka"]):hover img {
+  transform: scale(1.02);
+}
+
+/* Floating Interactive Badge on Garmin Maps */
+a:has(img[alt="mapka"])::after,
+a:has(img[src*="mapka"])::after {
+  content: "🗺️ Zobacz interaktywną trasę w Garmin Connect";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.85); /* Slate 900 with opacity */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.85em;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+a:has(img[alt="mapka"]):hover::after,
+a:has(img[src*="mapka"]):hover::after {
+  opacity: 1;
+  background: #0f172a;
+  transform: scale(1.03);
+}
+
+/* Fallback for older browsers without :has support */
+a img[alt="mapka"], a img[src*="mapka"] {
+  border-radius: 16px;
+}
+
+/* 6. Sidebar (Author Card) Styling */
+.sidebar {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  margin-bottom: 2em;
+}
+
+.author__avatar {
+  border-radius: 50% !important;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border: 3px solid #ffffff;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author__avatar:hover {
+  transform: rotate(6deg) scale(1.05);
+}
+
+.author__name {
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 15px !important;
+}
+
+.author__bio {
+  color: #475569;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.author__urls-wrapper button {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+/* 7. Modern Pill Badges for Tags & Categories */
+.page__taxonomy {
+  margin-top: 2em;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5em;
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.page__taxonomy strong {
+  color: #475569;
+}
+
+.page__taxonomy-item {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  background-color: #f1f5f9;
+  color: #475569 !important;
+  border-radius: 20px !important;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-decoration: none !important;
+  border: 1px solid #e2e8f0 !important;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.page__taxonomy-item:hover {
+  background-color: #0284c7;
+  color: #ffffff !important;
+  border-color: #0284c7 !important;
+  transform: translateY(-1px);
+}
+
+.page__taxonomy .sep {
+  display: none !important; /* Hide commas between tags */
+}
+
+/* 8. Footer Styling */
+.page__footer {
+  margin-top: 3em;
+  padding: 3em 0 !important;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.page__footer-follow ul.social-icons li a {
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.page__footer-follow ul.social-icons li a:hover {
+  color: #0284c7;
+}
+
+.page__footer-copyright a {
+  color: #475569;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page__footer-copyright a:hover {
+  color: #0284c7;
+}
