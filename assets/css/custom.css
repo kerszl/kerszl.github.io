@@ -34,14 +34,18 @@ body {
 }
 
 .page__title {
-  font-weight: 800 !important;
   color: #0f172a !important; /* dark slate for standard page titles */
   letter-spacing: -0.025em;
   margin-bottom: 0.5em !important;
 }
 
-/* Ensure title, lead text, and metadata inside dark header overlays remain white/light */
-.page__hero--overlay .page__title,
+/* Ensure title inside dark header overlays is light gray, normal weight, with a nice text shadow */
+.page__hero--overlay .page__title {
+  color: #cbd5e1 !important; /* light gray color */
+  font-weight: normal !important; /* standard (not bold) font weight */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important; /* text shadow */
+}
+
 .page__hero--overlay .page__lead,
 .page__hero--overlay .page__meta,
 .page__hero--overlay .page__meta a {
@@ -182,35 +186,17 @@ body {
   margin: 0 0 10px 0 !important;
 }
 
-/* 4. Beautiful Photo Galleries (PC sized grid thumbnails) */
+/* 4. Beautiful Photo Galleries (Exactly 2 Columns on mobile & PC) */
 figure.half, figure.third, figure.gallery {
   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
   gap: 20px;
   margin: 2.5em 0;
 }
 
-figure.half {
-  grid-template-columns: 1fr;
-}
-
-figure.third {
-  grid-template-columns: 1fr;
-}
-
-/* Tablets and larger screens layout */
-@media (min-width: 600px) {
-  figure.half {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  figure.third {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-  }
-}
-
-/* PC/Desktop layout - make them much larger */
-@media (min-width: 1024px) {
-  figure.third {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns max on large screens */
+@media (max-width: 480px) {
+  figure.half, figure.third, figure.gallery {
+    gap: 10px; /* Slightly tighter gap on mobile screens */
   }
 }
 
@@ -325,32 +311,6 @@ a img[alt="mapka"], a img[src*="mapka"] {
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
   margin-bottom: 2em;
-}
-
-.author__avatar {
-  border-radius: 50% !important;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  border: 3px solid #ffffff;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  aspect-ratio: 1/1 !important; /* Force a perfect circle */
-  object-fit: cover !important;  /* Avoid image distortion */
-}
-
-.author__avatar:hover {
-  transform: rotate(6deg) scale(1.05);
-}
-
-.author__name {
-  font-weight: 700;
-  color: #0f172a;
-  margin-top: 15px !important;
-}
-
-.author__bio {
-  color: #475569;
-  font-size: 0.9em;
-  line-height: 1.6;
 }
 
 .author__urls-wrapper button {
