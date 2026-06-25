@@ -186,47 +186,66 @@ body {
   margin: 0 0 10px 0 !important;
 }
 
-/* 4. Beautiful Photo Galleries (Exactly 2 Columns on mobile & PC) */
+/* 4. Beautiful Photo Galleries (Adaptive columns, Tight Gaps, Clean Alignment) */
 figure.half, figure.third, figure.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
-  gap: 20px;
-  margin: 2.5em 0;
+  display: grid !important;
+  gap: 12px !important; /* Compact, elegant gaps */
+  margin: 2.5em 0 !important;
+}
+
+/* Default Mobile view: 2 columns to keep photos reasonably sized */
+figure.half, figure.third, figure.gallery {
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 
 @media (max-width: 480px) {
   figure.half, figure.third, figure.gallery {
-    gap: 10px; /* Slightly tighter gap on mobile screens */
+    gap: 8px !important; /* Slightly tighter gaps on very small mobile screens */
+  }
+}
+
+/* PC/Desktop view: 3 columns for "third" galleries, 2 columns for "half" galleries */
+@media (min-width: 768px) {
+  figure.half {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  figure.third, figure.gallery {
+    grid-template-columns: repeat(3, 1fr) !important; /* Exactly 3 columns on large screens */
   }
 }
 
 figure.half > a, figure.half > img,
-figure.third > a, figure.third > img {
-  display: block;
+figure.third > a, figure.third > img,
+figure.gallery > a, figure.gallery > img {
+  display: block !important;
+  float: none !important; /* Completely disable the theme's float layout */
+  width: 100% !important; /* Force to fill 100% of the grid column */
+  margin: 0 !important; /* Remove the theme's margins */
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.04);
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
-  margin: 0 !important;
 }
 
-figure.half > a img, figure.third > a img,
-figure.half > img, figure.third > img {
-  width: 100%;
-  height: auto; /* Preserve natural height to make photos look larger */
-  display: block;
+figure.half > a img, figure.third > a img, figure.gallery > a img,
+figure.half > img, figure.third > img, figure.gallery > img {
+  width: 100% !important; /* Ensure image takes 100% of the link wrapper */
+  max-width: 100% !important;
+  height: auto !important; /* Keep natural height for larger presentation */
+  display: block !important;
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 figure.half > a:hover, figure.half > img:hover,
-figure.third > a:hover, figure.third > img:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+figure.third > a:hover, figure.third > img:hover,
+figure.gallery > a:hover, figure.gallery > img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-figure.half > a:hover img, figure.third > a:hover img {
-  transform: scale(1.05);
+figure.half > a:hover img, figure.third > a:hover img, figure.gallery > a:hover img {
+  transform: scale(1.03);
 }
 
 .figcaption {
