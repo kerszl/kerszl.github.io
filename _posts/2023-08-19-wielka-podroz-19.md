@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 17. Brezova Glava -> Vinica HR (SI)"
+title: "Wielka Podróż #19: Brezova Glava → Vinica HR (SI)"
 excerpt: " "
 comments: true
 categories:

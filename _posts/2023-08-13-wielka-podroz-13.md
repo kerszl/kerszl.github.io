@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 11. Baja -> Harkany (HU)"
+title: "Wielka Podróż #13: Baja → Harkany (HU)"
 excerpt: " "
 comments: true
 categories:

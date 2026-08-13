@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Uhowo -> Waniewo"
+title: "1DayTrip: Uhowo → Waniewo — 85.6 km"
 excerpt: " "
 comments: true
 categories:

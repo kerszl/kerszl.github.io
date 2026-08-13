@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Kładka Wyżary"
+title: "1DayTrip: Kładka Wyżary — 68.6 km"
 excerpt: " "
 comments: true
 categories:

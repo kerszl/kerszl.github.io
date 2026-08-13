@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 00"
+title: "Góry-Niemcy-Morze #00: krakow → sokolica — 28 km"
 excerpt: " "
 comments: true
 categories:

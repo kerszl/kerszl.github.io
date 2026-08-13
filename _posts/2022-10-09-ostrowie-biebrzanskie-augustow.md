@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Ostrowie Biebrzańskie -> Augustów"
+title: "1DayTrip: Ostrowie Biebrzańskie → Augustów — 56.0 km"
 excerpt: " "
 comments: true
 categories:

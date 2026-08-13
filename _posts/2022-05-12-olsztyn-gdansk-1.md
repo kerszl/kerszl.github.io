@@ -1,5 +1,5 @@
 ---
-title: "olsztyn-gdansk: Dzień 1"
+title: "Olsztyn-Gdańsk #01: Olsztyn → Godkowo — 71 km"
 excerpt: " "
 comments: true
 categories:

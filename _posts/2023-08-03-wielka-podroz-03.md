@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 01. Muszyna -> Preslov (PL-SK)"
+title: "Wielka Podróż #03: Muszyna → Preslov (PL-SK)"
 excerpt: " "
 comments: true
 categories:

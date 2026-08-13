@@ -1,5 +1,5 @@
 ---
-title: "back-to-sentimentality: 04. Jarosławiec -> surfcamp Gardno - 53.66 km"
+title: "Back to Sentimentality #05: Jarosławiec → surfcamp Gardno — 53.66 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 09"
+title: "Góry-Niemcy-Morze #09: Świnoujście → Kołczewo — 42 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 11"
+title: "Góry-Niemcy-Morze #11: Stary Borek → Stary borek — 0 km"
 excerpt: " "
 comments: true
 categories:

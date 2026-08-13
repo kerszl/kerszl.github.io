@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Białystok -> Wasilków -> Supraśl"
+title: "1DayTrip: Białystok → Wasilków → Supraśl — 40.33 km"
 excerpt: " "
 comments: true
 categories:

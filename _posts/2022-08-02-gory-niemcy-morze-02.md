@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: 02. pkp -> krzeszowice -> Kołobrzeg"
+title: "Góry-Niemcy-Morze #02: pkp → krzeszowice → Kołobrzeg — 16 km"
 excerpt: " "
 comments: true
 categories:

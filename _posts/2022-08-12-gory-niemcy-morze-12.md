@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 12"
+title: "Góry-Niemcy-Morze #12: start → Stary Kraków — 107 km"
 excerpt: " "
 comments: true
 categories:

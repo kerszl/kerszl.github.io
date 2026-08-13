@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 13. Našice -> Nova Gradiška (HR)"
+title: "Wielka Podróż #15: Našice → Nova Gradiška (HR)"
 excerpt: " "
 comments: true
 categories:

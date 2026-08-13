@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 10. Kiskunhalas -> Baja (HU)"
+title: "Wielka Podróż #12: Kiskunhalas → Baja (HU)"
 excerpt: " "
 comments: true
 categories:

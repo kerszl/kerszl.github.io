@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: 01. sokolica 01"
+title: "Góry-Niemcy-Morze #01: sokolica 01 — 26 km"
 excerpt: " "
 comments: true
 categories:

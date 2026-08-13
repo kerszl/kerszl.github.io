@@ -1,5 +1,5 @@
 ---
-title: "around-the-lakes: 03. Kałuże"
+title: "Around the Lakes #03: Kałuże — 69.6 km"
 excerpt: " "
 comments: true
 categories:

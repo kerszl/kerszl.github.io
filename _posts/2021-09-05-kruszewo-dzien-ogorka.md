@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Kruszewo - Dzień Ogórka"
+title: "1DayTrip: Kruszewo - Dzień Ogórka — 55.6 km"
 excerpt: " "
 comments: true
 categories:

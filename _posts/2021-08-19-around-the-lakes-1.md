@@ -1,5 +1,5 @@
 ---
-title: "around-the-lakes: 01. Hańcza"
+title: "Around the Lakes #01: Hańcza — 40.7 km"
 excerpt: " "
 comments: true
 categories:

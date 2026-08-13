@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 10"
+title: "Góry-Niemcy-Morze #10: Kołczewo → stary borek — 72 km"
 excerpt: " "
 comments: true
 categories:

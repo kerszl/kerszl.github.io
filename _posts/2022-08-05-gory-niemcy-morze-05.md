@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 05"
+title: "Góry-Niemcy-Morze #05: Gralow-Morzyce → Niepars — 80 km"
 excerpt: " "
 comments: true
 categories:

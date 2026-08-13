@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 14"
+title: "Góry-Niemcy-Morze #14: Rowy → Łeba — 46 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "olsztyn-gdansk: Dzień 4"
+title: "Olsztyn-Gdańsk #04: Gdańsk → Sopot — 9km"
 excerpt: " "
 comments: true
 categories:

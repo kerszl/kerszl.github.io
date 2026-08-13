@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Suwałki -> Hańcza (prawie)"
+title: "1DayTrip: Suwałki → Hańcza (prawie) — 41.57 km"
 excerpt: " "
 comments: true
 categories:

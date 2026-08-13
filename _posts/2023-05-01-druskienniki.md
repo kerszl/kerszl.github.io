@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Druskienniki"
+title: "1DayTrip: Druskienniki — 90 km"
 excerpt: " "
 comments: true
 categories:

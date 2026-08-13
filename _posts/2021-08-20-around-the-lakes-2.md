@@ -1,5 +1,5 @@
 ---
-title: "around-the-lakes: 02. Wigry"
+title: "Around the Lakes #02: Wigry — 50 km"
 excerpt: " "
 comments: true
 categories:

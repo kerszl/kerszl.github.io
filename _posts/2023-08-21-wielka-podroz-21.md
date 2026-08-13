@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 19. Delnice -> Njivice (HR)"
+title: "Wielka Podróż #21: Delnice → Njivice (HR)"
 excerpt: " "
 comments: true
 categories:

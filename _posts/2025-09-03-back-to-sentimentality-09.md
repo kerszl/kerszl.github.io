@@ -1,5 +1,5 @@
 ---
-title: "back-to-sentimentality: 08. Gdynia -> Gdansk 30 km"
+title: "Back to Sentimentality #09: Gdynia → Gdansk — 30 km"
 excerpt: " "
 comments: true
 categories:

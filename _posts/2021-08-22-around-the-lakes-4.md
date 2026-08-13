@@ -1,5 +1,5 @@
 ---
-title: "around-the-lakes: 04. Tajno"
+title: "Around the Lakes #04: Tajno — 62.6 km"
 excerpt: " "
 comments: true
 categories:

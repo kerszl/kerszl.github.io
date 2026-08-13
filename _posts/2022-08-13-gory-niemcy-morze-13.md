@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 13"
+title: "Góry-Niemcy-Morze #13: Stary Kraków → Rowy — 50 km"
 excerpt: " "
 comments: true
 categories:

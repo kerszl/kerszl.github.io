@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 07"
+title: "Góry-Niemcy-Morze #07: Bakenberg → Zicker — 72 km"
 excerpt: " "
 comments: true
 categories:

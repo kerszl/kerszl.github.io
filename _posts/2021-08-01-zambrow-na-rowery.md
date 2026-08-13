@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Zambrów na rowery 2021 (sierpień)"
+title: "1DayTrip: Zambrów na rowery 2021 (sierpień) — 54.4 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 08"
+title: "Góry-Niemcy-Morze #08: Zicker → Trassenmoor — 70 km"
 excerpt: " "
 comments: true
 categories:

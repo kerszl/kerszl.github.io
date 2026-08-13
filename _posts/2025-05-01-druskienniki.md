@@ -1,5 +1,5 @@
 ---
-title: "2 Days Trip – Tradycyjnis Druskiennikai Edition -  90x2 km"
+title: "2DaysTrip: Tradycyjnis Druskiennikai Edition — 90x2 km"
 excerpt: " "
 comments: true
 categories:

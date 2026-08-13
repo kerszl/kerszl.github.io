@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Białystok -> Siemianówka"
+title: "1DayTrip: Białystok → Siemianówka — 113.4 km"
 excerpt: " "
 comments: true
 categories:

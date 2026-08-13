@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 14. Nova Gradiška -> Staza (HR<>BA)"
+title: "Wielka Podróż #16: Nova Gradiška → Staza (HR<>BA)"
 excerpt: " "
 comments: true
 categories:

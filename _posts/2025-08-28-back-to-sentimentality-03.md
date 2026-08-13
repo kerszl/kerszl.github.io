@@ -1,5 +1,5 @@
 ---
-title: "back-to-sentimentality: 02. Gryfice -> Sianozety 65 km"
+title: "Back to Sentimentality #03: Gryfice → Sianozety — 65 km"
 excerpt: " "
 comments: true
 categories:

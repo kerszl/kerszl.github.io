@@ -1,5 +1,5 @@
 ---
-title: "wielka-podroz: 23. Njivinice -> Draga (HR)"
+title: "Wielka Podróż #25: Njivinice → Draga (HR)"
 excerpt: " "
 comments: true
 categories:

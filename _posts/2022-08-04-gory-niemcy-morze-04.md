@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 04"
+title: "Góry-Niemcy-Morze #04: Roztoka → Gralów-Morzyce — 25 km"
 excerpt: " "
 comments: true
 categories:

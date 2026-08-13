@@ -1,5 +1,5 @@
 ---
-title: "olsztyn-gdansk: Dzień 2"
+title: "Olsztyn-Gdańsk #02: Godkowo → Stegna — 84.50km"
 excerpt: " "
 comments: true
 categories:

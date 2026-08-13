@@ -1,5 +1,5 @@
 ---
-title: "mikro-trip-po-litwie: 04. Mariampol -> Litwa - 63 km"
+title: "Mikro Trip po Litwie #04: Mariampol → Litwa — 63 km"
 excerpt: " "
 comments: true
 categories:

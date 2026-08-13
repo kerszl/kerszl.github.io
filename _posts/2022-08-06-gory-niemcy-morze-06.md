@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: 06. Rugia"
+title: "Góry-Niemcy-Morze #06: Rugia — 72 km"
 excerpt: " "
 comments: true
 categories:

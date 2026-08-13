@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Biebrza - 300 m strachu"
+title: "1DayTrip: Biebrza - 300 m strachu — 63.6 km"
 excerpt: " "
 comments: true
 categories:

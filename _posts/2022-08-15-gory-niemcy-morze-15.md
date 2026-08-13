@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Dzień 15"
+title: "Góry-Niemcy-Morze #15: Łeba → Dębki — 50 km"
 excerpt: " "
 comments: true
 categories:

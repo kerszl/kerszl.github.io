@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Uhowo"
+title: "1DayTrip: Uhowo"
 excerpt: " "
 comments: true
 categories:

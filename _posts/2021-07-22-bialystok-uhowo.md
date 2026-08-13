@@ -1,5 +1,5 @@
 ---
-title: "1daytrip: Białystok -> Uhowo -> Choroszcz"
+title: "1DayTrip: Białystok → Uhowo → Choroszcz — 84.83 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "back-to-sentimentality: 01. Szczecin -> Gryfice 100km i 10 metrow"
+title: "Back to Sentimentality #02: Szczecin → Gryfice — 100km i 10 metrow"
 excerpt: " "
 comments: true
 categories:

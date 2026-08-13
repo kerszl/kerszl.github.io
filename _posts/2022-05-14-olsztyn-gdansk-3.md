@@ -1,5 +1,5 @@
 ---
-title: "olsztyn-gdansk: Dzień 3"
+title: "Olsztyn-Gdańsk #03: Łeba → Gdańsk — 47km"
 excerpt: " "
 comments: true
 categories:
