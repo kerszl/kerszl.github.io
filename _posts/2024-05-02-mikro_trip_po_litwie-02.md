@@ -1,5 +1,5 @@
 ---
-title: "mikro-trip-po-litwie: Druskienniki -> Olita 65 km"
+title: "mikro-trip-po-litwie: 02. Druskienniki -> Olita 65 km"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: Rugia"
+title: "gory-niemcy-morze: 06. Rugia"
 excerpt: " "
 comments: true
 categories:

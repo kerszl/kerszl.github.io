@@ -1,5 +1,5 @@
 ---
-title: "gory-niemcy-morze: sokolica 01"
+title: "gory-niemcy-morze: 01. sokolica 01"
 excerpt: " "
 comments: true
 categories:
