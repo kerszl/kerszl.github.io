@@ -1,5 +1,5 @@
 ---
-title: "1DayTrip: Arboretum - misja zubr"
+title: "1DayTrip: Arboretum - misja żubr"
 excerpt: " "
 comments: true
 categories:

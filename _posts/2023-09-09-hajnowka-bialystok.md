@@ -1,5 +1,5 @@
 ---
-title: "Hajnówka - Białystok"
+title: "1DayTrip: Hajnówka → Białystok — 123 km"
 excerpt: " "
 comments: true
 categories:

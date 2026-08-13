@@ -1,5 +1,5 @@
 ---
-title: "Mikro Trip po Litwie #01: Suwalki → Druskienniki — 83 km"
+title: "Mikro Trip po Litwie #01: Suwałki → Druskienniki — 83 km"
 excerpt: " "
 comments: true
 categories:

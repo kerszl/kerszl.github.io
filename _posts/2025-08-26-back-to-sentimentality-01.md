@@ -1,5 +1,5 @@
 ---
-title: "Back to Sentimentality #01: Bialystok → Szczecin - pkp"
+title: "Back to Sentimentality #01: Białystok → Szczecin - pkp"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Suprasl - Nowodworce"
+title: "1DayTrip: Supraśl → Nowodworce"
 excerpt: " "
 comments: true
 categories:
