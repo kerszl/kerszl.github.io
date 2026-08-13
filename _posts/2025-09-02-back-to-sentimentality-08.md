@@ -1,5 +1,5 @@
 ---
-title: "07. Dębki - Gdynia - 60.01 km"
+title: "back-to-sentimentality: 07. Dębki -> Gdynia - 60.01 km"
 excerpt: " "
 comments: true
 categories:

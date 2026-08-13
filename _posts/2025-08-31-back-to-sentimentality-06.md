@@ -1,5 +1,5 @@
 ---
-title: "05. Gardno - Łeba, 49,96 km"
+title: "back-to-sentimentality: 05. Gardno -> Łeba, 49,96 km"
 excerpt: " "
 comments: true
 categories:

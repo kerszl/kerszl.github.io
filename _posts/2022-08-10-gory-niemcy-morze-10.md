@@ -1,5 +1,5 @@
 ---
-title: "Góry-Niemcy-Morze: Dzień 10"
+title: "gory-niemcy-morze: Dzień 10"
 excerpt: " "
 comments: true
 categories:

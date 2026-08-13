@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Zambrów na rowery 2021 (sierpień)"
+title: "1daytrip: Zambrów na rowery 2021 (sierpień)"
 excerpt: " "
 comments: true
 categories:

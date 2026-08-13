@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Augustów Patelnia"
+title: "1daytrip: Augustów Patelnia"
 excerpt: " "
 comments: true
 categories:

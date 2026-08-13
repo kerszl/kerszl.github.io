@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Kruszewo - Dzień Ogórka"
+title: "1daytrip: Kruszewo - Dzień Ogórka"
 excerpt: " "
 comments: true
 categories:

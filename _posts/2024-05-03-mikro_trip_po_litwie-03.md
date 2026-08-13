@@ -1,5 +1,5 @@
 ---
-title: "Olita - Kowno - 78 km"
+title: "mikro-trip-po-litwie: Olita -> Kowno - 78 km"
 excerpt: " "
 comments: true
 categories:

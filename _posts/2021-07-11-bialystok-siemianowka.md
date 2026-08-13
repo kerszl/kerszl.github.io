@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Białystok->Siemianówka"
+title: "1daytrip: Białystok -> Siemianówka"
 excerpt: " "
 comments: true
 categories:

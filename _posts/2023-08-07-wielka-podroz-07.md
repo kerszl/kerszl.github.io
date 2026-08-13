@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 05. Harsany - Sarud (HU)"
+title: "wielka-podroz: 05. Harsany -> Sarud (HU)"
 excerpt: " "
 comments: true
 categories:

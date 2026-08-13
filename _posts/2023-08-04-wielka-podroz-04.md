@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 02. Preslov-Kosice (SK)"
+title: "wielka-podroz: 02. Preslov-Kosice (SK)"
 excerpt: " "
 comments: true
 categories:

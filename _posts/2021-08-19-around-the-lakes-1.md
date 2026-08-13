@@ -1,5 +1,5 @@
 ---
-title: "Around the lakes - Hańcza"
+title: "around-the-lakes: Hańcza"
 excerpt: " "
 comments: true
 categories:

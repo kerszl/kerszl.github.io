@@ -1,5 +1,5 @@
 ---
-title: "Góry-Niemcy-Morze: Dzień 15"
+title: "gory-niemcy-morze: Dzień 15"
 excerpt: " "
 comments: true
 categories:

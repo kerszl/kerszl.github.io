@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Biebrza - 300 m strachu"
+title: "1daytrip: Biebrza - 300 m strachu"
 excerpt: " "
 comments: true
 categories:

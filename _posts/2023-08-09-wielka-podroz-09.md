@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 07. Törökszentmiklós - Kecskemét (HU)"
+title: "wielka-podroz: 07. Törökszentmiklós -> Kecskemét (HU)"
 excerpt: " "
 comments: true
 categories:

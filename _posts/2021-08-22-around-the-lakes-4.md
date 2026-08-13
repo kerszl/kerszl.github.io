@@ -1,5 +1,5 @@
 ---
-title: "Around the lakes - Tajno"
+title: "around-the-lakes: Tajno"
 excerpt: " "
 comments: true
 categories:

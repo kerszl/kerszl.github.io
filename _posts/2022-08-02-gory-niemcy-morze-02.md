@@ -1,5 +1,5 @@
 ---
-title: "Góry-Niemcy-Morze: pkp - krzeszowice - Kołobrzeg"
+title: "gory-niemcy-morze: pkp -> krzeszowice -> Kołobrzeg"
 excerpt: " "
 comments: true
 categories:

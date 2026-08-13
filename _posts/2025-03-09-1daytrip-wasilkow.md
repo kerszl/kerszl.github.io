@@ -1,5 +1,5 @@
 ---
-title: "Białystok -> Studzianki - 37.73 km"
+title: "1daytrip: Białystok -> Studzianki - 37.73 km"
 excerpt: " "
 comments: true
 categories:

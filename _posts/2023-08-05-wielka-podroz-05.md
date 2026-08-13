@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 03. Koszyce - Torcal (SK-HU)"
+title: "wielka-podroz: 03. Koszyce -> Torcal (SK-HU)"
 excerpt: " "
 comments: true
 categories:

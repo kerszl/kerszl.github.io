@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 09. Kiskunhalas <-> Subotnica (HU-SRB)"
+title: "wielka-podroz: 09. Kiskunhalas <-> Subotnica (HU-SRB)"
 excerpt: " "
 comments: true
 categories:

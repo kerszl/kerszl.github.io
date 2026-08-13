@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Uhowo - Waniewo"
+title: "1daytrip: Uhowo -> Waniewo"
 excerpt: " "
 comments: true
 categories:

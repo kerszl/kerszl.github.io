@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Ostrowie Biebrzańskie - Augustów"
+title: "1daytrip: Ostrowie Biebrzańskie -> Augustów"
 excerpt: " "
 comments: true
 categories:

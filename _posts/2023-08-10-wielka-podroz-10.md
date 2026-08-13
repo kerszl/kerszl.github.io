@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 08. Törökszentmiklós - Kiskunhalas (HU)"
+title: "wielka-podroz: 08. Törökszentmiklós -> Kiskunhalas (HU)"
 excerpt: " "
 comments: true
 categories:

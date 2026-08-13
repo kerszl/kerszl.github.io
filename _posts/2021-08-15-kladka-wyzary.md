@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Kładka Wyżary"
+title: "1daytrip: Kładka Wyżary"
 excerpt: " "
 comments: true
 categories:

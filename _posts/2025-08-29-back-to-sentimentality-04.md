@@ -1,5 +1,5 @@
 ---
-title: "03 - Sianozety - Jarosławiec - 90 km"
+title: "back-to-sentimentality: 03. Sianozety -> Jarosławiec - 90 km"
 excerpt: " "
 comments: true
 categories:

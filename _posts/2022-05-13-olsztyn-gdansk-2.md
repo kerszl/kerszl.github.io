@@ -1,5 +1,5 @@
 ---
-title: "Olsztyn->Gdańsk: Dzień 2"
+title: "olsztyn-gdansk: Dzień 2"
 excerpt: " "
 comments: true
 categories:

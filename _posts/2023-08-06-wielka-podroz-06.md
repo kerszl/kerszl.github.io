@@ -1,5 +1,5 @@
 ---
-title: "Wielka podróż: 04.Tarcal - Harsany (HU)"
+title: "wielka-podroz: 04.Tarcal -> Harsany (HU)"
 excerpt: " "
 comments: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "Góry-Niemcy-Morze: Dzień 03 - Swinoujscie"
+title: "gory-niemcy-morze: Dzień 03 -> Swinoujscie"
 excerpt: " "
 comments: true
 categories:

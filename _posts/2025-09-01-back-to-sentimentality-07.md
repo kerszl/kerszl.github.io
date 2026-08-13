@@ -1,5 +1,5 @@
 ---
-title: "06. Łeba - Dębki - 50 km"
+title: "back-to-sentimentality: 06. Łeba -> Dębki - 50 km"
 excerpt: " "
 comments: true
 categories:

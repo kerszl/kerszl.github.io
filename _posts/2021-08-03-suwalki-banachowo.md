@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Suwałki - Hańcza (prawie)"
+title: "1daytrip: Suwałki -> Hańcza (prawie)"
 excerpt: " "
 comments: true
 categories:

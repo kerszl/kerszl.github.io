@@ -1,5 +1,5 @@
 ---
-title: "Around the lakes - Kałuże"
+title: "around-the-lakes: Kałuże"
 excerpt: " "
 comments: true
 categories:

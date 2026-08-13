@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Druskienniki"
+title: "1daytrip: Druskienniki"
 excerpt: " "
 comments: true
 categories:

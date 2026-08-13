@@ -1,5 +1,5 @@
 ---
-title: "Around the lakes - Wigry"
+title: "around-the-lakes: Wigry"
 excerpt: " "
 comments: true
 categories:

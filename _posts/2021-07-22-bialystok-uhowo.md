@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Białystok->Uhowo->Choroszcz"
+title: "1daytrip: Białystok -> Uhowo -> Choroszcz"
 excerpt: " "
 comments: true
 categories:

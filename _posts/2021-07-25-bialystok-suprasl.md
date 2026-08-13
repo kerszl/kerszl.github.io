@@ -1,5 +1,5 @@
 ---
-title: "1daytrip - Białystok->Wasilków->Supraśl"
+title: "1daytrip: Białystok -> Wasilków -> Supraśl"
 excerpt: " "
 comments: true
 categories:
