@@ -44,6 +44,15 @@ gallery:
     image_path: /assets/images/inne/2026/05/16.jpg
   - url: /assets/images/inne/2026/05/17.jpg
     image_path: /assets/images/inne/2026/05/17.jpg
+  - url: /assets/images/inne/2026/05/18-kamila-plonska.jpg
+    image_path: /assets/images/inne/2026/05/18-kamila-plonska.jpg
+    title: "Fot. Kamila Płońska"
+  - url: /assets/images/inne/2026/05/19-kamila-plonska.jpg
+    image_path: /assets/images/inne/2026/05/19-kamila-plonska.jpg
+    title: "Fot. Kamila Płońska"
+  - url: /assets/images/inne/2026/05/20-ewa-moczulska.jpeg
+    image_path: /assets/images/inne/2026/05/20-ewa-moczulska.jpeg
+    title: "Fot. Ewa Moczulska"
 ---
 
 [![mapka](/assets/images/inne/2026/05/mapka.png)](https://connect.garmin.com/modern/activity/24332725705)
@@ -55,6 +64,9 @@ Bilet podrożał o złotówkę, ale można go było kupić u kierowcy. Kosztowa�
 {: .text-justify}
 
 ​Trasa liczyła około 20 km. Niestety przy zbieraniu musiałem coś przypadkowo wcisnąć i zapis śladu zatrzymał się po trzynastym kilometrze z kawałkiem. Wracaliśmy autobusem – świetnym elektrykiem – za 6 zł do Białegostoku. Choć było nas tylko siedmioro, wypad uważam za bardzo udany. Dzięki, Andrzej!
+{: .text-justify}
+
+*(Podziękowania dla Kamili Płońskiej oraz Ewy Moczulskiej za udostępnienie dodatkowych zdjęć do galerii).*
 {: .text-justify}
 
 {% include gallery id="gallery" %}
