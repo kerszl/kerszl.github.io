@@ -1,13 +1,12 @@
 ---
-title: "1DayTrip: Królowy Most → Supraśl — 20.42 km"
+title: "4 Pory Puszczy - Królowy Most->Supraśl (Jesień 2026)"
 excerpt: " "
 comments: true
 categories:
-  - Wycieczka rowerowa
+  - Wycieczka piesza
 tags:
-  - 1daytrip
-  - Wycieczka rowerowa
-  - Rower
+  - 4PoryPuszczy
+  - jesień
 header:
   overlay_image: random
 gallery:
@@ -46,9 +45,6 @@ gallery:
 ---
 
 [![mapka](/assets/images/inne/2026/06/mapka.png)](https://connect.garmin.com/modern/activity/24834978006)
-
-4 pory puszczy (jesień)
-{: .text-justify}
 
 Niestety to już ostatnia tegoroczna edycja na trasie Królowy Most – Supraśl. Jak zwykle autobus odjeżdżał z dworca o 7:30, a nie o 7:40, jak mi się przyśniło. Bilet zaś kosztował 11 zł.
 {: .text-justify}
