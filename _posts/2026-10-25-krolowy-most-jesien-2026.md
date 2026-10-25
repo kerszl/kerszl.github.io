@@ -11,41 +11,41 @@ tags:
 header:
   overlay_image: random
 gallery:
-  - url: /assets/images/rower/2026/1daytrip/06/01.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/01.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/02.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/02.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/03.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/03.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/04.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/04.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/05.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/05.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/06.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/06.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/07.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/07.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/08.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/08.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/09.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/09.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/10.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/10.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/11.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/11.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/12.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/12.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/13.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/13.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/14.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/14.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/15.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/15.jpg
-  - url: /assets/images/rower/2026/1daytrip/06/16.jpg
-    image_path: /assets/images/rower/2026/1daytrip/06/16.jpg
+  - url: /assets/images/inne/2026/06/01.jpg
+    image_path: /assets/images/inne/2026/06/01.jpg
+  - url: /assets/images/inne/2026/06/02.jpg
+    image_path: /assets/images/inne/2026/06/02.jpg
+  - url: /assets/images/inne/2026/06/03.jpg
+    image_path: /assets/images/inne/2026/06/03.jpg
+  - url: /assets/images/inne/2026/06/04.jpg
+    image_path: /assets/images/inne/2026/06/04.jpg
+  - url: /assets/images/inne/2026/06/05.jpg
+    image_path: /assets/images/inne/2026/06/05.jpg
+  - url: /assets/images/inne/2026/06/06.jpg
+    image_path: /assets/images/inne/2026/06/06.jpg
+  - url: /assets/images/inne/2026/06/07.jpg
+    image_path: /assets/images/inne/2026/06/07.jpg
+  - url: /assets/images/inne/2026/06/08.jpg
+    image_path: /assets/images/inne/2026/06/08.jpg
+  - url: /assets/images/inne/2026/06/09.jpg
+    image_path: /assets/images/inne/2026/06/09.jpg
+  - url: /assets/images/inne/2026/06/10.jpg
+    image_path: /assets/images/inne/2026/06/10.jpg
+  - url: /assets/images/inne/2026/06/11.jpg
+    image_path: /assets/images/inne/2026/06/11.jpg
+  - url: /assets/images/inne/2026/06/12.jpg
+    image_path: /assets/images/inne/2026/06/12.jpg
+  - url: /assets/images/inne/2026/06/13.jpg
+    image_path: /assets/images/inne/2026/06/13.jpg
+  - url: /assets/images/inne/2026/06/14.jpg
+    image_path: /assets/images/inne/2026/06/14.jpg
+  - url: /assets/images/inne/2026/06/15.jpg
+    image_path: /assets/images/inne/2026/06/15.jpg
+  - url: /assets/images/inne/2026/06/16.jpg
+    image_path: /assets/images/inne/2026/06/16.jpg
 ---
 
-[![mapka](/assets/images/rower/2026/1daytrip/06/mapka.png)](https://connect.garmin.com/modern/activity/24834978006)
+[![mapka](/assets/images/inne/2026/06/mapka.png)](https://connect.garmin.com/modern/activity/24834978006)
 
 4 pory puszczy (jesień)
 {: .text-justify}
@@ -69,9 +69,6 @@ Po drodze trafiliśmy też na ogromne mrowisko, które zdecydowanie zasługiwał
 {: .text-justify}
 
 I tym sposobem zakończyła się ostatnia tegoroczna wyprawa z cyklu „4 pory puszczy”. Szkoda, że to już koniec na ten rok, ale pozostają wspomnienia, zdjęcia i oczywiście kolejne kilometry w nogach. :)
-{: .text-justify}
-
-Filimik w kolejnej odsłonie
 {: .text-justify}
 
 {% include gallery id="gallery" %}
